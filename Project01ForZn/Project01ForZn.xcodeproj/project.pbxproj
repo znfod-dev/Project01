@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CDC91703D8B751E20F17771 /* Pods_Project01ForZn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23D17D503B4912C3D6B959 /* Pods_Project01ForZn.framework */; };
 		9B26624D21EA3F59007CF0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26624C21EA3F59007CF0B3 /* AppDelegate.swift */; };
-		9B26624F21EA3F59007CF0B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26624E21EA3F59007CF0B3 /* ViewController.swift */; };
-		9B26625221EA3F59007CF0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26625021EA3F59007CF0B3 /* Main.storyboard */; };
-		9B26625421EA3F5A007CF0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B26625321EA3F5A007CF0B3 /* Assets.xcassets */; };
-		9B26625721EA3F5A007CF0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26625521EA3F5A007CF0B3 /* LaunchScreen.storyboard */; };
 		9B26626221EA3F5A007CF0B3 /* Project01ForZnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26626121EA3F5A007CF0B3 /* Project01ForZnTests.swift */; };
 		9B26626D21EA3F5A007CF0B3 /* Project01ForZnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26626C21EA3F5A007CF0B3 /* Project01ForZnUITests.swift */; };
+		9B26628321EA418E007CF0B3 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26628221EA418E007CF0B3 /* DBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		651BD73526AB657FF5167ADC /* Pods-Project01ForZn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01ForZn.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01ForZn/Pods-Project01ForZn.release.xcconfig"; sourceTree = "<group>"; };
 		9B26624921EA3F59007CF0B3 /* Project01ForZn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project01ForZn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B26624C21EA3F59007CF0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9B26624E21EA3F59007CF0B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9B26625121EA3F59007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B26625321EA3F5A007CF0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B26625621EA3F5A007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B26625821EA3F5A007CF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +44,10 @@
 		9B26626821EA3F5A007CF0B3 /* Project01ForZnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Project01ForZnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B26626C21EA3F5A007CF0B3 /* Project01ForZnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project01ForZnUITests.swift; sourceTree = "<group>"; };
 		9B26626E21EA3F5A007CF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B26628221EA418E007CF0B3 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		9B26628421EA41B7007CF0B3 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		AB23D17D503B4912C3D6B959 /* Pods_Project01ForZn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01ForZn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FF51B68A6574E76DEAB2E2 /* Pods-Project01ForZn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01ForZn.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01ForZn/Pods-Project01ForZn.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDC91703D8B751E20F17771 /* Pods_Project01ForZn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		469338219BE9BA0E84319025 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9FF51B68A6574E76DEAB2E2 /* Pods-Project01ForZn.debug.xcconfig */,
+				651BD73526AB657FF5167ADC /* Pods-Project01ForZn.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		565D0595A22C993F7C69BFB8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB23D17D503B4912C3D6B959 /* Pods_Project01ForZn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9B26624021EA3F59007CF0B3 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +100,8 @@
 				9B26626021EA3F5A007CF0B3 /* Project01ForZnTests */,
 				9B26626B21EA3F5A007CF0B3 /* Project01ForZnUITests */,
 				9B26624A21EA3F59007CF0B3 /* Products */,
+				469338219BE9BA0E84319025 /* Pods */,
+				565D0595A22C993F7C69BFB8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +118,13 @@
 		9B26624B21EA3F59007CF0B3 /* Project01ForZn */ = {
 			isa = PBXGroup;
 			children = (
+				9B26627F21EA4011007CF0B3 /* Resource */,
+				9B26627D21EA3FD3007CF0B3 /* Extensions */,
+				9B26627B21EA3FCF007CF0B3 /* Models */,
+				9B26627E21EA3FD6007CF0B3 /* Managers */,
+				9B26627C21EA3FD1007CF0B3 /* Storyboards */,
+				9B26627A21EA3FCC007CF0B3 /* ViewControllers */,
 				9B26624C21EA3F59007CF0B3 /* AppDelegate.swift */,
-				9B26624E21EA3F59007CF0B3 /* ViewController.swift */,
-				9B26625021EA3F59007CF0B3 /* Main.storyboard */,
-				9B26625321EA3F5A007CF0B3 /* Assets.xcassets */,
-				9B26625521EA3F5A007CF0B3 /* LaunchScreen.storyboard */,
-				9B26625821EA3F5A007CF0B3 /* Info.plist */,
 			);
 			path = Project01ForZn;
 			sourceTree = "<group>";
@@ -125,6 +147,53 @@
 			path = Project01ForZnUITests;
 			sourceTree = "<group>";
 		};
+		9B26627A21EA3FCC007CF0B3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9B26627B21EA3FCF007CF0B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9B26627C21EA3FD1007CF0B3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9B26625521EA3F5A007CF0B3 /* LaunchScreen.storyboard */,
+				9B26628421EA41B7007CF0B3 /* Profile.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9B26627D21EA3FD3007CF0B3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9B26627E21EA3FD6007CF0B3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9B26628221EA418E007CF0B3 /* DBManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9B26627F21EA4011007CF0B3 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9B26625321EA3F5A007CF0B3 /* Assets.xcassets */,
+				9B26625821EA3F5A007CF0B3 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +201,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B26627121EA3F5A007CF0B3 /* Build configuration list for PBXNativeTarget "Project01ForZn" */;
 			buildPhases = (
+				01279BB7D900393B6EAC0F40 /* [CP] Check Pods Manifest.lock */,
 				9B26624521EA3F59007CF0B3 /* Sources */,
 				9B26624621EA3F59007CF0B3 /* Frameworks */,
-				9B26624721EA3F59007CF0B3 /* Resources */,
+				9CAE32B0621472C710039E5F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,16 +295,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9B26624721EA3F59007CF0B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B26625721EA3F5A007CF0B3 /* LaunchScreen.storyboard in Resources */,
-				9B26625421EA3F5A007CF0B3 /* Assets.xcassets in Resources */,
-				9B26625221EA3F59007CF0B3 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9B26625B21EA3F5A007CF0B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,13 +311,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01279BB7D900393B6EAC0F40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Project01ForZn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CAE32B0621472C710039E5F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Project01ForZn/Pods-Project01ForZn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Project01ForZn/Pods-Project01ForZn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9B26624521EA3F59007CF0B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B26624F21EA3F59007CF0B3 /* ViewController.swift in Sources */,
 				9B26624D21EA3F59007CF0B3 /* AppDelegate.swift in Sources */,
+				9B26628321EA418E007CF0B3 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +404,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9B26625021EA3F59007CF0B3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9B26625121EA3F59007CF0B3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9B26625521EA3F5A007CF0B3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -430,11 +533,13 @@
 		};
 		9B26627221EA3F5A007CF0B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9FF51B68A6574E76DEAB2E2 /* Pods-Project01ForZn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BAEBSW672H;
 				INFOPLIST_FILE = Project01ForZn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,11 +553,13 @@
 		};
 		9B26627321EA3F5A007CF0B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 651BD73526AB657FF5167ADC /* Pods-Project01ForZn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BAEBSW672H;
 				INFOPLIST_FILE = Project01ForZn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
