@@ -41,5 +41,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NanumBarunpenB.ttf</string>
+		<string>NanumBarunpenR.ttf</string>
+		<string>NanumPen.ttf</string>
+		<string>NanumBarunGothicLight.ttf</string>
+		<string>NanumBrush.ttf</string>
+		<string>NanumBarunGothicUltraLight.ttf</string>
+		<string>NanumBarunGothicBold.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -8,10 +8,52 @@
 
 /* Begin PBXBuildFile section */
 		8CDC91703D8B751E20F17771 /* Pods_Project01ForZn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23D17D503B4912C3D6B959 /* Pods_Project01ForZn.framework */; };
+		9B11591921EC73CC00DE39C9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11591821EC73CC00DE39C9 /* SettingViewController.swift */; };
+		9B11591B21EC76D800DE39C9 /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11591A21EC76D800DE39C9 /* SettingTableCell.swift */; };
+		9B11591D21ECAFBF00DE39C9 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11591C21ECAFBF00DE39C9 /* PickerView.swift */; };
+		9B11591F21ECAFCB00DE39C9 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B11591E21ECAFCB00DE39C9 /* PickerView.xib */; };
 		9B26624D21EA3F59007CF0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26624C21EA3F59007CF0B3 /* AppDelegate.swift */; };
 		9B26626221EA3F5A007CF0B3 /* Project01ForZnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26626121EA3F5A007CF0B3 /* Project01ForZnTests.swift */; };
 		9B26626D21EA3F5A007CF0B3 /* Project01ForZnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26626C21EA3F5A007CF0B3 /* Project01ForZnUITests.swift */; };
 		9B26628321EA418E007CF0B3 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26628221EA418E007CF0B3 /* DBManager.swift */; };
+		9B26628921EA4C26007CF0B3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26628821EA4C26007CF0B3 /* BaseViewController.swift */; };
+		9B26629021EA4FF3007CF0B3 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26628F21EA4FF3007CF0B3 /* PopupViewController.swift */; };
+		9B26629221EA50CC007CF0B3 /* IndicatorPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26629121EA50CC007CF0B3 /* IndicatorPopupViewController.swift */; };
+		9B26629421EA51FC007CF0B3 /* AlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26629321EA51FC007CF0B3 /* AlertPopupViewController.swift */; };
+		9B26629621EA522F007CF0B3 /* AlertPopup2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26629521EA522F007CF0B3 /* AlertPopup2ViewController.swift */; };
+		9B2662AB21EA53DB007CF0B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662AA21EA53DB007CF0B3 /* ProfileViewController.swift */; };
+		9B2662B321EB2254007CF0B3 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26628C21EA4C3C007CF0B3 /* Popup.storyboard */; };
+		9B2662B421EB2254007CF0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662B121EB2131007CF0B3 /* Main.storyboard */; };
+		9B2662B521EB2263007CF0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B26625321EA3F5A007CF0B3 /* Assets.xcassets */; };
+		9B2662B721EB2382007CF0B3 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662B621EB2382007CF0B3 /* PopupManager.swift */; };
+		9B2662B921EB2411007CF0B3 /* AppDelegate+Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662B821EB2411007CF0B3 /* AppDelegate+Popup.swift */; };
+		9B2662BE21EB2D97007CF0B3 /* ProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662BD21EB2D97007CF0B3 /* ProfileTableCell.swift */; };
+		9B2662C521EB2F16007CF0B3 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662AD21EB1DDF007CF0B3 /* loading.png */; };
+		9B2662C621EB2F16007CF0B3 /* back_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662A321EA535C007CF0B3 /* back_white@3x.png */; };
+		9B2662C721EB2F16007CF0B3 /* back_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662A421EA535C007CF0B3 /* back_white@2x.png */; };
+		9B2662C821EB2F16007CF0B3 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662A521EA535C007CF0B3 /* gear@2x.png */; };
+		9B2662C921EB2F16007CF0B3 /* back_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662A621EA535C007CF0B3 /* back_black@3x.png */; };
+		9B2662CA21EB2F16007CF0B3 /* back_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662A721EA535C007CF0B3 /* back_black@2x.png */; };
+		9B2662CB21EB2F16007CF0B3 /* gear@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662A821EA535C007CF0B3 /* gear@3x.png */; };
+		9B2662CD21EB874D007CF0B3 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662CC21EB874D007CF0B3 /* FontManager.swift */; };
+		9B2662CF21EB8A6D007CF0B3 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662CE21EB8A6D007CF0B3 /* Defines.swift */; };
+		9B2662D021EB9FE5007CF0B3 /* NanumBarunpenB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B26629A21EA535C007CF0B3 /* NanumBarunpenB.ttf */; };
+		9B2662D121EB9FE5007CF0B3 /* NanumBarunpenR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B26629B21EA535C007CF0B3 /* NanumBarunpenR.ttf */; };
+		9B2662D221EB9FE5007CF0B3 /* NanumPen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B26629C21EA535C007CF0B3 /* NanumPen.ttf */; };
+		9B2662D321EB9FE5007CF0B3 /* NanumBarunGothicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B26629D21EA535C007CF0B3 /* NanumBarunGothicLight.ttf */; };
+		9B2662D421EB9FE5007CF0B3 /* NanumBrush.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B26629E21EA535C007CF0B3 /* NanumBrush.ttf */; };
+		9B2662D521EB9FE5007CF0B3 /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B26629F21EA535C007CF0B3 /* NanumBarunGothic.ttf */; };
+		9B2662D621EB9FE5007CF0B3 /* NanumBarunGothicUltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662A021EA535C007CF0B3 /* NanumBarunGothicUltraLight.ttf */; };
+		9B2662D721EB9FE5007CF0B3 /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662A121EA535C007CF0B3 /* NanumBarunGothicBold.ttf */; };
+		9B2662DA21EC3093007CF0B3 /* ZnTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662D921EC3093007CF0B3 /* ZnTextView.swift */; };
+		9B2662DD21EC34BE007CF0B3 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662DC21EC34BE007CF0B3 /* DatePickerView.swift */; };
+		9B2662DF21EC34D0007CF0B3 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662DE21EC34D0007CF0B3 /* TimePickerView.swift */; };
+		9B2662E121EC34DC007CF0B3 /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662E021EC34DC007CF0B3 /* DatePickerView.xib */; };
+		9B2662E321EC34E9007CF0B3 /* TimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2662E221EC34E9007CF0B3 /* TimePickerView.xib */; };
+		9B2662E621EC457B007CF0B3 /* Profile+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662E521EC457B007CF0B3 /* Profile+TableViewDataSource.swift */; };
+		9B2662E821EC45BE007CF0B3 /* Profile+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2662E721EC45BE007CF0B3 /* Profile+TableViewDelegate.swift */; };
+		9B28619821ED75AB0059275F /* Setting+PickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28619721ED75AB0059275F /* Setting+PickerViewDelegate.swift */; };
+		9B28619A21EDB7BB0059275F /* Date+StartEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28619921EDB7BB0059275F /* Date+StartEndDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +75,10 @@
 
 /* Begin PBXFileReference section */
 		651BD73526AB657FF5167ADC /* Pods-Project01ForZn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01ForZn.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01ForZn/Pods-Project01ForZn.release.xcconfig"; sourceTree = "<group>"; };
+		9B11591821EC73CC00DE39C9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		9B11591A21EC76D800DE39C9 /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
+		9B11591C21ECAFBF00DE39C9 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		9B11591E21ECAFCB00DE39C9 /* PickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
 		9B26624921EA3F59007CF0B3 /* Project01ForZn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project01ForZn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B26624C21EA3F59007CF0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B26625321EA3F5A007CF0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,7 +91,45 @@
 		9B26626C21EA3F5A007CF0B3 /* Project01ForZnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project01ForZnUITests.swift; sourceTree = "<group>"; };
 		9B26626E21EA3F5A007CF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B26628221EA418E007CF0B3 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		9B26628421EA41B7007CF0B3 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		9B26628821EA4C26007CF0B3 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9B26628C21EA4C3C007CF0B3 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		9B26628F21EA4FF3007CF0B3 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		9B26629121EA50CC007CF0B3 /* IndicatorPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorPopupViewController.swift; sourceTree = "<group>"; };
+		9B26629321EA51FC007CF0B3 /* AlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopupViewController.swift; sourceTree = "<group>"; };
+		9B26629521EA522F007CF0B3 /* AlertPopup2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopup2ViewController.swift; sourceTree = "<group>"; };
+		9B26629821EA535C007CF0B3 /* Project01ForZn-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project01ForZn-Bridging-Header.h"; sourceTree = "<group>"; };
+		9B26629A21EA535C007CF0B3 /* NanumBarunpenB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenB.ttf; sourceTree = "<group>"; };
+		9B26629B21EA535C007CF0B3 /* NanumBarunpenR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenR.ttf; sourceTree = "<group>"; };
+		9B26629C21EA535C007CF0B3 /* NanumPen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.ttf; sourceTree = "<group>"; };
+		9B26629D21EA535C007CF0B3 /* NanumBarunGothicLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.ttf; sourceTree = "<group>"; };
+		9B26629E21EA535C007CF0B3 /* NanumBrush.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBrush.ttf; sourceTree = "<group>"; };
+		9B26629F21EA535C007CF0B3 /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.ttf; sourceTree = "<group>"; };
+		9B2662A021EA535C007CF0B3 /* NanumBarunGothicUltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.ttf; sourceTree = "<group>"; };
+		9B2662A121EA535C007CF0B3 /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.ttf; sourceTree = "<group>"; };
+		9B2662A321EA535C007CF0B3 /* back_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_white@3x.png"; sourceTree = "<group>"; };
+		9B2662A421EA535C007CF0B3 /* back_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_white@2x.png"; sourceTree = "<group>"; };
+		9B2662A521EA535C007CF0B3 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		9B2662A621EA535C007CF0B3 /* back_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@3x.png"; sourceTree = "<group>"; };
+		9B2662A721EA535C007CF0B3 /* back_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_black@2x.png"; sourceTree = "<group>"; };
+		9B2662A821EA535C007CF0B3 /* gear@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@3x.png"; sourceTree = "<group>"; };
+		9B2662A921EA535C007CF0B3 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		9B2662AA21EA53DB007CF0B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9B2662AD21EB1DDF007CF0B3 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		9B2662B021EB2131007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B2662B621EB2382007CF0B3 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
+		9B2662B821EB2411007CF0B3 /* AppDelegate+Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Popup.swift"; sourceTree = "<group>"; };
+		9B2662BD21EB2D97007CF0B3 /* ProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableCell.swift; sourceTree = "<group>"; };
+		9B2662CC21EB874D007CF0B3 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		9B2662CE21EB8A6D007CF0B3 /* Defines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		9B2662D921EC3093007CF0B3 /* ZnTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZnTextView.swift; sourceTree = "<group>"; };
+		9B2662DC21EC34BE007CF0B3 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		9B2662DE21EC34D0007CF0B3 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		9B2662E021EC34DC007CF0B3 /* DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
+		9B2662E221EC34E9007CF0B3 /* TimePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerView.xib; sourceTree = "<group>"; };
+		9B2662E521EC457B007CF0B3 /* Profile+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		9B2662E721EC45BE007CF0B3 /* Profile+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		9B28619721ED75AB0059275F /* Setting+PickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting+PickerViewDelegate.swift"; sourceTree = "<group>"; };
+		9B28619921EDB7BB0059275F /* Date+StartEndDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+StartEndDay.swift"; sourceTree = "<group>"; };
 		AB23D17D503B4912C3D6B959 /* Pods_Project01ForZn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01ForZn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FF51B68A6574E76DEAB2E2 /* Pods-Project01ForZn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01ForZn.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01ForZn/Pods-Project01ForZn.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +177,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9B11591721EC73A900DE39C9 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				9B11591821EC73CC00DE39C9 /* SettingViewController.swift */,
+				9B11591A21EC76D800DE39C9 /* SettingTableCell.swift */,
+				9B28619721ED75AB0059275F /* Setting+PickerViewDelegate.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		9B26624021EA3F59007CF0B3 = {
 			isa = PBXGroup;
 			children = (
@@ -118,12 +212,14 @@
 		9B26624B21EA3F59007CF0B3 /* Project01ForZn */ = {
 			isa = PBXGroup;
 			children = (
+				9B2662D821EC3065007CF0B3 /* Libraries */,
 				9B26627F21EA4011007CF0B3 /* Resource */,
 				9B26627D21EA3FD3007CF0B3 /* Extensions */,
 				9B26627B21EA3FCF007CF0B3 /* Models */,
 				9B26627E21EA3FD6007CF0B3 /* Managers */,
 				9B26627C21EA3FD1007CF0B3 /* Storyboards */,
 				9B26627A21EA3FCC007CF0B3 /* ViewControllers */,
+				9B2662DB21EC3496007CF0B3 /* Views */,
 				9B26624C21EA3F59007CF0B3 /* AppDelegate.swift */,
 			);
 			path = Project01ForZn;
@@ -150,6 +246,9 @@
 		9B26627A21EA3FCC007CF0B3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B2662AC21EA53E3007CF0B3 /* Main */,
+				9B26628E21EA4FE6007CF0B3 /* Popup */,
+				9B26628821EA4C26007CF0B3 /* BaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -165,7 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				9B26625521EA3F5A007CF0B3 /* LaunchScreen.storyboard */,
-				9B26628421EA41B7007CF0B3 /* Profile.storyboard */,
+				9B26628C21EA4C3C007CF0B3 /* Popup.storyboard */,
+				9B2662B121EB2131007CF0B3 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -173,6 +273,8 @@
 		9B26627D21EA3FD3007CF0B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9B2662B821EB2411007CF0B3 /* AppDelegate+Popup.swift */,
+				9B28619921EDB7BB0059275F /* Date+StartEndDay.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				9B26628221EA418E007CF0B3 /* DBManager.swift */,
+				9B2662B621EB2382007CF0B3 /* PopupManager.swift */,
+				9B2662CC21EB874D007CF0B3 /* FontManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -188,10 +292,96 @@
 		9B26627F21EA4011007CF0B3 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9B26629921EA535C007CF0B3 /* Fonts */,
+				9B2662A221EA535C007CF0B3 /* Images */,
+				9B2662A921EA535C007CF0B3 /* Defines.h */,
+				9B26629821EA535C007CF0B3 /* Project01ForZn-Bridging-Header.h */,
 				9B26625321EA3F5A007CF0B3 /* Assets.xcassets */,
 				9B26625821EA3F5A007CF0B3 /* Info.plist */,
+				9B2662CE21EB8A6D007CF0B3 /* Defines.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		9B26628E21EA4FE6007CF0B3 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				9B26628F21EA4FF3007CF0B3 /* PopupViewController.swift */,
+				9B26629121EA50CC007CF0B3 /* IndicatorPopupViewController.swift */,
+				9B26629321EA51FC007CF0B3 /* AlertPopupViewController.swift */,
+				9B26629521EA522F007CF0B3 /* AlertPopup2ViewController.swift */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		9B26629921EA535C007CF0B3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9B26629A21EA535C007CF0B3 /* NanumBarunpenB.ttf */,
+				9B26629B21EA535C007CF0B3 /* NanumBarunpenR.ttf */,
+				9B26629C21EA535C007CF0B3 /* NanumPen.ttf */,
+				9B26629D21EA535C007CF0B3 /* NanumBarunGothicLight.ttf */,
+				9B26629E21EA535C007CF0B3 /* NanumBrush.ttf */,
+				9B26629F21EA535C007CF0B3 /* NanumBarunGothic.ttf */,
+				9B2662A021EA535C007CF0B3 /* NanumBarunGothicUltraLight.ttf */,
+				9B2662A121EA535C007CF0B3 /* NanumBarunGothicBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9B2662A221EA535C007CF0B3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9B2662AD21EB1DDF007CF0B3 /* loading.png */,
+				9B2662A321EA535C007CF0B3 /* back_white@3x.png */,
+				9B2662A421EA535C007CF0B3 /* back_white@2x.png */,
+				9B2662A521EA535C007CF0B3 /* gear@2x.png */,
+				9B2662A621EA535C007CF0B3 /* back_black@3x.png */,
+				9B2662A721EA535C007CF0B3 /* back_black@2x.png */,
+				9B2662A821EA535C007CF0B3 /* gear@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		9B2662AC21EA53E3007CF0B3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9B11591721EC73A900DE39C9 /* Setting */,
+				9B2662E421EC4567007CF0B3 /* Profile */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9B2662D821EC3065007CF0B3 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				9B2662D921EC3093007CF0B3 /* ZnTextView.swift */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		9B2662DB21EC3496007CF0B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B2662DC21EC34BE007CF0B3 /* DatePickerView.swift */,
+				9B2662E021EC34DC007CF0B3 /* DatePickerView.xib */,
+				9B2662DE21EC34D0007CF0B3 /* TimePickerView.swift */,
+				9B2662E221EC34E9007CF0B3 /* TimePickerView.xib */,
+				9B11591C21ECAFBF00DE39C9 /* PickerView.swift */,
+				9B11591E21ECAFCB00DE39C9 /* PickerView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9B2662E421EC4567007CF0B3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9B2662AA21EA53DB007CF0B3 /* ProfileViewController.swift */,
+				9B2662BD21EB2D97007CF0B3 /* ProfileTableCell.swift */,
+				9B2662E521EC457B007CF0B3 /* Profile+TableViewDataSource.swift */,
+				9B2662E721EC45BE007CF0B3 /* Profile+TableViewDelegate.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +395,7 @@
 				9B26624521EA3F59007CF0B3 /* Sources */,
 				9B26624621EA3F59007CF0B3 /* Frameworks */,
 				9CAE32B0621472C710039E5F /* [CP] Embed Pods Frameworks */,
+				9B2662B221EB224A007CF0B3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -309,6 +500,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9B2662B221EB224A007CF0B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B2662C521EB2F16007CF0B3 /* loading.png in Resources */,
+				9B2662C821EB2F16007CF0B3 /* gear@2x.png in Resources */,
+				9B2662B521EB2263007CF0B3 /* Assets.xcassets in Resources */,
+				9B2662E321EC34E9007CF0B3 /* TimePickerView.xib in Resources */,
+				9B2662D621EB9FE5007CF0B3 /* NanumBarunGothicUltraLight.ttf in Resources */,
+				9B2662B321EB2254007CF0B3 /* Popup.storyboard in Resources */,
+				9B2662D321EB9FE5007CF0B3 /* NanumBarunGothicLight.ttf in Resources */,
+				9B2662D521EB9FE5007CF0B3 /* NanumBarunGothic.ttf in Resources */,
+				9B2662C921EB2F16007CF0B3 /* back_black@3x.png in Resources */,
+				9B2662CA21EB2F16007CF0B3 /* back_black@2x.png in Resources */,
+				9B2662D421EB9FE5007CF0B3 /* NanumBrush.ttf in Resources */,
+				9B2662D021EB9FE5007CF0B3 /* NanumBarunpenB.ttf in Resources */,
+				9B2662CB21EB2F16007CF0B3 /* gear@3x.png in Resources */,
+				9B2662D721EB9FE5007CF0B3 /* NanumBarunGothicBold.ttf in Resources */,
+				9B2662C721EB2F16007CF0B3 /* back_white@2x.png in Resources */,
+				9B2662E121EC34DC007CF0B3 /* DatePickerView.xib in Resources */,
+				9B2662B421EB2254007CF0B3 /* Main.storyboard in Resources */,
+				9B11591F21ECAFCB00DE39C9 /* PickerView.xib in Resources */,
+				9B2662D121EB9FE5007CF0B3 /* NanumBarunpenR.ttf in Resources */,
+				9B2662D221EB9FE5007CF0B3 /* NanumPen.ttf in Resources */,
+				9B2662C621EB2F16007CF0B3 /* back_white@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -367,8 +586,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2662BE21EB2D97007CF0B3 /* ProfileTableCell.swift in Sources */,
+				9B26629221EA50CC007CF0B3 /* IndicatorPopupViewController.swift in Sources */,
 				9B26624D21EA3F59007CF0B3 /* AppDelegate.swift in Sources */,
+				9B2662B721EB2382007CF0B3 /* PopupManager.swift in Sources */,
+				9B2662B921EB2411007CF0B3 /* AppDelegate+Popup.swift in Sources */,
+				9B2662DA21EC3093007CF0B3 /* ZnTextView.swift in Sources */,
+				9B28619A21EDB7BB0059275F /* Date+StartEndDay.swift in Sources */,
+				9B2662E621EC457B007CF0B3 /* Profile+TableViewDataSource.swift in Sources */,
+				9B2662DD21EC34BE007CF0B3 /* DatePickerView.swift in Sources */,
+				9B2662E821EC45BE007CF0B3 /* Profile+TableViewDelegate.swift in Sources */,
+				9B2662DF21EC34D0007CF0B3 /* TimePickerView.swift in Sources */,
+				9B26629421EA51FC007CF0B3 /* AlertPopupViewController.swift in Sources */,
 				9B26628321EA418E007CF0B3 /* DBManager.swift in Sources */,
+				9B28619821ED75AB0059275F /* Setting+PickerViewDelegate.swift in Sources */,
+				9B26628921EA4C26007CF0B3 /* BaseViewController.swift in Sources */,
+				9B26629621EA522F007CF0B3 /* AlertPopup2ViewController.swift in Sources */,
+				9B2662CF21EB8A6D007CF0B3 /* Defines.swift in Sources */,
+				9B11591D21ECAFBF00DE39C9 /* PickerView.swift in Sources */,
+				9B11591B21EC76D800DE39C9 /* SettingTableCell.swift in Sources */,
+				9B2662AB21EA53DB007CF0B3 /* ProfileViewController.swift in Sources */,
+				9B11591921EC73CC00DE39C9 /* SettingViewController.swift in Sources */,
+				9B2662CD21EB874D007CF0B3 /* FontManager.swift in Sources */,
+				9B26629021EA4FF3007CF0B3 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +651,15 @@
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
+		};
+		9B2662B121EB2131007CF0B3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B2662B021EB2131007CF0B3 /* Base */,
+			);
+			name = Main.storyboard;
+			path = /Users/Znfod/Documents/Xcode/SwiftStudy19/Project01/Project01ForZn/Project01ForZn/Storyboards;
+			sourceTree = "<absolute>";
 		};
 /* End PBXVariantGroup section */
 
@@ -538,7 +787,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BAEBSW672H;
-				INFOPLIST_FILE = Project01ForZn/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Project01ForZn/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,7 +807,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BAEBSW672H;
-				INFOPLIST_FILE = Project01ForZn/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Project01ForZn/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
