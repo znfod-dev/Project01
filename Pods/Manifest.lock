@@ -5,22 +5,26 @@ PODS:
   - Realm/Headers (3.13.1)
   - RealmSwift (3.13.1):
     - Realm (= 3.13.1)
+  - SideMenuSwift (1.0.0)
 
 DEPENDENCIES:
   - FSCalendar
   - RealmSwift
+  - SideMenuSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FSCalendar
     - Realm
     - RealmSwift
+    - SideMenuSwift
 
 SPEC CHECKSUMS:
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  SideMenuSwift: f8567754feb36ade13ffd613f608829f4b86d4b3
 
-PODFILE CHECKSUM: fbead4f38ccd67b55141694f80323c3b1793b985
+PODFILE CHECKSUM: 43c7e1c59837d27c21326b6de0bdc68cb723ea49
 
 COCOAPODS: 1.5.3
