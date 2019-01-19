@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8721F376FF00E0DCB2 /* TodoCell.swift */; };
 		8DA5D0028A74BB00F2BDC35E /* Pods_Project01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB15EA79718A43B263395EF /* Pods_Project01.framework */; };
 		9B26622F21EA3E48007CF0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */; };
 		9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623221EA3E48007CF0B3 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60F47A8721F376FF00E0DCB2 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		9B26622B21EA3E48007CF0B3 /* Project01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B26623321EA3E48007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				D9FBE0C421F32B1A00BDA694 /* SideMenuViewController.swift */,
 				D9FBE0C521F32B1B00BDA694 /* String+Substring.swift */,
 				D9FBE0CD21F32B1B00BDA694 /* UIColor+hexString.swift */,
+				60F47A8721F376FF00E0DCB2 /* TodoCell.swift */,
 				D9FBE09F21F32A0D00BDA694 /* Images */,
 				9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */,
 				9B26623221EA3E48007CF0B3 /* Main.storyboard */,
@@ -299,6 +302,7 @@
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-Project01/Pods-Project01-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
@@ -308,6 +312,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
@@ -353,6 +358,7 @@
 				D9FBE0DD21F32B1C00BDA694 /* MonthlyPlanViewController.swift in Sources */,
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
+				60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */,
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
 				D9FBE0DE21F32B1C00BDA694 /* UIColor+hexString.swift in Sources */,
 				9B26622F21EA3E48007CF0B3 /* AppDelegate.swift in Sources */,

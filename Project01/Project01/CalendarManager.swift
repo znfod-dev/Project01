@@ -13,6 +13,7 @@ class CalendarManager {
 	
 	// 셀선택
 	static var selectedCell: Int = -1
+    static var selectedDate: (year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)?
 	
 	// 월간 문자
 	static func getMonthString(monthIndex:Int) -> String {
@@ -209,5 +210,14 @@ class CalendarManager {
         }
 
         return arrCurentMoth
+    }
+    
+    
+    static func setSelectedDate(date: (year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)) {
+        self.selectedDate = date
+    }
+    
+    static func getSelectedDate() -> (year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)? {
+        return self.selectedDate
     }
 }

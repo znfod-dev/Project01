@@ -21,7 +21,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -159,8 +159,10 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
     
     // 셀 선택
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let item = arrDays![indexPath.row]
+        
+        CalendarManager.setSelectedDate(date: item) // 선택 날짜 받아오기
+        print("==========\(CalendarManager.getSelectedDate())")
         
         let message: String = "\(item.year)년 \(item.month)월 \(item.day)일 ToDo 리스트 보여주기"
         let popup = AlertMessagePopup.messagePopup(withMessage: message)

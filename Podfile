@@ -9,6 +9,7 @@ target 'Project01' do
     pod 'RealmSwift'
     pod 'SideMenuSwift'
     pod 'Alamofire', '~> 4.7'
+    pod 'BEMCheckBox'
     
 end
 
