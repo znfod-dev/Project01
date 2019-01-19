@@ -77,9 +77,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B8AE960C9008ACC28C4429B /* Pods-PlannerDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlannerDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlannerDiary/Pods-PlannerDiary.release.xcconfig"; sourceTree = "<group>"; };
 		60EE9551E590CDBDDA1B5BD1 /* Pods_PlannerDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlannerDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		862625BCA932C3D37998E516 /* Pods-PlannerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlannerDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlannerDiary/Pods-PlannerDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		6D97470755F247C52F95F42E /* Pods-PlannerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlannerDiary.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PlannerDiary/Pods-PlannerDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		9E0D3F2421F19A8200A37A33 /* SiceMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiceMenuCell.swift; sourceTree = "<group>"; };
 		9E3D81AE21EDA7DE00019652 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		9E73755E21F01A97009FF9F4 /* UIColor+hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexString.swift"; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		9EF9184021E70C2200196E53 /* icon_loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_loading@2x.png"; sourceTree = "<group>"; };
 		9EF9184121E70C2300196E53 /* icon_save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_save@2x.png"; sourceTree = "<group>"; };
 		9EF9184221E70C2300196E53 /* icon_save@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_save@3x.png"; sourceTree = "<group>"; };
+		D665B0C019E62E6C5402BBB7 /* Pods-PlannerDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlannerDiary.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PlannerDiary/Pods-PlannerDiary.release.xcconfig"; sourceTree = "<group>"; };
 		D9000E2621EE0C95007A4E92 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D900D28F21EAE8150012E58F /* InfiniteScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollView.swift; sourceTree = "<group>"; };
 		D900D29121EAEF7E0012E58F /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 		50398C1832B3228E12E7D692 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				862625BCA932C3D37998E516 /* Pods-PlannerDiary.debug.xcconfig */,
-				3B8AE960C9008ACC28C4429B /* Pods-PlannerDiary.release.xcconfig */,
+				6D97470755F247C52F95F42E /* Pods-PlannerDiary.debug.xcconfig */,
+				D665B0C019E62E6C5402BBB7 /* Pods-PlannerDiary.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -760,7 +760,7 @@
 		};
 		9E9BF9BF21D9D62C001ECF40 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 862625BCA932C3D37998E516 /* Pods-PlannerDiary.debug.xcconfig */;
+			baseConfigurationReference = 6D97470755F247C52F95F42E /* Pods-PlannerDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -779,7 +779,7 @@
 		};
 		9E9BF9C021D9D62C001ECF40 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B8AE960C9008ACC28C4429B /* Pods-PlannerDiary.release.xcconfig */;
+			baseConfigurationReference = D665B0C019E62E6C5402BBB7 /* Pods-PlannerDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
