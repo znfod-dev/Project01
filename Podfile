@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '9.0'
 workspace 'Project01'
 
 target 'Project01' do
@@ -19,4 +19,12 @@ target 'Project01ForZn' do
     pod 'FSCalendar'
     pod 'RealmSwift'
     
+end
+
+target 'PlannerDiary' do
+	project 'PlannerDiary/PlannerDiary.xcodeproj'
+	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+	use_frameworks!
+	pod 'RealmSwift'
+	pod 'SideMenuSwift'
 end
