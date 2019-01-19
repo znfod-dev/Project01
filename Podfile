@@ -29,3 +29,20 @@ target 'PlannerDiary' do
 	pod 'SideMenuSwift'
     pod 'Alamofire', '~> 4.7'
 end
+
+target 'Diary' do
+  # Comment the next line if you're not using Swift and don't want to use d↷
+	use_frameworks!
+  
+  # Pods for Diary
+  pod 'AnimatedCollectionViewLayout'
+  pod 'Hero'
+  pod 'FSCalendar'
+	pod 'BEMCheckBox'
+  pod 'TextFieldEffects'
+  pod 'PopupDialog', '~> 0.9'
+  pod 'RealmSwift'
+  pod 'RevealingSplashView'
+
+  project 'Diary/Diary.xcodeproj'
+end
