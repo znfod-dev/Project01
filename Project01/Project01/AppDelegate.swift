@@ -42,5 +42,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+	// MARK: - Shared Instance
+	/**
+	* 공유 UIApplication 객체 access (싱클톤 패턴)
+	* @return UIApplication class
+	*/
+	class func sharedAppDelegate() -> AppDelegate? {
+		return UIApplication.shared.delegate as? AppDelegate
+	}
+	
+	class func sharedNamedStroyBoard(_ storyBoardName: String?) -> Any? {
+		//스토리 보드 id 로딩
+		return UIStoryboard(name: storyBoardName ?? "", bundle: Bundle.main)
+	}
 }
 
