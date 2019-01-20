@@ -211,13 +211,4 @@ class CalendarManager {
 
         return arrCurentMoth
     }
-    
-    
-    static func setSelectedDate(date: (year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)) {
-        self.selectedDate = date
-    }
-    
-    static func getSelectedDate() -> (year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)? {
-        return self.selectedDate
-    }
 }

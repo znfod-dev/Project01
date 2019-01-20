@@ -9,17 +9,22 @@
 import UIKit
 import SideMenuSwift
 import RealmSwift
+import BEMCheckBox
 
 
 class MonthlyPlanViewController: UIViewController {
-
-	@IBOutlet var vWeekString: UIView!
-	@IBOutlet weak var lbCalendarTitle: UILabel!
+    
+    @IBOutlet var vWeekString: UIView!
+    @IBOutlet weak var lbCalendarTitle: UILabel!
     @IBOutlet var vContent: UIView!
-	@IBOutlet var scrollView: InfiniteScrollView!
+    @IBOutlet var scrollView: InfiniteScrollView!
     @IBOutlet var vHLine: UIView!
     @IBOutlet weak var todoListHeightConstraint: NSLayoutConstraint!
-	
+    @IBOutlet var todoTableView: UITableView! // tableView
+    @IBOutlet var hideBtn: UIButton!
+    
+    
+    
     // 월별뷰컨트롤러 배열
     var arrChildController = [CalendarMonthViewController]()
 	
@@ -33,26 +38,38 @@ class MonthlyPlanViewController: UIViewController {
 	// 이전 보여주는 페이지
 	var oldCurentIndex: Int = -1
     
-	// 선택한 년/월
-	var curentYear: Int = 2019
-	var curentMonth: Int = 1
-	
+    // 선택한 년/월
+    var curentYear: Int = 2019
+    var curentMonth: Int = 1
+    
+    // 테이블 뷰
+    var todoArray = Array<Todo>() // 전체 TodoList
+    var selectedDayTodo = Array<Todo>() // 특정 날짜의 TodoList
+    
+    var selectedDay:String? = Date().string() // 선택한 날짜
+    
+    // 완료된 todo 숨기기
+    // true : 체크 todo 숨기기
+    // false : 모든 todo 보여주기
+    var isHide: Bool = UserDefaults.standard.bool(forKey: "isHide")
+    
+    let ud = UserDefaults.standard
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(CalendarManager.getSelectedDate())
-
         // Do any additional setup after loading the view.
-		self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
         
         // 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
-		// 그림자 처리
-		vWeekString.layer.shadowColor = UIColor.black.cgColor
-		vWeekString.layer.shadowOffset = CGSize(width: 0, height: 1)
-		vWeekString.layer.shadowOpacity = 0.1
+        // 그림자 처리
+        vWeekString.layer.shadowColor = UIColor.black.cgColor
+        vWeekString.layer.shadowOffset = CGSize(width: 0, height: 1)
+        vWeekString.layer.shadowOpacity = 0.1
         
         // 오늘 년/월 구하기
         let yearMonth:(year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
@@ -77,6 +94,13 @@ class MonthlyPlanViewController: UIViewController {
 			// 이번달 이동
 			goThisMonth()
 		}
+        
+        if self.isHide { // Hide 상태라면 hide버튼을 show로 변경
+        self.hideBtn.setTitle("show", for: .normal)
+        }
+        
+        // 오늘 날짜로 선택날짜 TodoList에 넣기
+        self.selectedDayTodoList()
 		
 		// 프로필 오너 DB체크
 //		self.selectOwnerInfoTable()
@@ -205,59 +229,120 @@ class MonthlyPlanViewController: UIViewController {
 		// 달력 타이틀 세팅
 		setCalendarTitle()
 	}
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    // MARK: - UIButton Action
+    // 사이드 메뉴
+    @IBAction func onMenuClick(_ sender: Any) {
+        sideMenuController?.revealMenu()
     }
-    */
-
-	// MARK: - UIButton Action
-	// 사이드 메뉴
-	@IBAction func onMenuClick(_ sender: Any) {
-		sideMenuController?.revealMenu()
-	}
     
     // 오늘 날짜
     @IBAction func onTodayClick(_ sender: Any) {
-        
 		// 이번달 이동
 		goThisMonth()
     }
     
+    // 추가 버튼
+    @IBAction func addClick(_ sender: Any) {
+        let alert = UIAlertController(title: "Todo", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField()
+        
+        alert.addAction(UIAlertAction(title: "save", style: .default, handler: { (_) in
+            // 새로운 Todo 추가
+            let uid = UUID().uuidString
+            let title = alert.textFields?.last?.text
+            let date = self.selectedDay
+            
+            let todo = Todo(uid: uid, title: title!, date: date!)
+            self.todoArray.append(todo)
+            
+            DBManager.sharedInstance.addTodoDB(todo: todo)
+            
+            self.selectedDayTodoList(doReload: true)
+        }))
+        alert.addAction(UIAlertAction(title: "cancel", style: .cancel))
+        
+        present(alert, animated: true)
+    }
+    
+    
+    // 날짜에 맞는 TodoList 불러오기
+    func selectedDayTodoList(doReload: Bool = false) {
+        if self.isHide { // 체크 박스를 보여주지 않을 때
+            self.todoArray = DBManager.sharedInstance.selectTodoDB(withoutCheckedBox: true)
+        } else { // 체크 박스 까지 보여줄 때
+            self.todoArray = DBManager.sharedInstance.selectTodoDB()
+        }
+        
+        self.selectedDayTodo.removeAll()
+        for todo in self.todoArray {
+            if todo.date == self.selectedDay {
+                self.selectedDayTodo.append(todo)
+            }
+        }
+        
+        if doReload { // doReload가 true라면
+            self.todoTableView.reloadData()
+        }
+    }
+    
+    
+    // 숨긴 버튼
+    @IBAction func hideClick(_ sender: Any) {
+        if self.isHide { // hide 상태일 때, show를 누를 경우
+            self.hideBtn.setTitle("hide", for: .normal)
+            self.ud.setValue(false, forKey: "isHide")
+            ud.synchronize()
+            self.isHide = false
+        } else { // show 상태일 때, hide를 누르는 경우
+            self.hideBtn.setTitle("show", for: .normal)
+            self.ud.setValue(true, forKey: "isHide")
+            ud.synchronize()
+            self.isHide = true
+        }
+        
+        self.selectedDayTodoList(doReload: true)
+    }
+    
     // MARK: - RealmDB SQL Excute
     // 프로필 오너 DB체크
-//    func selectOwnerInfoTable() {
-//        
-//        // 오너 정보 검색
-//        let sql = "SELECT * FROM OwnerInfo WHERE uid='1';"
-//        // SQL 결과
-//        let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
-//        let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
-//        // 검색 성공
-//        if resultCode == "0" {
-//            let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
-//            // 오너 정보가 없을때...
-//            if resultData.count > 0 {
-//                return
-//            }
-//            
-//            // 프로필 설정을 안했을 경우 한번은 띄워준다.
-//            if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
-//                if let profileVC: ProfileViewController = (storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController) {
-//                    self.present(profileVC, animated: true)
-//                }
-//            }
-//        }
-//    }
+    //    func selectOwnerInfoTable() {
+    //
+    //        // 오너 정보 검색
+    //        let sql = "SELECT * FROM OwnerInfo WHERE uid='1';"
+    //        // SQL 결과
+    //        let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
+    //        let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
+    //        // 검색 성공
+    //        if resultCode == "0" {
+    //            let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
+    //            // 오너 정보가 없을때...
+    //            if resultData.count > 0 {
+    //                return
+    //            }
+    //
+    //            // 프로필 설정을 안했을 경우 한번은 띄워준다.
+    //            if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
+    //                if let profileVC: ProfileViewController = (storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController) {
+    //                    self.present(profileVC, animated: true)
+    //                }
+    //            }
+    //        }
+    //    }
 }
 
 extension MonthlyPlanViewController: UIScrollViewDelegate {
-	
 	// 스크롤 뷰에서 내용 스크롤을 시작할 시점을 대리인에게 알립니다.
 	
 	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -374,28 +459,62 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
 }
 
 
-
 // MARK:- TableView 관련
-// TableView
-extension MonthlyPlanViewController {
-    
-}
-
-
-
 // TableViewDataSource
 extension MonthlyPlanViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.selectedDayTodo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell") as! TodoCell
         
-        cell.titleLabel.text = String(indexPath.row)
+        let todo = self.selectedDayTodo[indexPath.row]
+        
+        cell.titleLabel.text = todo.title
+        
+        cell.checkBox.boxType = .square
+        cell.checkBox.delegate = self
+        cell.checkBox.tag = indexPath.row
+        if todo.isSelected! { // 체크박스에 체크가 되어있다면
+            cell.checkBox.setOn(true, animated: true)
+            cell.titleLabel.textColor = UIColor.lightGray
+        } else { // 체크박스에 체크가 되어있지 않다면
+            cell.checkBox.setOn(false, animated: true)
+            cell.titleLabel.textColor = UIColor.black
+        }
         
         return cell
     }
+}
+
+
+
+// BEMCheckBoxDelegate
+extension MonthlyPlanViewController: BEMCheckBoxDelegate {
+    func didTap(_ checkBox: BEMCheckBox) {
+        let todo = self.selectedDayTodo[checkBox.tag]
+        if checkBox.on {
+            todo.isSelected = true
+        } else {
+            todo.isSelected = false
+        }
+        
+        DBManager.sharedInstance.updateTodoIsSelectedDB(todo: todo)
+    }
     
-    
+    func animationDidStop(for checkBox: BEMCheckBox) {
+        self.selectedDayTodoList(doReload: true)
+    }
+}
+
+
+
+extension Date {
+    func string() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMdd"
+        let day = formatter.string(from: self)
+        return day
+    }
 }

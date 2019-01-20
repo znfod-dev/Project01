@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8721F376FF00E0DCB2 /* TodoCell.swift */; };
+		60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* Todo.swift */; };
+		60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* DBTodo.swift */; };
 		8DA5D0028A74BB00F2BDC35E /* Pods_Project01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB15EA79718A43B263395EF /* Pods_Project01.framework */; };
 		9B26622F21EA3E48007CF0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */; };
 		9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623221EA3E48007CF0B3 /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		60F47A8721F376FF00E0DCB2 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		60F47A8A21F3873900E0DCB2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		60F47A8C21F3874600E0DCB2 /* DBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTodo.swift; sourceTree = "<group>"; };
 		9B26622B21EA3E48007CF0B3 /* Project01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B26623321EA3E48007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +124,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		60F47A8921F3870200E0DCB2 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				60F47A8A21F3873900E0DCB2 /* Todo.swift */,
+				60F47A8C21F3874600E0DCB2 /* DBTodo.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
 		6A89BEBB9BF5143A9185D87E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +181,7 @@
 				D9FBE0C521F32B1B00BDA694 /* String+Substring.swift */,
 				D9FBE0CD21F32B1B00BDA694 /* UIColor+hexString.swift */,
 				60F47A8721F376FF00E0DCB2 /* TodoCell.swift */,
+				60F47A8921F3870200E0DCB2 /* Todo */,
 				D9FBE09F21F32A0D00BDA694 /* Images */,
 				9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */,
 				9B26623221EA3E48007CF0B3 /* Main.storyboard */,
@@ -302,7 +316,6 @@
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-Project01/Pods-Project01-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
@@ -312,7 +325,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
@@ -366,10 +378,12 @@
 				D9FBE0E221F32B1C00BDA694 /* DBManager.swift in Sources */,
 				D9FBE0E121F32B1C00BDA694 /* SiceMenuCell.swift in Sources */,
 				D9FBE0E321F32B1C00BDA694 /* RoundLineButton.swift in Sources */,
+				60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */,
 				D9FBE0D721F32B1C00BDA694 /* CalendarManager.swift in Sources */,
 				D9FBE0D821F32B1C00BDA694 /* AlertMessagePopup.swift in Sources */,
 				D9FBE0E521F32B1C00BDA694 /* CommonUtil.swift in Sources */,
 				D9FBE0D921F32B1C00BDA694 /* Define.swift in Sources */,
+				60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
