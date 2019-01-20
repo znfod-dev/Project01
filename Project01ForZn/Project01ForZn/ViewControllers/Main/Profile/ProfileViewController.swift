@@ -10,11 +10,7 @@ import UIKit
 
 class ProfileViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    
-    var textViewText = String()
     
     override func viewDidLoad() {
         print("viewDidLoad")
@@ -26,12 +22,6 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         }
         self.setTableSetting()
         
-        let maxDate = DBManager.shared.loadMaximumDateFromUD()
-        print("maxDate : \(maxDate)")
-        let minDate = DBManager.shared.loadMinimumDateFromUD()
-        print("minDate : \(minDate)")
-        let font = DBManager.shared.loadFontFromUD()
-        print("font : \(font)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +39,19 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     func setTableSetting() {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44
+    }
+    
+    override func handleSwipeLeftGesture(_ recognizer: UISwipeGestureRecognizer) {
+        super.handleSwipeLeftGesture(recognizer)
+        let storyboard:UIStoryboard = self.storyboard!
+        
+        let viewController:UINavigationController = storyboard.instantiateViewController(withIdentifier: "PlanListNavigation") as! UINavigationController
+        
+        self.present(viewController)
+    }
+    override func handleSwipeRightGesture(_ recognizer: UISwipeGestureRecognizer) {
+        super.handleSwipeRightGesture(recognizer)
+        
     }
     
     func textViewDidChange(_ textView: UITextView) {

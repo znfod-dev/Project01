@@ -47,8 +47,20 @@ class DBManager: NSObject {
         
     }
     func loadFontFromUD() -> UIFont{
-        let fontName:String = UserDefaults.standard.value(forKey: fontNameKey) as! String
-        let fontSize:CGFloat = UserDefaults.standard.value(forKey: fontSizeKey) as! CGFloat
+        var fontName = String()
+        if let temp = UserDefaults.standard.value(forKey: fontNameKey) {
+            fontName = temp as! String
+        }else {
+            fontName = "NanumBarunpen"
+            UserDefaults.standard.setValue(fontName, forKey: fontNameKey)
+        }
+        var fontSize:CGFloat = 16
+        if let temp = UserDefaults.standard.value(forKey: fontSizeKey) {
+            fontSize = temp as! CGFloat
+        }else {
+            UserDefaults.standard.setValue(fontSize, forKey: fontSizeKey)
+        }
+        
         let font:UIFont = UIFont.init(name: fontName, size: fontSize)!
         return font
     }

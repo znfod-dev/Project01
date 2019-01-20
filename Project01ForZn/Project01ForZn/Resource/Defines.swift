@@ -11,17 +11,17 @@ import Foundation
 
 enum Month: Int {
     case january = 1
-    case february
-    case march
-    case april
-    case may
-    case june
-    case july
-    case august
-    case september
-    case october
-    case november
-    case december
+    case february = 2
+    case march = 3
+    case april = 4
+    case may = 5
+    case june = 6
+    case july = 7
+    case august = 8
+    case september = 9
+    case october = 10
+    case november = 11
+    case december = 12
     
     func toString() -> String {
         switch self {
@@ -124,7 +124,7 @@ enum FontType: String, CaseIterable {
     }
 }
 
-enum ProfileTableNo: Int {
+enum Profile: Int {
     case name = 0
     case surname = 1
     case address = 2
@@ -194,7 +194,49 @@ enum ProfileTableNo: Int {
             return 11
         }
     }
+}
+
+enum Diary: Int {
+    case year = 0
+    case weekday = 1
+    case month = 2
+    case day = 3
+    case plan = 4
+    case content = 5
     
+    func toString() -> String {
+        switch self {
+        case .year:
+            return "year"
+        case .weekday:
+            return "weekday"
+        case .month:
+            return "month"
+        case .day:
+            return "day"
+        case .plan:
+            return "plan"
+        case .content:
+            return "content"
+            
+        }
+    }
+    func section() -> Int {
+        switch self {
+        case .year:
+            return 0
+        case .weekday:
+            return 1
+        case .month:
+            return 2
+        case .day:
+            return 3
+        case .plan:
+            return 4
+        case .content:
+            return 5
+        }
+    }
 }
 
 

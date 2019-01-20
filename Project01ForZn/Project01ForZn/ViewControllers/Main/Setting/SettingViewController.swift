@@ -26,11 +26,13 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         self.datePickerView = DatePickerView.initWithNib(frame: self.view.frame)
-        let dateSubmit = UITapGestureRecognizer(target: self, action: #selector(handleDateSubmit(recognizer:)))
+        let dateSubmit = UITapGestureRecognizer(target: self, action: #selector(handleDateSubmit(_:)))
         self.datePickerView.submitBtn.addGestureRecognizer(dateSubmit)
         self.view.addSubview(self.datePickerView)
         
         self.timePickerView = TimePickerView.initWithNib(frame: self.view.frame)
+        let timeSubmit = UITapGestureRecognizer(target: self, action: #selector(handleTimeSubmit(_:)))
+        self.timePickerView.submitBtn.addGestureRecognizer(timeSubmit)
         self.view.addSubview(self.timePickerView)
         
         
@@ -147,7 +149,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.datePickerView.submitBtn.tag = 1
                 self.showDatePickerView(date: endDate)
             }else if row == 2 {
-                self.showTimePickerView()
+                let alarmTime = DBManager.shared.loadAlarmTimeFromUD()
+                self.timePickerView.submitBtn.tag = 0
+                self.showTimePickerView(time: alarmTime)
             }else {
                 
             }
@@ -168,8 +172,8 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         
         self.datePickerView.showDatePickerView(date: date)
     }
-    func showTimePickerView() {
-        self.timePickerView.showTimePickerView()
+    func showTimePickerView(time:Date) {
+        self.timePickerView.showTimePickerView(time: time)
     }
     
     func showFontPickerView() {
@@ -182,7 +186,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.pickerViewArray = 1
         self.fontSizePickerView.showPickerView()
     }
-    @objc func handleDateSubmit(recognizer : UITapGestureRecognizer) {
+    @objc func handleDateSubmit(_ recognizer : UITapGestureRecognizer) {
         let view = recognizer.view!
         let type = view.tag
         print("type : \(type)")
@@ -199,8 +203,15 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadData()
         
     }
-    @objc func handleTimeSubmit() {
+    @objc func handleTimeSubmit(_ recognizer : UITapGestureRecognizer) {
+        let view = recognizer.view!
+        let type = view.tag
+        if type == 0 {
+            let alarmTime = self.timePickerView.timePicker.date
+            DBManager.shared.saveAlarmTimeInUD(time: alarmTime)
+        }
         
+        self.timePickerView.dismissTimePickerView()
         self.tableView.reloadData()
     }
     
