@@ -301,14 +301,20 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLU-J2-pl1">
-                                                    <rect key="frame" x="16" y="8" width="30" height="30"/>
+                                                    <rect key="frame" x="16" y="8" width="42" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="hide"/>
+                                                    <connections>
+                                                        <action selector="hideClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="6Xk-bh-R9a"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-ce-VI8">
                                                     <rect key="frame" x="329" y="8" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="add"/>
+                                                    <connections>
+                                                        <action selector="addClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="tBL-6k-i6c"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -590,9 +596,11 @@
                     <navigationItem key="navigationItem" id="7Gb-9W-5wT"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="hideBtn" destination="BLU-J2-pl1" id="lMN-SY-t24"/>
                         <outlet property="lbCalendarTitle" destination="dKs-xU-FxK" id="bMw-BX-oOc"/>
                         <outlet property="scrollView" destination="DbH-wm-7qL" id="ZKz-Rw-4fT"/>
                         <outlet property="todoListHeightConstraint" destination="n72-nt-n9B" id="ZWr-dB-A5k"/>
+                        <outlet property="todoTableView" destination="15M-qo-MYh" id="MqS-Ye-rTP"/>
                         <outlet property="vContent" destination="FxS-RH-b7x" id="38p-Mn-qp5"/>
                         <outlet property="vHLine" destination="hN5-xI-nPX" id="e2d-I2-FI5"/>
                         <outlet property="vWeekString" destination="NEv-2g-own" id="bPu-Q8-dWF"/>

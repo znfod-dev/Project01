@@ -161,19 +161,22 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = arrDays![indexPath.row]
         
-        CalendarManager.setSelectedDate(date: item) // 선택 날짜 받아오기
-        print("==========\(CalendarManager.getSelectedDate())")
         
-        let message: String = "\(item.year)년 \(item.month)월 \(item.day)일 ToDo 리스트 보여주기"
-        let popup = AlertMessagePopup.messagePopup(withMessage: message)
-        popup.addActionConfirmClick("확인", handler: {
-            
-        })
+        
+//        let message: String = "\(item.year)년 \(item.month)월 \(item.day)일 ToDo 리스트 보여주기"
+//        let popup = AlertMessagePopup.messagePopup(withMessage: message)
+//        popup.addActionConfirmClick("확인", handler: {
+//
+//        })
         
         // 셀선택
         CalendarManager.selectedCell = item.cellIndex
         
         // 콜렉션뷰 전체 리로드
         parentVC?.collectionReloadDataAll()
+        
+        // 콜렉션에 맞는 날짜 전달
+        parentVC?.selectedDay = "\(item.year)\(item.month)\(item.day)"
+        parentVC?.selectedDayTodoList(doReload: true)
     }
 }
