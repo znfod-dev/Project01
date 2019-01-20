@@ -23,7 +23,7 @@ class MonthlyPlanViewController: UIViewController {
 	// 월별뷰컨트롤러 배열
 	var arrChildController = [CalendarMonthViewController]()
 	
-	var startYYYYMMDD = 20181101
+	var startYYYYMMDD = 20190201
 	var endYYYYMMDD = 20190301
 	
 	// 다이어리 상세
@@ -58,7 +58,7 @@ class MonthlyPlanViewController: UIViewController {
 		
 		// 매월 셀 세팅해서 추가해주기
 		if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
-			for _ in 0..<3 {
+			for _ in 0..<2 {
 				if let monthVC: CalendarMonthViewController = (storyboard.instantiateViewController(withIdentifier: "CalendarMonthViewController") as? CalendarMonthViewController) {
 					monthVC.parentVC = self
 					monthVC.view.frame = scrollView.bounds
@@ -70,11 +70,10 @@ class MonthlyPlanViewController: UIViewController {
 					self.arrChildController.append(monthVC)
 				}
 			}
-			
 			// 이번달 이동
 			goThisMonth()
 		}
-		
+
 		// 프로필 오너 DB체크
 		//		self.selectOwnerInfoTable()
 	}
@@ -99,6 +98,28 @@ class MonthlyPlanViewController: UIViewController {
 	
 	// 이번달 이동
 	func goThisMonth() {
+		// 달력날짜 시작/종료일 세팅
+		let arrResultMonths: [(year:Int, month:Int)] = CalendarManager.getYearMontLimite(startYYYYMMDD: startYYYYMMDD, endYYYYMMDD: endYYYYMMDD)
+		print(arrResultMonths)
+/*
+		// 매월 셀 세팅해서 추가해주기
+		if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
+			for _ in 0..<2 {
+				if let monthVC: CalendarMonthViewController = (storyboard.instantiateViewController(withIdentifier: "CalendarMonthViewController") as? CalendarMonthViewController) {
+					monthVC.parentVC = self
+					monthVC.view.frame = scrollView.bounds
+					
+					// 스크롤뷰에 새로 추가
+					scrollView.addScrollSubview(monthVC.view)
+					self.addChild(monthVC)
+					// 월별뷰컨트롤러 배열
+					self.arrChildController.append(monthVC)
+				}
+			}
+			
+		}
+*/
+		
 		// 오늘 년/월 구하기
 		let yearMonth:(year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
 		curentYear = yearMonth.year
@@ -300,7 +321,7 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
 					}
 					else {
 						// 상세페이지 이동
-						if oldCurentIndex == 2 && isDiaryDetail == false {
+						if oldCurentIndex == (self.arrChildController.count-1) && isDiaryDetail == false {
 							isDiaryDetail = true
 							
 							let YYYYMMDD: String = "\(startYYYYMMDD)"

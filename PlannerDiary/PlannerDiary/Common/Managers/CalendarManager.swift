@@ -109,6 +109,52 @@ class CalendarManager {
         
         return (newYear, newMonth)
     }
+	
+	// 달력날짜 시작/종료일 세팅
+	static func getYearMontLimite(startYYYYMMDD: Int, endYYYYMMDD: Int) -> [(year:Int, month:Int)] {
+		// 오늘 년/월 구하기
+		let thisMonth: (year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
+		
+		let sYYYYMMDD: String = "\(startYYYYMMDD)"
+		let eYYYYMMDD: String = "\(endYYYYMMDD)"
+		let startMonth: (year:Int, month:Int) = (Int(sYYYYMMDD.left(4))!, Int(sYYYYMMDD.mid(4, amount: 2))!)
+		let endMonth: (year:Int, month:Int) = (Int(eYYYYMMDD.left(4))!, Int(eYYYYMMDD.mid(4, amount: 2))!)
+		
+		var curentMonth: (year:Int, month:Int) = startMonth
+		var count: Int = 0
+		var thisMonthCount: Int = -1
+		
+		var arrMonths = [(year:Int, month:Int)]()
+		var arrResultMonths = [(year:Int, month:Int)]()
+		
+		while (endMonth.year == curentMonth.year && endMonth.month == curentMonth.month) == false {
+			curentMonth = CalendarManager.getYearMonth(year: startMonth.year, month: startMonth.month, amount: count)
+			arrMonths += [curentMonth]
+			if thisMonth == curentMonth {
+				thisMonthCount = count
+			}
+			count += 1
+		}
+		
+		// 이번달이 없을 경우...
+		if thisMonthCount == -1 {
+			count = 0
+			curentMonth = startMonth
+			while (endMonth.year == curentMonth.year && endMonth.month == curentMonth.month) == false {
+				curentMonth = CalendarManager.getYearMonth(year: startMonth.year, month: startMonth.month, amount: count)
+				arrResultMonths += [curentMonth]
+				count += 1
+				if arrResultMonths.count == 3 {
+					break
+				}
+			}
+		}
+		
+//		print(thisMonthCount)
+//		print(arrResultMonths)
+		
+		return arrResultMonths
+	}
     
     // 년/월에 맞는 날짜 목록 얻어오기
     static func getMonthToDays(year:Int, month:Int) -> Array<(year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)> {

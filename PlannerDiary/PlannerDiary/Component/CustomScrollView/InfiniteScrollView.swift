@@ -71,6 +71,12 @@ class InfiniteScrollView: UIScrollView {
 			return 0.0
 		}
 		
+		// sama73: 페이지 갯수
+		let pageCount: Int = Int(self.contentSize.width / self.bounds.width)
+		if pageCount != 3 {
+			return CGFloat(1)
+		}
+		
 		return CGFloat(centerIndex+1)
 	}
 	
