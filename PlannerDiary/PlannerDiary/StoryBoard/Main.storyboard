@@ -901,7 +901,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1s1-uA-PGM">
                                 <rect key="frame" x="0.0" y="133" width="375" height="534"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COJ-xa-DAj" customClass="InfiniteScrollView" customModule="PlannerDiary" customModuleProvider="target">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COJ-xa-DAj" customClass="InfiniteScrollView" customModule="PlannerDiary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="337"/>
                                         <connections>
                                             <outlet property="delegate" destination="cfx-E4-prd" id="Men-7w-kw9"/>
@@ -1419,7 +1419,7 @@
                             <inset key="sectionInset" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarDayCell" id="XIf-0G-cwD" customClass="CalendarDayCell" customModule="PlannerDiary" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="CalendarDayCell" id="XIf-0G-cwD" customClass="CalendarDayCell" customModule="PlannerDiary" customModuleProvider="target">
                                 <rect key="frame" x="2" y="0.0" width="53" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1427,7 +1427,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r94-xL-hlQ" customClass="RoundLineView" customModule="PlannerDiary" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="53" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="53" height="0.0"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">

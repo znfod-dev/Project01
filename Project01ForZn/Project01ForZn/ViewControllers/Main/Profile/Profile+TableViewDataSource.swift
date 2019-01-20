@@ -10,7 +10,7 @@ import UIKit
 
 extension ProfileViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return ProfileTableNo.favouriteMusic.section()
+        return Profile.favouriteMusic.section()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -18,17 +18,17 @@ extension ProfileViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let row = indexPath.row
-        if section == ProfileTableNo.name.section() {
+        if section == Profile.name.section() {
             return cellForNameAt()
-        }else if section == ProfileTableNo.surname.section() {
+        }else if section == Profile.surname.section() {
             return cellForSurnameAt()
-        }else if section == ProfileTableNo.address.section() {
+        }else if section == Profile.address.section() {
             return cellForAddressAt()
-        }else if section == ProfileTableNo.phone.section() {
+        }else if section == Profile.phone.section() {
             return cellForPhoneAt()
-        }else if section == ProfileTableNo.mobile.section() {
+        }else if section == Profile.mobile.section() {
             return cellForMobileAt()
-        }else if section == ProfileTableNo.email.section() {
+        }else if section == Profile.email.section() {
             return cellForEmailAt()
         }else {
             let cell:ProfileTableCell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableNoneCell") as! ProfileTableCell
@@ -40,6 +40,8 @@ extension ProfileViewController {
         let cell:ProfileTableCell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableTextFieldCell") as! ProfileTableCell
         let title = "name"
         cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: title)
+        cell.titleLabel.font = FontManager.shared.getTextFont()
+        
         cell.textField.attributedText = FontManager.shared.getTextWithFont(text: "")
         cell.textField.attributedPlaceholder = FontManager.shared.getTextWithFont(text: cell.textField.placeholder!)
         cell.textField.font = FontManager.shared.getTextFont()
@@ -50,6 +52,8 @@ extension ProfileViewController {
         let cell:ProfileTableCell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableTextFieldCell") as! ProfileTableCell
         let title = "surname"
         cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: title)
+        cell.titleLabel.font = FontManager.shared.getTextFont()
+        
         cell.textField.attributedText = FontManager.shared.getTextWithFont(text: "")
         cell.textField.attributedPlaceholder = FontManager.shared.getTextWithFont(text: cell.textField.placeholder!)
         cell.textField.font = FontManager.shared.getTextFont()
@@ -60,6 +64,7 @@ extension ProfileViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableTextViewCell") as! ProfileTableCell
         let title = "address"
         cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: title)
+        cell.titleLabel.font = FontManager.shared.getTextFont()
         let string = "서울시 강남구 봉은사로"
         cell.textView.attributedText = FontManager.shared.getTextWithFont(text: string)
         cell.textView.font = FontManager.shared.getTextFont()
@@ -96,6 +101,7 @@ extension ProfileViewController {
         let cell:ProfileTableCell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableTextFieldCell") as! ProfileTableCell
         let title = "phone"
         cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: title)
+        cell.titleLabel.font = FontManager.shared.getTextFont()
         cell.textField.attributedText = FontManager.shared.getTextWithFont(text: "")
         cell.textField.attributedPlaceholder = FontManager.shared.getTextWithFont(text: cell.textField.placeholder!)
         cell.textField.font = FontManager.shared.getTextFont()
@@ -106,6 +112,7 @@ extension ProfileViewController {
         let cell:ProfileTableCell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableTextFieldCell") as! ProfileTableCell
         let title = "mobile"
         cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: title)
+        cell.titleLabel.font = FontManager.shared.getTextFont()
         cell.textField.attributedText = FontManager.shared.getTextWithFont(text: "")
         cell.textField.attributedPlaceholder = FontManager.shared.getTextWithFont(text: cell.textField.placeholder!)
         cell.textField.font = FontManager.shared.getTextFont()
@@ -116,6 +123,8 @@ extension ProfileViewController {
         let cell:ProfileTableCell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableTextFieldCell") as! ProfileTableCell
         let title = "email"
         cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: title)
+        cell.titleLabel.font = FontManager.shared.getTextFont()
+        
         cell.textField.attributedText = FontManager.shared.getTextWithFont(text: "")
         cell.textField.attributedPlaceholder = FontManager.shared.getTextWithFont(text: cell.textField.placeholder!)
         cell.textField.font = FontManager.shared.getTextFont()

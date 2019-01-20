@@ -16,6 +16,9 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 	var parentVC:MonthlyPlanViewController?
     // 셀라인갯수
     var cellLineCount:Int = 0
+	// 선택한 년/월
+	var curentYear: Int = 2019
+	var curentMonth: Int = 1
     // 셀 갯수
     var arrDays:[(year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)]?
 	
@@ -41,7 +44,11 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
     // 설정할 년/월
     func setMonthToDays(year:Int, month:Int) {
         print("년월 = \(year) - \(month)")
-        
+		
+		// 선택한 년/월
+		curentYear = year
+		curentMonth = month
+		
         // 년/월에 맞는 날짜 목록 얻어오기
         arrDays = CalendarManager.getMonthToDays(year:year, month:month)
         cellLineCount = Int((arrDays?.count)! / 7)

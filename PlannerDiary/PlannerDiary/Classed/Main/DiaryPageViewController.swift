@@ -29,13 +29,12 @@ class DiaryPageViewController: UIViewController {
         view.transform = view.transform.scaledBy(x: scale, y: scale)
 
 		// 동적 셀높이 조정
-        self.automaticallyAdjustsScrollViewInsets = false
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 128
 		
 		// init Data
-		arrDiaryPage += [["Hour":8, "Contents":""]]
-		arrDiaryPage += [["Hour":9, "Contents":""]]
+		arrDiaryPage += [["Hour":8, "Contents":"ddd"]]
+		arrDiaryPage += [["Hour":9, "Contents":"ddd\ndfdfdf\ndfdfdf\ndfdfdf\ndfdfdf\ndfdfdf"]]
 		arrDiaryPage += [["Hour":10, "Contents":""]]
 		arrDiaryPage += [["Hour":11, "Contents":""]]
 		arrDiaryPage += [["Hour":12, "Contents":""]]

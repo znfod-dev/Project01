@@ -276,7 +276,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxS-RH-b7x">
                                 <rect key="frame" x="0.0" y="133" width="375" height="534"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbH-wm-7qL" customClass="InfiniteScrollView" customModule="Project01" customModuleProvider="target">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbH-wm-7qL" customClass="InfiniteScrollView" customModule="Project01" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="337"/>
                                         <connections>
                                             <outlet property="delegate" destination="lrI-bH-IEv" id="J5a-42-DbV"/>

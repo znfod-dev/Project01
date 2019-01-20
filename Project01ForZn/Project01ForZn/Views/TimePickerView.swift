@@ -48,8 +48,9 @@ class TimePickerView: UIView {
             self.isHidden = true
         }
     }
-    func showTimePickerView() {
+    func showTimePickerView(time:Date) {
         self.isHidden = false
+        self.timePicker.date = time
         UIView.animate(withDuration: 0.5, animations: {
             self.timeBackView.frame.origin.y -= self.timeBackView.frame.height
         }) { success in

@@ -56,7 +56,7 @@
                                 <action selector="cancelBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="WFf-Dh-7CS"/>
                             </connections>
                         </button>
-                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YBZ-zU-4ee">
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="YBZ-zU-4ee">
                             <rect key="frame" x="0.0" y="40" width="375" height="216"/>
                             <date key="date" timeIntervalSinceReferenceDate="569128205.38709998">
                                 <!--2019-01-14 03:10:05 +0000-->
