@@ -250,6 +250,9 @@ class MonthlyPlanViewController: UIViewController {
     @IBAction func onTodayClick(_ sender: Any) {
 		// 이번달 이동
 		goThisMonth()
+        
+        self.selectedDay = Date().string()
+        self.selectedDayTodoList(doReload: true)
     }
     
     // 추가 버튼
