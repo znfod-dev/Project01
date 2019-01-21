@@ -25,11 +25,6 @@ class AddPlanViewController: UIViewController {
     
     
     
-    // MARK:- Constants
-    let date = Date()
-    
-    
-    
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +36,6 @@ class AddPlanViewController: UIViewController {
     
     // 초기 세팅
     func initSet() {
-        // statusBar 색상 적용
-        self.statusBarSet(view: (self.navigationController?.view!)!)
-        
         // 오늘 날짜로 세팅
         self.startDayLabel.text = self.startDay
         self.endDayLabel.text = self.endDay
@@ -52,9 +44,6 @@ class AddPlanViewController: UIViewController {
         self.startDayLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(startDayTap)))
         self.endDayLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endDayTap)))
         
-        // 디폴트 값 : 종료일 날짜 라벨은 터치가 안됨
-        self.endDayLabel.isUserInteractionEnabled = false
-        
         // 내비게이션에 저장 버튼 아이템 추가
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .done, target: self, action: #selector(saveBtnPressed))
     }
@@ -62,22 +51,10 @@ class AddPlanViewController: UIViewController {
     
     
     // 달력 알럿을 띄워주는 메소드 (직접입력 제외)
-    func presentCalendar() {
+    func presentCalendar(startDayClicked: Bool = false) {
         let datePickVC = self.storyboard?.instantiateViewController(withIdentifier: "DatePickViewController") as! DatePickViewController
         
-        self.addVCAlert(viewController: datePickVC, okTitle: "변경", cancelTitle: "취소") {
-            self.selectedDay = datePickVC.selectedDay
-            self.startDayLabel.text = self.selectedDay?.string()
-            self.dayConvert(index: self.segment)
-        }
-    }
-    
-    
-    
-    // 달력 알럿을 띄워주는 메소드 (직접입력)
-    func presentCalendar(label: UILabel, startDayTap: Bool?) {
-        let datePickVC = self.storyboard?.instantiateViewController(withIdentifier: "DatePickViewController") as! DatePickViewController
-        datePickVC.startDayClicked = startDayTap // 시작일 눌렀을 때 true
+        datePickVC.startDayClicked = startDayClicked // 시작일 선택인지 아닌지 판단하는 변수
         
         datePickVC.startDay = self.startDay
         datePickVC.endDay = self.endDay
@@ -87,6 +64,7 @@ class AddPlanViewController: UIViewController {
             self.endDay = datePickVC.endDay
             self.startDayLabel.text = self.startDay
             self.endDayLabel.text = self.endDay
+            self.dayConvert(index: self.segment)
         }
     }
     
@@ -104,7 +82,9 @@ class AddPlanViewController: UIViewController {
         case 3: // 년
             self.endDayLabel.text = self.selectedDay?.endOfYear().string()
         default: // 직접 설정
-            self.endDayLabel.isUserInteractionEnabled = true
+            if self.startDay! > self.endDay! {
+                self.endDayLabel.text = self.startDayLabel.text
+            }
         }
     }
     
@@ -112,27 +92,29 @@ class AddPlanViewController: UIViewController {
     
     // 시작일 라벨을 탭했을 때 동작하는 메소드
     @objc func startDayTap() {
-        if self.segment.selectedSegmentIndex == 4 { // 직접 입력 클릭 시
-            self.presentCalendar(label: self.startDayLabel, startDayTap: true)
-        } else { // 직접 입력 제외
-            self.presentCalendar()
-        }
+        self.presentCalendar(startDayClicked: true)
     }
     
     
     
     // 종료일 라벨을 탭했을 때 동작하는 메소드
     @objc func endDayTap() {
-        self.presentCalendar(label: self.endDayLabel, startDayTap: false)
+        self.segment.selectedSegmentIndex = 4 // 직접 입력 탭으로 변경
+        self.presentCalendar()
     }
     
     
     
     // 저장 버튼 클릭시
     @objc func saveBtnPressed() {
+        guard !(planTextField.text?.isEmpty)! else { // 계획이 텍스트필드가 비어있다면
+            self.okAlert("계획을 입력해 주세요", nil)
+            return
+        }
+        
         let plan = Plan()
         plan.planType = self.segment.selectedSegmentIndex
-        plan.planTitle = self.planTextField.text
+        plan.planTitle = title
         plan.startDay = self.startDay
         plan.endDay = self.endDay
         
@@ -144,18 +126,9 @@ class AddPlanViewController: UIViewController {
     
     
     // MARK:- Actions
+    // segment를 눌렀을 때
     @IBAction func segmentPressed(_ sender: UISegmentedControl) {
-        // 직접입력 클릭시 오늘 날짜로 초기화
-        if sender.selectedSegmentIndex == 4 {
-            self.startDay = Date().string()
-            self.endDay = Date().string()
-            self.startDayLabel.text = self.startDay
-            self.endDayLabel.text = self.endDay
-        } else { // 직접입력 이외에 세그먼트 클릭 시
-            self.startDayLabel.text = self.selectedDay?.string()
-        }
-        
-        self.endDayLabel.isUserInteractionEnabled = false
+        self.startDayLabel.text = self.startDay
         self.dayConvert(index: sender)
     }
 }
