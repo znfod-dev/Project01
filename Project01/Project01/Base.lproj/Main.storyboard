@@ -673,7 +673,7 @@
                         <viewLayoutGuide key="safeArea" id="Onp-3h-w08"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pfz-CV-ZXH">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="Kui-ft-9JX">
+                        <barButtonItem key="leftBarButtonItem" title="메인화면" id="Kui-ft-9JX">
                             <connections>
                                 <action selector="backBtnClick:" destination="04U-Pi-fra" id="GMP-Iw-pPN"/>
                             </connections>
@@ -781,7 +781,7 @@
             </objects>
             <point key="canvasLocation" x="6423.1999999999998" y="794.75262368815595"/>
         </scene>
-        <!--Date Pick View Controller-->
+        <!--Data Source-->
         <scene sceneID="z47-LB-mwv">
             <objects>
                 <viewController storyboardIdentifier="DatePickViewController" id="sC4-Lu-SXY" customClass="DatePickViewController" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
@@ -793,17 +793,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="290" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="H0R-nz-xOd"/>
-                                    <constraint firstAttribute="width" constant="290" id="Zz2-DZ-Ng0"/>
+                                    <constraint firstAttribute="width" secondItem="ivi-60-NgJ" secondAttribute="height" multiplier="29:26" id="Psv-qR-nSm"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="sC4-Lu-SXY" id="mD8-15-ZwF"/>
+                                    <outlet property="delegate" destination="sC4-Lu-SXY" id="J8L-Dk-xE7"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ivi-60-NgJ" firstAttribute="bottom" secondItem="LrP-VO-sUN" secondAttribute="bottom" id="8AV-A0-kPh"/>
-                            <constraint firstItem="ivi-60-NgJ" firstAttribute="top" secondItem="LrP-VO-sUN" secondAttribute="top" id="BUr-2S-Z1n"/>
-                            <constraint firstItem="ivi-60-NgJ" firstAttribute="leading" secondItem="LrP-VO-sUN" secondAttribute="leading" id="IAz-Fz-Sqg"/>
-                            <constraint firstItem="ivi-60-NgJ" firstAttribute="trailing" secondItem="LrP-VO-sUN" secondAttribute="trailing" id="ksX-yB-WlK"/>
+                            <constraint firstItem="ivi-60-NgJ" firstAttribute="leading" secondItem="LrP-VO-sUN" secondAttribute="leading" id="1WL-dt-egv"/>
+                            <constraint firstItem="ivi-60-NgJ" firstAttribute="trailing" secondItem="LrP-VO-sUN" secondAttribute="trailing" id="Hcp-aQ-A48"/>
+                            <constraint firstItem="ivi-60-NgJ" firstAttribute="bottom" secondItem="LrP-VO-sUN" secondAttribute="bottom" id="U1f-VY-ZRw"/>
+                            <constraint firstItem="ivi-60-NgJ" firstAttribute="top" secondItem="LrP-VO-sUN" secondAttribute="top" id="Yqt-yJ-7Zr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LrP-VO-sUN"/>
                     </view>

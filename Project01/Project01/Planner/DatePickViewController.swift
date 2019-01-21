@@ -33,6 +33,9 @@ extension DatePickViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let selectedDate = date.string()
         
+        
+        print(selectedDate)
+        
         guard self.startDayClicked != nil else {
             self.selectedDay = date
             return

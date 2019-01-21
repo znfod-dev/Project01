@@ -174,11 +174,11 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         let day: Int = item["day"] as! Int
         let cellIndex: Int = item["cellIndex"] as! Int
 
-		let message: String = "\(year)년 \(month)월 \(day)일 ToDo 리스트 보여주기"
-		let popup = AlertMessagePopup.messagePopup(withMessage: message)
-		popup.addActionConfirmClick("확인", handler: {
-        
-		})
+//        let message: String = "\(year)년 \(month)월 \(day)일 ToDo 리스트 보여주기"
+//        let popup = AlertMessagePopup.messagePopup(withMessage: message)
+//        popup.addActionConfirmClick("확인", handler: {
+//        
+//        })
         
         // 셀선택
 		CalendarManager.selectedCell = cellIndex

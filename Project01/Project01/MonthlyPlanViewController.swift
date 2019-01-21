@@ -51,7 +51,7 @@ class MonthlyPlanViewController: UIViewController {
     var todoArray = Array<Todo>() // 전체 TodoList
     var selectedDayTodo = Array<Todo>() // 특정 날짜의 TodoList
     
-    var selectedDay:String? = Date().string() // 선택한 날짜
+    var selectedDay:String? = Date().cmpString() // 선택한 날짜
     
     // 완료된 todo 숨기기
     // true : 체크 todo 숨기기
@@ -268,7 +268,7 @@ class MonthlyPlanViewController: UIViewController {
 		// 이번달 이동
 		goThisMonth()
         
-        self.selectedDay = Date().string()
+        self.selectedDay = Date().cmpString()
         self.selectedDayTodoList(doReload: true)
     }
     

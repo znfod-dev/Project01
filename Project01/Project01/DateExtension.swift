@@ -9,9 +9,16 @@ import UIKit
 
 extension Date {
     // 예) 2019121
-    func string() -> String {
+    func cmpString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMdd"
+        let day = formatter.string(from: self)
+        return day
+    }
+    
+    func string() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         let day = formatter.string(from: self)
         return day
     }
