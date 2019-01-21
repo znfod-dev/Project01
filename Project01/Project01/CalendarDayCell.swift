@@ -13,16 +13,23 @@ class CalendarDayCell: UICollectionViewCell {
 	@IBOutlet weak var lbDay: UILabel!
     @IBOutlet weak var vToDay: UIView!
 	@IBOutlet weak var vSelectedCell: UIView!
+    @IBOutlet weak var vHoliday: UIView!
+
+    func setCellInfo(_ infoData: [String: Any]) {
 	
-    func setCellInfo(_ infoData: (year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)) {
         if CommonUtil.isEmpty(infoData as AnyObject) {
             return
         }
         
-        lbDay.text = "\(infoData.day)"
-        if infoData.isCurentMonth == true {
+        let day: Int = infoData["day"] as! Int
+        let cellIndex: Int = infoData["cellIndex"] as! Int
+        let isCurentMonth: Bool = infoData["isCurentMonth"] as! Bool
+        let isHoliday: Bool = infoData["isHoliday"] as! Bool
+
+        lbDay.text = "\(day)"
+        if isCurentMonth == true {
             // 오늘일 경우
-            if CalendarManager.getTodayIndex() == infoData.cellIndex {
+            if CalendarManager.getTodayIndex() == cellIndex {
                 lbDay.textColor = UIColor.white
                 vToDay.isHidden = false
             }
@@ -37,11 +44,19 @@ class CalendarDayCell: UICollectionViewCell {
         }
 		
 		// 셀선택
-		if CalendarManager.selectedCell == infoData.cellIndex {
+		if CalendarManager.selectedCell == cellIndex {
 			vSelectedCell.isHidden = false
 		}
 		else {
 			vSelectedCell.isHidden = true
 		}
+        
+        // 공휴일 체크
+        if isHoliday == true {
+            vHoliday.isHidden = false
+        }
+        else {
+            vHoliday.isHidden = true
+        }
     }
 }
