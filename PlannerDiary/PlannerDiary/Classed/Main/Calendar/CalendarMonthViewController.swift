@@ -20,7 +20,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 	var curentYear: Int = 2019
 	var curentMonth: Int = 1
 	// 셀 갯수
-	var arrDays:[(year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)]?
+    var arrDays:[[String: Any]]?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -107,20 +107,20 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		}
 		
 		let p = gestureRecognizer.location(in: self.collectionView)
-		let cellIndex: NSIndexPath? = (self.collectionView.indexPathForItem(at: p)! as NSIndexPath)
-		guard let indexPath = cellIndex else {
+		let cellPathIndex: NSIndexPath? = (self.collectionView.indexPathForItem(at: p)! as NSIndexPath)
+		guard let indexPath = cellPathIndex else {
 			return
 		}
 		
 		//do whatever you need to do
-		guard let arrDays = self.arrDays else {
-			return
-		}
-		
-		let item = arrDays[indexPath.row]
-		
+        let item: [String: Any] = arrDays![indexPath.row]
+        let year: Int = item["year"] as! Int
+        let month: Int = item["month"] as! Int
+        let day: Int = item["day"] as! Int
+        let cellIndex: Int = item["cellIndex"] as! Int
+        
 		// 다음페이지 이동
-		let message: String = "\(item.year)년 \(item.month)월 \(item.day)일 상세 페이지 보여주기"
+		let message: String = "\(year)년 \(month)월 \(day)일 상세 페이지 보여주기"
 		let popup = AlertMessagePopup.messagePopup(withMessage: message)
 		popup.addActionConfirmClick("확인", handler: {
 			
@@ -137,7 +137,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		//        }
 		
 		// 셀선택
-		CalendarManager.selectedCell = item.cellIndex
+		CalendarManager.selectedCell = cellIndex
 		
 		// 콜렉션뷰 전체 리로드
 		parentVC?.collectionReloadDataAll()
@@ -167,16 +167,21 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
 	// 셀 선택
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
-		let item = arrDays![indexPath.row]
-		
-		let message: String = "\(item.year)년 \(item.month)월 \(item.day)일 ToDo 리스트 보여주기"
+		let item: [String: Any] = arrDays![indexPath.row]
+
+        let year: Int = item["year"] as! Int
+        let month: Int = item["month"] as! Int
+        let day: Int = item["day"] as! Int
+        let cellIndex: Int = item["cellIndex"] as! Int
+
+		let message: String = "\(year)년 \(month)월 \(day)일 ToDo 리스트 보여주기"
 		let popup = AlertMessagePopup.messagePopup(withMessage: message)
 		popup.addActionConfirmClick("확인", handler: {
 			
 		})
 		
 		// 셀선택
-		CalendarManager.selectedCell = item.cellIndex
+		CalendarManager.selectedCell = cellIndex
 		
 		// 콜렉션뷰 전체 리로드
 		parentVC?.collectionReloadDataAll()

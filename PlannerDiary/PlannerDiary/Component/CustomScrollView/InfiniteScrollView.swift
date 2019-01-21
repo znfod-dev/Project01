@@ -16,7 +16,7 @@ class InfiniteScrollView: UIScrollView {
 	// 센터 페이지 인덱스
 	public var centerIndex:Int = 0
 	var arrScrollSubCell = [UIView]()
-	
+    
 	// 스크롤뷰에 서브뷰 추가
 	public func addScrollSubview(_ subCell: UIView) {
 		self.addSubview(subCell)
@@ -25,7 +25,16 @@ class InfiniteScrollView: UIScrollView {
 		// 페이지의 중간 인덱스를 구해준다.
 		centerIndex = Int(arrScrollSubCell.count / 2)
 	}
-	
+    
+    // 서브뷰 RemoveAll
+    public func removeAllSubCell() {
+        arrScrollSubCell.removeAll()
+        
+        for subCell in self.subviews {
+            subCell.removeFromSuperview()
+        }
+    }
+    
 	// 서브셀 위치 재설정
 	public func reposSubCell() {
 		
@@ -80,6 +89,21 @@ class InfiniteScrollView: UIScrollView {
 		return CGFloat(centerIndex+1)
 	}
 	
+    // 포커스 페이지 이동 시킨다.
+    public func goFocusPageMove(focusIndex: Int) {
+        // 포커스 영역이 아닌경우...
+        if focusIndex < 0 && focusIndex >= arrScrollSubCell.count {
+            return
+        }
+        
+        // UIScrollView의 컨텐트 크기를 이미지의 총 크기에 맞추기
+        let nWidth:CGFloat = DEF_SCREEN_375_WIDTH * CGFloat(arrScrollSubCell.count)
+        self.contentSize = CGSize(width: nWidth, height: self.bounds.height)
+        
+        // 중간셀 위치 스크롤 시켜준다.
+        self.contentOffset.x = DEF_SCREEN_375_WIDTH * CGFloat(focusIndex)
+    }
+    
 	// 센터 페이지 이동 시킨다.
 	public func goCenterPageMove() {
 		// UIScrollView의 컨텐트 크기를 이미지의 총 크기에 맞추기
@@ -98,10 +122,10 @@ class InfiniteScrollView: UIScrollView {
 			return
 		}
 		
-		// 스크롤뷰 Subview RemoveAll
-		for subCell in self.subviews {
-			subCell.removeFromSuperview()
-		}
+        // 스크롤뷰 Subview RemoveAll
+        for subCell in self.subviews {
+            subCell.removeFromSuperview()
+        }
 		
 		// 마지막뷰를 첫번째로 이동
 		let subCellLast = arrScrollSubCell.popLast()
@@ -122,10 +146,10 @@ class InfiniteScrollView: UIScrollView {
 			return
 		}
 		
-		// 스크롤뷰 Subview RemoveAll
-		for subCell in self.subviews {
-			subCell.removeFromSuperview()
-		}
+        // 스크롤뷰 Subview RemoveAll
+        for subCell in self.subviews {
+            subCell.removeFromSuperview()
+        }
 		
 		// 맨처음뷰를 첫번째로 이동
 		let subCellFirst = arrScrollSubCell.removeFirst()

@@ -21,20 +21,25 @@ class MonthlyPlanViewController: UIViewController {
 	@IBOutlet weak var todoListHeightConstraint: NSLayoutConstraint!
 	
 	// 월별뷰컨트롤러 배열
-	var arrChildController = [CalendarMonthViewController]()
-	
-	var startYYYYMMDD = 20190201
+    var arrOriginController = [CalendarMonthViewController]()
+    var arrChildController = [CalendarMonthViewController]()
+
+	var startYYYYMMDD = 20181101
 	var endYYYYMMDD = 20190301
 	
 	// 다이어리 상세
 	var isDiaryDetail: Bool = false
-	
+
+    // 스크롤 Direction(-1: 좌측, 0: 정지, 1: 우측
+    var scrollDirection: Int = 0
+
 	// 이전 보여주는 페이지
-	var oldCurentIndex: Int = -1
-	
+	var focusIndex: Int = -1
 	// 선택한 년/월
-	var curentYear: Int = 2019
-	var curentMonth: Int = 1
+    var curentDate: (year:Int, month:Int) = (2019, 1)
+    
+    // 첫번째 이번달호출을 화면완료된후에 실행해줄려고
+    var isFirstLoad: Bool = true
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -52,30 +57,23 @@ class MonthlyPlanViewController: UIViewController {
 		vWeekString.layer.shadowOpacity = 0.1
 		
 		// 오늘 년/월 구하기
-		let yearMonth:(year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
-		curentYear = yearMonth.year
-		curentMonth = yearMonth.month
+		self.curentDate = CalendarManager.getYearMonth(amount: 0)
 		
 		// 매월 셀 세팅해서 추가해주기
 		if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
-			for _ in 0..<2 {
+			for _ in 0..<3 {
 				if let monthVC: CalendarMonthViewController = (storyboard.instantiateViewController(withIdentifier: "CalendarMonthViewController") as? CalendarMonthViewController) {
 					monthVC.parentVC = self
 					monthVC.view.frame = scrollView.bounds
-					
-					// 스크롤뷰에 새로 추가
-					scrollView.addScrollSubview(monthVC.view)
-					self.addChild(monthVC)
+                    self.addChild(monthVC)
 					// 월별뷰컨트롤러 배열
-					self.arrChildController.append(monthVC)
+                    self.arrOriginController.append(monthVC)
 				}
 			}
-			// 이번달 이동
-			goThisMonth()
 		}
 
 		// 프로필 오너 DB체크
-		//		self.selectOwnerInfoTable()
+//		self.selectOwnerInfoTable()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -87,6 +85,12 @@ class MonthlyPlanViewController: UIViewController {
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
+
+        // 첫번째 이번달 호출시 화면 완료된 이후에 호출해준다.
+        if isFirstLoad == true {
+            isFirstLoad = false
+            goThisMonth()
+        }
 	}
 	
 	// 콜렉션뷰 전체 리로드
@@ -97,83 +101,75 @@ class MonthlyPlanViewController: UIViewController {
 	}
 	
 	// 이번달 이동
-	func goThisMonth() {
+    @objc func goThisMonth() {
 		// 달력날짜 시작/종료일 세팅
-		let arrResultMonths: [(year:Int, month:Int)] = CalendarManager.getYearMontLimite(startYYYYMMDD: startYYYYMMDD, endYYYYMMDD: endYYYYMMDD)
-		print(arrResultMonths)
-/*
-		// 매월 셀 세팅해서 추가해주기
-		if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
-			for _ in 0..<2 {
-				if let monthVC: CalendarMonthViewController = (storyboard.instantiateViewController(withIdentifier: "CalendarMonthViewController") as? CalendarMonthViewController) {
-					monthVC.parentVC = self
-					monthVC.view.frame = scrollView.bounds
-					
-					// 스크롤뷰에 새로 추가
-					scrollView.addScrollSubview(monthVC.view)
-					self.addChild(monthVC)
-					// 월별뷰컨트롤러 배열
-					self.arrChildController.append(monthVC)
-				}
-			}
-			
-		}
-*/
-		
-		// 오늘 년/월 구하기
-		let yearMonth:(year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
-		curentYear = yearMonth.year
-		curentMonth = yearMonth.month
-		
-		// 월별뷰컨트롤러 배열
-		for i in 0..<arrChildController.count {
-			let monthVC = self.arrChildController[i]
-			
-			var amount:Int = 0
-			if i == 0 {
-				amount = -1
-			}
-			else if i == 2 {
-				amount = 1
-			}
-			
-			let newYearMonth:(year:Int, month:Int) = CalendarManager.getYearMonth(year: curentYear, month: curentMonth, amount: amount)
-			monthVC.setMonthToDays(year: newYearMonth.year, month: newYearMonth.month)
-			print(newYearMonth)
-		}
-		
+        let dicResult: [String: Any] = CalendarManager.getYearMontLimite(startYYYYMMDD: startYYYYMMDD, endYYYYMMDD: endYYYYMMDD)
+		print(dicResult)
+        
+        // 보여줄 년/월일 목록
+        let arrResultMonths: [(year:Int, month:Int)]? = dicResult["arrResultMonths"] as? [(year: Int, month: Int)]
+        guard let arrResult = arrResultMonths else {
+            return
+        }
+        
+        // 보여줄 콜렉션뷰 초기화
+        arrChildController.removeAll()
+        // 스크롤 서브페이지 초기화
+        scrollView.removeAllSubCell()
+        self.focusIndex = dicResult["focusIndex"] as! Int
+        for i in 0..<arrResult.count {
+            let newYearMonth: (year:Int, month:Int) = arrResult[i]
+            let monthVC = self.arrOriginController[i]
+            
+            // 스크롤뷰에 SubCell 추가
+            scrollView.addScrollSubview(monthVC.view)
+            arrChildController.append(monthVC)
+
+            monthVC.setMonthToDays(year: newYearMonth.year, month: newYearMonth.month)
+            
+            // 포커스 페이지면...
+            if focusIndex == i {
+                self.curentDate = newYearMonth
+            }
+
+            // 혹시 3개가 인경우 더이상 처리하지 않는다.
+            if arrChildController.count == 3 {
+                break
+            }
+        }
+
 		// 서브셀 위치 재설정
 		scrollView.reposSubCell()
 		
-		// 센터 페이지 이동 시킨다.
-		self.scrollView.goCenterPageMove()
+		// 포커스 페이지 이동 시킨다.
+		self.scrollView.goFocusPageMove(focusIndex: focusIndex)
 		
 		// 달력 타이틀 세팅
-		setCalendarTitle()
+		setCalendarTitle(centerIndex: focusIndex)
 		
 		// 다이어리 상세
 		self.isDiaryDetail = false
-		
-		// 선택된 인덱스
-		self.oldCurentIndex = -1
+        
+        self.scrollDirection = 0
 	}
 	
 	// 달력 타이틀 세팅
 	func setCalendarTitle(centerIndex: Int = -1) {
 		
-		let monthTitle = CalendarManager.getMonthString(monthIndex: curentMonth)
-		self.lbCalendarTitle.text = "\(monthTitle) \(curentYear)"
+		let monthTitle = CalendarManager.getMonthString(monthIndex: self.curentDate.month)
+		self.lbCalendarTitle.text = "\(monthTitle) \(self.curentDate.year)"
 		
 		let monthVC: CalendarMonthViewController? = arrChildController[centerIndex == -1 ? scrollView.centerIndex : centerIndex]
 		if monthVC != nil {
 			let scrollHeight: CGFloat = CGFloat(monthVC!.cellLineCount) * 60.0
 			// -1은 라인 굵기
-			todoListHeightConstraint.constant = vContent.bounds.height - scrollHeight - 1
-			UIView.animate(withDuration: 0.1) {
-				self.view.layoutIfNeeded()
-			}
+            todoListHeightConstraint.constant = vContent.bounds.height - scrollHeight - 1
+            
+            UIView.animate(withDuration: 0.1) {
+                self.view.layoutIfNeeded()
+            }
 			
-//			print("전체높이=\(vContent.bounds.height - scrollHeight)")
+//            print("전체높이 = \(vContent.bounds.height - scrollHeight)")
 		}
 	}
 	
@@ -291,6 +287,7 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
 			// 수직 스크롤링 고정
 			scrollView.contentOffset.y = 0.0
 			
+//            print("contentOffset.x = \(scrollView.contentOffset.x) / bounds.width = \(scrollView.bounds.width)")
 			let tabIndex: CGFloat = scrollView.contentOffset.x / scrollView.bounds.width
 			let curentIndex: Int = Int(tabIndex)
 			
@@ -306,6 +303,9 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
 			if let monthVC = monthlyPlanVC {
 				// Prev Move
 				if tabIndex <= infiniteScroll.prevPageIndex() {
+                    // 좌측 스크롤
+                    self.scrollDirection = -1
+                    
 					if (monthVC.curentYear * 100 + monthVC.curentMonth) > (startYYYYMMDD/100) {
 						self.goPrevPage(year: monthVC.curentYear, month: monthVC.curentMonth)
 						
@@ -314,31 +314,21 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
 				}
 				// Next Move
 				else if tabIndex >= infiniteScroll.nextPageIndex() {
+                    // 마지막페이지에서 넘어설 경우만 체크
+                    if tabIndex > CGFloat(CGFloat(self.arrChildController.count)-1.0) {
+                        // 우측 스크롤
+                        self.scrollDirection = 1
+                    }
+                    
 					if (monthVC.curentYear * 100 + monthVC.curentMonth) < (endYYYYMMDD/100) {
 						self.goNextPage(year: monthVC.curentYear, month: monthVC.curentMonth)
 						
 						return
 					}
-					else {
-						// 상세페이지 이동
-						if oldCurentIndex == (self.arrChildController.count-1) && isDiaryDetail == false {
-							isDiaryDetail = true
-							
-							let YYYYMMDD: String = "\(startYYYYMMDD)"
-							let year: String = YYYYMMDD.left(4)
-							let month: String = YYYYMMDD.mid(4, amount: 2)
-							let day: String = YYYYMMDD.right(2)
-							let popup = AlertMessagePopup.messagePopup(withMessage: "\(year)년\(month)월\(day)일 다이어리 상세페이지 이동")
-							popup.addActionConfirmClick("확인", handler: {
-								self.isDiaryDetail = false
-							})
-						}
-					}
 				}
 				
 				// 달력 타이틀 세팅
-				curentYear = monthVC.curentYear
-				curentMonth = monthVC.curentMonth
+                self.curentDate = (monthVC.curentYear, monthVC.curentMonth)
 				setCalendarTitle(centerIndex: curentIndex)
 			}
 		}
@@ -364,11 +354,31 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
 	
 	// 스크롤 애니메이션의 감속 효과가 종료된 후에 실행된다.
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		// 이전 보여주는 페이지
-		let tabIndex: CGFloat = scrollView.contentOffset.x / scrollView.bounds.width
-		oldCurentIndex = Int(tabIndex)
-		
-		print("oldCurentIndex=\(oldCurentIndex)")
+        let tabIndex: CGFloat = scrollView.contentOffset.x / scrollView.bounds.width
+        
+        // 마지막페이지에서 한번더 댕겼을 경우 상세페이지 이동
+        if self.scrollDirection == 1 {
+            if focusIndex == (self.arrChildController.count-1) && isDiaryDetail == false {
+                isDiaryDetail = true
+                
+                let YYYYMMDD: String = "\(startYYYYMMDD)"
+                let year: String = YYYYMMDD.left(4)
+                let month: String = YYYYMMDD.mid(4, amount: 2)
+                let day: String = YYYYMMDD.right(2)
+                let popup = AlertMessagePopup.messagePopup(withMessage: "\(year)년\(month)월\(day)일 다이어리 상세페이지 이동")
+                popup.addActionConfirmClick("확인", handler: {
+                    self.isDiaryDetail = false
+                })
+            }
+        }
+        
+        // 스크롤 셀 포커스 인덱스
+        self.focusIndex = Int(tabIndex)
+        
+        // 스크롤 방향 초기화
+        self.scrollDirection = 0
+        
+        print("focusIndex=\(focusIndex)")
 	}
 	
 	// scrollView.scrollsToTop = YES 설정이 되어 있어야 아래 이벤트를 받을수 있다.

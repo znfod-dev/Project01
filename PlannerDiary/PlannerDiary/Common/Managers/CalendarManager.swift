@@ -111,7 +111,7 @@ class CalendarManager {
     }
 	
 	// 달력날짜 시작/종료일 세팅
-	static func getYearMontLimite(startYYYYMMDD: Int, endYYYYMMDD: Int) -> [(year:Int, month:Int)] {
+    static func getYearMontLimite(startYYYYMMDD: Int, endYYYYMMDD: Int) -> [String: Any] {
 		// 오늘 년/월 구하기
 		let thisMonth: (year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
 		
@@ -125,42 +125,72 @@ class CalendarManager {
 		var thisMonthCount: Int = -1
 		
 		var arrMonths = [(year:Int, month:Int)]()
+        // 기본 3페이지 중간 페이지를 보여준다.
+        var focusIndex: Int = 1
+        // 반환해줄 목록
+        var dicResult = [String: Any]()
+        // 보여줄 년/월일 목록
 		var arrResultMonths = [(year:Int, month:Int)]()
 		
-		while (endMonth.year == curentMonth.year && endMonth.month == curentMonth.month) == false {
-			curentMonth = CalendarManager.getYearMonth(year: startMonth.year, month: startMonth.month, amount: count)
-			arrMonths += [curentMonth]
-			if thisMonth == curentMonth {
-				thisMonthCount = count
-			}
-			count += 1
-		}
-		
-		// 이번달이 없을 경우...
+        repeat {
+            curentMonth = CalendarManager.getYearMonth(year: startMonth.year, month: startMonth.month, amount: count)
+            arrMonths += [curentMonth]
+            if thisMonth == curentMonth {
+                thisMonthCount = count
+            }
+            count += 1
+
+        } while (endMonth.year == curentMonth.year && endMonth.month == curentMonth.month) == false
+
+        // 이번달이 없을 경우...
 		if thisMonthCount == -1 {
-			count = 0
-			curentMonth = startMonth
-			while (endMonth.year == curentMonth.year && endMonth.month == curentMonth.month) == false {
-				curentMonth = CalendarManager.getYearMonth(year: startMonth.year, month: startMonth.month, amount: count)
-				arrResultMonths += [curentMonth]
-				count += 1
-				if arrResultMonths.count == 3 {
-					break
-				}
-			}
+            for curentMonth in arrMonths {
+                arrResultMonths += [curentMonth]
+                if arrResultMonths.count == 3 {
+                    break
+                }
+            }
 		}
+        else {
+            // 이번달 한달전부터 시작
+            var startIndex: Int = thisMonthCount - 1
+            // 이번달이 목록의 마지막일 경우
+            if thisMonthCount == (arrMonths.count - 1) {
+                startIndex = thisMonthCount - 2
+                focusIndex = 2
+            }
+            
+            if startIndex < 0 {
+                startIndex = 0
+                focusIndex = 0
+            }
+            
+            for i in startIndex..<arrMonths.count {
+                let curentMonth = arrMonths[i]
+                arrResultMonths += [curentMonth]
+                if arrResultMonths.count == 3 {
+                    break
+                }
+            }
+        }
+        
+        // 기본 3페이지인데 적을 경우 포커스를 처음으로 이동시켜준다.
+        if arrResultMonths.count < 3 {
+            focusIndex = 0
+        }
 		
-//		print(thisMonthCount)
-//		print(arrResultMonths)
-		
-		return arrResultMonths
+        dicResult["focusIndex"] = focusIndex
+        dicResult["arrResultMonths"] = arrResultMonths
+        
+		return dicResult
 	}
     
     // 년/월에 맞는 날짜 목록 얻어오기
-    static func getMonthToDays(year:Int, month:Int) -> Array<(year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)> {
+    static func getMonthToDays(year:Int, month:Int) -> [[String: Any]] {
+//        static func getMonthToDays(year:Int, month:Int) -> Array<(year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)> {
         
         // 선택한 달의 날짜 목록
-        var arrCurentMoth:[(year:Int, month:Int, day:Int, cellIndex:Int, isCurentMonth:Bool)] = []
+        var arrCurentMoth:[[String: Any]] = []
         
         // 이번달
         let curYear: Int = year
@@ -220,14 +250,33 @@ class CalendarManager {
         // 0:일, 1:월 ... 6:토
         let weekday: Int = comp!.weekday! - 1
 
+        var dayCount = 0
+        
         // 이전달
         var countDay: Int = prevMothDayLength - weekday
         for _ in 0..<weekday {
             countDay += 1
             
             let cellIndex = prevYear * 10000 + prevMonth * 100 + countDay
-            let dayData = (year:prevYear, month:prevMonth, day:countDay, cellIndex: cellIndex, isCurentMonth: false)
-            arrCurentMoth.append(dayData)
+//            let dayData = (year:prevYear, month:prevMonth, day:countDay, cellIndex: cellIndex, isCurentMonth: false)
+            var dicDayData = [String: Any]()
+            dicDayData["year"] = prevYear
+            dicDayData["month"] = prevMonth
+            dicDayData["day"] = countDay
+            dicDayData["cellIndex"] = cellIndex
+            dicDayData["isCurentMonth"] = false
+
+            // 공휴일 체크
+            if (dayCount % 7) == 0 {
+                dicDayData["isHoliday"] = true
+            }
+            else {
+                dicDayData["isHoliday"] = false
+            }
+
+            arrCurentMoth.append(dicDayData)
+            
+            dayCount += 1
         }
         
         // 이번달
@@ -236,8 +285,26 @@ class CalendarManager {
             countDay += 1
 
             let cellIndex = curYear * 10000 + curMonth * 100 + countDay
-            let dayData = (year:curYear, month:curMonth, day:countDay, cellIndex: cellIndex, isCurentMonth: true)
-            arrCurentMoth.append(dayData)
+//            let dayData = (year:curYear, month:curMonth, day:countDay, cellIndex: cellIndex, isCurentMonth: true)
+//            arrCurentMoth.append(dayData)
+            var dicDayData = [String: Any]()
+            dicDayData["year"] = prevYear
+            dicDayData["month"] = prevMonth
+            dicDayData["day"] = countDay
+            dicDayData["cellIndex"] = cellIndex
+            dicDayData["isCurentMonth"] = true
+
+            // 공휴일 체크
+            if (dayCount % 7) == 0 {
+                dicDayData["isHoliday"] = true
+            }
+            else {
+                dicDayData["isHoliday"] = false
+            }
+
+            arrCurentMoth.append(dicDayData)
+                        
+            dayCount += 1
         }
 
         // 다음달
@@ -249,8 +316,17 @@ class CalendarManager {
                 countDay += 1
 
                 let cellIndex = nextYear * 10000 + nextMonth * 100 + countDay
-                let dayData = (year:nextYear, month:nextMonth, day:countDay, cellIndex: cellIndex, isCurentMonth: false)
-                arrCurentMoth.append(dayData)
+//                let dayData = (year:nextYear, month:nextMonth, day:countDay, cellIndex: cellIndex, isCurentMonth: false)
+//                arrCurentMoth.append(dayData)
+                var dicDayData = [String: Any]()
+                dicDayData["year"] = prevYear
+                dicDayData["month"] = prevMonth
+                dicDayData["day"] = countDay
+                dicDayData["cellIndex"] = cellIndex
+                dicDayData["isCurentMonth"] = false
+                dicDayData["isHoliday"] = false
+                
+                arrCurentMoth.append(dicDayData)
             }
         }
 
