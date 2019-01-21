@@ -513,11 +513,4 @@ extension MonthlyPlanViewController: BEMCheckBoxDelegate {
 
 
 
-extension Date {
-    func string() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMdd"
-        let day = formatter.string(from: self)
-        return day
-    }
-}
+
