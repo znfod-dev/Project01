@@ -709,6 +709,9 @@
                                     <segment title="년"/>
                                     <segment title="직접 설정"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentPressed:" destination="soV-4J-f4p" eventType="valueChanged" id="SQ1-co-QYE"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계획명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSE-Mj-OHu">
                                 <rect key="frame" x="16" y="91" width="45" height="21"/>
