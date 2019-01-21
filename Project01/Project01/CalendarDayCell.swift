@@ -50,7 +50,7 @@ class CalendarDayCell: UICollectionViewCell {
 		else {
 			vSelectedCell.isHidden = true
 		}
-/*
+        
         // 공휴일 체크
         if isHoliday == true {
             vHoliday.isHidden = false
@@ -58,6 +58,5 @@ class CalendarDayCell: UICollectionViewCell {
         else {
             vHoliday.isHidden = true
         }
- */
     }
 }
