@@ -216,22 +216,23 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
          // 월간 일정
         if indexPath.row == 0 {
+            print("planner")
             sideMenuController?.setContentViewController(with: "0", animated: Preferences.shared.enableTransitionAnimation)
             sideMenuController?.hideMenu()
         }
         // 계획리스트
         else if indexPath.row == 1 {
 //            sideMenuController?.setContentViewController(with: "1", animated: Preferences.shared.enableTransitionAnimation)
-            
+            print("planner")
             let plannerVC = self.storyboard?.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
             self.present(plannerVC, animated: true)
             
-            sideMenuController?.hideMenu()
+//            sideMenuController?.hideMenu()
         }
         // 설정
         else if indexPath.row == 2 {
 //            sideMenuController?.setContentViewController(with: "2", animated: Preferences.shared.enableTransitionAnimation)
-            sideMenuController?.hideMenu()
+//            sideMenuController?.hideMenu()
         }
     }
 }
