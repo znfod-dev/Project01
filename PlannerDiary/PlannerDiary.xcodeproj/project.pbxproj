@@ -43,6 +43,8 @@
 		D900D29021EAE8150012E58F /* InfiniteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900D28F21EAE8150012E58F /* InfiniteScrollView.swift */; };
 		D900D29221EAEF7E0012E58F /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900D29121EAEF7E0012E58F /* CalendarManager.swift */; };
 		D9019AF221E0AFC100C59EBC /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9019AF121E0AFC100C59EBC /* PlaceholderTextView.swift */; };
+		D905858621F5E7F400A491E5 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905858521F5E7F400A491E5 /* AlamofireHelper.swift */; };
+		D905858821F5E84B00A491E5 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905858721F5E84B00A491E5 /* URLs.swift */; };
 		D915AFE421EAFF78002129B5 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D915AFE121EAFF78002129B5 /* CalendarDayCell.swift */; };
 		D915AFE521EAFF78002129B5 /* MonthlyPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D915AFE221EAFF78002129B5 /* MonthlyPlanViewController.swift */; };
 		D915AFE621EAFF78002129B5 /* CalendarMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D915AFE321EAFF78002129B5 /* CalendarMonthViewController.swift */; };
@@ -117,6 +119,8 @@
 		D900D28F21EAE8150012E58F /* InfiniteScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollView.swift; sourceTree = "<group>"; };
 		D900D29121EAEF7E0012E58F /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		D9019AF121E0AFC100C59EBC /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
+		D905858521F5E7F400A491E5 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
+		D905858721F5E84B00A491E5 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		D915AFE121EAFF78002129B5 /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
 		D915AFE221EAFF78002129B5 /* MonthlyPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyPlanViewController.swift; sourceTree = "<group>"; };
 		D915AFE321EAFF78002129B5 /* CalendarMonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonthViewController.swift; sourceTree = "<group>"; };
@@ -282,7 +286,9 @@
 			isa = PBXGroup;
 			children = (
 				9E3D81AE21EDA7DE00019652 /* Define.swift */,
+				D905858721F5E84B00A491E5 /* URLs.swift */,
 				9E95CD5E21DF1B030026556A /* CommonUtil.swift */,
+				D905858221F5E7AB00A491E5 /* AlamofireHelper */,
 				D9F5D38621DB41AA003B4AD5 /* Managers */,
 			);
 			path = Common;
@@ -349,6 +355,14 @@
 				D9019AF121E0AFC100C59EBC /* PlaceholderTextView.swift */,
 			);
 			path = PlaceholderTextView;
+			sourceTree = "<group>";
+		};
+		D905858221F5E7AB00A491E5 /* AlamofireHelper */ = {
+			isa = PBXGroup;
+			children = (
+				D905858521F5E7F400A491E5 /* AlamofireHelper.swift */,
+			);
+			path = AlamofireHelper;
 			sourceTree = "<group>";
 		};
 		D915AFE021EAFF78002129B5 /* Calendar */ = {
@@ -626,6 +640,7 @@
 				9E3D81AF21EDA7DE00019652 /* Define.swift in Sources */,
 				D9FF72E321E76BF800A0A279 /* AlertMessagePopup.swift in Sources */,
 				9E95CD5F21DF1B030026556A /* CommonUtil.swift in Sources */,
+				D905858621F5E7F400A491E5 /* AlamofireHelper.swift in Sources */,
 				D9F5D38821DB41C1003B4AD5 /* FocusManager.swift in Sources */,
 				9E9BF9B021D9D62A001ECF40 /* AppDelegate.swift in Sources */,
 				D9FF72E621E76BF800A0A279 /* DiarayPageHeaderCell.swift in Sources */,
@@ -634,6 +649,7 @@
 				D900D29021EAE8150012E58F /* InfiniteScrollView.swift in Sources */,
 				D9019AF221E0AFC100C59EBC /* PlaceholderTextView.swift in Sources */,
 				9E73755F21F01A97009FF9F4 /* UIColor+hexString.swift in Sources */,
+				D905858821F5E84B00A491E5 /* URLs.swift in Sources */,
 				9ECBAFB921E886D800A281C6 /* SettingViewController.swift in Sources */,
 				D915AFE621EAFF78002129B5 /* CalendarMonthViewController.swift in Sources */,
 				9ECBAFB321E8814800A281C6 /* SideMenuViewController.swift in Sources */,
