@@ -10,6 +10,14 @@
 		60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8721F376FF00E0DCB2 /* TodoCell.swift */; };
 		60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* Todo.swift */; };
 		60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* DBTodo.swift */; };
+		60F47A9021F56C2D00E0DCB2 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8F21F56C2D00E0DCB2 /* Plan.swift */; };
+		60F47A9221F56C3400E0DCB2 /* DBPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9121F56C3400E0DCB2 /* DBPlan.swift */; };
+		60F47A9521F5705700E0DCB2 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */; };
+		60F47A9721F5706500E0DCB2 /* AddPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9621F5706500E0DCB2 /* AddPlanViewController.swift */; };
+		60F47A9921F5707800E0DCB2 /* DatePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */; };
+		60F47A9B21F5708400E0DCB2 /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9A21F5708400E0DCB2 /* PlanCell.swift */; };
+		60F47A9D21F5722C00E0DCB2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9C21F5722C00E0DCB2 /* Alert.swift */; };
+		60F47A9F21F57FA200E0DCB2 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9E21F57FA200E0DCB2 /* DateExtension.swift */; };
 		8DA5D0028A74BB00F2BDC35E /* Pods_Project01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB15EA79718A43B263395EF /* Pods_Project01.framework */; };
 		9B26622F21EA3E48007CF0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */; };
 		9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623221EA3E48007CF0B3 /* Main.storyboard */; };
@@ -57,6 +65,14 @@
 		60F47A8721F376FF00E0DCB2 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		60F47A8A21F3873900E0DCB2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		60F47A8C21F3874600E0DCB2 /* DBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTodo.swift; sourceTree = "<group>"; };
+		60F47A8F21F56C2D00E0DCB2 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		60F47A9121F56C3400E0DCB2 /* DBPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBPlan.swift; sourceTree = "<group>"; };
+		60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
+		60F47A9621F5706500E0DCB2 /* AddPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanViewController.swift; sourceTree = "<group>"; };
+		60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickViewController.swift; sourceTree = "<group>"; };
+		60F47A9A21F5708400E0DCB2 /* PlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
+		60F47A9C21F5722C00E0DCB2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		60F47A9E21F57FA200E0DCB2 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		9B26622B21EA3E48007CF0B3 /* Project01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B26623321EA3E48007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +149,26 @@
 			path = Todo;
 			sourceTree = "<group>";
 		};
+		60F47A8E21F56C0100E0DCB2 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				60F47A8F21F56C2D00E0DCB2 /* Plan.swift */,
+				60F47A9121F56C3400E0DCB2 /* DBPlan.swift */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		60F47A9321F5701D00E0DCB2 /* Planner */ = {
+			isa = PBXGroup;
+			children = (
+				60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */,
+				60F47A9621F5706500E0DCB2 /* AddPlanViewController.swift */,
+				60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */,
+				60F47A9A21F5708400E0DCB2 /* PlanCell.swift */,
+			);
+			path = Planner;
+			sourceTree = "<group>";
+		};
 		6A89BEBB9BF5143A9185D87E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +217,11 @@
 				D9FBE0C521F32B1B00BDA694 /* String+Substring.swift */,
 				D9FBE0CD21F32B1B00BDA694 /* UIColor+hexString.swift */,
 				60F47A8721F376FF00E0DCB2 /* TodoCell.swift */,
+				60F47A9C21F5722C00E0DCB2 /* Alert.swift */,
+				60F47A9E21F57FA200E0DCB2 /* DateExtension.swift */,
+				60F47A9321F5701D00E0DCB2 /* Planner */,
 				60F47A8921F3870200E0DCB2 /* Todo */,
+				60F47A8E21F56C0100E0DCB2 /* Plan */,
 				D9FBE09F21F32A0D00BDA694 /* Images */,
 				9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */,
 				9B26623221EA3E48007CF0B3 /* Main.storyboard */,
@@ -316,6 +356,10 @@
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-Project01/Pods-Project01-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
@@ -325,6 +369,10 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
@@ -366,22 +414,30 @@
 				D9FBE0DB21F32B1C00BDA694 /* RoundLineView.swift in Sources */,
 				D9FBE0E021F32B1C00BDA694 /* BasePopup.swift in Sources */,
 				D9FBE0DF21F32B1C00BDA694 /* InfiniteScrollView.swift in Sources */,
+				60F47A9921F5707800E0DCB2 /* DatePickViewController.swift in Sources */,
+				60F47A9721F5706500E0DCB2 /* AddPlanViewController.swift in Sources */,
 				D9FBE0E421F32B1C00BDA694 /* CalendarMonthViewController.swift in Sources */,
+				60F47A9D21F5722C00E0DCB2 /* Alert.swift in Sources */,
+				60F47A9021F56C2D00E0DCB2 /* Plan.swift in Sources */,
 				D9FBE0DD21F32B1C00BDA694 /* MonthlyPlanViewController.swift in Sources */,
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
 				60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */,
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
+				60F47A9221F56C3400E0DCB2 /* DBPlan.swift in Sources */,
 				D9FBE0DE21F32B1C00BDA694 /* UIColor+hexString.swift in Sources */,
+				60F47A9F21F57FA200E0DCB2 /* DateExtension.swift in Sources */,
 				9B26622F21EA3E48007CF0B3 /* AppDelegate.swift in Sources */,
 				D9FBE0DA21F32B1C00BDA694 /* LoaddingPopup.swift in Sources */,
 				D9FBE0E221F32B1C00BDA694 /* DBManager.swift in Sources */,
 				D9FBE0E121F32B1C00BDA694 /* SiceMenuCell.swift in Sources */,
+				60F47A9B21F5708400E0DCB2 /* PlanCell.swift in Sources */,
 				D9FBE0E321F32B1C00BDA694 /* RoundLineButton.swift in Sources */,
 				60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */,
 				D9FBE0D721F32B1C00BDA694 /* CalendarManager.swift in Sources */,
 				D9FBE0D821F32B1C00BDA694 /* AlertMessagePopup.swift in Sources */,
 				D9FBE0E521F32B1C00BDA694 /* CommonUtil.swift in Sources */,
+				60F47A9521F5705700E0DCB2 /* PlannerViewController.swift in Sources */,
 				D9FBE0D921F32B1C00BDA694 /* Define.swift in Sources */,
 				60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */,
 			);

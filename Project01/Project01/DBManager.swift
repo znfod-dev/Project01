@@ -417,3 +417,37 @@ extension DBManager {
         }
     }
 }
+
+
+
+// PlanList DBManager
+extension DBManager {
+    // Select
+    // 계획 정보 불러오기
+    func selectPlanDB() -> Array<Plan> {
+        print("selectPlanDB")
+        var planArray = Array<Plan>()
+        
+        let dbPlanArray = self.database.objects(DBPlan.self)
+        for dbPlan in dbPlanArray {
+            let plan = Plan.init(dbPlan: dbPlan)
+            planArray.append(plan)
+        }
+        
+        return planArray
+    }
+    
+    
+    
+    // Insert
+    // 계획 추가
+    func addPlanDB(plan: Plan) {
+        let dbPlan = DBPlan.init(plan: plan)
+        
+        try! self.database.write {
+            self.database.add(dbPlan)
+            
+            print("DB : addPlan")
+        }
+    }
+}

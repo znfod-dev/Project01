@@ -222,6 +222,10 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         // 계획리스트
         else if indexPath.row == 1 {
 //            sideMenuController?.setContentViewController(with: "1", animated: Preferences.shared.enableTransitionAnimation)
+            
+            let plannerVC = self.storyboard?.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
+            self.present(plannerVC, animated: true)
+            
             sideMenuController?.hideMenu()
         }
         // 설정

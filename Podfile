@@ -10,7 +10,9 @@ target 'Project01' do
     pod 'SideMenuSwift'
     pod 'Alamofire', '~> 4.7'
     pod 'BEMCheckBox'
-    
+    pod 'PopupDialog', '~> 0.9'
+    pod 'FSCalendar'
+
 end
 
 target 'Project01ForZn' do
