@@ -100,7 +100,7 @@ class DBManager: NSObject {
     func selectSQL(type: Object.Type, condition: String) -> Results<Object>? {
         return database!.objects(type).filter(condition)
     }
-    
+
     // MARK: - SQL Script Processing
     // SQL 실행하다.
     @discardableResult
@@ -132,6 +132,14 @@ class DBManager: NSObject {
             //                dicSQLResults["RESULT_CODE"] = "3"
             //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
             //            }
+            if tableName == String(describing: ModelDBHoliday.self) {
+                let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
+                ModelDBHoliday.SQLExcute(command: command, condition: nil, dicFields: dicFields)
+            }
+            else {
+                dicSQLResults["RESULT_CODE"] = "3"
+                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            }
         }
         else if command == "UPDATE" {
             // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
@@ -153,6 +161,19 @@ class DBManager: NSObject {
             //                dicSQLResults["RESULT_CODE"] = "3"
             //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
             //            }
+            if tableName == String(describing: ModelDBHoliday.self) {
+                if condition != nil {
+                    ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: dicFields)
+                }
+                else {
+                    dicSQLResults["RESULT_CODE"] = "2"
+                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
+                }
+            }
+            else {
+                dicSQLResults["RESULT_CODE"] = "3"
+                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            }
         }
         else if command == "DELETE" {
             // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
@@ -172,6 +193,19 @@ class DBManager: NSObject {
             //                dicSQLResults["RESULT_CODE"] = "3"
             //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
             //            }
+            if tableName == String(describing: ModelDBHoliday.self) {
+                if condition != nil {
+                    ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: nil)
+                }
+                else {
+                    dicSQLResults["RESULT_CODE"] = "2"
+                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
+                }
+            }
+            else {
+                dicSQLResults["RESULT_CODE"] = "3"
+                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            }
         }
         else if command == "SELECT" {
             
@@ -185,6 +219,13 @@ class DBManager: NSObject {
             //                dicSQLResults["RESULT_CODE"] = "3"
             //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
             //            }
+            if tableName == String(describing: ModelDBHoliday.self) {
+                dicSQLResults["RESULT_DATA"] = ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: nil)
+            }
+            else {
+                dicSQLResults["RESULT_CODE"] = "3"
+                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            }
         }
         
         return dicSQLResults

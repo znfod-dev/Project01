@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "CalendarDayCell"
 
@@ -42,7 +43,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
     }
     
     // 설정할 년/월
-    func setMonthToDays(year:Int, month:Int) {
+    func setMonthToDays(year:Int, month:Int, isRequest:Bool = true) {
         print("년월 = \(year) - \(month)")
 		
 		// 선택한 년/월
@@ -53,6 +54,11 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         arrDays = CalendarManager.getMonthToDays(year:year, month:month)
         cellLineCount = Int((arrDays?.count)! / 7)
         self.collectionView.reloadData()
+        
+        if isRequest == true {
+            // 공휴일 체크
+            self.requestHoliday(year: curentYear, month: curentMonth)
+        }
     }
 
     /*
@@ -141,6 +147,127 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         
         // 콜렉션뷰 전체 리로드
         parentVC?.collectionReloadDataAll()
+    }
+    
+    // MARK: - RESTfull API
+    // 공휴일 체크
+    func requestHoliday(year:Int, month:Int) {
+        // 체크기간 유효성 체크
+        // 공공데이터 포털에서 2015.01 ~ 올해 12월까지만 검색 가능하다.
+
+        // 오늘 년/월 구하기
+        let thisYear: (year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
+
+        // 선택한 년/월 인덱스
+        let curIndex = year * 100 + month
+        // 올해 마지막
+        let maxIndex = thisYear.year * 100 + 12
+        if curIndex < 201501 || curIndex > maxIndex {
+            return
+        }
+        
+        // RelamDB에서 먼저 검색해보고 없으면 API
+        // 공휴일 정보 검색
+        let sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM='\(curIndex)';"
+        // SQL 결과
+        let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
+        let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
+        // 검색 실패
+        if resultCode != "0" {
+            return
+        }
+
+        // 해당 년/월에 데이터가 저장되어 있으면...
+        let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
+        if resultData.count > 0 {
+            return
+        }
+        
+        // 공공데이터 포털 API호출
+        var param: [String: String] = AlamofireHelper.requestParameters()
+        
+        param["ServiceKey"] = kServiceKey_AUTHKEY
+        param["solYear"] = "\(year)"
+        param["solMonth"] = String(format: "%02d", month)
+        //        param["_type"] = "json"
+        print(param)
+        
+        AlamofireHelper.requestGET(kMonthHoliday_URL, parameters: param, success: { (jsonData) in
+            
+            guard let jsonData = jsonData else {
+                return
+            }
+            
+            let response: [String: Any]? = (jsonData["response"] as! [String : Any])
+            if CommonUtil.isEmpty(response as AnyObject) { return }
+            
+            let body: [String: Any]? = response!["body"] as? [String : Any]
+            if CommonUtil.isEmpty(body as AnyObject) { return }
+            
+            let items: [String: Any]? = body!["items"] as? [String : Any]
+            if CommonUtil.isEmpty(items as AnyObject) { return }
+            
+            let totalCount: Int = body!["totalCount"] as? Int ?? 0
+            if totalCount == 0 {
+                // RelamDB INSERT문
+                var sql = "INSERT INTO ModelDBHoliday(dateYYYYMM, "
+                sql += "dateYYYYMMDD, "
+                sql += "name) VALUES('\(curIndex)', "
+                sql += "'0', "
+                sql += "'');"
+                
+                // SQL 결과
+                DBManager.SQLExcute(sql: sql)
+            }
+            // 딕셔너리
+            else if totalCount == 1 {
+                let item: [String: Any]? = items!["item"] as? [String: Any]
+                if CommonUtil.isEmpty(item as AnyObject) { return }
+                
+                let dateName: String = item!["dateName"] as! String
+                let locdate: Int = item!["locdate"] as! Int
+                print("dateName = \(dateName), locdate = \(locdate)")
+                
+                // RelamDB INSERT문
+                var sql = "INSERT INTO ModelDBHoliday(dateYYYYMM, "
+                sql += "dateYYYYMMDD, "
+                sql += "name) VALUES('\(curIndex)', "
+                sql += "'\(locdate)', "
+                sql += "'\(dateName)');"
+                
+                // SQL 결과
+                DBManager.SQLExcute(sql: sql)
+                
+                // 설정할 년/월 갱신
+                self.setMonthToDays(year: self.curentYear, month: self.curentMonth, isRequest: false)
+            }
+            // 배열
+            else {
+                let item: [[String: Any]]? = items!["item"] as? [[String: Any]]
+                if CommonUtil.isEmpty(item as AnyObject) { return }
+
+                for holiday:[String: Any] in item! {
+                    let dateName: String = holiday["dateName"] as! String
+                    let locdate: Int = holiday["locdate"] as! Int
+                    print("dateName = \(dateName), locdate = \(locdate)")
+                    
+                    // RelamDB INSERT문
+                    var sql = "INSERT INTO ModelDBHoliday(dateYYYYMM, "
+                    sql += "dateYYYYMMDD, "
+                    sql += "name) VALUES('\(curIndex)', "
+                    sql += "'\(locdate)', "
+                    sql += "'\(dateName)');"
+                    
+                    // SQL 결과
+                    DBManager.SQLExcute(sql: sql)
+                }
+                
+                // 설정할 년/월 갱신
+                self.setMonthToDays(year: self.curentYear, month: self.curentMonth, isRequest: false)
+            }
+        }) { (error) in
+//            print(error!)
+        }
     }
 }
 
