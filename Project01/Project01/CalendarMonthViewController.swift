@@ -198,14 +198,12 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
                 return
             }
             
+            print(jsonData)
             let response: [String: Any]? = (jsonData["response"] as! [String : Any])
             if CommonUtil.isEmpty(response as AnyObject) { return }
             
             let body: [String: Any]? = response!["body"] as? [String : Any]
             if CommonUtil.isEmpty(body as AnyObject) { return }
-            
-            let items: [String: Any]? = body!["items"] as? [String : Any]
-            if CommonUtil.isEmpty(items as AnyObject) { return }
             
             let totalCount: Int = body!["totalCount"] as? Int ?? 0
             if totalCount == 0 {
@@ -221,6 +219,9 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
             }
             // 딕셔너리
             else if totalCount == 1 {
+                let items: [String: Any]? = body!["items"] as? [String : Any]
+                if CommonUtil.isEmpty(items as AnyObject) { return }
+
                 let item: [String: Any]? = items!["item"] as? [String: Any]
                 if CommonUtil.isEmpty(item as AnyObject) { return }
                 
@@ -243,6 +244,9 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
             }
             // 배열
             else {
+                let items: [String: Any]? = body!["items"] as? [String : Any]
+                if CommonUtil.isEmpty(items as AnyObject) { return }
+
                 let item: [[String: Any]]? = items!["item"] as? [[String: Any]]
                 if CommonUtil.isEmpty(item as AnyObject) { return }
 

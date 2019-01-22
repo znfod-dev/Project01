@@ -198,14 +198,12 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
                 return
             }
             
+            print(jsonData)
             let response: [String: Any]? = (jsonData["response"] as! [String : Any])
             if CommonUtil.isEmpty(response as AnyObject) { return }
             
             let body: [String: Any]? = response!["body"] as? [String : Any]
             if CommonUtil.isEmpty(body as AnyObject) { return }
-            
-            let items: [String: Any]? = body!["items"] as? [String : Any]
-            if CommonUtil.isEmpty(items as AnyObject) { return }
             
             let totalCount: Int = body!["totalCount"] as? Int ?? 0
             if totalCount == 0 {
@@ -219,8 +217,11 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
                 // SQL 결과
                 DBManager.SQLExcute(sql: sql)
             }
-            // 딕셔너리
+                // 딕셔너리
             else if totalCount == 1 {
+                let items: [String: Any]? = body!["items"] as? [String : Any]
+                if CommonUtil.isEmpty(items as AnyObject) { return }
+                
                 let item: [String: Any]? = items!["item"] as? [String: Any]
                 if CommonUtil.isEmpty(item as AnyObject) { return }
                 
@@ -241,11 +242,14 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
                 // 설정할 년/월 갱신
                 self.setMonthToDays(year: self.curentYear, month: self.curentMonth, isRequest: false)
             }
-            // 배열
+                // 배열
             else {
+                let items: [String: Any]? = body!["items"] as? [String : Any]
+                if CommonUtil.isEmpty(items as AnyObject) { return }
+                
                 let item: [[String: Any]]? = items!["item"] as? [[String: Any]]
                 if CommonUtil.isEmpty(item as AnyObject) { return }
-
+                
                 for holiday:[String: Any] in item! {
                     let dateName: String = holiday["dateName"] as! String
                     let locdate: Int = holiday["locdate"] as! Int
