@@ -100,10 +100,10 @@ class DBManager: NSObject {
     func selectSQL(type: Object.Type, condition: String) -> Results<Object>? {
         return database!.objects(type).filter(condition)
     }
-
+    
     // MARK: - SQL Script Processing
     // SQL 실행하다.
-	@discardableResult
+    @discardableResult
     static func SQLExcute(sql: String) -> [String: Any] {
         
         // SQL 결과
@@ -124,14 +124,14 @@ class DBManager: NSObject {
         if command == "INSERT" {
             // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
             let tableName: String = dicTableData["TABLE_NAME"] as! String
-//            if tableName == String(describing: OwnerInfo.self) {
-//                let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
-//                OwnerInfo.SQLExcute(command: command, condition: nil, dicFields: dicFields)
-//            }
-//            else {
-//                dicSQLResults["RESULT_CODE"] = "3"
-//                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-//            }
+            //            if tableName == String(describing: OwnerInfo.self) {
+            //                let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
+            //                OwnerInfo.SQLExcute(command: command, condition: nil, dicFields: dicFields)
+            //            }
+            //            else {
+            //                dicSQLResults["RESULT_CODE"] = "3"
+            //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            //            }
         }
         else if command == "UPDATE" {
             // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
@@ -140,51 +140,51 @@ class DBManager: NSObject {
             let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
             
             // 검색후 업데이트해준다.
-//            if tableName == String(describing: OwnerInfo.self) {
-//                if condition != nil {
-//                    OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: dicFields)
-//                }
-//                else {
-//                    dicSQLResults["RESULT_CODE"] = "2"
-//                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
-//                }
-//            }
-//            else {
-//                dicSQLResults["RESULT_CODE"] = "3"
-//                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-//            }
+            //            if tableName == String(describing: OwnerInfo.self) {
+            //                if condition != nil {
+            //                    OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: dicFields)
+            //                }
+            //                else {
+            //                    dicSQLResults["RESULT_CODE"] = "2"
+            //                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
+            //                }
+            //            }
+            //            else {
+            //                dicSQLResults["RESULT_CODE"] = "3"
+            //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            //            }
         }
         else if command == "DELETE" {
             // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
             let tableName: String = dicTableData["TABLE_NAME"] as! String
             let condition: String? = dicTableData["WHERE"] as? String
             // 검색후 삭제해준다.
-//            if tableName == String(describing: OwnerInfo.self) {
-//                if condition != nil {
-//                    OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: nil)
-//                }
-//                else {
-//                    dicSQLResults["RESULT_CODE"] = "2"
-//                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
-//                }
-//            }
-//            else {
-//                dicSQLResults["RESULT_CODE"] = "3"
-//                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-//            }
+            //            if tableName == String(describing: OwnerInfo.self) {
+            //                if condition != nil {
+            //                    OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: nil)
+            //                }
+            //                else {
+            //                    dicSQLResults["RESULT_CODE"] = "2"
+            //                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
+            //                }
+            //            }
+            //            else {
+            //                dicSQLResults["RESULT_CODE"] = "3"
+            //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            //            }
         }
         else if command == "SELECT" {
             
             // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
             let tableName: String = dicTableData["TABLE_NAME"] as! String
             let condition: String? = dicTableData["WHERE"] as? String
-//            if tableName == String(describing: OwnerInfo.self) {
-//                dicSQLResults["RESULT_DATA"] = OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: nil)
-//            }
-//            else {
-//                dicSQLResults["RESULT_CODE"] = "3"
-//                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-//            }
+            //            if tableName == String(describing: OwnerInfo.self) {
+            //                dicSQLResults["RESULT_DATA"] = OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: nil)
+            //            }
+            //            else {
+            //                dicSQLResults["RESULT_CODE"] = "3"
+            //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            //            }
         }
         
         return dicSQLResults
@@ -405,6 +405,24 @@ extension DBManager {
     
     
     
+    // 계획 삭제
+    func deleteTodoDB(todo: Todo, completion: (()->Void)? = nil) {
+        // DB에서 uid를 가지고 객체 찾기
+        guard let todoToDelete = self.database.object(ofType: DBTodo.self, forPrimaryKey: todo.uid!) else {
+            print("deletePlanDB Fail")
+            return
+        }
+        
+        // 찾은 객체 삭제
+        try! self.database.write {
+            self.database.delete(todoToDelete)
+            
+            completion?()
+        }
+    }
+    
+    
+    
     // Update
     // Todo 체크 정보 업데이트
     func updateTodoIsSelectedDB(todo: Todo) {
@@ -448,6 +466,25 @@ extension DBManager {
             self.database.add(dbPlan)
             
             print("DB : addPlan")
+        }
+    }
+    
+    
+    
+    // Delete
+    // 계획 삭제
+    func deletePlanDB(plan: Plan, completion: (()->Void)? = nil) {
+        // DB에서 uid를 가지고 객체 찾기
+        guard let planToDelete = self.database.object(ofType: DBPlan.self, forPrimaryKey: plan.uid!) else {
+            print("deletePlanDB Fail")
+            return
+        }
+        
+        // 찾은 객체 삭제
+        try! self.database.write {
+            self.database.delete(planToDelete)
+            
+            completion?()
         }
     }
 }

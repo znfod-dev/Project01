@@ -22,6 +22,8 @@ class PlannerViewController: UIViewController {
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(NSHomeDirectory())
     }
     
     
@@ -84,5 +86,17 @@ extension PlannerViewController: UITableViewDataSource {
         detailPlanVC.plan = plan
         
         self.navigationController?.pushViewController(detailPlanVC, animated: true)
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            let plan = self.planArray[indexPath.row]
+            DBManager.sharedInstance.deletePlanDB(plan: plan) {
+                self.planArray.remove(at: indexPath.row)
+            }
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
     }
 }

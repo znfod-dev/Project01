@@ -22,7 +22,7 @@ class DBPlan: Object {
     convenience init(planType: Int, planTitle: String, startDay: String, endDay: String) {
         self.init()
         
-        self.uid = UUID.init().uuidString
+        self.uid = UUID().uuidString
         self.date = Date()
         self.planType = planType
         self.planTitle = planTitle
@@ -31,6 +31,7 @@ class DBPlan: Object {
     }
     
     convenience init(plan: Plan) {
+        let uid = plan.uid
         let planType = plan.planType
         let planTitle = plan.planTitle
         let startDay = plan.startDay
