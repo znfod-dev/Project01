@@ -31,7 +31,6 @@ class DBPlan: Object {
     }
     
     convenience init(plan: Plan) {
-        let uid = plan.uid
         let planType = plan.planType
         let planTitle = plan.planTitle
         let startDay = plan.startDay

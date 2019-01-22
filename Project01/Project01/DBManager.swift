@@ -397,7 +397,7 @@ extension DBManager {
         let dbTodo = DBTodo.init(todo: todo)
         
         try! self.database.write {
-            database.add(dbTodo)
+            database.add(dbTodo, update: true)
             
             print("DB : addTodo")
         }
