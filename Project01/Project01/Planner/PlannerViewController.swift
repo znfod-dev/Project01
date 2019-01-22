@@ -58,10 +58,6 @@ extension PlannerViewController: UITableViewDelegate {
 
 extension PlannerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.planArray.count == nil {
-            return 0
-        }
-
         return self.planArray.count
     }
     

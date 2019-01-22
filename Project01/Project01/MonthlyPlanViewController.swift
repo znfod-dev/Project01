@@ -535,6 +535,30 @@ extension MonthlyPlanViewController: UITableViewDataSource {
 
 
 
+// TableViewDelegate
+extension MonthlyPlanViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Todo 수정", message: nil, preferredStyle: .alert)
+        
+        let todo = selectedDayTodo[indexPath.row]
+        alert.addTextField { (tf) in
+            tf.text = todo.title
+        }
+        
+        alert.addAction(UIAlertAction(title: "변경", style: .default, handler: { (_) in
+            todo.title = alert.textFields?.last?.text
+            
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        
+        
+        
+        self.present(alert, animated: true)
+    }
+}
+
+
+
 // BEMCheckBoxDelegate
 extension MonthlyPlanViewController: BEMCheckBoxDelegate {
     func didTap(_ checkBox: BEMCheckBox) {
