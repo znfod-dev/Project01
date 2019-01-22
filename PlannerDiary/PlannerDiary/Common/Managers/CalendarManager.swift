@@ -301,7 +301,6 @@ class CalendarManager {
             // 공휴일 체크
             let holiday = dicHoliday["\(cellIndex)"]
             if CommonUtil.isEmpty(holiday as AnyObject) {
-                dicDayData["isHoliday"] = false
                 dicDayData["holidayName"] = ""
             }
             else {
@@ -338,7 +337,6 @@ class CalendarManager {
             // 공휴일 체크
             let holiday = dicHoliday["\(cellIndex)"]
             if CommonUtil.isEmpty(holiday as AnyObject) {
-                dicDayData["isHoliday"] = false
                 dicDayData["holidayName"] = ""
             }
             else {
@@ -372,7 +370,6 @@ class CalendarManager {
                 // 공휴일 체크
                 let holiday = dicHoliday["\(cellIndex)"]
                 if CommonUtil.isEmpty(holiday as AnyObject) {
-                    dicDayData["isHoliday"] = false
                     dicDayData["holidayName"] = ""
                 }
                 else {

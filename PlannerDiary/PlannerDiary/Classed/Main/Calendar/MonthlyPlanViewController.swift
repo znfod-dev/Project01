@@ -25,7 +25,7 @@ class MonthlyPlanViewController: UIViewController {
     var arrChildController = [CalendarMonthViewController]()
 
 	var startYYYYMMDD = 20181101
-	var endYYYYMMDD = 20190301
+	var endYYYYMMDD = 20191201
 	
 	// 다이어리 상세
 	var isDiaryDetail: Bool = false
