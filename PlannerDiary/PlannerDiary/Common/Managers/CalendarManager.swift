@@ -289,6 +289,7 @@ class CalendarManager {
             dicDayData["day"] = countDay
             dicDayData["cellIndex"] = cellIndex
             dicDayData["isCurentMonth"] = false
+            dicDayData["curentMonth"] = -1
 
             // 일요일 체크
             if (dayCount % 7) == 0 {
@@ -325,6 +326,7 @@ class CalendarManager {
             dicDayData["day"] = countDay
             dicDayData["cellIndex"] = cellIndex
             dicDayData["isCurentMonth"] = true
+            dicDayData["curentMonth"] = 0
 
             // 일요일 체크
             if (dayCount % 7) == 0 {
@@ -364,6 +366,7 @@ class CalendarManager {
                 dicDayData["day"] = countDay
                 dicDayData["cellIndex"] = cellIndex
                 dicDayData["isCurentMonth"] = false
+                dicDayData["curentMonth"] = 1
                 dicDayData["isHoliday"] = false
                 dicDayData["holidayName"] = ""
                 
