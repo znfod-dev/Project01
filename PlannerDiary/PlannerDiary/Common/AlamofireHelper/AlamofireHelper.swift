@@ -23,71 +23,48 @@ class AlamofireHelper: NSObject {
 	}
 	
 	// GET
-	static func requestGET(_ url: URLConvertible, parameters: Parameters? = nil, completionHandler: @escaping (_ response: Any?, _ error: NSError?) -> ()) {
+    static func requestGET(_ url: URLConvertible, parameters: Parameters? = nil, success: @escaping (_ response: [String : Any]?) -> (), failure: @escaping (_ error: Error?) -> ()) {
 		
-		Alamofire.request(
-			url,
-			method: .get,
-			parameters: parameters,
-			encoding: URLEncoding.default,
-			headers: ["Content-Type":"application/json", "Accept":"application/json"]
-			)
-			.validate(statusCode: 200..<300)
-			.responseJSON {
-				response in
-
-				switch response.result {
-				case .success(let value):
-					completionHandler(value as Any, nil)
-				case .failure(let error):
-					completionHandler(nil, error as NSError)
-				}
-/*
-				switch response.result {
-				case .failure(let error):
-					// Do whatever here
-					completionBlock(error as? [String : AnyObject], nil)
-					return
-					
-				case .success(let response):
-					// First make sure you got back a dictionary if that's what you expect
-					guard let json = response as? [String : AnyObject] else {
-						return
-					}
-					
-					print(json["response"]!)
-					
-					// Then make sure you get the actual key/value types you expect
-//					guard var points = json["points"] as? Double,
-//						let additions = json["additions"] as? [[String : AnyObject]],
-//						let used = json["used"] as? [[String : AnyObject]] else {
-//							NSAlert.okWithMessage("Failed to get data from webserver")
-//							return
-//					}
-//				if let JSON = response.result.value {
-//					print(JSON["response"])
-//				}
-				}
-*/
-		}
+        Alamofire.request(
+            url,
+            method: .get,
+            parameters: parameters,
+            encoding: URLEncoding.default,
+            headers: ["Content-Type":"application/json", "Accept":"application/json"]
+            )
+            .validate(statusCode: 200..<300)
+            .responseJSON {
+                response in
+                
+                switch response.result {
+                case .success(let value):
+                    success(value as? [String : Any])
+                case .failure(let error):
+                    failure(error)
+                }
+        }
 	}
 	
 	// POST
-	static func requestPOST(_ url: URLConvertible, parameters: Parameters? = nil) {
+	static func requestPOST(_ url: URLConvertible, parameters: Parameters? = nil, success: @escaping (_ response: [String : Any]?) -> (), failure: @escaping (_ error: Error?) -> ()) {
 		
-		Alamofire.request(
-			url,
-			method: .post,
-			parameters: [:],
-			encoding: URLEncoding.default,
-			headers: ["Content-Type":"application/json", "Accept":"application/json"]
-			)
-			.validate(statusCode: 200..<300)
-			.responseJSON {
-				response in
-				if let JSON = response.result.value {
-					print(JSON)
-				}
-		}
+        Alamofire.request(
+            url,
+            method: .post,
+            parameters: parameters,
+            encoding: URLEncoding.default,
+            headers: ["Content-Type":"application/json", "Accept":"application/json"]
+            )
+            .validate(statusCode: 200..<300)
+            .responseJSON {
+                response in
+                
+                switch response.result {
+                case .success(let value):
+                    success(value as? [String : Any])
+                case .failure(let error):
+                    failure(error)
+                }
+        }
 	}
 }

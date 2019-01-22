@@ -74,33 +74,6 @@ class MonthlyPlanViewController: UIViewController {
 
 		// 프로필 오너 DB체크
 //		self.selectOwnerInfoTable()
-		
-		var param: [String: String] = AlamofireHelper.requestParameters()
-
-		param["ServiceKey"] = "1X8KJtZHbcoJvH7wW8r8muCn5xLKcxIfNSYK1d5jSvktiLD4SoELr/xO5z7U8prQrCjemru9FpfHZmosQjb3uA=="
-		param["solYear"] = "2019"
-		param["solMonth"] = "02"
-		param["_type"] = "json"
-
-		AlamofireHelper.requestGET(kMonthHoliday_URL, parameters: param) { (jsonData, error) in
-			if let error = error {
-				print(error)
-				return
-			}
-			
-			let jsonData: [String: Any] = jsonData as! [String : Any]
-			let response: [String: Any] = jsonData["response"] as! [String : Any]
-			let body: [String: Any] = response["body"] as! [String : Any]
-			let items: [String: Any] = body["items"] as! [String : Any]
-			let item: [[String: Any]] = items["item"] as! [[String: Any]]
-			
-			for holiday:[String: Any] in item {
-				let dateName: String = holiday["dateName"] as! String
-				let locdate: Int = holiday["locdate"] as! Int
-				print("dateName = \(dateName), locdate = \(locdate)")
-			}
-		}
-
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {

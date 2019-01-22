@@ -128,6 +128,10 @@ class DBManager: NSObject {
                 let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
                 OwnerInfo.SQLExcute(command: command, condition: nil, dicFields: dicFields)
             }
+            else if tableName == String(describing: ModelDBHoliday.self) {
+                let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
+                ModelDBHoliday.SQLExcute(command: command, condition: nil, dicFields: dicFields)
+            }
             else {
                 dicSQLResults["RESULT_CODE"] = "3"
                 dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
@@ -143,6 +147,15 @@ class DBManager: NSObject {
             if tableName == String(describing: OwnerInfo.self) {
                 if condition != nil {
                     OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: dicFields)
+                }
+                else {
+                    dicSQLResults["RESULT_CODE"] = "2"
+                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
+                }
+            }
+            else if tableName == String(describing: ModelDBHoliday.self) {
+                if condition != nil {
+                    ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: dicFields)
                 }
                 else {
                     dicSQLResults["RESULT_CODE"] = "2"
@@ -168,6 +181,15 @@ class DBManager: NSObject {
                     dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
                 }
             }
+            else if tableName == String(describing: ModelDBHoliday.self) {
+                if condition != nil {
+                    ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: nil)
+                }
+                else {
+                    dicSQLResults["RESULT_CODE"] = "2"
+                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
+                }
+            }
             else {
                 dicSQLResults["RESULT_CODE"] = "3"
                 dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
@@ -180,6 +202,9 @@ class DBManager: NSObject {
             let condition: String? = dicTableData["WHERE"] as? String
             if tableName == String(describing: OwnerInfo.self) {
                 dicSQLResults["RESULT_DATA"] = OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: nil)
+            }
+            else if tableName == String(describing: ModelDBHoliday.self) {
+                dicSQLResults["RESULT_DATA"] = ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: nil)
             }
             else {
                 dicSQLResults["RESULT_CODE"] = "3"

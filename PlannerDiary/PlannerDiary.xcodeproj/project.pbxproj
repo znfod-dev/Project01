@@ -28,6 +28,8 @@
 		9E9BF9D221D9DED1001ECF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9BF9D021D9DED1001ECF40 /* LaunchScreen.storyboard */; };
 		9E9BF9D321D9DED1001ECF40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9BF9D121D9DED1001ECF40 /* Main.storyboard */; };
 		9E9BF9E221D9FB86001ECF40 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9BF9E121D9FB85001ECF40 /* UnderlineTextField.swift */; };
+		9EC46C5621F6B62D00765274 /* ModelDBHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5521F6B62D00765274 /* ModelDBHoliday.swift */; };
+		9EC46C5821F6B64000765274 /* ModelHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5721F6B64000765274 /* ModelHoliday.swift */; };
 		9ECBAFB321E8814800A281C6 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECBAFB221E8814800A281C6 /* SideMenuViewController.swift */; };
 		9ECBAFB621E885DB00A281C6 /* icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECBAFB421E885DB00A281C6 /* icon_close@2x.png */; };
 		9ECBAFB721E885DB00A281C6 /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECBAFB521E885DB00A281C6 /* icon_close@3x.png */; };
@@ -103,6 +105,8 @@
 		9E9BF9D021D9DED1001ECF40 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9BF9D121D9DED1001ECF40 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9BF9E121D9FB85001ECF40 /* UnderlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
+		9EC46C5521F6B62D00765274 /* ModelDBHoliday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDBHoliday.swift; sourceTree = "<group>"; };
+		9EC46C5721F6B64000765274 /* ModelHoliday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHoliday.swift; sourceTree = "<group>"; };
 		9ECBAFB221E8814800A281C6 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		9ECBAFB421E885DB00A281C6 /* icon_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@2x.png"; sourceTree = "<group>"; };
 		9ECBAFB521E885DB00A281C6 /* icon_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@3x.png"; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				9E73756121F041E0009FF9F4 /* OwnerInfo.swift */,
+				9EC46C5721F6B64000765274 /* ModelHoliday.swift */,
+				9EC46C5521F6B62D00765274 /* ModelDBHoliday.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -627,10 +633,12 @@
 				D915AFE521EAFF78002129B5 /* MonthlyPlanViewController.swift in Sources */,
 				9E9BF9E221D9FB86001ECF40 /* UnderlineTextField.swift in Sources */,
 				9E0D3F2521F19A8200A37A33 /* SiceMenuCell.swift in Sources */,
+				9EC46C5621F6B62D00765274 /* ModelDBHoliday.swift in Sources */,
 				9E73756221F041E0009FF9F4 /* OwnerInfo.swift in Sources */,
 				D9FF72E521E76BF800A0A279 /* DiaryPageViewController.swift in Sources */,
 				9E92FA1221EC5DFC000EDBBF /* String+Substring.swift in Sources */,
 				9E95CD5A21DEE3220026556A /* RoundLineView.swift in Sources */,
+				9EC46C5821F6B64000765274 /* ModelHoliday.swift in Sources */,
 				D9000E2721EE0C95007A4E92 /* DBManager.swift in Sources */,
 				D900D29221EAEF7E0012E58F /* CalendarManager.swift in Sources */,
 				9E95CD6521DF28570026556A /* BasePopup.swift in Sources */,
