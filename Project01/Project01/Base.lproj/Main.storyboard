@@ -692,6 +692,47 @@
             </objects>
             <point key="canvasLocation" x="5540" y="794.75262368815595"/>
         </scene>
+        <!--Detail Plan View Controller-->
+        <scene sceneID="vKl-j8-P0w">
+            <objects>
+                <viewController storyboardIdentifier="DetailPlanViewController" id="DdD-OA-hVp" customClass="DetailPlanViewController" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tcH-cy-n5o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1E0-l0-l0j">
+                                <rect key="frame" x="16" y="56" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVZ-RL-7w1">
+                                <rect key="frame" x="16" y="173.5" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1E0-l0-l0j" firstAttribute="leading" secondItem="sme-OA-NdU" secondAttribute="leading" constant="16" id="9zm-Rr-8lF"/>
+                            <constraint firstItem="sme-OA-NdU" firstAttribute="trailing" secondItem="1E0-l0-l0j" secondAttribute="trailing" constant="16" id="Z70-yX-U3O"/>
+                            <constraint firstItem="YVZ-RL-7w1" firstAttribute="top" secondItem="1E0-l0-l0j" secondAttribute="bottom" constant="97" id="ehy-FW-m6p"/>
+                            <constraint firstItem="1E0-l0-l0j" firstAttribute="top" secondItem="sme-OA-NdU" secondAttribute="top" constant="36" id="lpY-Ly-KZi"/>
+                            <constraint firstItem="sme-OA-NdU" firstAttribute="trailing" secondItem="YVZ-RL-7w1" secondAttribute="trailing" constant="16" id="nCX-ba-qMx"/>
+                            <constraint firstItem="YVZ-RL-7w1" firstAttribute="leading" secondItem="sme-OA-NdU" secondAttribute="leading" constant="16" id="yOS-KU-UZC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sme-OA-NdU"/>
+                    </view>
+                    <connections>
+                        <outlet property="planTermLabel" destination="YVZ-RL-7w1" id="5G0-6m-OGq"/>
+                        <outlet property="planTitleLabel" destination="1E0-l0-l0j" id="7WC-HZ-NgT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KLv-kz-qFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5541.6000000000004" y="1478.4107946026988"/>
+        </scene>
         <!--Add Plan View Controller-->
         <scene sceneID="iGr-Ev-8lW">
             <objects>

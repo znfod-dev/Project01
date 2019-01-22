@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6042713B21F6B57F001F0E40 /* DetailPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */; };
 		60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8721F376FF00E0DCB2 /* TodoCell.swift */; };
 		60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* Todo.swift */; };
 		60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* DBTodo.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlanViewController.swift; sourceTree = "<group>"; };
 		60F47A8721F376FF00E0DCB2 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		60F47A8A21F3873900E0DCB2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		60F47A8C21F3874600E0DCB2 /* DBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTodo.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */,
+				6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */,
 				60F47A9621F5706500E0DCB2 /* AddPlanViewController.swift */,
 				60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */,
 				60F47A9A21F5708400E0DCB2 /* PlanCell.swift */,
@@ -429,6 +432,7 @@
 				60F47A9F21F57FA200E0DCB2 /* DateExtension.swift in Sources */,
 				9B26622F21EA3E48007CF0B3 /* AppDelegate.swift in Sources */,
 				D9FBE0DA21F32B1C00BDA694 /* LoaddingPopup.swift in Sources */,
+				6042713B21F6B57F001F0E40 /* DetailPlanViewController.swift in Sources */,
 				D9FBE0E221F32B1C00BDA694 /* DBManager.swift in Sources */,
 				D9FBE0E121F32B1C00BDA694 /* SiceMenuCell.swift in Sources */,
 				60F47A9B21F5708400E0DCB2 /* PlanCell.swift in Sources */,

@@ -74,4 +74,15 @@ extension PlannerViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailPlanVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanViewController") as! DetailPlanViewController
+        
+        let plan = self.planArray[indexPath.row]
+        detailPlanVC.plan = plan
+        
+        self.navigationController?.pushViewController(detailPlanVC, animated: true)
+    }
 }

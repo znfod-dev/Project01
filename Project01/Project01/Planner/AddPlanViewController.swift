@@ -114,9 +114,9 @@ class AddPlanViewController: UIViewController {
         
         let plan = Plan()
         plan.planType = self.segment.selectedSegmentIndex
-        plan.planTitle = title
-        plan.startDay = self.startDay
-        plan.endDay = self.endDay
+        plan.planTitle = planTextField.text
+        plan.startDay = self.startDayLabel.text
+        plan.endDay = self.endDayLabel.text
         
         DBManager.sharedInstance.addPlanDB(plan: plan)
         
