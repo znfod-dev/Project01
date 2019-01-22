@@ -1451,10 +1451,8 @@
                                             <color key="backgroundColor" red="0.8901960784313725" green="0.015686274509803921" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="jBc-2V-2b9" firstAttribute="leading" secondItem="hgX-tB-rPE" secondAttribute="leading" constant="2" id="4WX-Dy-69T"/>
-                                                <constraint firstItem="jBc-2V-2b9" firstAttribute="centerY" secondItem="hgX-tB-rPE" secondAttribute="centerY" id="7n3-j7-cXx"/>
                                                 <constraint firstAttribute="trailing" secondItem="jBc-2V-2b9" secondAttribute="trailing" constant="2" id="S4b-G7-q89"/>
                                                 <constraint firstItem="jBc-2V-2b9" firstAttribute="top" secondItem="hgX-tB-rPE" secondAttribute="top" constant="2" id="SLE-W8-Zqe"/>
-                                                <constraint firstItem="jBc-2V-2b9" firstAttribute="centerX" secondItem="hgX-tB-rPE" secondAttribute="centerX" id="biS-6t-AmK"/>
                                                 <constraint firstAttribute="bottom" secondItem="jBc-2V-2b9" secondAttribute="bottom" constant="2" id="tj7-Jz-dSO"/>
                                             </constraints>
                                         </view>
