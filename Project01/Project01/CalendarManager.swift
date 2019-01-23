@@ -288,7 +288,8 @@ class CalendarManager {
             dicDayData["month"] = prevMonth
             dicDayData["day"] = countDay
             dicDayData["cellIndex"] = cellIndex
-            dicDayData["isCurentMonth"] = false
+            // 보여주는 월의 이전(-1), 현재(0), 다음달(1) 표시
+            dicDayData["monthDirection"] = -1
 
             // 일요일 체크
             if (dayCount % 7) == 0 {
@@ -324,7 +325,7 @@ class CalendarManager {
             dicDayData["month"] = prevMonth
             dicDayData["day"] = countDay
             dicDayData["cellIndex"] = cellIndex
-            dicDayData["isCurentMonth"] = true
+            dicDayData["monthDirection"] = 0
 
             // 일요일 체크
             if (dayCount % 7) == 0 {
@@ -363,7 +364,7 @@ class CalendarManager {
                 dicDayData["month"] = prevMonth
                 dicDayData["day"] = countDay
                 dicDayData["cellIndex"] = cellIndex
-                dicDayData["isCurentMonth"] = false
+                dicDayData["monthDirection"] = 1
                 dicDayData["isHoliday"] = false
                 dicDayData["holidayName"] = ""
                 

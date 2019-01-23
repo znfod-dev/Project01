@@ -17,19 +17,21 @@ class CalendarDayCell: UICollectionViewCell {
     @IBOutlet weak var lbHoliday: UILabel!
 
     func setCellInfo(_ infoData: [String: Any]) {
-	
+        
         if CommonUtil.isEmpty(infoData as AnyObject) {
             return
         }
         
         let day: Int = infoData["day"] as! Int
         let cellIndex: Int = infoData["cellIndex"] as! Int
-        let isCurentMonth: Bool = infoData["isCurentMonth"] as! Bool
+        let monthDirection: Int = infoData["monthDirection"] as! Int
         let isHoliday: Bool = infoData["isHoliday"] as! Bool
         let holidayName: String = infoData["holidayName"] as! String
 
         lbDay.text = "\(day)"
-        if isCurentMonth == true {
+        
+        // 현재달
+        if monthDirection == 0 {
             // 오늘일 경우
             if CalendarManager.getTodayIndex() == cellIndex {
                 lbDay.textColor = UIColor.white
@@ -40,6 +42,7 @@ class CalendarDayCell: UICollectionViewCell {
                 vToDay.isHidden = true
             }
         }
+        // -1 or 1 이면 이전달, 다음달
         else {
             lbDay.textColor = UIColor.lightGray
             vToDay.isHidden = true
