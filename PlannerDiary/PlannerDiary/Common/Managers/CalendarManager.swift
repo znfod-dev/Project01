@@ -321,8 +321,8 @@ class CalendarManager {
 
             let cellIndex = curYear * 10000 + curMonth * 100 + countDay
             var dicDayData = [String: Any]()
-            dicDayData["year"] = prevYear
-            dicDayData["month"] = prevMonth
+            dicDayData["year"] = curYear
+            dicDayData["month"] = curMonth
             dicDayData["day"] = countDay
             dicDayData["cellIndex"] = cellIndex
             dicDayData["monthDirection"] = 0
@@ -345,6 +345,22 @@ class CalendarManager {
                 dicDayData["holidayName"] = holiday
             }
 
+            // 음력 구하기
+            let solar = Solar(year: curYear, month: curMonth, day: countDay)
+            do {
+                let lunar = try solar.toLunar()
+                dicDayData["yearLunar"] = lunar.year
+                dicDayData["monthLunar"] = lunar.month
+                dicDayData["dayLunar"] = lunar.day
+
+//                print("lunar year=\(lunar.year), month=\(lunar.month), day=\(lunar.day)")
+            } catch let e {
+                if e is CalendarLunar.ConvertError {
+                    let error = e as! CalendarLunar.ConvertError
+                    print(error.message)
+                }
+            }
+
             arrCurentMoth.append(dicDayData)
                         
             dayCount += 1
@@ -360,8 +376,8 @@ class CalendarManager {
 
                 let cellIndex = nextYear * 10000 + nextMonth * 100 + countDay
                 var dicDayData = [String: Any]()
-                dicDayData["year"] = prevYear
-                dicDayData["month"] = prevMonth
+                dicDayData["year"] = nextYear
+                dicDayData["month"] = nextMonth
                 dicDayData["day"] = countDay
                 dicDayData["cellIndex"] = cellIndex
                 dicDayData["monthDirection"] = 1

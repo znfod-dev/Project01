@@ -15,6 +15,7 @@
 		9E92FA1221EC5DFC000EDBBF /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E92FA1121EC5DFC000EDBBF /* String+Substring.swift */; };
 		9E92FA1521EC7B7C000EDBBF /* icon_today@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E92FA1321EC7B7B000EDBBF /* icon_today@3x.png */; };
 		9E92FA1621EC7B7C000EDBBF /* icon_today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E92FA1421EC7B7B000EDBBF /* icon_today@2x.png */; };
+		9E954C9121F83106006356BF /* CalendarLunar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E954C9021F83106006356BF /* CalendarLunar.swift */; };
 		9E95CD5721DEE2270026556A /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E95CD5621DEE2270026556A /* Common.storyboard */; };
 		9E95CD5A21DEE3220026556A /* RoundLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E95CD5921DEE3220026556A /* RoundLineView.swift */; };
 		9E95CD5F21DF1B030026556A /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E95CD5E21DF1B030026556A /* CommonUtil.swift */; };
@@ -90,6 +91,7 @@
 		9E92FA1121EC5DFC000EDBBF /* String+Substring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
 		9E92FA1321EC7B7B000EDBBF /* icon_today@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_today@3x.png"; sourceTree = "<group>"; };
 		9E92FA1421EC7B7B000EDBBF /* icon_today@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_today@2x.png"; sourceTree = "<group>"; };
+		9E954C9021F83106006356BF /* CalendarLunar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLunar.swift; sourceTree = "<group>"; };
 		9E95CD5621DEE2270026556A /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		9E95CD5921DEE3220026556A /* RoundLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundLineView.swift; sourceTree = "<group>"; };
 		9E95CD5E21DF1B030026556A /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				D9F5D38721DB41C1003B4AD5 /* FocusManager.swift */,
 				D900D29121EAEF7E0012E58F /* CalendarManager.swift */,
 				D9000E2621EE0C95007A4E92 /* DBManager.swift */,
+				9E954C9021F83106006356BF /* CalendarLunar.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				D9F5D38821DB41C1003B4AD5 /* FocusManager.swift in Sources */,
 				9E9BF9B021D9D62A001ECF40 /* AppDelegate.swift in Sources */,
 				D9FF72E621E76BF800A0A279 /* DiarayPageHeaderCell.swift in Sources */,
+				9E954C9121F83106006356BF /* CalendarLunar.swift in Sources */,
 				D915AFE421EAFF78002129B5 /* CalendarDayCell.swift in Sources */,
 				9EF4A1E421E472B500DCD2A6 /* RoundLineButton.swift in Sources */,
 				D900D29021EAE8150012E58F /* InfiniteScrollView.swift in Sources */,

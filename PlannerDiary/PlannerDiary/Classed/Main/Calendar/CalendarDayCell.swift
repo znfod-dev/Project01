@@ -15,6 +15,7 @@ class CalendarDayCell: UICollectionViewCell {
 	@IBOutlet weak var vSelectedCell: UIView!
     @IBOutlet weak var vHoliday: UIView!
     @IBOutlet weak var lbHoliday: UILabel!
+    @IBOutlet weak var lbDayLunar: UILabel!
 
     func setCellInfo(_ infoData: [String: Any]) {
         
@@ -28,6 +29,26 @@ class CalendarDayCell: UICollectionViewCell {
         let isHoliday: Bool = infoData["isHoliday"] as! Bool
         let holidayName: String = infoData["holidayName"] as! String
 
+        var monthLunar: Int = 0
+        var dayLunar: Int = 0
+        
+        // 음력
+        if infoData.index(forKey: "monthLunar") != nil {
+            monthLunar = infoData["monthLunar"] as! Int
+        }
+        
+        if infoData.index(forKey: "dayLunar") != nil {
+            dayLunar = infoData["dayLunar"] as! Int
+        }
+        
+        if monthLunar == 0 || dayLunar == 0 {
+            lbDayLunar.isHidden = true
+        }
+        else {
+            lbDayLunar.isHidden = false
+            lbDayLunar.text = String(format: "(음) %02d-%02d", monthLunar, dayLunar)
+        }
+        
         lbDay.text = "\(day)"
         
         // 현재달

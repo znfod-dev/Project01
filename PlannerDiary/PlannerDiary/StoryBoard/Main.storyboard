@@ -1500,11 +1500,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(음)01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpF-Ww-Jjl">
+                                            <rect key="frame" x="7.5" y="46" width="38" height="11"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="hgX-tB-rPE" firstAttribute="leading" secondItem="XIf-0G-cwD" secondAttribute="leading" id="2Ib-Jq-epR"/>
                                     <constraint firstItem="vGd-lf-XLB" firstAttribute="centerX" secondItem="XIf-0G-cwD" secondAttribute="centerX" id="63v-YJ-POC"/>
+                                    <constraint firstAttribute="bottom" secondItem="FpF-Ww-Jjl" secondAttribute="bottom" constant="3" id="Aab-kW-kWD"/>
+                                    <constraint firstItem="FpF-Ww-Jjl" firstAttribute="centerX" secondItem="XIf-0G-cwD" secondAttribute="centerX" id="NR8-As-CXr"/>
                                     <constraint firstItem="hgX-tB-rPE" firstAttribute="top" secondItem="XIf-0G-cwD" secondAttribute="top" id="Uqt-md-igA"/>
                                     <constraint firstItem="r94-xL-hlQ" firstAttribute="top" secondItem="XIf-0G-cwD" secondAttribute="top" id="WcB-Xe-kaG"/>
                                     <constraint firstAttribute="bottom" secondItem="r94-xL-hlQ" secondAttribute="bottom" constant="1" id="aS5-OG-Uok"/>
@@ -1517,6 +1525,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="lbDay" destination="FOT-oP-GjR" id="k6w-jQ-udw"/>
+                                    <outlet property="lbDayLunar" destination="FpF-Ww-Jjl" id="KR1-ZT-4MO"/>
                                     <outlet property="lbHoliday" destination="jBc-2V-2b9" id="XgQ-Vn-1gT"/>
                                     <outlet property="vHoliday" destination="hgX-tB-rPE" id="r6V-0w-hoi"/>
                                     <outlet property="vSelectedCell" destination="r94-xL-hlQ" id="93m-T0-8Rd"/>
