@@ -25,7 +25,7 @@ class MonthlyPlanViewController: UIViewController {
     var arrChildController = [CalendarMonthViewController]()
 
 	var startYYYYMMDD = 20181101
-	var endYYYYMMDD = 20191201
+	var endYYYYMMDD = 20190301
 	
 	// 다이어리 상세
 	var isDiaryDetail: Bool = false
@@ -229,14 +229,9 @@ class MonthlyPlanViewController: UIViewController {
         
         let offsetX = CGFloat(tabIndex - 1) * scrollView.bounds.width
         let leftOffset = CGPoint(x: offsetX, y: 0)
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.scrollView.setContentOffset(leftOffset, animated: false)
-        }) { success in
-            // 스크롤 셀 포커스 인덱스
-            let tabIndex: Int = Int(self.scrollView.contentOffset.x / self.scrollView.bounds.width)
-            self.focusIndex = tabIndex
-        }
+		
+		self.scrollView.setContentOffset(leftOffset, animated: true)
+		self.perform(#selector(self.scrollViewDidEndDecelerating(_:)), with: scrollView, afterDelay: 0.5)
     }
 
     // 현재달력에서 다음달 선택시 다음달로 스크롤링
@@ -248,14 +243,9 @@ class MonthlyPlanViewController: UIViewController {
         
         let offsetX = CGFloat(tabIndex + 1) * scrollView.bounds.width
         let rightOffset = CGPoint(x: offsetX, y: 0)
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.scrollView.setContentOffset(rightOffset, animated: false)
-        }) { success in
-            // 스크롤 셀 포커스 인덱스
-            let tabIndex: Int = Int(self.scrollView.contentOffset.x / self.scrollView.bounds.width)
-            self.focusIndex = tabIndex
-        }
+		
+		self.scrollView.setContentOffset(rightOffset, animated: true)
+		self.perform(#selector(self.scrollViewDidEndDecelerating(_:)), with: scrollView, afterDelay: 0.5)
     }
 
 	/*
