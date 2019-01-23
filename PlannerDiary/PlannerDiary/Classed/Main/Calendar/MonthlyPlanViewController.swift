@@ -227,10 +227,16 @@ class MonthlyPlanViewController: UIViewController {
             return
         }
         
-        print(tabIndex)
         let offsetX = CGFloat(tabIndex - 1) * scrollView.bounds.width
         let leftOffset = CGPoint(x: offsetX, y: 0)
-        scrollView.setContentOffset(leftOffset, animated: true)
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.scrollView.setContentOffset(leftOffset, animated: false)
+        }) { success in
+            // 스크롤 셀 포커스 인덱스
+            let tabIndex: Int = Int(self.scrollView.contentOffset.x / self.scrollView.bounds.width)
+            self.focusIndex = tabIndex
+        }
     }
 
     // 현재달력에서 다음달 선택시 다음달로 스크롤링
@@ -240,10 +246,16 @@ class MonthlyPlanViewController: UIViewController {
             return
         }
         
-        print(tabIndex)
         let offsetX = CGFloat(tabIndex + 1) * scrollView.bounds.width
         let rightOffset = CGPoint(x: offsetX, y: 0)
-        scrollView.setContentOffset(rightOffset, animated: true)
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.scrollView.setContentOffset(rightOffset, animated: false)
+        }) { success in
+            // 스크롤 셀 포커스 인덱스
+            let tabIndex: Int = Int(self.scrollView.contentOffset.x / self.scrollView.bounds.width)
+            self.focusIndex = tabIndex
+        }
     }
 
 	/*
