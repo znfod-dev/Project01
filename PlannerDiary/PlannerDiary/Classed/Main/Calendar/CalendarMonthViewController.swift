@@ -184,12 +184,14 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         }
         
         // 공공데이터 포털 API호출
-        var param: [String: String] = AlamofireHelper.requestParameters()
-        
+        var param: [String: Any] = AlamofireHelper.requestParameters()        
         param["ServiceKey"] = kServiceKey_AUTHKEY
         param["solYear"] = "\(year)"
         param["solMonth"] = String(format: "%02d", month)
-        //        param["_type"] = "json"
+//        param["_type"] = "json"
+
+        // 로더 비활성화
+        param["isNotShowLoader"] = true
         print(param)
         
         AlamofireHelper.requestGET(kMonthHoliday_URL, parameters: param, success: { (jsonData) in
@@ -304,7 +306,7 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         let month: Int = item["month"] as! Int
         let day: Int = item["day"] as! Int
         let cellIndex: Int = item["cellIndex"] as! Int
-        let curentMonth: Int = item["curentMonth"] as! Int
+//        let monthDirection: Int = item["monthDirection"] as! Int
 
 		let message: String = "\(year)년 \(month)월 \(day)일 ToDo 리스트 보여주기"
 		let popup = AlertMessagePopup.messagePopup(withMessage: message)
