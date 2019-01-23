@@ -247,6 +247,32 @@ class MonthlyPlanViewController: UIViewController {
         setCalendarTitle()
     }
     
+    // 현재달력에서 이전달 선택시 이전달로 스크롤링
+    func goPrevPageScrollAnimation() {
+        let tabIndex: Int = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        if tabIndex == 0 {
+            return
+        }
+        
+        print(tabIndex)
+        let offsetX = CGFloat(tabIndex - 1) * scrollView.bounds.width
+        let leftOffset = CGPoint(x: offsetX, y: 0)
+        scrollView.setContentOffset(leftOffset, animated: true)
+    }
+
+    // 현재달력에서 다음달 선택시 다음달로 스크롤링
+    func goNextPageScrollAnimation() {
+        let tabIndex: Int = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        if tabIndex == (arrChildController.count - 1) {
+            return
+        }
+        
+        print(tabIndex)
+        let offsetX = CGFloat(tabIndex + 1) * scrollView.bounds.width
+        let rightOffset = CGPoint(x: offsetX, y: 0)
+        scrollView.setContentOffset(rightOffset, animated: true)
+    }
+
     /*
      // MARK: - Navigation
      
