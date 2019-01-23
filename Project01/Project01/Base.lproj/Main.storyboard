@@ -946,11 +946,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(음)01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edy-EV-e9L">
+                                            <rect key="frame" x="7.5" y="46" width="38" height="11"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="edy-EV-e9L" secondAttribute="bottom" constant="3" id="8d4-bH-Po9"/>
                                     <constraint firstItem="u9d-oz-c3A" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" id="UFR-oX-CrC"/>
                                     <constraint firstItem="u9d-oz-c3A" firstAttribute="leading" secondItem="tNs-gH-LmQ" secondAttribute="leading" id="gQO-aW-8Fj"/>
+                                    <constraint firstItem="edy-EV-e9L" firstAttribute="centerX" secondItem="tNs-gH-LmQ" secondAttribute="centerX" id="mBF-xn-9B7"/>
                                     <constraint firstItem="9Wc-12-Rzf" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" id="nAi-Ox-wtL"/>
                                     <constraint firstItem="H6v-t1-gyP" firstAttribute="centerY" secondItem="BCc-lf-D6n" secondAttribute="centerY" id="oMr-Ae-jyv"/>
                                     <constraint firstItem="9Wc-12-Rzf" firstAttribute="leading" secondItem="tNs-gH-LmQ" secondAttribute="leading" id="qTR-Yu-9G6"/>
@@ -963,6 +971,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="lbDay" destination="H6v-t1-gyP" id="2d0-no-V9h"/>
+                                    <outlet property="lbDayLunar" destination="edy-EV-e9L" id="b8t-K0-ToG"/>
                                     <outlet property="lbHoliday" destination="7VS-oO-YeU" id="2Mp-bz-vY6"/>
                                     <outlet property="vHoliday" destination="9Wc-12-Rzf" id="bRG-5j-rrv"/>
                                     <outlet property="vSelectedCell" destination="u9d-oz-c3A" id="IB2-fm-uaW"/>
