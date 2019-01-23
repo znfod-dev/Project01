@@ -302,17 +302,17 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
 		
 		let item: [String: Any] = arrDays![indexPath.row]
 
-        let year: Int = item["year"] as! Int
-        let month: Int = item["month"] as! Int
-        let day: Int = item["day"] as! Int
+//        let year: Int = item["year"] as! Int
+//        let month: Int = item["month"] as! Int
+//        let day: Int = item["day"] as! Int
         let cellIndex: Int = item["cellIndex"] as! Int
-//        let monthDirection: Int = item["monthDirection"] as! Int
+        let monthDirection: Int = item["monthDirection"] as! Int
 
-		let message: String = "\(year)년 \(month)월 \(day)일 ToDo 리스트 보여주기"
-		let popup = AlertMessagePopup.messagePopup(withMessage: message)
-		popup.addActionConfirmClick("확인", handler: {
-			
-		})
+//        let message: String = "\(year)년 \(month)월 \(day)일 ToDo 리스트 보여주기"
+//        let popup = AlertMessagePopup.messagePopup(withMessage: message)
+//        popup.addActionConfirmClick("확인", handler: {
+//            
+//        })
 		
 		// 셀선택
 		CalendarManager.selectedCell = cellIndex
@@ -320,15 +320,13 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
 		// 콜렉션뷰 전체 리로드
 		parentVC?.collectionReloadDataAll()
         
-//        // 이전달 선택
-//        if curentMonth == -1 {
-//            parentVC?.curentDate = (year, month)
-//            parentVC?.goPrevPage(year: curentYear, month: curentMonth)
-//        }
-//        // 다음달 선택
-//        else if curentMonth == 1 {
-//            parentVC?.curentDate = (year, month)
-//            parentVC?.goNextPage(year: curentYear, month: curentMonth)
-//        }
+        // 현재달력에서 이전달 선택시 이전달로 스크롤링
+        if monthDirection == -1 {
+            parentVC?.goPrevPageScrollAnimation()
+        }
+        // 현재달력에서 다음달 선택시 다음달로 스크롤링
+        else if monthDirection == 1 {
+            parentVC?.goNextPageScrollAnimation()
+        }
 	}
 }
