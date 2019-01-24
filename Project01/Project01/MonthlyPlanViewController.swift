@@ -575,11 +575,10 @@ extension MonthlyPlanViewController: UITableViewDelegate {
         
         alert.addAction(UIAlertAction(title: "변경", style: .default, handler: { (_) in
             todo.title = alert.textFields?.last?.text
-            
+            DBManager.sharedInstance.updateTodo(todo: todo)
+            self.selectedDayTodoList(doReload: true)
         }))
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
-        
-        
         
         self.present(alert, animated: true)
     }
@@ -597,7 +596,7 @@ extension MonthlyPlanViewController: BEMCheckBoxDelegate {
             todo.isSelected = false
         }
         
-        DBManager.sharedInstance.updateTodoIsSelectedDB(todo: todo)
+        DBManager.sharedInstance.updateTodo(todo: todo)
     }
     
     func animationDidStop(for checkBox: BEMCheckBox) {

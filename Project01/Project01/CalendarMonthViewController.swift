@@ -302,9 +302,9 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         
 		let item: [String: Any] = arrDays![indexPath.row]
 
-//        let year: Int = item["year"] as! Int
-//        let month: Int = item["month"] as! Int
-//        let day: Int = item["day"] as! Int
+        let year: Int = item["year"] as! Int
+        let month: Int = item["month"] as! Int
+        let day: Int = item["day"] as! Int
         let cellIndex: Int = item["cellIndex"] as! Int
         let monthDirection: Int = item["monthDirection"] as! Int
 
@@ -328,5 +328,9 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         else if monthDirection == 1 {
             parentVC?.goNextPageScrollAnimation()
         }
+        
+        // 콜렉션에 맞는 날짜 전달
+        parentVC?.selectedDay = "\(year)\(month)\(day)"
+        parentVC?.selectedDayTodoList(doReload: true)
     }
 }

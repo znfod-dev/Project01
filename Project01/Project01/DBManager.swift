@@ -466,7 +466,7 @@ extension DBManager {
     
     // Update
     // Todo 체크 정보 업데이트
-    func updateTodoIsSelectedDB(todo: Todo) {
+    func updateTodo(todo: Todo) {
         let dbTodo = DBTodo.init(todo: todo)
         
         try! self.database.write {
