@@ -101,7 +101,11 @@ class MonthlyPlanViewController: UIViewController {
 	}
 	
 	// 이번달 이동
-    @objc func goThisMonth() {
+    func goThisMonth() {
+        
+        // 셀선택
+        CalendarManager.selectedCell = -1
+
 		// 달력날짜 시작/종료일 세팅
         let dicResult: [String: Any] = CalendarManager.getYearMontLimite(startYYYYMMDD: startYYYYMMDD, endYYYYMMDD: endYYYYMMDD)
 		print(dicResult)
