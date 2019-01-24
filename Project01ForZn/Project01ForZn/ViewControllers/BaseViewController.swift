@@ -26,7 +26,6 @@ class BaseViewController: UIViewController {
         self.view.gestureRecognizers = [swipeLeft, swipeRight]
         //self.view.gestureRecognizers = [swipeUp, swipeDown, swipeLeft, swipeRight]
         
-        print("BaseViewController viewDidLoad end")
     }
     @IBAction func backBarBtnClicked(_ sender:Any) {
         self.navigationController?.popViewController(animated: true)

@@ -16,19 +16,16 @@ class PickerView: UIView {
     @IBOutlet weak var pickerView: UIPickerView!
     
     required init?(coder aDecoder: NSCoder) {
-        print("aDecoder")
         super.init(coder: aDecoder)
     }
     
     override init(frame: CGRect) {
-        print("frame")
         super.init(frame: frame)
     }
     static func initWithNib(frame:CGRect) -> PickerView{
         let xibName = "PickerView"
         let view:PickerView = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! PickerView
         view.frame = frame
-        print("view.pickerBackView.frame.origin : \(view.pickerBackView.frame.origin)")
         view.isHidden = true
         DispatchQueue.main.async {
             view.pickerBackView.frame.origin.y += view.pickerBackView.frame.height
