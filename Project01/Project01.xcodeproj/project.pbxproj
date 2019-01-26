@@ -321,7 +321,6 @@
 				D914E39A21FBF5BD00CFBB8E /* PickerView.swift */,
 				D914E3A621FBF5BE00CFBB8E /* PickerView.xib */,
 				D914E39B21FBF5BD00CFBB8E /* PopupManager.swift */,
-				D914E39321FBF5BD00CFBB8E /* Profile.storyboard */,
 				D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */,
 				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
 				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
@@ -377,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				D914E39D21FBF5BE00CFBB8E /* DiaryPage.storyboard */,
+				D914E39321FBF5BD00CFBB8E /* Profile.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
