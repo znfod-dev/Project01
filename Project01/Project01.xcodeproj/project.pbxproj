@@ -298,6 +298,7 @@
 		9B26622D21EA3E48007CF0B3 /* Project01 */ = {
 			isa = PBXGroup;
 			children = (
+				9BD47E6021FBF75E005350C9 /* Storyboard */,
 				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
 				D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */,
 				D914E39421FBF5BD00CFBB8E /* DatePickerView.xib */,
@@ -305,7 +306,6 @@
 				D914E3A721FBF5BE00CFBB8E /* DBManager+Profile.swift */,
 				D914E38421FBF5BD00CFBB8E /* DBManager+UD.swift */,
 				D914E3A521FBF5BE00CFBB8E /* Defines.swift */,
-				D914E39D21FBF5BE00CFBB8E /* DiaryPage.storyboard */,
 				D914E3A921FBF5BE00CFBB8E /* DiaryPage+TableViewDataSource.swift */,
 				D914E3A421FBF5BE00CFBB8E /* DiaryPage+TableViewDelegate.swift */,
 				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
@@ -371,6 +371,14 @@
 				9B26623A21EA3E49007CF0B3 /* Info.plist */,
 			);
 			path = Project01;
+			sourceTree = "<group>";
+		};
+		9BD47E6021FBF75E005350C9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D914E39D21FBF5BE00CFBB8E /* DiaryPage.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		D914E38821FBF5BD00CFBB8E /* Fonts */ = {
@@ -799,7 +807,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TXUZ6595T4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -819,7 +827,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TXUZ6595T4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

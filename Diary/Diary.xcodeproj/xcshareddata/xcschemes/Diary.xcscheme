@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E76CC4DF900855022FFD8623EF23BD73"
-               BuildableName = "Pods_Project01.framework"
-               BlueprintName = "Pods-Project01"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "60BE0A1821DC4B7E00D46E14"
+               BuildableName = "Diary.app"
+               BlueprintName = "Diary"
+               ReferencedContainer = "container:Diary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "60BE0A1821DC4B7E00D46E14"
+            BuildableName = "Diary.app"
+            BlueprintName = "Diary"
+            ReferencedContainer = "container:Diary.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E76CC4DF900855022FFD8623EF23BD73"
-            BuildableName = "Pods_Project01.framework"
-            BlueprintName = "Pods-Project01"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "60BE0A1821DC4B7E00D46E14"
+            BuildableName = "Diary.app"
+            BlueprintName = "Diary"
+            ReferencedContainer = "container:Diary.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E76CC4DF900855022FFD8623EF23BD73"
-            BuildableName = "Pods_Project01.framework"
-            BlueprintName = "Pods-Project01"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "60BE0A1821DC4B7E00D46E14"
+            BuildableName = "Diary.app"
+            BlueprintName = "Diary"
+            ReferencedContainer = "container:Diary.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
