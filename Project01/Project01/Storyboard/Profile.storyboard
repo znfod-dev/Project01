@@ -40,14 +40,14 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5d-Cw-5Pt">
-                                                            <rect key="frame" x="5" y="7" width="120" height="25.5"/>
+                                                            <rect key="frame" x="5" y="8" width="120" height="23.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Cvg-Yu-Ylx"/>
                                                             </constraints>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Label">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="20" name="NanumBarunpen"/>
+                                                                        <font key="NSFont" metaFont="system" size="20"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>

@@ -108,6 +108,17 @@
 		D9FBE0E421F32B1C00BDA694 /* CalendarMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0D321F32B1B00BDA694 /* CalendarMonthViewController.swift */; };
 		D9FBE0E521F32B1C00BDA694 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0D421F32B1B00BDA694 /* CommonUtil.swift */; };
 		D9FBE0E821F32B4600BDA694 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0E621F32B4600BDA694 /* Common.storyboard */; };
+		D9FED00521FC2C7900689BC9 /* PromptMessagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FED00421FC2C7900689BC9 /* PromptMessagePopup.swift */; };
+		D9FED01221FC4B7D00689BC9 /* icon_date_range@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00821FC4B7C00689BC9 /* icon_date_range@3x.png */; };
+		D9FED01321FC4B7D00689BC9 /* icon_remove@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00921FC4B7C00689BC9 /* icon_remove@3x.png */; };
+		D9FED01421FC4B7D00689BC9 /* icon_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00A21FC4B7C00689BC9 /* icon_add@3x.png */; };
+		D9FED01521FC4B7D00689BC9 /* icon_date_range@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00B21FC4B7D00689BC9 /* icon_date_range@2x.png */; };
+		D9FED01621FC4B7D00689BC9 /* icon_refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00C21FC4B7D00689BC9 /* icon_refresh@2x.png */; };
+		D9FED01721FC4B7D00689BC9 /* icon_refresh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00D21FC4B7D00689BC9 /* icon_refresh@3x.png */; };
+		D9FED01821FC4B7D00689BC9 /* icon_event@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00E21FC4B7D00689BC9 /* icon_event@2x.png */; };
+		D9FED01921FC4B7D00689BC9 /* icon_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00F21FC4B7D00689BC9 /* icon_add@2x.png */; };
+		D9FED01A21FC4B7D00689BC9 /* icon_event@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED01021FC4B7D00689BC9 /* icon_event@3x.png */; };
+		D9FED01B21FC4B7D00689BC9 /* icon_remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED01121FC4B7D00689BC9 /* icon_remove@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -216,6 +227,17 @@
 		D9FBE0D321F32B1B00BDA694 /* CalendarMonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonthViewController.swift; sourceTree = "<group>"; };
 		D9FBE0D421F32B1B00BDA694 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		D9FBE0E721F32B4600BDA694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Common.storyboard; sourceTree = "<group>"; };
+		D9FED00421FC2C7900689BC9 /* PromptMessagePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptMessagePopup.swift; sourceTree = "<group>"; };
+		D9FED00821FC4B7C00689BC9 /* icon_date_range@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_date_range@3x.png"; sourceTree = "<group>"; };
+		D9FED00921FC4B7C00689BC9 /* icon_remove@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_remove@3x.png"; sourceTree = "<group>"; };
+		D9FED00A21FC4B7C00689BC9 /* icon_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_add@3x.png"; sourceTree = "<group>"; };
+		D9FED00B21FC4B7D00689BC9 /* icon_date_range@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_date_range@2x.png"; sourceTree = "<group>"; };
+		D9FED00C21FC4B7D00689BC9 /* icon_refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_refresh@2x.png"; sourceTree = "<group>"; };
+		D9FED00D21FC4B7D00689BC9 /* icon_refresh@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_refresh@3x.png"; sourceTree = "<group>"; };
+		D9FED00E21FC4B7D00689BC9 /* icon_event@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_event@2x.png"; sourceTree = "<group>"; };
+		D9FED00F21FC4B7D00689BC9 /* icon_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_add@2x.png"; sourceTree = "<group>"; };
+		D9FED01021FC4B7D00689BC9 /* icon_event@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_event@3x.png"; sourceTree = "<group>"; };
+		D9FED01121FC4B7D00689BC9 /* icon_remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_remove@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,8 +424,9 @@
 			isa = PBXGroup;
 			children = (
 				D914E39B21FBF5BD00CFBB8E /* PopupManager.swift */,
-				D9FBE0C721F32B1B00BDA694 /* AlertMessagePopup.swift */,
 				D9FBE0CF21F32B1B00BDA694 /* BasePopup.swift */,
+				D9FBE0C721F32B1B00BDA694 /* AlertMessagePopup.swift */,
+				D9FED00421FC2C7900689BC9 /* PromptMessagePopup.swift */,
 				D9FBE0C921F32B1B00BDA694 /* LoaddingPopup.swift */,
 			);
 			path = Popups;
@@ -479,6 +502,16 @@
 		D9FBE09F21F32A0D00BDA694 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D9FED00F21FC4B7D00689BC9 /* icon_add@2x.png */,
+				D9FED00A21FC4B7C00689BC9 /* icon_add@3x.png */,
+				D9FED00B21FC4B7D00689BC9 /* icon_date_range@2x.png */,
+				D9FED00821FC4B7C00689BC9 /* icon_date_range@3x.png */,
+				D9FED00E21FC4B7D00689BC9 /* icon_event@2x.png */,
+				D9FED01021FC4B7D00689BC9 /* icon_event@3x.png */,
+				D9FED00C21FC4B7D00689BC9 /* icon_refresh@2x.png */,
+				D9FED00D21FC4B7D00689BC9 /* icon_refresh@3x.png */,
+				D9FED01121FC4B7D00689BC9 /* icon_remove@2x.png */,
+				D9FED00921FC4B7C00689BC9 /* icon_remove@3x.png */,
 				D9FBE0A021F32A0D00BDA694 /* icon_save@3x.png */,
 				D9FBE0A121F32A0D00BDA694 /* icon_loading@2x.png */,
 				D9FBE0A221F32A0D00BDA694 /* icon_loading@3x.png */,
@@ -571,15 +604,23 @@
 				D9FBE0BB21F32A0D00BDA694 /* icon_menu@2x.png in Resources */,
 				D914E3B821FBF5BF00CFBB8E /* NanumBarunGothicLight.ttf in Resources */,
 				D9FBE0BF21F32A0D00BDA694 /* icon_navigation_back@2x.png in Resources */,
+				D9FED01321FC4B7D00689BC9 /* icon_remove@3x.png in Resources */,
 				D914E3D221FBF5BF00CFBB8E /* PickerView.xib in Resources */,
+				D9FED01721FC4B7D00689BC9 /* icon_refresh@3x.png in Resources */,
+				D9FED01221FC4B7D00689BC9 /* icon_date_range@3x.png in Resources */,
+				D9FED01821FC4B7D00689BC9 /* icon_event@2x.png in Resources */,
 				D9FBE0BD21F32A0D00BDA694 /* icon_setting@3x.png in Resources */,
 				D9FBE0B321F32A0D00BDA694 /* icon_loading@2x.png in Resources */,
+				D9FED01621FC4B7D00689BC9 /* icon_refresh@2x.png in Resources */,
 				D914E3BB21FBF5BF00CFBB8E /* NanumBarunGothicUltraLight.ttf in Resources */,
 				D9FBE0BA21F32A0D00BDA694 /* icon_today@3x.png in Resources */,
 				D9FBE0B821F32A0D00BDA694 /* icon_menu@3x.png in Resources */,
+				D9FED01B21FC4B7D00689BC9 /* icon_remove@2x.png in Resources */,
 				D9FBE0E821F32B4600BDA694 /* Common.storyboard in Resources */,
 				D914E3B621FBF5BF00CFBB8E /* NanumBarunpenR.ttf in Resources */,
 				D914E3CC21FBF5BF00CFBB8E /* Setting.storyboard in Resources */,
+				D9FED01521FC4B7D00689BC9 /* icon_date_range@2x.png in Resources */,
+				D9FED01A21FC4B7D00689BC9 /* icon_event@3x.png in Resources */,
 				D9FBE0B521F32A0D00BDA694 /* icon_save@2x.png in Resources */,
 				D9FBE0B721F32A0D00BDA694 /* icon_setting@2x.png in Resources */,
 				D914E3B521FBF5BF00CFBB8E /* NanumBarunpenB.ttf in Resources */,
@@ -594,7 +635,9 @@
 				D914E3C021FBF5BF00CFBB8E /* DatePickerView.xib in Resources */,
 				D9FBE0C021F32A0D00BDA694 /* icon_navigation_back@3x.png in Resources */,
 				D9FBE0C121F32A0D00BDA694 /* icon_delete@2x.png in Resources */,
+				D9FED01421FC4B7D00689BC9 /* icon_add@3x.png in Resources */,
 				D9FBE0B621F32A0D00BDA694 /* icon_navigation_next@2x.png in Resources */,
+				D9FED01921FC4B7D00689BC9 /* icon_add@2x.png in Resources */,
 				D914E3B921FBF5BF00CFBB8E /* NanumBrush.ttf in Resources */,
 				9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */,
 			);
@@ -686,6 +729,7 @@
 				D914E3C321FBF5BF00CFBB8E /* BaseViewController.swift in Sources */,
 				D914E3C421FBF5BF00CFBB8E /* DiaryPageViewController.swift in Sources */,
 				60F47A9021F56C2D00E0DCB2 /* Plan.swift in Sources */,
+				D9FED00521FC2C7900689BC9 /* PromptMessagePopup.swift in Sources */,
 				D9FBE0DD21F32B1C00BDA694 /* MonthlyPlanViewController.swift in Sources */,
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
