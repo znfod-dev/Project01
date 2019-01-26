@@ -29,6 +29,49 @@
 		9EC46C5C21F6F91A00765274 /* ModelHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */; };
 		9EC46C5E21F6F98000765274 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5D21F6F98000765274 /* URLs.swift */; };
 		9EC46C6021F6F9F400765274 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */; };
+		D914E3AE21FBF5BF00CFBB8E /* UITextView+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38121FBF5BC00CFBB8E /* UITextView+DoneAccessory.swift */; };
+		D914E3AF21FBF5BF00CFBB8E /* ModelDBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38221FBF5BC00CFBB8E /* ModelDBTodo.swift */; };
+		D914E3B021FBF5BF00CFBB8E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */; };
+		D914E3B121FBF5BF00CFBB8E /* DBManager+UD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38421FBF5BD00CFBB8E /* DBManager+UD.swift */; };
+		D914E3B221FBF5BF00CFBB8E /* Profile+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */; };
+		D914E3B321FBF5BF00CFBB8E /* ModelDBProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38621FBF5BD00CFBB8E /* ModelDBProfile.swift */; };
+		D914E3B421FBF5BF00CFBB8E /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38721FBF5BD00CFBB8E /* SettingTableCell.swift */; };
+		D914E3B521FBF5BF00CFBB8E /* NanumBarunpenB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D914E38921FBF5BD00CFBB8E /* NanumBarunpenB.ttf */; };
+		D914E3B621FBF5BF00CFBB8E /* NanumBarunpenR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D914E38A21FBF5BD00CFBB8E /* NanumBarunpenR.ttf */; };
+		D914E3B721FBF5BF00CFBB8E /* NanumPen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D914E38B21FBF5BD00CFBB8E /* NanumPen.ttf */; };
+		D914E3B821FBF5BF00CFBB8E /* NanumBarunGothicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D914E38C21FBF5BD00CFBB8E /* NanumBarunGothicLight.ttf */; };
+		D914E3B921FBF5BF00CFBB8E /* NanumBrush.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D914E38D21FBF5BD00CFBB8E /* NanumBrush.ttf */; };
+		D914E3BA21FBF5BF00CFBB8E /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D914E38E21FBF5BD00CFBB8E /* NanumBarunGothic.ttf */; };
+		D914E3BB21FBF5BF00CFBB8E /* NanumBarunGothicUltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D914E38F21FBF5BD00CFBB8E /* NanumBarunGothicUltraLight.ttf */; };
+		D914E3BC21FBF5BF00CFBB8E /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D914E39021FBF5BD00CFBB8E /* NanumBarunGothicBold.ttf */; };
+		D914E3BD21FBF5BF00CFBB8E /* ZnTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39121FBF5BD00CFBB8E /* ZnTextView.swift */; };
+		D914E3BF21FBF5BF00CFBB8E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D914E39321FBF5BD00CFBB8E /* Profile.storyboard */; };
+		D914E3C021FBF5BF00CFBB8E /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D914E39421FBF5BD00CFBB8E /* DatePickerView.xib */; };
+		D914E3C121FBF5BF00CFBB8E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39521FBF5BD00CFBB8E /* SettingViewController.swift */; };
+		D914E3C221FBF5BF00CFBB8E /* ModelProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39621FBF5BD00CFBB8E /* ModelProfile.swift */; };
+		D914E3C321FBF5BF00CFBB8E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */; };
+		D914E3C421FBF5BF00CFBB8E /* DiaryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */; };
+		D914E3C521FBF5BF00CFBB8E /* ModelTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39921FBF5BD00CFBB8E /* ModelTodo.swift */; };
+		D914E3C621FBF5BF00CFBB8E /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39A21FBF5BD00CFBB8E /* PickerView.swift */; };
+		D914E3C721FBF5BF00CFBB8E /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39B21FBF5BD00CFBB8E /* PopupManager.swift */; };
+		D914E3C821FBF5BF00CFBB8E /* DiaryPageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */; };
+		D914E3C921FBF5BF00CFBB8E /* DiaryPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D914E39D21FBF5BE00CFBB8E /* DiaryPage.storyboard */; };
+		D914E3CA21FBF5BF00CFBB8E /* ModelDBDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39E21FBF5BE00CFBB8E /* ModelDBDiary.swift */; };
+		D914E3CB21FBF5BF00CFBB8E /* ProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */; };
+		D914E3CC21FBF5BF00CFBB8E /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D914E3A021FBF5BE00CFBB8E /* Setting.storyboard */; };
+		D914E3CD21FBF5BF00CFBB8E /* Profile+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */; };
+		D914E3CE21FBF5BF00CFBB8E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3A221FBF5BE00CFBB8E /* ProfileViewController.swift */; };
+		D914E3CF21FBF5BF00CFBB8E /* Setting+PickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3A321FBF5BE00CFBB8E /* Setting+PickerViewDelegate.swift */; };
+		D914E3D021FBF5BF00CFBB8E /* DiaryPage+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3A421FBF5BE00CFBB8E /* DiaryPage+TableViewDelegate.swift */; };
+		D914E3D121FBF5BF00CFBB8E /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3A521FBF5BE00CFBB8E /* Defines.swift */; };
+		D914E3D221FBF5BF00CFBB8E /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D914E3A621FBF5BE00CFBB8E /* PickerView.xib */; };
+		D914E3D321FBF5BF00CFBB8E /* DBManager+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3A721FBF5BE00CFBB8E /* DBManager+Profile.swift */; };
+		D914E3D421FBF5BF00CFBB8E /* DBManager+Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3A821FBF5BE00CFBB8E /* DBManager+Diary.swift */; };
+		D914E3D521FBF5BF00CFBB8E /* DiaryPage+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3A921FBF5BE00CFBB8E /* DiaryPage+TableViewDataSource.swift */; };
+		D914E3D621FBF5BF00CFBB8E /* ModelDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3AA21FBF5BE00CFBB8E /* ModelDiary.swift */; };
+		D914E3D721FBF5BF00CFBB8E /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3AB21FBF5BE00CFBB8E /* FontManager.swift */; };
+		D914E3D821FBF5BF00CFBB8E /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3AC21FBF5BE00CFBB8E /* TimePickerView.swift */; };
+		D914E3D921FBF5BF00CFBB8E /* TimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D914E3AD21FBF5BF00CFBB8E /* TimePickerView.xib */; };
 		D9FBE0B221F32A0D00BDA694 /* icon_save@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0A021F32A0D00BDA694 /* icon_save@3x.png */; };
 		D9FBE0B321F32A0D00BDA694 /* icon_loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0A121F32A0D00BDA694 /* icon_loading@2x.png */; };
 		D9FBE0B421F32A0D00BDA694 /* icon_loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0A221F32A0D00BDA694 /* icon_loading@3x.png */; };
@@ -94,6 +137,49 @@
 		9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		B7690B753F6ECDE90240E9FB /* Pods-Project01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01/Pods-Project01.release.xcconfig"; sourceTree = "<group>"; };
 		BF4051DE8180CEC9611E2531 /* Pods-Project01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01/Pods-Project01.debug.xcconfig"; sourceTree = "<group>"; };
+		D914E38121FBF5BC00CFBB8E /* UITextView+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+DoneAccessory.swift"; sourceTree = "<group>"; };
+		D914E38221FBF5BC00CFBB8E /* ModelDBTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDBTodo.swift; sourceTree = "<group>"; };
+		D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		D914E38421FBF5BD00CFBB8E /* DBManager+UD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DBManager+UD.swift"; sourceTree = "<group>"; };
+		D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		D914E38621FBF5BD00CFBB8E /* ModelDBProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDBProfile.swift; sourceTree = "<group>"; };
+		D914E38721FBF5BD00CFBB8E /* SettingTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
+		D914E38921FBF5BD00CFBB8E /* NanumBarunpenB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenB.ttf; sourceTree = "<group>"; };
+		D914E38A21FBF5BD00CFBB8E /* NanumBarunpenR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenR.ttf; sourceTree = "<group>"; };
+		D914E38B21FBF5BD00CFBB8E /* NanumPen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumPen.ttf; sourceTree = "<group>"; };
+		D914E38C21FBF5BD00CFBB8E /* NanumBarunGothicLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.ttf; sourceTree = "<group>"; };
+		D914E38D21FBF5BD00CFBB8E /* NanumBrush.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBrush.ttf; sourceTree = "<group>"; };
+		D914E38E21FBF5BD00CFBB8E /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.ttf; sourceTree = "<group>"; };
+		D914E38F21FBF5BD00CFBB8E /* NanumBarunGothicUltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.ttf; sourceTree = "<group>"; };
+		D914E39021FBF5BD00CFBB8E /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.ttf; sourceTree = "<group>"; };
+		D914E39121FBF5BD00CFBB8E /* ZnTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZnTextView.swift; sourceTree = "<group>"; };
+		D914E39321FBF5BD00CFBB8E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		D914E39421FBF5BD00CFBB8E /* DatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
+		D914E39521FBF5BD00CFBB8E /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D914E39621FBF5BD00CFBB8E /* ModelProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelProfile.swift; sourceTree = "<group>"; };
+		D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryPageViewController.swift; sourceTree = "<group>"; };
+		D914E39921FBF5BD00CFBB8E /* ModelTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTodo.swift; sourceTree = "<group>"; };
+		D914E39A21FBF5BD00CFBB8E /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		D914E39B21FBF5BD00CFBB8E /* PopupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
+		D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryPageTableCell.swift; sourceTree = "<group>"; };
+		D914E39D21FBF5BE00CFBB8E /* DiaryPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiaryPage.storyboard; sourceTree = "<group>"; };
+		D914E39E21FBF5BE00CFBB8E /* ModelDBDiary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDBDiary.swift; sourceTree = "<group>"; };
+		D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableCell.swift; sourceTree = "<group>"; };
+		D914E3A021FBF5BE00CFBB8E /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		D914E3A221FBF5BE00CFBB8E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D914E3A321FBF5BE00CFBB8E /* Setting+PickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Setting+PickerViewDelegate.swift"; sourceTree = "<group>"; };
+		D914E3A421FBF5BE00CFBB8E /* DiaryPage+TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiaryPage+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		D914E3A521FBF5BE00CFBB8E /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		D914E3A621FBF5BE00CFBB8E /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
+		D914E3A721FBF5BE00CFBB8E /* DBManager+Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DBManager+Profile.swift"; sourceTree = "<group>"; };
+		D914E3A821FBF5BE00CFBB8E /* DBManager+Diary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DBManager+Diary.swift"; sourceTree = "<group>"; };
+		D914E3A921FBF5BE00CFBB8E /* DiaryPage+TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiaryPage+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		D914E3AA21FBF5BE00CFBB8E /* ModelDiary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDiary.swift; sourceTree = "<group>"; };
+		D914E3AB21FBF5BE00CFBB8E /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		D914E3AC21FBF5BE00CFBB8E /* TimePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		D914E3AD21FBF5BF00CFBB8E /* TimePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerView.xib; sourceTree = "<group>"; };
 		D9FBE0A021F32A0D00BDA694 /* icon_save@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_save@3x.png"; sourceTree = "<group>"; };
 		D9FBE0A121F32A0D00BDA694 /* icon_loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_loading@2x.png"; sourceTree = "<group>"; };
 		D9FBE0A221F32A0D00BDA694 /* icon_loading@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_loading@3x.png"; sourceTree = "<group>"; };
@@ -212,6 +298,42 @@
 		9B26622D21EA3E48007CF0B3 /* Project01 */ = {
 			isa = PBXGroup;
 			children = (
+				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
+				D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */,
+				D914E39421FBF5BD00CFBB8E /* DatePickerView.xib */,
+				D914E3A821FBF5BE00CFBB8E /* DBManager+Diary.swift */,
+				D914E3A721FBF5BE00CFBB8E /* DBManager+Profile.swift */,
+				D914E38421FBF5BD00CFBB8E /* DBManager+UD.swift */,
+				D914E3A521FBF5BE00CFBB8E /* Defines.swift */,
+				D914E39D21FBF5BE00CFBB8E /* DiaryPage.storyboard */,
+				D914E3A921FBF5BE00CFBB8E /* DiaryPage+TableViewDataSource.swift */,
+				D914E3A421FBF5BE00CFBB8E /* DiaryPage+TableViewDelegate.swift */,
+				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
+				D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */,
+				D914E3AB21FBF5BE00CFBB8E /* FontManager.swift */,
+				D914E38821FBF5BD00CFBB8E /* Fonts */,
+				D914E39E21FBF5BE00CFBB8E /* ModelDBDiary.swift */,
+				D914E38621FBF5BD00CFBB8E /* ModelDBProfile.swift */,
+				D914E38221FBF5BC00CFBB8E /* ModelDBTodo.swift */,
+				D914E3AA21FBF5BE00CFBB8E /* ModelDiary.swift */,
+				D914E39621FBF5BD00CFBB8E /* ModelProfile.swift */,
+				D914E39921FBF5BD00CFBB8E /* ModelTodo.swift */,
+				D914E39A21FBF5BD00CFBB8E /* PickerView.swift */,
+				D914E3A621FBF5BE00CFBB8E /* PickerView.xib */,
+				D914E39B21FBF5BD00CFBB8E /* PopupManager.swift */,
+				D914E39321FBF5BD00CFBB8E /* Profile.storyboard */,
+				D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */,
+				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
+				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
+				D914E3A221FBF5BE00CFBB8E /* ProfileViewController.swift */,
+				D914E3A021FBF5BE00CFBB8E /* Setting.storyboard */,
+				D914E3A321FBF5BE00CFBB8E /* Setting+PickerViewDelegate.swift */,
+				D914E38721FBF5BD00CFBB8E /* SettingTableCell.swift */,
+				D914E39521FBF5BD00CFBB8E /* SettingViewController.swift */,
+				D914E3AC21FBF5BE00CFBB8E /* TimePickerView.swift */,
+				D914E3AD21FBF5BF00CFBB8E /* TimePickerView.xib */,
+				D914E38121FBF5BC00CFBB8E /* UITextView+DoneAccessory.swift */,
+				D914E39121FBF5BD00CFBB8E /* ZnTextView.swift */,
 				9E954C9221F848E1006356BF /* CalendarLunar.swift */,
 				9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */,
 				9EC46C5D21F6F98000765274 /* URLs.swift */,
@@ -249,6 +371,21 @@
 				9B26623A21EA3E49007CF0B3 /* Info.plist */,
 			);
 			path = Project01;
+			sourceTree = "<group>";
+		};
+		D914E38821FBF5BD00CFBB8E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D914E38921FBF5BD00CFBB8E /* NanumBarunpenB.ttf */,
+				D914E38A21FBF5BD00CFBB8E /* NanumBarunpenR.ttf */,
+				D914E38B21FBF5BD00CFBB8E /* NanumPen.ttf */,
+				D914E38C21FBF5BD00CFBB8E /* NanumBarunGothicLight.ttf */,
+				D914E38D21FBF5BD00CFBB8E /* NanumBrush.ttf */,
+				D914E38E21FBF5BD00CFBB8E /* NanumBarunGothic.ttf */,
+				D914E38F21FBF5BD00CFBB8E /* NanumBarunGothicUltraLight.ttf */,
+				D914E39021FBF5BD00CFBB8E /* NanumBarunGothicBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D9FBE09F21F32A0D00BDA694 /* Images */ = {
@@ -336,27 +473,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D914E3BC21FBF5BF00CFBB8E /* NanumBarunGothicBold.ttf in Resources */,
 				9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */,
+				D914E3BA21FBF5BF00CFBB8E /* NanumBarunGothic.ttf in Resources */,
+				D914E3C921FBF5BF00CFBB8E /* DiaryPage.storyboard in Resources */,
+				D914E3BF21FBF5BF00CFBB8E /* Profile.storyboard in Resources */,
 				D9FBE0B221F32A0D00BDA694 /* icon_save@3x.png in Resources */,
 				D9FBE0B921F32A0D00BDA694 /* icon_today@2x.png in Resources */,
 				D9FBE0BB21F32A0D00BDA694 /* icon_menu@2x.png in Resources */,
+				D914E3B821FBF5BF00CFBB8E /* NanumBarunGothicLight.ttf in Resources */,
 				D9FBE0BF21F32A0D00BDA694 /* icon_navigation_back@2x.png in Resources */,
+				D914E3D221FBF5BF00CFBB8E /* PickerView.xib in Resources */,
 				D9FBE0BD21F32A0D00BDA694 /* icon_setting@3x.png in Resources */,
 				D9FBE0B321F32A0D00BDA694 /* icon_loading@2x.png in Resources */,
+				D914E3BB21FBF5BF00CFBB8E /* NanumBarunGothicUltraLight.ttf in Resources */,
 				D9FBE0BA21F32A0D00BDA694 /* icon_today@3x.png in Resources */,
 				D9FBE0B821F32A0D00BDA694 /* icon_menu@3x.png in Resources */,
 				D9FBE0E821F32B4600BDA694 /* Common.storyboard in Resources */,
+				D914E3B621FBF5BF00CFBB8E /* NanumBarunpenR.ttf in Resources */,
+				D914E3CC21FBF5BF00CFBB8E /* Setting.storyboard in Resources */,
 				D9FBE0B521F32A0D00BDA694 /* icon_save@2x.png in Resources */,
 				D9FBE0B721F32A0D00BDA694 /* icon_setting@2x.png in Resources */,
+				D914E3B521FBF5BF00CFBB8E /* NanumBarunpenB.ttf in Resources */,
+				D914E3B721FBF5BF00CFBB8E /* NanumPen.ttf in Resources */,
+				D914E3D921FBF5BF00CFBB8E /* TimePickerView.xib in Resources */,
 				D9FBE0B421F32A0D00BDA694 /* icon_loading@3x.png in Resources */,
 				D9FBE0BE21F32A0D00BDA694 /* icon_delete@3x.png in Resources */,
 				D9FBE0C221F32A0D00BDA694 /* icon_close@3x.png in Resources */,
 				9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */,
 				D9FBE0BC21F32A0D00BDA694 /* icon_navigation_next@3x.png in Resources */,
 				D9FBE0C321F32A0D00BDA694 /* icon_close@2x.png in Resources */,
+				D914E3C021FBF5BF00CFBB8E /* DatePickerView.xib in Resources */,
 				D9FBE0C021F32A0D00BDA694 /* icon_navigation_back@3x.png in Resources */,
 				D9FBE0C121F32A0D00BDA694 /* icon_delete@2x.png in Resources */,
 				D9FBE0B621F32A0D00BDA694 /* icon_navigation_next@2x.png in Resources */,
+				D914E3B921FBF5BF00CFBB8E /* NanumBrush.ttf in Resources */,
 				9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,36 +584,65 @@
 				D9FBE0E021F32B1C00BDA694 /* BasePopup.swift in Sources */,
 				D9FBE0DF21F32B1C00BDA694 /* InfiniteScrollView.swift in Sources */,
 				9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */,
+				D914E3D621FBF5BF00CFBB8E /* ModelDiary.swift in Sources */,
+				D914E3B221FBF5BF00CFBB8E /* Profile+TableViewDelegate.swift in Sources */,
+				D914E3C121FBF5BF00CFBB8E /* SettingViewController.swift in Sources */,
 				60F47A9921F5707800E0DCB2 /* DatePickViewController.swift in Sources */,
+				D914E3D821FBF5BF00CFBB8E /* TimePickerView.swift in Sources */,
 				60F47A9721F5706500E0DCB2 /* AddPlanViewController.swift in Sources */,
 				D9FBE0E421F32B1C00BDA694 /* CalendarMonthViewController.swift in Sources */,
 				60F47A9D21F5722C00E0DCB2 /* Alert.swift in Sources */,
+				D914E3B021FBF5BF00CFBB8E /* DatePickerView.swift in Sources */,
 				9EC46C5C21F6F91A00765274 /* ModelHoliday.swift in Sources */,
+				D914E3CD21FBF5BF00CFBB8E /* Profile+TableViewDataSource.swift in Sources */,
+				D914E3C321FBF5BF00CFBB8E /* BaseViewController.swift in Sources */,
+				D914E3C421FBF5BF00CFBB8E /* DiaryPageViewController.swift in Sources */,
 				60F47A9021F56C2D00E0DCB2 /* Plan.swift in Sources */,
 				D9FBE0DD21F32B1C00BDA694 /* MonthlyPlanViewController.swift in Sources */,
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
 				60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */,
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
+				D914E3AF21FBF5BF00CFBB8E /* ModelDBTodo.swift in Sources */,
 				60F47A9221F56C3400E0DCB2 /* DBPlan.swift in Sources */,
 				D9FBE0DE21F32B1C00BDA694 /* UIColor+hexString.swift in Sources */,
+				D914E3C221FBF5BF00CFBB8E /* ModelProfile.swift in Sources */,
 				60F47A9F21F57FA200E0DCB2 /* DateExtension.swift in Sources */,
 				9B26622F21EA3E48007CF0B3 /* AppDelegate.swift in Sources */,
 				D9FBE0DA21F32B1C00BDA694 /* LoaddingPopup.swift in Sources */,
+				D914E3B421FBF5BF00CFBB8E /* SettingTableCell.swift in Sources */,
 				6042713B21F6B57F001F0E40 /* DetailPlanViewController.swift in Sources */,
+				D914E3D121FBF5BF00CFBB8E /* Defines.swift in Sources */,
+				D914E3D021FBF5BF00CFBB8E /* DiaryPage+TableViewDelegate.swift in Sources */,
 				D9FBE0E221F32B1C00BDA694 /* DBManager.swift in Sources */,
 				D9FBE0E121F32B1C00BDA694 /* SiceMenuCell.swift in Sources */,
+				D914E3D521FBF5BF00CFBB8E /* DiaryPage+TableViewDataSource.swift in Sources */,
 				60F47A9B21F5708400E0DCB2 /* PlanCell.swift in Sources */,
+				D914E3AE21FBF5BF00CFBB8E /* UITextView+DoneAccessory.swift in Sources */,
 				D9FBE0E321F32B1C00BDA694 /* RoundLineButton.swift in Sources */,
+				D914E3CA21FBF5BF00CFBB8E /* ModelDBDiary.swift in Sources */,
+				D914E3CF21FBF5BF00CFBB8E /* Setting+PickerViewDelegate.swift in Sources */,
 				9EC46C5E21F6F98000765274 /* URLs.swift in Sources */,
 				9EC46C6021F6F9F400765274 /* AlamofireHelper.swift in Sources */,
 				9E954C9321F848E1006356BF /* CalendarLunar.swift in Sources */,
+				D914E3D421FBF5BF00CFBB8E /* DBManager+Diary.swift in Sources */,
+				D914E3D321FBF5BF00CFBB8E /* DBManager+Profile.swift in Sources */,
 				60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */,
+				D914E3CB21FBF5BF00CFBB8E /* ProfileTableCell.swift in Sources */,
 				D9FBE0D721F32B1C00BDA694 /* CalendarManager.swift in Sources */,
 				D9FBE0D821F32B1C00BDA694 /* AlertMessagePopup.swift in Sources */,
 				D9FBE0E521F32B1C00BDA694 /* CommonUtil.swift in Sources */,
+				D914E3C521FBF5BF00CFBB8E /* ModelTodo.swift in Sources */,
+				D914E3CE21FBF5BF00CFBB8E /* ProfileViewController.swift in Sources */,
+				D914E3B121FBF5BF00CFBB8E /* DBManager+UD.swift in Sources */,
 				60F47A9521F5705700E0DCB2 /* PlannerViewController.swift in Sources */,
+				D914E3C821FBF5BF00CFBB8E /* DiaryPageTableCell.swift in Sources */,
+				D914E3BD21FBF5BF00CFBB8E /* ZnTextView.swift in Sources */,
+				D914E3B321FBF5BF00CFBB8E /* ModelDBProfile.swift in Sources */,
+				D914E3C721FBF5BF00CFBB8E /* PopupManager.swift in Sources */,
 				D9FBE0D921F32B1C00BDA694 /* Define.swift in Sources */,
+				D914E3C621FBF5BF00CFBB8E /* PickerView.swift in Sources */,
+				D914E3D721FBF5BF00CFBB8E /* FontManager.swift in Sources */,
 				60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
