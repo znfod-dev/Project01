@@ -336,6 +336,7 @@
 		9BD47E6121FBF956005350C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D914E3DA21FC007200CFBB8E /* CustomView */,
 				D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */,
 				D914E39421FBF5BD00CFBB8E /* DatePickerView.xib */,
 				D914E39A21FBF5BD00CFBB8E /* PickerView.swift */,
@@ -350,13 +351,11 @@
 		9BD47E6221FBF96D005350C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D914E3DC21FC00CA00CFBB8E /* SideMenu */,
+				D914E3DB21FC00AE00CFBB8E /* Calendar */,
 				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
 				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
-				D9FBE0CB21F32B1B00BDA694 /* CalendarDayCell.swift */,
-				D9FBE0D321F32B1B00BDA694 /* CalendarMonthViewController.swift */,
-				D9FBE0CC21F32B1B00BDA694 /* MonthlyPlanViewController.swift */,
 				D9FBE0D021F32B1B00BDA694 /* SiceMenuCell.swift */,
-				D9FBE0C421F32B1A00BDA694 /* SideMenuViewController.swift */,
 				D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */,
 				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
 				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
@@ -430,9 +429,6 @@
 				9EC46C5D21F6F98000765274 /* URLs.swift */,
 				D9FBE0D421F32B1B00BDA694 /* CommonUtil.swift */,
 				D9FBE0C821F32B1B00BDA694 /* Define.swift */,
-				D9FBE0CE21F32B1B00BDA694 /* InfiniteScrollView.swift */,
-				D9FBE0D221F32B1B00BDA694 /* RoundLineButton.swift */,
-				D9FBE0CA21F32B1B00BDA694 /* RoundLineView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -450,6 +446,34 @@
 				D914E39021FBF5BD00CFBB8E /* NanumBarunGothicBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D914E3DA21FC007200CFBB8E /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				D9FBE0CE21F32B1B00BDA694 /* InfiniteScrollView.swift */,
+				D9FBE0D221F32B1B00BDA694 /* RoundLineButton.swift */,
+				D9FBE0CA21F32B1B00BDA694 /* RoundLineView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		D914E3DB21FC00AE00CFBB8E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D9FBE0CB21F32B1B00BDA694 /* CalendarDayCell.swift */,
+				D9FBE0D321F32B1B00BDA694 /* CalendarMonthViewController.swift */,
+				D9FBE0CC21F32B1B00BDA694 /* MonthlyPlanViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		D914E3DC21FC00CA00CFBB8E /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D9FBE0C421F32B1A00BDA694 /* SideMenuViewController.swift */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		D9FBE09F21F32A0D00BDA694 /* Images */ = {
