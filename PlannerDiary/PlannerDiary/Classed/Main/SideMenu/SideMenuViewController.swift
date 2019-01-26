@@ -47,7 +47,7 @@ class SideMenuViewController: UIViewController {
 		// 사이드 메뉴 폭
 		SideMenuController.preferences.basic.menuWidth = 270 * scale
 		SideMenuController.preferences.basic.defaultCacheKey = "0"
-		SideMenuController.preferences.basic.direction = .right
+		SideMenuController.preferences.basic.direction = .left
 		SideMenuController.preferences.basic.enablePanGesture = false
 		
         sideMenuController?.cache(viewControllerGenerator: {
