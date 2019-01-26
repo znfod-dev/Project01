@@ -12,5 +12,4 @@ import BEMCheckBox
 class TodoCell: UITableViewCell {
     @IBOutlet var checkBox: BEMCheckBox!
     @IBOutlet var titleLabel: UILabel!
-    
 }

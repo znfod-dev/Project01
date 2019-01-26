@@ -630,7 +630,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-01-21 13:15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgo-hd-JVt">
-                                                    <rect key="frame" x="270" y="43" width="90" height="12"/>
+                                                    <rect key="frame" x="276" y="43" width="84" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -646,7 +646,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="xgo-hd-JVt" secondAttribute="bottom" constant="4.5" id="8WS-4p-MpZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="d5a-Qi-Ynx" secondAttribute="trailing" constant="15" id="Yku-nk-STz"/>
                                                 <constraint firstItem="d5a-Qi-Ynx" firstAttribute="leading" secondItem="PjV-Os-54e" secondAttribute="leading" constant="15" id="elm-rZ-5Vl"/>
-                                                <constraint firstItem="xgo-hd-JVt" firstAttribute="leading" secondItem="PjV-Os-54e" secondAttribute="leading" constant="270" id="mbV-Qr-gd3"/>
+                                                <constraint firstItem="xgo-hd-JVt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PjV-Os-54e" secondAttribute="leading" constant="20" symbolic="YES" id="mbV-Qr-gd3"/>
                                                 <constraint firstItem="d5a-Qi-Ynx" firstAttribute="top" secondItem="PjV-Os-54e" secondAttribute="top" constant="6" id="tDS-EX-q97"/>
                                                 <constraint firstAttribute="trailing" secondItem="xgo-hd-JVt" secondAttribute="trailing" constant="15" id="uCy-gw-2zJ"/>
                                             </constraints>
