@@ -30,6 +30,7 @@ class CalendarDayCell: UICollectionViewCell {
         let cellIndex: Int = infoData["cellIndex"] as! Int
         let monthDirection: Int = infoData["monthDirection"] as! Int
         let isHoliday: Bool = infoData["isHoliday"] as! Bool
+		let todoCount: Int = infoData["todoCount"] as! Int
 //        let holidayName: String = infoData["holidayName"] as! String
 
         var monthLunar: Int = 0
@@ -139,15 +140,20 @@ class CalendarDayCell: UICollectionViewCell {
 		}
 		
 		// Todo List
-		let gapWidth: CGFloat = 6.0
-		// 페이지 컨트롤
-		vPageControl.gapWidth = gapWidth
-		vPageControl.normalItem = UIColor(hex: 0x0096FF)
-		vPageControl.selectedItem = UIColor(hex: 0x0096FF)
-		vPageControl.setTotalPage(3)
-		// 10px : 이미지 크기 8px 이미지 간격
-		vPageControlWidthConstraint.constant = (vPageControl.frame.size.height * 3) + gapWidth * 2
-		
-		vPageControl.isHidden = false
+		if todoCount == 0 {
+			vPageControl.isHidden = true
+		}
+		else {
+			let gapWidth: CGFloat = 6.0
+			// 페이지 컨트롤
+			vPageControl.gapWidth = gapWidth
+			vPageControl.normalItem = UIColor(hex: 0x0096FF)
+			vPageControl.selectedItem = UIColor(hex: 0x0096FF)
+			vPageControl.setTotalPage(todoCount)
+			// 10px : 이미지 크기 8px 이미지 간격
+			vPageControlWidthConstraint.constant = (vPageControl.frame.size.height * CGFloat(todoCount) + gapWidth * CGFloat(todoCount-1))
+			
+			vPageControl.isHidden = false
+		}
     }
 }

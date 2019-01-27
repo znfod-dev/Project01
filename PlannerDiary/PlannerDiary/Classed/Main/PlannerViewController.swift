@@ -25,7 +25,7 @@ class PlannerViewController: UIViewController {
         view.transform = view.transform.scaledBy(x: scale, y: scale)
 		
 		// 간격
-		var gapWidth: CGFloat = 10.0
+		let gapWidth: CGFloat = 10.0
 		// 페이지 컨트롤
 		vPageControl.gapWidth = gapWidth
 		vPageControl.normalItem = UIColor(hex: 0xff0000)

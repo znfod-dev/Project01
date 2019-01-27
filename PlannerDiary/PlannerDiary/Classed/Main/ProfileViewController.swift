@@ -89,7 +89,7 @@ class ProfileViewController: UIViewController {
 	// 프로필 DB로드
 	func profileDBLoad() {
 		// 오너 정보 검색
-		let sql = "SELECT * FROM OwnerInfo WHERE uid='1';"
+		let sql = "SELECT * FROM OwnerInfo WHERE uid=1;"
 		// SQL 결과
 		let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
 		let resultCode: String = dicSQLResults["RESULT_CODE"] as! String

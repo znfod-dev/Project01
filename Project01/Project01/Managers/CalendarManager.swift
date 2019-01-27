@@ -224,10 +224,10 @@ class CalendarManager {
         var dicHoliday:[String: String] = [:]
         
         // 공휴일 정보 검색
-        let sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM='\(curIndex) OR dateYYYYMM='\(prevIndex) OR dateYYYYMM='\(nextIndex)';"
+        var sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM=\(curIndex) OR dateYYYYMM=\(prevIndex) OR dateYYYYMM=\(nextIndex);"
         // SQL 결과
-        let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
-        let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
+        var dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
+        var resultCode: String = dicSQLResults["RESULT_CODE"] as! String
         // 검색 실패
         if resultCode == "0" {
             // 해당 년/월에 데이터가 저장되어 있으면...
@@ -237,7 +237,31 @@ class CalendarManager {
                 dicHoliday["\(holiday.dateYYYYMMDD)"] = holiday.name
             }
         }
-        
+		
+		// Todo List Count 구하기
+		var dicTodoListCount:[String: Int] = [:]
+		
+		sql = "SELECT * FROM DBTodo WHERE date CONTAINS '\(curIndex)' OR date CONTAINS '\(prevIndex)' OR date CONTAINS '\(nextIndex)';"
+		// SQL 결과
+		dicSQLResults = DBManager.SQLExcute(sql: sql)
+		resultCode = dicSQLResults["RESULT_CODE"] as! String
+		// 검색 실패
+		if resultCode == "0" {
+			let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
+			
+			for i in 0..<resultData.count {
+				let todo: DBTodo = resultData[i] as! DBTodo
+				if dicTodoListCount.keys.contains(todo.date!) {
+					
+					var count: Int = dicTodoListCount[todo.date!]!
+					count += 1
+					dicTodoListCount[todo.date!] = count
+				}
+				else {
+					dicTodoListCount[todo.date!] = 1
+				}
+			}
+		}
         
         // 이전달 정보
         var comps = DateComponents()
@@ -308,6 +332,15 @@ class CalendarManager {
                 dicDayData["isHoliday"] = true
                 dicDayData["holidayName"] = holiday
             }
+			
+			// Todo List Count
+			if dicTodoListCount.keys.contains("\(cellIndex)") {
+				let count: Int = dicTodoListCount["\(cellIndex)"]!
+				dicDayData["todoCount"] = count
+			}
+			else {
+				dicDayData["todoCount"] = 0
+			}
 
             arrCurentMoth.append(dicDayData)
             
@@ -360,6 +393,15 @@ class CalendarManager {
                     print(error.message)
                 }
             }
+			
+			// Todo List Count
+			if dicTodoListCount.keys.contains("\(cellIndex)") {
+				let count: Int = dicTodoListCount["\(cellIndex)"]!
+				dicDayData["todoCount"] = count
+			}
+			else {
+				dicDayData["todoCount"] = 0
+			}
 
             arrCurentMoth.append(dicDayData)
                         
@@ -393,7 +435,16 @@ class CalendarManager {
                     dicDayData["isHoliday"] = true
                     dicDayData["holidayName"] = holiday
                 }
-                
+				
+				// Todo List Count
+				if dicTodoListCount.keys.contains("\(cellIndex)") {
+					let count: Int = dicTodoListCount["\(cellIndex)"]!
+					dicDayData["todoCount"] = count
+				}
+				else {
+					dicDayData["todoCount"] = 0
+				}
+				
                 arrCurentMoth.append(dicDayData)
             }
         }

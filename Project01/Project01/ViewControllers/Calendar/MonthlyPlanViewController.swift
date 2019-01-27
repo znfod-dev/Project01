@@ -321,6 +321,12 @@ class MonthlyPlanViewController: UIViewController {
             DBManager.sharedInstance.addTodoDB(todo: todo)
             
             self.selectedDayTodoList(doReload: true)
+
+			// sama73 : 화면 재갱신
+			let monthVC: CalendarMonthViewController? = self.arrChildController[self.focusIndex]
+			if monthVC != nil {
+				monthVC?.setDBReloadData()
+			}
         }))
         alert.addAction(UIAlertAction(title: "cancel", style: .cancel))
         
@@ -330,14 +336,18 @@ class MonthlyPlanViewController: UIViewController {
     
     // 날짜에 맞는 TodoList 불러오기
     func selectedDayTodoList(doReload: Bool = false) {
+				
         if self.isHide { // 체크 박스를 보여주지 않을 때
             self.todoArray = DBManager.sharedInstance.selectTodoDB(withoutCheckedBox: true)
         } else { // 체크 박스 까지 보여줄 때
             self.todoArray = DBManager.sharedInstance.selectTodoDB()
         }
-        
+		
+//		print(self.todoArray)
+//		print(self.selectedDay)
         self.selectedDayTodo.removeAll()
         for todo in self.todoArray {
+			print(todo)
             if todo.date == self.selectedDay {
                 self.selectedDayTodo.append(todo)
             }

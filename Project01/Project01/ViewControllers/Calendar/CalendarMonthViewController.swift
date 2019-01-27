@@ -41,7 +41,12 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         lpgr.delaysTouchesBegan = true
         self.collectionView?.addGestureRecognizer(lpgr)
     }
-    
+	
+	// 설정할 년/월 재갱신
+	func setDBReloadData() {
+		setMonthToDays(year: curentYear, month: curentMonth, isRequest: false)
+	}
+	
     // 설정할 년/월
     func setMonthToDays(year:Int, month:Int, isRequest:Bool = true) {
         print("년월 = \(year) - \(month)")
@@ -168,7 +173,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         
         // RelamDB에서 먼저 검색해보고 없으면 API
         // 공휴일 정보 검색
-        let sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM='\(curIndex)';"
+        let sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM=\(curIndex);"
         // SQL 결과
         let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
         let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
@@ -330,7 +335,7 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         }
         
         // 콜렉션에 맞는 날짜 전달
-        parentVC?.selectedDay = "\(year)\(month)\(day)"
+        parentVC?.selectedDay = String(format: "%04d%02d%02d", year, month, day)
         parentVC?.selectedDayTodoList(doReload: true)
     }
 }

@@ -224,7 +224,7 @@ class CalendarManager {
         var dicHoliday:[String: String] = [:]
         
         // 공휴일 정보 검색
-        let sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM='\(curIndex) OR dateYYYYMM='\(prevIndex) OR dateYYYYMM='\(nextIndex)';"
+        let sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM=\(curIndex) OR dateYYYYMM=\(prevIndex) OR dateYYYYMM=\(nextIndex);"
         // SQL 결과
         let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
         let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
