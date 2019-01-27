@@ -11,7 +11,7 @@ extension Date {
     // 예) 2019121
     func cmpString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMdd"
+        formatter.dateFormat = "yyyyMMdd"
         let day = formatter.string(from: self)
         return day
     }

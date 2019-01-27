@@ -11,6 +11,9 @@ import RealmSwift
 
 class PlannerViewController: UIViewController {
 
+	@IBOutlet var vPageControl: CustomPageControlView!
+	@IBOutlet weak var vPageControlWidthConstraint: NSLayoutConstraint!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +23,31 @@ class PlannerViewController: UIViewController {
         // 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
+		
+		// 간격
+		let gapWidth: CGFloat = 10.0
+		// 페이지 컨트롤
+		vPageControl.gapWidth = gapWidth
+		vPageControl.normalItem = UIColor(hex: 0xff0000)
+		vPageControl.selectedItem = UIColor(hex: 0xff0000)
+		vPageControl.setTotalPage(3)
+		// 10px : 이미지 크기 8px 이미지 간격
+		vPageControlWidthConstraint.constant = (vPageControl.frame.size.height * 3) + gapWidth * 2
+		
+		vPageControl.isHidden = false
+//		vPageControl.setSelectPage(0)
+		
+		
+//		if view_count > 1 {
+//			vPageControl.totalPage = view_count
+//			// 10px : 이미지 크기 8px 이미지 간격
+//			vPageControlWidthConstraint.constant = (vPageControl.frame.size.height * view_count) + 10 * (view_count - 1)
+//
+//			vPageControl.hidden = false
+//			vPageControl.selectPage = index_delete
+//		} else {
+//			vPageControl.hidden = true
+//		}
 
     }
     

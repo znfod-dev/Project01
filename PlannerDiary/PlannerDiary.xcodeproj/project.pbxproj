@@ -60,6 +60,7 @@
 		D915AFF521EB1812002129B5 /* icon_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D915AFED21EB1812002129B5 /* icon_delete@2x.png */; };
 		D915AFF621EB1812002129B5 /* icon_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D915AFEE21EB1812002129B5 /* icon_navigation_back@2x.png */; };
 		D9F5D38821DB41C1003B4AD5 /* FocusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F5D38721DB41C1003B4AD5 /* FocusManager.swift */; };
+		D9FB06D321FD7133006C4DCA /* CustomPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FB06D221FD7133006C4DCA /* CustomPageControlView.swift */; };
 		D9FE473421E20D1B002142B8 /* bg_img_month-8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9FE472821E20D1B002142B8 /* bg_img_month-8.jpg */; };
 		D9FE473521E20D1B002142B8 /* bg_img_month-10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9FE472921E20D1B002142B8 /* bg_img_month-10.jpg */; };
 		D9FE473621E20D1B002142B8 /* bg_img_month-11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9FE472A21E20D1B002142B8 /* bg_img_month-11.jpg */; };
@@ -150,6 +151,7 @@
 		D915AFED21EB1812002129B5 /* icon_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_delete@2x.png"; sourceTree = "<group>"; };
 		D915AFEE21EB1812002129B5 /* icon_navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_navigation_back@2x.png"; sourceTree = "<group>"; };
 		D9F5D38721DB41C1003B4AD5 /* FocusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusManager.swift; sourceTree = "<group>"; };
+		D9FB06D221FD7133006C4DCA /* CustomPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControlView.swift; sourceTree = "<group>"; };
 		D9FE472821E20D1B002142B8 /* bg_img_month-8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg_img_month-8.jpg"; sourceTree = "<group>"; };
 		D9FE472921E20D1B002142B8 /* bg_img_month-10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg_img_month-10.jpg"; sourceTree = "<group>"; };
 		D9FE472A21E20D1B002142B8 /* bg_img_month-11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg_img_month-11.jpg"; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 		9E9BF9CD21D9DEB4001ECF40 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				D9FB06D121FD70C9006C4DCA /* CustomPageControl */,
 				D900D28E21EAE8150012E58F /* CustomScrollView */,
 				9EF4A1E221E4729500DCD2A6 /* RoundLineButton */,
 				D9019AEF21E0AFA400C59EBC /* PlaceholderTextView */,
@@ -414,6 +417,14 @@
 				9E954C9021F83106006356BF /* CalendarLunar.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D9FB06D121FD70C9006C4DCA /* CustomPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				D9FB06D221FD7133006C4DCA /* CustomPageControlView.swift */,
+			);
+			path = CustomPageControl;
 			sourceTree = "<group>";
 		};
 		D9FE471A21E1F847002142B8 /* Common */ = {
@@ -702,6 +713,7 @@
 				9E954C9121F83106006356BF /* CalendarLunar.swift in Sources */,
 				D915AFE421EAFF78002129B5 /* CalendarDayCell.swift in Sources */,
 				9EF4A1E421E472B500DCD2A6 /* RoundLineButton.swift in Sources */,
+				D9FB06D321FD7133006C4DCA /* CustomPageControlView.swift in Sources */,
 				D900D29021EAE8150012E58F /* InfiniteScrollView.swift in Sources */,
 				D9019AF221E0AFC100C59EBC /* PlaceholderTextView.swift in Sources */,
 				9E73755F21F01A97009FF9F4 /* UIColor+hexString.swift in Sources */,

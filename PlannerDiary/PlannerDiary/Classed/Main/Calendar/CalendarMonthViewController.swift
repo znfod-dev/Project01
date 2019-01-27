@@ -168,7 +168,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         
         // RelamDB에서 먼저 검색해보고 없으면 API
         // 공휴일 정보 검색
-        let sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM='\(curIndex)';"
+        let sql = "SELECT * FROM ModelDBHoliday WHERE dateYYYYMM=\(curIndex);"
         // SQL 결과
         let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
         let resultCode: String = dicSQLResults["RESULT_CODE"] as! String

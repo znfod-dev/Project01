@@ -568,21 +568,35 @@
                                     <action selector="onHoliday2Click:" destination="Wqr-pe-7iz" eventType="touchUpInside" id="q9o-o8-DYR"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyJ-d1-xSX" customClass="CustomPageControlView" customModule="PlannerDiary" customModuleProvider="target">
+                                <rect key="frame" x="167.5" y="331.5" width="40" height="4"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="RlQ-jz-sCl"/>
+                                    <constraint firstAttribute="height" constant="4" id="fgk-Hj-ypv"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="9of-Qh-tfF" firstAttribute="top" secondItem="Wx7-ye-nCf" secondAttribute="bottom" id="DRK-BW-yHn"/>
+                            <constraint firstItem="EyJ-d1-xSX" firstAttribute="centerY" secondItem="HN1-Jp-buk" secondAttribute="centerY" id="Goj-12-AGy"/>
                             <constraint firstItem="9of-Qh-tfF" firstAttribute="trailing" secondItem="HN1-Jp-buk" secondAttribute="trailing" id="ivO-YE-zHC"/>
+                            <constraint firstItem="EyJ-d1-xSX" firstAttribute="centerX" secondItem="HN1-Jp-buk" secondAttribute="centerX" id="jUI-ei-GUi"/>
                             <constraint firstItem="9of-Qh-tfF" firstAttribute="leading" secondItem="HN1-Jp-buk" secondAttribute="leading" id="tIV-9v-sOz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ROV-CC-xZX"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="vPageControl" destination="EyJ-d1-xSX" id="oMZ-f7-nuE"/>
+                        <outlet property="vPageControlWidthConstraint" destination="RlQ-jz-sCl" id="Sso-fC-jvU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5M-IY-4YT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3678" y="795"/>
+            <point key="canvasLocation" x="3677.5999999999999" y="794.75262368815595"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Rkr-Nv-BmS">
