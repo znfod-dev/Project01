@@ -347,7 +347,6 @@ class MonthlyPlanViewController: UIViewController {
 //		print(self.selectedDay)
         self.selectedDayTodo.removeAll()
         for todo in self.todoArray {
-			print(todo)
             if todo.date == self.selectedDay {
                 self.selectedDayTodo.append(todo)
             }
