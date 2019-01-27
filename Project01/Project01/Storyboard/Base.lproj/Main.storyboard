@@ -518,7 +518,7 @@
                                                     <bool key="isElement" value="NO"/>
                                                 </accessibility>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.0" green="0.58823529411764708" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -643,7 +643,7 @@
                             <inset key="sectionInset" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarDayCell" id="tNs-gH-LmQ" customClass="CalendarDayCell" customModule="Project01" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarDayCell" id="tNs-gH-LmQ" customClass="CalendarDayCell" customModule="Project01">
                                 <rect key="frame" x="2" y="0.0" width="53" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -662,27 +662,9 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wc-12-Rzf">
-                                            <rect key="frame" x="0.0" y="0.0" width="53" height="16"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설날" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="7VS-oO-YeU">
-                                                    <rect key="frame" x="2" y="2" width="49" height="12"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.89019607840000003" green="0.015686274510000001" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="7VS-oO-YeU" secondAttribute="bottom" constant="2" id="Ra6-Xh-iLb"/>
-                                                <constraint firstItem="7VS-oO-YeU" firstAttribute="top" secondItem="9Wc-12-Rzf" secondAttribute="top" constant="2" id="f54-bH-JtY"/>
-                                                <constraint firstItem="7VS-oO-YeU" firstAttribute="leading" secondItem="9Wc-12-Rzf" secondAttribute="leading" constant="2" id="sO7-r8-JSc"/>
-                                                <constraint firstAttribute="trailing" secondItem="7VS-oO-YeU" secondAttribute="trailing" constant="2" id="wPE-34-u07"/>
-                                            </constraints>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCc-lf-D6n" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
-                                            <rect key="frame" x="13.5" y="17" width="26" height="26"/>
-                                            <color key="backgroundColor" red="0.89019607840000003" green="0.015686274510000001" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="13.5" y="3" width="26" height="26"/>
+                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="26" id="HEx-kj-50d"/>
                                                 <constraint firstAttribute="width" constant="26" id="zKB-9a-GwF"/>
@@ -694,30 +676,37 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6v-t1-gyP">
-                                            <rect key="frame" x="23" y="21.5" width="7" height="17"/>
+                                            <rect key="frame" x="23" y="7.5" width="7" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(음)01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edy-EV-e9L">
-                                            <rect key="frame" x="7.5" y="46" width="38" height="11"/>
+                                            <rect key="frame" x="7.5" y="32" width="38" height="11"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lta-1W-DKr" customClass="CustomPageControlView" customModule="Project01" customModuleProvider="target">
+                                            <rect key="frame" x="11.5" y="47" width="30" height="3"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="3" id="9hd-wN-iXh"/>
+                                                <constraint firstAttribute="width" constant="30" id="ttS-qT-rpd"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="edy-EV-e9L" secondAttribute="bottom" constant="3" id="8d4-bH-Po9"/>
                                     <constraint firstItem="u9d-oz-c3A" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" id="UFR-oX-CrC"/>
+                                    <constraint firstItem="edy-EV-e9L" firstAttribute="top" secondItem="BCc-lf-D6n" secondAttribute="bottom" constant="3" id="eNx-DJ-UgS"/>
                                     <constraint firstItem="u9d-oz-c3A" firstAttribute="leading" secondItem="tNs-gH-LmQ" secondAttribute="leading" id="gQO-aW-8Fj"/>
+                                    <constraint firstAttribute="bottom" secondItem="lta-1W-DKr" secondAttribute="bottom" constant="10" id="gbc-Pa-RQ2"/>
                                     <constraint firstItem="edy-EV-e9L" firstAttribute="centerX" secondItem="tNs-gH-LmQ" secondAttribute="centerX" id="mBF-xn-9B7"/>
-                                    <constraint firstItem="9Wc-12-Rzf" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" id="nAi-Ox-wtL"/>
+                                    <constraint firstItem="lta-1W-DKr" firstAttribute="centerX" secondItem="tNs-gH-LmQ" secondAttribute="centerX" id="nOw-2l-0g3"/>
                                     <constraint firstItem="H6v-t1-gyP" firstAttribute="centerY" secondItem="BCc-lf-D6n" secondAttribute="centerY" id="oMr-Ae-jyv"/>
-                                    <constraint firstItem="9Wc-12-Rzf" firstAttribute="leading" secondItem="tNs-gH-LmQ" secondAttribute="leading" id="qTR-Yu-9G6"/>
                                     <constraint firstItem="H6v-t1-gyP" firstAttribute="centerX" secondItem="BCc-lf-D6n" secondAttribute="centerX" id="r5c-9G-UMq"/>
-                                    <constraint firstAttribute="trailing" secondItem="9Wc-12-Rzf" secondAttribute="trailing" id="rvi-hO-zs0"/>
-                                    <constraint firstItem="BCc-lf-D6n" firstAttribute="centerY" secondItem="tNs-gH-LmQ" secondAttribute="centerY" id="tvM-v9-yQe"/>
+                                    <constraint firstItem="BCc-lf-D6n" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" constant="3" id="tON-b7-laA"/>
                                     <constraint firstAttribute="bottom" secondItem="u9d-oz-c3A" secondAttribute="bottom" constant="1" id="v1m-Ws-ALN"/>
                                     <constraint firstItem="BCc-lf-D6n" firstAttribute="centerX" secondItem="tNs-gH-LmQ" secondAttribute="centerX" id="vgg-ba-Le9"/>
                                     <constraint firstAttribute="trailing" secondItem="u9d-oz-c3A" secondAttribute="trailing" id="zbn-cJ-fQa"/>
@@ -725,8 +714,8 @@
                                 <connections>
                                     <outlet property="lbDay" destination="H6v-t1-gyP" id="2d0-no-V9h"/>
                                     <outlet property="lbDayLunar" destination="edy-EV-e9L" id="b8t-K0-ToG"/>
-                                    <outlet property="lbHoliday" destination="7VS-oO-YeU" id="2Mp-bz-vY6"/>
-                                    <outlet property="vHoliday" destination="9Wc-12-Rzf" id="bRG-5j-rrv"/>
+                                    <outlet property="vPageControl" destination="lta-1W-DKr" id="bWj-bJ-j1o"/>
+                                    <outlet property="vPageControlWidthConstraint" destination="ttS-qT-rpd" id="B7p-Ln-3pY"/>
                                     <outlet property="vSelectedCell" destination="u9d-oz-c3A" id="IB2-fm-uaW"/>
                                     <outlet property="vToDay" destination="BCc-lf-D6n" id="qK3-aF-E9S"/>
                                 </connections>
@@ -740,7 +729,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmB-P8-22H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3679" y="-722"/>
+            <point key="canvasLocation" x="3677.5999999999999" y="-722.78860569715152"/>
         </scene>
     </scenes>
     <resources>

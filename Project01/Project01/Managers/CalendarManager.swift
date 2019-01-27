@@ -58,7 +58,7 @@ class CalendarManager {
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
 
-        return (year * 10000 + month * 100 + day)
+		return (year * 10000 + month * 100 + day)
     }
     
     // 이번달 기준으로 value값을 가감 계산해준다.

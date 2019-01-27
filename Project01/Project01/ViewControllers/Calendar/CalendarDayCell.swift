@@ -13,9 +13,12 @@ class CalendarDayCell: UICollectionViewCell {
 	@IBOutlet weak var lbDay: UILabel!
     @IBOutlet weak var vToDay: UIView!
 	@IBOutlet weak var vSelectedCell: UIView!
-    @IBOutlet weak var vHoliday: UIView!
-    @IBOutlet weak var lbHoliday: UILabel!
+//    @IBOutlet weak var vHoliday: UIView!
+//    @IBOutlet weak var lbHoliday: UILabel!
     @IBOutlet weak var lbDayLunar: UILabel!
+
+	@IBOutlet var vPageControl: CustomPageControlView!
+	@IBOutlet weak var vPageControlWidthConstraint: NSLayoutConstraint!
 
     func setCellInfo(_ infoData: [String: Any]) {
         
@@ -27,7 +30,7 @@ class CalendarDayCell: UICollectionViewCell {
         let cellIndex: Int = infoData["cellIndex"] as! Int
         let monthDirection: Int = infoData["monthDirection"] as! Int
         let isHoliday: Bool = infoData["isHoliday"] as! Bool
-        let holidayName: String = infoData["holidayName"] as! String
+//        let holidayName: String = infoData["holidayName"] as! String
 
         var monthLunar: Int = 0
         var dayLunar: Int = 0
@@ -46,7 +49,7 @@ class CalendarDayCell: UICollectionViewCell {
         }
         else {
             lbDayLunar.isHidden = false
-            lbDayLunar.text = String(format: "(음) %02d-%02d", monthLunar, dayLunar)
+            lbDayLunar.text = String(format: "%02d.%02d", monthLunar, dayLunar)
         }
         
         lbDay.text = "\(day)"
@@ -59,7 +62,7 @@ class CalendarDayCell: UICollectionViewCell {
                 vToDay.isHidden = false
             }
             else {
-                lbDay.textColor = UIColor.black
+                lbDay.textColor = UIColor(hex: 0x222222)
                 vToDay.isHidden = true
             }
         }
@@ -69,6 +72,64 @@ class CalendarDayCell: UICollectionViewCell {
             vToDay.isHidden = true
         }
 		
+        // 공휴일 체크
+        if isHoliday == true {
+			// 현재달
+			if monthDirection == 0 {
+				// 오늘일 경우
+				if CalendarManager.getTodayIndex() == cellIndex {
+					lbDay.textColor = UIColor(hex: 0xffffff)
+					vToDay.backgroundColor = UIColor(hex: 0xff0000)
+					vToDay.isHidden = false
+				}
+				else {
+					lbDay.textColor = UIColor(hex: 0xff0000)
+					vToDay.isHidden = true
+				}
+			}
+			// -1 or 1 이면 이전달, 다음달
+			else {
+				// 오늘일 경우
+				if CalendarManager.getTodayIndex() == cellIndex {
+					lbDay.textColor = UIColor(hex: 0xffffff)
+					vToDay.backgroundColor = UIColor(hex: 0xffaaaa)
+					vToDay.isHidden = false
+				}
+				else {
+					lbDay.textColor = UIColor(hex: 0xffaaaa)
+					vToDay.isHidden = true
+				}
+			}
+        }
+        else {
+			// 현재달
+			if monthDirection == 0 {
+				// 오늘일 경우
+				if CalendarManager.getTodayIndex() == cellIndex {
+					lbDay.textColor = UIColor.white
+					vToDay.backgroundColor = UIColor(hex: 0x222222)
+					vToDay.isHidden = false
+				}
+				else {
+					lbDay.textColor = UIColor(hex: 0x222222)
+					vToDay.isHidden = true
+				}
+			}
+			// -1 or 1 이면 이전달, 다음달
+			else {
+				// 오늘일 경우
+				if CalendarManager.getTodayIndex() == cellIndex {
+					lbDay.textColor = UIColor.white
+					vToDay.backgroundColor = UIColor(hex: 0xaaaaaa)
+					vToDay.isHidden = false
+				}
+				else {
+					lbDay.textColor = UIColor(hex: 0xaaaaaa)
+					vToDay.isHidden = true
+				}
+			}
+        }
+		
 		// 셀선택
 		if CalendarManager.selectedCell == cellIndex {
 			vSelectedCell.isHidden = false
@@ -76,14 +137,17 @@ class CalendarDayCell: UICollectionViewCell {
 		else {
 			vSelectedCell.isHidden = true
 		}
-        
-        // 공휴일 체크
-        if isHoliday == true {
-            vHoliday.isHidden = false
-            lbHoliday.text = holidayName
-        }
-        else {
-            vHoliday.isHidden = true
-        }
+		
+		// Todo List
+		let gapWidth: CGFloat = 6.0
+		// 페이지 컨트롤
+		vPageControl.gapWidth = gapWidth
+		vPageControl.normalItem = UIColor(hex: 0x0096FF)
+		vPageControl.selectedItem = UIColor(hex: 0x0096FF)
+		vPageControl.setTotalPage(3)
+		// 10px : 이미지 크기 8px 이미지 간격
+		vPageControlWidthConstraint.constant = (vPageControl.frame.size.height * 3) + gapWidth * 2
+		
+		vPageControl.isHidden = false
     }
 }
