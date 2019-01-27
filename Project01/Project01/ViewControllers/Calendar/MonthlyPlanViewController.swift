@@ -119,7 +119,14 @@ class MonthlyPlanViewController: UIViewController {
             goThisMonth()
         }
     }
-    
+	
+	// 설정할 년/월 재갱신
+	func setDBReloadData() {
+		for monthVC in self.arrChildController {
+			monthVC.setDBReloadData()
+		}
+	}
+	
     // 콜렉션뷰 전체 리로드
     func collectionReloadDataAll() {
         for monthVC in self.arrChildController {
@@ -323,10 +330,7 @@ class MonthlyPlanViewController: UIViewController {
             self.selectedDayTodoList(doReload: true)
 
 			// sama73 : 화면 재갱신
-			let monthVC: CalendarMonthViewController? = self.arrChildController[self.focusIndex]
-			if monthVC != nil {
-				monthVC?.setDBReloadData()
-			}
+			self.setDBReloadData()
         }))
         alert.addAction(UIAlertAction(title: "cancel", style: .cancel))
         
@@ -569,6 +573,9 @@ extension MonthlyPlanViewController: UITableViewDataSource {
                 self.selectedDayTodo.remove(at: indexPath.row)
             }
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+			
+			// sama73 : 화면 재갱신
+			self.setDBReloadData()
         }
     }
 }
