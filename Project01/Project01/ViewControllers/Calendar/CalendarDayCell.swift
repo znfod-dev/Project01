@@ -30,7 +30,7 @@ class CalendarDayCell: UICollectionViewCell {
         let cellIndex: Int = infoData["cellIndex"] as! Int
         let monthDirection: Int = infoData["monthDirection"] as! Int
         let isHoliday: Bool = infoData["isHoliday"] as! Bool
-		let todoCount: Int = infoData["todoCount"] as! Int
+		var todoCount: Int = infoData["todoCount"] as! Int
         let holidayName: String = infoData["holidayName"] as! String
 
         var monthLunar: Int = 0
@@ -154,6 +154,11 @@ class CalendarDayCell: UICollectionViewCell {
 			vPageControl.isHidden = true
 		}
 		else {
+            // 최대 3개까지 표시해준다.
+            if todoCount > 3 {
+                todoCount = 3
+            }
+            
 			let gapWidth: CGFloat = 6.0
 			// 페이지 컨트롤
 			vPageControl.gapWidth = gapWidth
