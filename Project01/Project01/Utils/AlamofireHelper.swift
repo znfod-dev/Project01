@@ -152,7 +152,7 @@ class AlamofireHelper: NSObject {
                 error.code == CFNetworkErrors.cfurlErrorNetworkConnectionLost.rawValue ||
                 error.code == CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue) {
                 
-                let popup = AlertMessagePopup.messagePopup(withMessage: "데이터를 정상적으로 불러오지 못했습니다.\n네트워크 상태 확인 후 다시 시도해주세요.")
+                let popup = AlertMessagePopup.messagePopup(message: "데이터를 정상적으로 불러오지 못했습니다.\n네트워크 상태 확인 후 다시 시도해주세요.")
                 popup.addActionConfirmClick("확인", handler: {
                     
                 })
