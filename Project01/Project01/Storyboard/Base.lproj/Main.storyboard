@@ -650,18 +650,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="53" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9d-oz-c3A" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="53" height="59"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCc-lf-D6n" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
                                             <rect key="frame" x="13.5" y="3" width="26" height="26"/>
                                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -682,7 +670,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(음)01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edy-EV-e9L">
-                                            <rect key="frame" x="7.5" y="32" width="38" height="11"/>
+                                            <rect key="frame" x="7.5" y="31" width="38" height="11"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -695,11 +683,48 @@
                                                 <constraint firstAttribute="width" constant="30" id="ttS-qT-rpd"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9d-oz-c3A" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="53" height="59"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU3-1w-VUH">
+                                                    <rect key="frame" x="0.0" y="43" width="53" height="16"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설날" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="1Wq-rh-xPR">
+                                                            <rect key="frame" x="2" y="2" width="49" height="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.89019607840000003" green="0.015686274510000001" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="1Wq-rh-xPR" firstAttribute="top" secondItem="HU3-1w-VUH" secondAttribute="top" constant="2" id="9k3-Mz-7ot"/>
+                                                        <constraint firstAttribute="bottom" secondItem="1Wq-rh-xPR" secondAttribute="bottom" constant="2" id="DgU-Kp-Ply"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1Wq-rh-xPR" secondAttribute="trailing" constant="2" id="oHe-ci-qcA"/>
+                                                        <constraint firstItem="1Wq-rh-xPR" firstAttribute="leading" secondItem="HU3-1w-VUH" secondAttribute="leading" constant="2" id="odd-7Z-Q7V"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="HU3-1w-VUH" secondAttribute="bottom" id="4LP-gE-txk"/>
+                                                <constraint firstAttribute="trailing" secondItem="HU3-1w-VUH" secondAttribute="trailing" id="C50-pk-3T7"/>
+                                                <constraint firstItem="HU3-1w-VUH" firstAttribute="leading" secondItem="u9d-oz-c3A" secondAttribute="leading" id="ulE-GR-2pI"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="u9d-oz-c3A" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" id="UFR-oX-CrC"/>
-                                    <constraint firstItem="edy-EV-e9L" firstAttribute="top" secondItem="BCc-lf-D6n" secondAttribute="bottom" constant="3" id="eNx-DJ-UgS"/>
+                                    <constraint firstItem="edy-EV-e9L" firstAttribute="top" secondItem="BCc-lf-D6n" secondAttribute="bottom" constant="2" id="eNx-DJ-UgS"/>
                                     <constraint firstItem="u9d-oz-c3A" firstAttribute="leading" secondItem="tNs-gH-LmQ" secondAttribute="leading" id="gQO-aW-8Fj"/>
                                     <constraint firstAttribute="bottom" secondItem="lta-1W-DKr" secondAttribute="bottom" constant="10" id="gbc-Pa-RQ2"/>
                                     <constraint firstItem="edy-EV-e9L" firstAttribute="centerX" secondItem="tNs-gH-LmQ" secondAttribute="centerX" id="mBF-xn-9B7"/>
@@ -714,6 +739,8 @@
                                 <connections>
                                     <outlet property="lbDay" destination="H6v-t1-gyP" id="2d0-no-V9h"/>
                                     <outlet property="lbDayLunar" destination="edy-EV-e9L" id="b8t-K0-ToG"/>
+                                    <outlet property="lbHoliday" destination="1Wq-rh-xPR" id="g9e-o2-tdT"/>
+                                    <outlet property="vHoliday" destination="HU3-1w-VUH" id="5pH-cf-faL"/>
                                     <outlet property="vPageControl" destination="lta-1W-DKr" id="bWj-bJ-j1o"/>
                                     <outlet property="vPageControlWidthConstraint" destination="ttS-qT-rpd" id="B7p-Ln-3pY"/>
                                     <outlet property="vSelectedCell" destination="u9d-oz-c3A" id="IB2-fm-uaW"/>

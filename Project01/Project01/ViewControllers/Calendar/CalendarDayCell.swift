@@ -13,8 +13,8 @@ class CalendarDayCell: UICollectionViewCell {
 	@IBOutlet weak var lbDay: UILabel!
     @IBOutlet weak var vToDay: UIView!
 	@IBOutlet weak var vSelectedCell: UIView!
-//    @IBOutlet weak var vHoliday: UIView!
-//    @IBOutlet weak var lbHoliday: UILabel!
+    @IBOutlet weak var vHoliday: UIView!
+    @IBOutlet weak var lbHoliday: UILabel!
     @IBOutlet weak var lbDayLunar: UILabel!
 
 	@IBOutlet var vPageControl: CustomPageControlView!
@@ -31,7 +31,7 @@ class CalendarDayCell: UICollectionViewCell {
         let monthDirection: Int = infoData["monthDirection"] as! Int
         let isHoliday: Bool = infoData["isHoliday"] as! Bool
 		let todoCount: Int = infoData["todoCount"] as! Int
-//        let holidayName: String = infoData["holidayName"] as! String
+        let holidayName: String = infoData["holidayName"] as! String
 
         var monthLunar: Int = 0
         var dayLunar: Int = 0
@@ -134,9 +134,19 @@ class CalendarDayCell: UICollectionViewCell {
 		// 셀선택
 		if CalendarManager.selectedCell == cellIndex {
 			vSelectedCell.isHidden = false
+			
+			// 선택했을때 공휴일 표시
+			if CommonUtil.isEmpty(holidayName as AnyObject) == false {
+				vHoliday.isHidden = false
+				lbHoliday.text = holidayName
+			}
+			else {
+				vHoliday.isHidden = true
+			}
 		}
 		else {
 			vSelectedCell.isHidden = true
+			vHoliday.isHidden = true
 		}
 		
 		// Todo List
