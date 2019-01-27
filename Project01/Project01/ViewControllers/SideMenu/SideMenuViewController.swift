@@ -47,7 +47,7 @@ class SideMenuViewController: UIViewController {
 		// 사이드 메뉴 폭
 		SideMenuController.preferences.basic.menuWidth = 270 * scale
 		SideMenuController.preferences.basic.defaultCacheKey = "0"
-		SideMenuController.preferences.basic.direction = .right
+		SideMenuController.preferences.basic.direction = .left
 		SideMenuController.preferences.basic.enablePanGesture = false
 		
 		// 사이드메뉴 설정
@@ -224,7 +224,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         else if indexPath.row == 1 {
 //            sideMenuController?.setContentViewController(with: "1", animated: Preferences.shared.enableTransitionAnimation)
             print("planner")
-            let plannerVC = self.storyboard?.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
+            let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
+            let plannerVC = storyboard.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
             self.present(plannerVC, animated: true)
             
             sideMenuController?.hideMenu()

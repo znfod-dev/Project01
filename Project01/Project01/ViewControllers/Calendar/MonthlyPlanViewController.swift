@@ -487,7 +487,7 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
                 let year: String = YYYYMMDD.left(4)
                 let month: String = YYYYMMDD.mid(4, amount: 2)
                 let day: String = YYYYMMDD.right(2)
-                let popup = AlertMessagePopup.messagePopup(withMessage: "\(year)년\(month)월\(day)일 다이어리 상세페이지 이동")
+                let popup = AlertMessagePopup.messagePopup(message: "\(year)년\(month)월\(day)일 다이어리 상세페이지 이동")
                 popup.addActionConfirmClick("확인", handler: {
                     self.isDiaryDetail = false
                 })
@@ -605,6 +605,11 @@ extension MonthlyPlanViewController: BEMCheckBoxDelegate {
     func animationDidStop(for checkBox: BEMCheckBox) {
         self.selectedDayTodoList(doReload: true)
     }
+}
+
+class TodoCell: UITableViewCell {
+    @IBOutlet var checkBox: BEMCheckBox!
+    @IBOutlet var titleLabel: UILabel!
 }
 
 

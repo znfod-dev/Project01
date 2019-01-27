@@ -141,7 +141,7 @@ class ProfileViewController: UIViewController {
 
 		// 필수 입력 사항 체크
 		if tfName.text == "" {
-			let popup = AlertMessagePopup.messagePopup(withMessage: "Name을 입력해 주세요!")
+			let popup = AlertMessagePopup.messagePopup(message: "Name을 입력해 주세요!")
 			popup.addActionConfirmClick("확인", handler: {
 				self.tfName.becomeFirstResponder()
 			})
@@ -149,7 +149,7 @@ class ProfileViewController: UIViewController {
 		}
 
 		if tfSurName.text == "" {
-			let popup = AlertMessagePopup.messagePopup(withMessage: "SurName을 입력해 주세요!")
+			let popup = AlertMessagePopup.messagePopup(message: "SurName을 입력해 주세요!")
 			popup.addActionConfirmClick("확인", handler: {
 				self.tfSurName.becomeFirstResponder()
 			})
@@ -157,7 +157,7 @@ class ProfileViewController: UIViewController {
 		}
 		
 		if tfMobile.text == "" {
-			let popup = AlertMessagePopup.messagePopup(withMessage: "Mobile을 입력해 주세요!")
+			let popup = AlertMessagePopup.messagePopup(message: "Mobile을 입력해 주세요!")
 			popup.addActionConfirmClick("확인", handler: {
 				self.tfMobile.becomeFirstResponder()
 			})
@@ -165,7 +165,7 @@ class ProfileViewController: UIViewController {
 		}
 		
 		if tfEmail.text == "" {
-			let popup = AlertMessagePopup.messagePopup(withMessage: "Email을 입력해 주세요!")
+			let popup = AlertMessagePopup.messagePopup(message: "Email을 입력해 주세요!")
 			popup.addActionConfirmClick("확인", handler: {
 				self.tfEmail.becomeFirstResponder()
 			})

@@ -127,7 +127,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         
 		// 다음페이지 이동
 		let message: String = "\(year)년 \(month)월 \(day)일 상세 페이지 보여주기"
-		let popup = AlertMessagePopup.messagePopup(withMessage: message)
+		let popup = AlertMessagePopup.messagePopup(message: message)
 		popup.addActionConfirmClick("확인", handler: {
 			
 		})

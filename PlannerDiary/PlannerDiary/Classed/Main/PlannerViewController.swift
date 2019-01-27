@@ -23,7 +23,18 @@ class PlannerViewController: UIViewController {
 
     }
     
-
+	// 팝업 메세지 스케쥴
+	@objc func showPopupMessage(_ message: String?) {
+		if CommonUtil.isEmpty(message as AnyObject) {
+			return
+		}
+		
+		let popup = AlertMessagePopup.messagePopup(message: message)
+		popup.addActionConfirmClick("확인", handler: {
+			
+		})
+	}
+	
     /*
     // MARK: - Navigation
 
@@ -41,24 +52,46 @@ class PlannerViewController: UIViewController {
     }
     
     @IBAction func onAlertCancelClick(_ sender: Any) {
-        let popup = AlertMessagePopup.messagePopup(withMessage: "업데이트 후 서비스를 이용해주세요.")
-        popup.addActionCancelClick("취소", handler: {
-        })
+		
+		var dicConfig: [String: Any] = [:]
+		dicConfig["TITLE"] = "Phone Setting"
+		dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.phonePad
+
+		let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+		popup.addActionConfirmClick("확인") { (message) in
+			self.perform(#selector(self.showPopupMessage(_:)), with: message, afterDelay: 0.1)
+		}
+		
+		popup.addActionCancelClick("취소", handler: {
+		})
     }
 
     @IBAction func onAlertConfirmClick(_ sender: Any) {
-        let popup = AlertMessagePopup.messagePopup(withMessage: "업데이트 후 서비스를 이용해주세요.")
-        popup.addActionConfirmClick("확인", handler: {
-        })
+		var dicConfig: [String: Any] = [:]
+		dicConfig["TITLE"] = "Email Setting"
+		dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.emailAddress
+		
+		let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+		popup.addActionConfirmClick("확인") { (message) in
+			self.perform(#selector(self.showPopupMessage(_:)), with: message, afterDelay: 0.1)
+		}
+		
+		popup.addActionCancelClick("취소", handler: {
+		})
     }
     
     @IBAction func onConfirmClick(_ sender: Any) {
-        let popup = AlertMessagePopup.messagePopup(withMessage: "로그아웃 하시겠습니까?")
-        popup.addActionConfirmClick("확인", handler: {
-        })
-
-        popup.addActionCancelClick("취소", handler: {
-        })
+		var dicConfig: [String: Any] = [:]
+		dicConfig["TITLE"] = "URL Setting"
+		dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.URL
+		
+		let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+		popup.addActionConfirmClick("확인") { (message) in
+			self.perform(#selector(self.showPopupMessage(_:)), with: message, afterDelay: 0.1)
+		}
+		
+		popup.addActionCancelClick("취소", handler: {
+		})
     }
     
     @IBAction func onHoliday1Click(_ sender: Any) {
@@ -120,7 +153,7 @@ class PlannerViewController: UIViewController {
                 print("dateName = \(dateName), locdate = \(locdate)")
                 
                 let message: String = "\(locdate) - \(dateName) 공휴일"
-                let popup = AlertMessagePopup.messagePopup(withMessage: message)
+                let popup = AlertMessagePopup.messagePopup(message: message)
                 popup.addActionConfirmClick("확인", handler: {
                     
                 })

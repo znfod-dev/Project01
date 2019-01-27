@@ -46,16 +46,6 @@ class AlertMessagePopup: BasePopup {
         lbMessage.text = message
     }
     
-    //  Converted to Swift 4 by Swiftify v4.2.28993 - https://objectivec2swift.com/
-    // 속성 메세지
-    
-    func messagePopup(withAttributedMessage attributedMessage: NSAttributedString?) {
-        // 딤드 알파 애니
-        initGUI()
-        
-        lbMessage.attributedText = attributedMessage
-    }
-    
     func addActionConfirmClick(_ actionWithTitle: String?, handler ConfirmClick: @escaping () -> Void) {
         
         btnConfirm.setTitle(actionWithTitle, for: .normal)
@@ -70,7 +60,6 @@ class AlertMessagePopup: BasePopup {
         confirmClick = ConfirmClick
     }
     
-    //  Converted to Swift 4 by Swiftify v4.2.28993 - https://objectivec2swift.com/
     func addActionCancelClick(_ actionWithTitle: String?, handler CancelClick: @escaping () -> Void) {
         if CommonUtil.isEmpty(actionWithTitle as AnyObject) {
             return
@@ -88,7 +77,6 @@ class AlertMessagePopup: BasePopup {
     }
     
     // MARK: - UIButton Action
-    
     // 확인 버튼
     @IBAction func onConfirmClick(_ sender: Any) {
         callbackWithConfirm()
@@ -122,7 +110,7 @@ class AlertMessagePopup: BasePopup {
     /**
      message : 메세지
      */
-    static func messagePopup(withMessage message: String?) -> AlertMessagePopup {
+    static func messagePopup(message: String?) -> AlertMessagePopup {
         
         let storyboard: UIStoryboard? = AppDelegate.sharedNamedStroyBoard("Common") as? UIStoryboard
         let MessagePopupVC = storyboard?.instantiateViewController(withIdentifier: "AlertMessagePopup") as? AlertMessagePopup

@@ -52,7 +52,8 @@ class AddPlanViewController: UIViewController {
     
     // 달력 알럿을 띄워주는 메소드 (직접입력 제외)
     func presentCalendar(startDayClicked: Bool = false) {
-        let datePickVC = self.storyboard?.instantiateViewController(withIdentifier: "DatePickViewController") as! DatePickViewController
+        let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
+        let datePickVC = storyboard.instantiateViewController(withIdentifier: "DatePickViewController") as! DatePickViewController
         
         datePickVC.startDayClicked = startDayClicked // 시작일 선택인지 아닌지 판단하는 변수
         
