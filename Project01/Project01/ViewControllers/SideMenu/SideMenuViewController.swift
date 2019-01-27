@@ -224,7 +224,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         else if indexPath.row == 1 {
 //            sideMenuController?.setContentViewController(with: "1", animated: Preferences.shared.enableTransitionAnimation)
             print("planner")
-            let plannerVC = self.storyboard?.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
+            let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
+            let plannerVC = storyboard.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
             self.present(plannerVC, animated: true)
             
             sideMenuController?.hideMenu()

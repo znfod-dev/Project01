@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6042713B21F6B57F001F0E40 /* DetailPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */; };
+		6042713E21FD52E0001F0E40 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6042713D21FD52E0001F0E40 /* Plan.storyboard */; };
 		60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* Todo.swift */; };
 		60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* DBTodo.swift */; };
 		60F47A9021F56C2D00E0DCB2 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8F21F56C2D00E0DCB2 /* Plan.swift */; };
@@ -122,6 +123,7 @@
 
 /* Begin PBXFileReference section */
 		6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlanViewController.swift; sourceTree = "<group>"; };
+		6042713D21FD52E0001F0E40 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
 		60F47A8A21F3873900E0DCB2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		60F47A8C21F3874600E0DCB2 /* DBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTodo.swift; sourceTree = "<group>"; };
 		60F47A8F21F56C2D00E0DCB2 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				D914E39321FBF5BD00CFBB8E /* Profile.storyboard */,
 				9B26623221EA3E48007CF0B3 /* Main.storyboard */,
 				D9FBE0E621F32B4600BDA694 /* Common.storyboard */,
+				6042713D21FD52E0001F0E40 /* Plan.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				D9FBE0BB21F32A0D00BDA694 /* icon_menu@2x.png in Resources */,
 				D914E3B821FBF5BF00CFBB8E /* NanumBarunGothicLight.ttf in Resources */,
 				D9FBE0BF21F32A0D00BDA694 /* icon_navigation_back@2x.png in Resources */,
+				6042713E21FD52E0001F0E40 /* Plan.storyboard in Resources */,
 				D9FED01321FC4B7D00689BC9 /* icon_remove@3x.png in Resources */,
 				D914E3D221FBF5BF00CFBB8E /* PickerView.xib in Resources */,
 				D9FED01721FC4B7D00689BC9 /* icon_refresh@3x.png in Resources */,
