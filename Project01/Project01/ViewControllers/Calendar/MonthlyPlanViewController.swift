@@ -607,6 +607,11 @@ extension MonthlyPlanViewController: BEMCheckBoxDelegate {
     }
 }
 
+class TodoCell: UITableViewCell {
+    @IBOutlet var checkBox: BEMCheckBox!
+    @IBOutlet var titleLabel: UILabel!
+}
+
 
 
 

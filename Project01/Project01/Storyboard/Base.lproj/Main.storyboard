@@ -342,8 +342,8 @@
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="checkBox" destination="Q4J-tF-DRh" id="zP4-uq-58q"/>
-                                                    <outlet property="titleLabel" destination="YmA-Hr-DFE" id="pnp-jh-fuU"/>
+                                                    <outlet property="checkBox" destination="Q4J-tF-DRh" id="KPP-8e-QL9"/>
+                                                    <outlet property="titleLabel" destination="YmA-Hr-DFE" id="fXX-Td-o6s"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

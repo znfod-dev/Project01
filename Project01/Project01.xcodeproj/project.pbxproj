@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6042713B21F6B57F001F0E40 /* DetailPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */; };
-		60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8721F376FF00E0DCB2 /* TodoCell.swift */; };
 		60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* Todo.swift */; };
 		60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* DBTodo.swift */; };
 		60F47A9021F56C2D00E0DCB2 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8F21F56C2D00E0DCB2 /* Plan.swift */; };
@@ -112,7 +111,6 @@
 
 /* Begin PBXFileReference section */
 		6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlanViewController.swift; sourceTree = "<group>"; };
-		60F47A8721F376FF00E0DCB2 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		60F47A8A21F3873900E0DCB2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		60F47A8C21F3874600E0DCB2 /* DBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTodo.swift; sourceTree = "<group>"; };
 		60F47A8F21F56C2D00E0DCB2 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
@@ -308,7 +306,6 @@
 				9BD47E6021FBF75E005350C9 /* Storyboard */,
 				D914E3A521FBF5BE00CFBB8E /* Defines.swift */,
 				D914E38821FBF5BD00CFBB8E /* Fonts */,
-				60F47A8721F376FF00E0DCB2 /* TodoCell.swift */,
 				60F47A9321F5701D00E0DCB2 /* Planner */,
 				60F47A8921F3870200E0DCB2 /* Todo */,
 				60F47A8E21F56C0100E0DCB2 /* Plan */,
@@ -689,7 +686,6 @@
 				D9FBE0DD21F32B1C00BDA694 /* MonthlyPlanViewController.swift in Sources */,
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
-				60F47A8821F376FF00E0DCB2 /* TodoCell.swift in Sources */,
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
 				D914E3AF21FBF5BF00CFBB8E /* ModelDBTodo.swift in Sources */,
 				60F47A9221F56C3400E0DCB2 /* DBPlan.swift in Sources */,
