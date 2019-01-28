@@ -131,15 +131,20 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         let cellIndex: Int = item["cellIndex"] as! Int
         
         // 다음페이지 이동
-		let message: String = "\(year)년 \(month)월 \(day)일 상세 페이지 보여주기"
-		let popup = AlertMessagePopup.messagePopup(message: message)
-		popup.addActionConfirmClick("확인", handler: {
-			let storyboard = UIStoryboard.init(name: "DiaryPage", bundle: nil)
-            let diaryPage:DiaryPageViewController = storyboard.instantiateInitialViewController() as! DiaryPageViewController
-            diaryPage.currentDate = Date()
-            // Date() = 이 부분에 선택된 날짜로 처리 가능할까요?
-            self.navigationController?.pushViewController(diaryPage, animated: true)
-		})
+		let storyboard = UIStoryboard.init(name: "DiaryPage", bundle: nil)
+		let diaryPage:DiaryPageViewController = storyboard.instantiateInitialViewController() as! DiaryPageViewController
+		
+		// sama73 : 날짜 변환
+		var dateComponents = DateComponents()
+		dateComponents.year = year
+		dateComponents.month = month
+		dateComponents.day = day
+		
+		let calendar = Calendar(identifier: .gregorian)
+		let date: Date? = calendar.date(from: dateComponents)
+		diaryPage.currentDate = date!
+		// Date() = 이 부분에 선택된 날짜로 처리 가능할까요?
+		self.navigationController?.pushViewController(diaryPage, animated: true)
 		//        if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
 		//            if let diaryPageVC: DiaryPageViewController = (storyboard.instantiateViewController(withIdentifier: "DiaryPageViewController") as? DiaryPageViewController) {
 		//                diaryPageVC.selectedYear = item.year
