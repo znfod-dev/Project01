@@ -134,7 +134,11 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		let message: String = "\(year)년 \(month)월 \(day)일 상세 페이지 보여주기"
 		let popup = AlertMessagePopup.messagePopup(message: message)
 		popup.addActionConfirmClick("확인", handler: {
-			
+			let storyboard = UIStoryboard.init(name: "DiaryPage", bundle: nil)
+            let diaryPage:DiaryPageViewController = storyboard.instantiateInitialViewController() as! DiaryPageViewController
+            diaryPage.currentDate = Date()
+            // Date() = 이 부분에 선택된 날짜로 처리 가능할까요?
+            self.navigationController?.pushViewController(diaryPage, animated: true)
 		})
 		//        if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
 		//            if let diaryPageVC: DiaryPageViewController = (storyboard.instantiateViewController(withIdentifier: "DiaryPageViewController") as? DiaryPageViewController) {
