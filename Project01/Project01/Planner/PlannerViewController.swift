@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import SideMenuSwift
+import Hero
 
 class PlannerViewController: UIViewController {
     // MARK:- Outlets
     @IBOutlet var tableView: UITableView!
-	
+    @IBOutlet var topView: UIView!
+    
     
     
     // MARK:- Variables
@@ -22,6 +25,11 @@ class PlannerViewController: UIViewController {
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.isNavigationBarHidden = true
+        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
+        
+        self.tableView.separatorStyle = .none
         
         print(NSHomeDirectory())
     }
@@ -35,8 +43,8 @@ class PlannerViewController: UIViewController {
     
     
     // MARK:- Actions
-    @IBAction func backBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func menuBtnClick(_ sender: Any) {
+        sideMenuController?.revealMenu()
     }
     
     
@@ -44,7 +52,11 @@ class PlannerViewController: UIViewController {
     @IBAction func addBtnClick(_ sender: Any) {
         let addPlanVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
         
-        self.navigationController?.pushViewController(addPlanVC, animated: true)
+        // 화면 넘기는 애니메이션
+        addPlanVC.hero.modalAnimationType = .selectBy(presenting: .push(direction: .left), dismissing: .push(direction: .right))
+        addPlanVC.hero.isEnabled = true
+        
+        self.present(addPlanVC, animated: true)
     }
 }
 
@@ -67,6 +79,8 @@ extension PlannerViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanCell") as! PlanCell
         let plan = planArray[indexPath.row]
         
+        cell.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3, isCell: true)
+        
         cell.titleLabel.text = plan.planTitle
         cell.timeLabel.text = plan.date?.stringAll()
         
@@ -78,11 +92,13 @@ extension PlannerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
         let detailPlanVC = storyboard.instantiateViewController(withIdentifier: "DetailPlanViewController") as! DetailPlanViewController
+        detailPlanVC.hero.modalAnimationType = .selectBy(presenting: .push(direction: .left), dismissing: .push(direction: .right))
+        detailPlanVC.hero.isEnabled = true
         
         let plan = self.planArray[indexPath.row]
         detailPlanVC.plan = plan
         
-        self.navigationController?.pushViewController(detailPlanVC, animated: true)
+        self.present(detailPlanVC, animated: true)
     }
     
     

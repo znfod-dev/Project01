@@ -8,7 +8,7 @@
 import UIKit
 
 extension Date {
-    // 예) 2019121
+    // 예) 20190121
     func cmpString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"

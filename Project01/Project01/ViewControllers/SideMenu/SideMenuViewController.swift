@@ -51,9 +51,9 @@ class SideMenuViewController: UIViewController {
 		SideMenuController.preferences.basic.enablePanGesture = false
 		
 		// 사이드메뉴 설정
-//        sideMenuController?.cache(viewControllerGenerator: {
-//            self.storyboard?.instantiateViewController(withIdentifier: "PlannerViewController")
-//        }, with: "1")
+        sideMenuController?.cache(viewControllerGenerator: {
+            UIStoryboard.init(name: "Plan", bundle: nil).instantiateViewController(withIdentifier: "PlannerViewController")            
+        }, with: "1")
 //
 //        sideMenuController?.cache(viewControllerGenerator: {
 //            self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController")
@@ -222,13 +222,12 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         }
         // 계획리스트
         else if indexPath.row == 1 {
-//            sideMenuController?.setContentViewController(with: "1", animated: Preferences.shared.enableTransitionAnimation)
-            print("planner")
-            let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
-            let plannerVC = storyboard.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
-            self.present(plannerVC, animated: true)
-            
+            sideMenuController?.setContentViewController(with: "1", animated: Preferences.shared.enableTransitionAnimation)
             sideMenuController?.hideMenu()
+//            print("planner")
+//            let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
+//            let plannerVC = storyboard.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
+//            self.present(plannerVC, animated: true)
         }
         // 설정
         else if indexPath.row == 2 {

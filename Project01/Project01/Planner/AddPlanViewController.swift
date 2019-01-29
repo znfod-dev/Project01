@@ -14,6 +14,7 @@ class AddPlanViewController: UIViewController {
     @IBOutlet var startDayLabel: UILabel!
     @IBOutlet var endDayLabel: UILabel!
     @IBOutlet var segment: UISegmentedControl!
+    @IBOutlet var topView: UIView!
     
     
     
@@ -36,6 +37,8 @@ class AddPlanViewController: UIViewController {
     
     // 초기 세팅
     func initSet() {
+        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
+        
         // 오늘 날짜로 세팅
         self.startDayLabel.text = self.startDay
         self.endDayLabel.text = self.endDay
@@ -43,9 +46,6 @@ class AddPlanViewController: UIViewController {
         // 날짜 라벨에 탭 버튼 추가
         self.startDayLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(startDayTap)))
         self.endDayLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endDayTap)))
-        
-        // 내비게이션에 저장 버튼 아이템 추가
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .done, target: self, action: #selector(saveBtnPressed))
     }
     
     
@@ -106,8 +106,17 @@ class AddPlanViewController: UIViewController {
     
     
     
+    // MARK:- Actions
+    // segment를 눌렀을 때
+    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+        self.startDayLabel.text = self.startDay
+        self.dayConvert(index: sender)
+    }
+    
+    
+    
     // 저장 버튼 클릭시
-    @objc func saveBtnPressed() {
+    @IBAction func saveBtnPressed() {
         guard !(planTextField.text?.isEmpty)! else { // 계획이 텍스트필드가 비어있다면
             self.okAlert("계획을 입력해 주세요", nil)
             return
@@ -121,15 +130,12 @@ class AddPlanViewController: UIViewController {
         
         DBManager.sharedInstance.addPlanDB(plan: plan)
         
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     
-    // MARK:- Actions
-    // segment를 눌렀을 때
-    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
-        self.startDayLabel.text = self.startDay
-        self.dayConvert(index: sender)
+    @IBAction func backBtnClick(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

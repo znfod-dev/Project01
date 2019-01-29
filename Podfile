@@ -12,6 +12,7 @@ target 'Project01' do
     pod 'BEMCheckBox'
     pod 'PopupDialog', '~> 0.9'
     pod 'FSCalendar'
+    pod 'Hero'
 
 end
 
