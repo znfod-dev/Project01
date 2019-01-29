@@ -16,6 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 앱 최초 실행인지 체크
+        let isFisrtAppRun = CommonUtil.getUserDefaultsBool(forKey: kBool_isFirstAppRun)
+        // 앱 최초 실행일 경우...
+        if isFisrtAppRun == false {
+            CommonUtil.setUserDefaultsBool(true, forKey: kBool_isFirstAppRun)
+            
+            // 프로필 화면 보여주기
+            if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
+                let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+                profileVC.isFirstAppRun = true
+                self.window?.rootViewController = profileVC
+                self.window?.makeKeyAndVisible()
+            }
+        }
+  
         return true
     }
 

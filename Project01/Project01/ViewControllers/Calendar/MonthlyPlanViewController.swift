@@ -100,7 +100,7 @@ class MonthlyPlanViewController: UIViewController {
         }
         
         // 앱 최초 실행인지 체크
-        self.appFirstRunCheck()
+//        self.appFirstRunCheck()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

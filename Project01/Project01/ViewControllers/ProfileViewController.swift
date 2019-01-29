@@ -12,6 +12,9 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
+    // 앱 최초 실행인지 체크
+    var isFirstAppRun: Bool = false
+    
     var nameTextField: UITextField!
     var surnameTextField: UITextField!
     var addressTextView:UITextView!
