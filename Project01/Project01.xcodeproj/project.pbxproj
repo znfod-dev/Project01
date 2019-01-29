@@ -24,6 +24,8 @@
 		9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623221EA3E48007CF0B3 /* Main.storyboard */; };
 		9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623521EA3E49007CF0B3 /* Assets.xcassets */; };
 		9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623721EA3E49007CF0B3 /* LaunchScreen.storyboard */; };
+		9E601467220009CA0062D991 /* icon_notdata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E601465220009C90062D991 /* icon_notdata@3x.png */; };
+		9E601468220009CA0062D991 /* icon_notdata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E601466220009C90062D991 /* icon_notdata@2x.png */; };
 		9E954C9321F848E1006356BF /* CalendarLunar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E954C9221F848E1006356BF /* CalendarLunar.swift */; };
 		9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */; };
 		9EC46C5C21F6F91A00765274 /* ModelHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */; };
@@ -142,6 +144,8 @@
 		9B26623821EA3E49007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B26623A21EA3E49007CF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DB15EA79718A43B263395EF /* Pods_Project01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E601465220009C90062D991 /* icon_notdata@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notdata@3x.png"; sourceTree = "<group>"; };
+		9E601466220009C90062D991 /* icon_notdata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notdata@2x.png"; sourceTree = "<group>"; };
 		9E954C9221F848E1006356BF /* CalendarLunar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLunar.swift; sourceTree = "<group>"; };
 		9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDBHoliday.swift; sourceTree = "<group>"; };
 		9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelHoliday.swift; sourceTree = "<group>"; };
@@ -505,6 +509,8 @@
 		D9FBE09F21F32A0D00BDA694 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9E601466220009C90062D991 /* icon_notdata@2x.png */,
+				9E601465220009C90062D991 /* icon_notdata@3x.png */,
 				D9FED00F21FC4B7D00689BC9 /* icon_add@2x.png */,
 				D9FED00A21FC4B7C00689BC9 /* icon_add@3x.png */,
 				D9FED00B21FC4B7D00689BC9 /* icon_date_range@2x.png */,
@@ -601,6 +607,7 @@
 				9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */,
 				D914E3BA21FBF5BF00CFBB8E /* NanumBarunGothic.ttf in Resources */,
 				D914E3C921FBF5BF00CFBB8E /* DiaryPage.storyboard in Resources */,
+				9E601467220009CA0062D991 /* icon_notdata@3x.png in Resources */,
 				D914E3BF21FBF5BF00CFBB8E /* Profile.storyboard in Resources */,
 				D9FBE0B221F32A0D00BDA694 /* icon_save@3x.png in Resources */,
 				D9FBE0B921F32A0D00BDA694 /* icon_today@2x.png in Resources */,
@@ -636,6 +643,7 @@
 				9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */,
 				D9FBE0BC21F32A0D00BDA694 /* icon_navigation_next@3x.png in Resources */,
 				D9FBE0C321F32A0D00BDA694 /* icon_close@2x.png in Resources */,
+				9E601468220009CA0062D991 /* icon_notdata@2x.png in Resources */,
 				D914E3C021FBF5BF00CFBB8E /* DatePickerView.xib in Resources */,
 				D9FBE0C021F32A0D00BDA694 /* icon_navigation_back@3x.png in Resources */,
 				D9FBE0C121F32A0D00BDA694 /* icon_delete@2x.png in Resources */,
