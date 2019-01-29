@@ -312,6 +312,33 @@ class MonthlyPlanViewController: UIViewController {
     
     // 추가 버튼
     @IBAction func addClick(_ sender: Any) {
+        // sama73 : Todo 테이터 추가
+        var dicConfig: [String: Any] = [:]
+        dicConfig["TITLE"] = "Todo"
+        dicConfig["MESSAGE"] = ""
+        dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
+        
+        let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+        popup.addActionConfirmClick("추가") { (message) in
+            // 새로운 Todo 추가
+            let uid = UUID().uuidString
+            let title = message
+            let date = self.selectedDay
+            
+            let todo = Todo(uid: uid, title: title!, date: date!)
+            self.todoArray.append(todo)
+            
+            DBManager.sharedInstance.addTodoDB(todo: todo)
+            
+            self.selectedDayTodoList(doReload: true)
+            
+            // sama73 : 화면 재갱신
+            self.setDBReloadData()
+        }
+        
+        popup.addActionCancelClick("취소", handler: {
+        })
+/*
         let alert = UIAlertController(title: "Todo", message: nil, preferredStyle: .alert)
         
         alert.addTextField()
@@ -335,6 +362,7 @@ class MonthlyPlanViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "cancel", style: .cancel))
         
         present(alert, animated: true)
+ */
     }
     
     
@@ -585,6 +613,28 @@ extension MonthlyPlanViewController: UITableViewDataSource {
 // TableViewDelegate
 extension MonthlyPlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        // sama73 : 테이블뷰셀 선택 해제
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let todo = selectedDayTodo[indexPath.row]
+
+        // sama73 : Todo 테이터 수정
+        var dicConfig: [String: Any] = [:]
+        dicConfig["TITLE"] = "Todo 수정"
+        dicConfig["MESSAGE"] = todo.title
+        dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
+        
+        let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+        popup.addActionConfirmClick("수정") { (message) in
+            todo.title = message
+            DBManager.sharedInstance.updateTodo(todo: todo)
+            self.selectedDayTodoList(doReload: true)
+        }
+        
+        popup.addActionCancelClick("취소", handler: {
+        })
+/*
         let alert = UIAlertController(title: "Todo 수정", message: nil, preferredStyle: .alert)
         
         let todo = selectedDayTodo[indexPath.row]
@@ -600,6 +650,7 @@ extension MonthlyPlanViewController: UITableViewDelegate {
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         
         self.present(alert, animated: true)
+ */
     }
 }
 
