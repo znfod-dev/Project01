@@ -97,10 +97,10 @@ class MonthlyPlanViewController: UIViewController {
             
             // 오늘 날짜로 선택날짜 TodoList에 넣기
             self.selectedDayTodoList()
-            
-            // 프로필 오너 DB체크
-            //		self.selectOwnerInfoTable()
         }
+        
+        // 앱 최초 실행인지 체크
+        self.appFirstRunCheck()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -117,6 +117,25 @@ class MonthlyPlanViewController: UIViewController {
         if isFirstLoad == true {
             isFirstLoad = false
             goThisMonth()
+        }
+    }
+    
+    // 앱 최초 실행인지 체크
+    func appFirstRunCheck() {
+        let isFisrtAppRun = CommonUtil.getUserDefaultsBool(forKey: kBool_isFirstAppRun)
+        // 앱 최초 실행일 경우...
+        if isFisrtAppRun == false {
+            CommonUtil.setUserDefaultsBool(true, forKey: kBool_isFirstAppRun)
+
+            // 프로필 화면 보여주기
+            if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
+                let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+                // push
+                self.navigationController?.pushViewController(profileVC, animated: true)
+                
+                // modal popup
+//                self.present(profileVC, animated: true)
+            }
         }
     }
 	
@@ -406,32 +425,6 @@ class MonthlyPlanViewController: UIViewController {
         
         self.selectedDayTodoList(doReload: true)
     }
-    
-    // MARK: - RealmDB SQL Excute
-    // 프로필 오너 DB체크
-    //    func selectOwnerInfoTable() {
-    //
-    //        // 오너 정보 검색
-    //        let sql = "SELECT * FROM OwnerInfo WHERE uid='1';"
-    //        // SQL 결과
-    //        let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
-    //        let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
-    //        // 검색 성공
-    //        if resultCode == "0" {
-    //            let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
-    //            // 오너 정보가 없을때...
-    //            if resultData.count > 0 {
-    //                return
-    //            }
-    //
-    //            // 프로필 설정을 안했을 경우 한번은 띄워준다.
-    //            if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
-    //                if let profileVC: ProfileViewController = (storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController) {
-    //                    self.present(profileVC, animated: true)
-    //                }
-    //            }
-    //        }
-    //    }
 }
 
 extension MonthlyPlanViewController: UIScrollViewDelegate {
