@@ -143,18 +143,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		let calendar = Calendar(identifier: .gregorian)
 		let date: Date? = calendar.date(from: dateComponents)
 		diaryPage.currentDate = date!
-		// Date() = 이 부분에 선택된 날짜로 처리 가능할까요?
 		self.navigationController?.pushViewController(diaryPage, animated: true)
-		//        if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
-		//            if let diaryPageVC: DiaryPageViewController = (storyboard.instantiateViewController(withIdentifier: "DiaryPageViewController") as? DiaryPageViewController) {
-		//                diaryPageVC.selectedYear = item.year
-		//                diaryPageVC.selectedMonth = item.month
-		//                diaryPageVC.selectedWeek = indexPath.row % 7
-		//                diaryPageVC.selectedDay = item.day
-		//
-		//                self.navigationController?.pushViewController(diaryPageVC, animated: true)
-		//            }
-		//        }
         
         // 셀선택
 		CalendarManager.selectedCell = cellIndex

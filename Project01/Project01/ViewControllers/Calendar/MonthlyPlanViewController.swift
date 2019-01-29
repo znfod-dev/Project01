@@ -33,9 +33,6 @@ class MonthlyPlanViewController: UIViewController {
     var startYYYYMMDD = 20181101
     var endYYYYMMDD = 20190301
     
-    // 다이어리 상세
-    var isDiaryDetail: Bool = false
-    
     // 스크롤 Direction(-1: 좌측, 0: 정지, 1: 우측
     var scrollDirection: Int = 0
     
@@ -106,8 +103,6 @@ class MonthlyPlanViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // 다이어리 상세
-        self.isDiaryDetail = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -202,9 +197,6 @@ class MonthlyPlanViewController: UIViewController {
         
         // 달력 타이틀 세팅
         setCalendarTitle(centerIndex: focusIndex)
-        
-        // 다이어리 상세
-        self.isDiaryDetail = false
         
         self.scrollDirection = 0
     }
@@ -514,17 +506,27 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
         
         // 마지막페이지에서 한번더 댕겼을 경우 상세페이지 이동
         if self.scrollDirection == 1 {
-            if focusIndex == (self.arrChildController.count-1) && isDiaryDetail == false {
-                isDiaryDetail = true
+            if focusIndex == (self.arrChildController.count-1) {
                 
                 let YYYYMMDD: String = "\(startYYYYMMDD)"
-                let year: String = YYYYMMDD.left(4)
-                let month: String = YYYYMMDD.mid(4, amount: 2)
-                let day: String = YYYYMMDD.right(2)
-                let popup = AlertMessagePopup.messagePopup(message: "\(year)년\(month)월\(day)일 다이어리 상세페이지 이동")
-                popup.addActionConfirmClick("확인", handler: {
-                    self.isDiaryDetail = false
-                })
+                let year: Int = Int(YYYYMMDD.left(4))!
+                let month: Int = Int(YYYYMMDD.mid(4, amount: 2))!
+                let day: Int = Int(YYYYMMDD.right(2))!
+                
+                // 다음페이지 이동
+                let storyboard = UIStoryboard.init(name: "DiaryPage", bundle: nil)
+                let diaryPage:DiaryPageViewController = storyboard.instantiateInitialViewController() as! DiaryPageViewController
+                
+                // sama73 : 날짜 변환
+                var dateComponents = DateComponents()
+                dateComponents.year = year
+                dateComponents.month = month
+                dateComponents.day = day
+                
+                let calendar = Calendar(identifier: .gregorian)
+                let date: Date? = calendar.date(from: dateComponents)
+                diaryPage.currentDate = date!
+                self.navigationController?.pushViewController(diaryPage, animated: true)
             }
         }
         
