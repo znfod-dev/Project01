@@ -241,7 +241,8 @@ class CalendarManager {
 		// Todo List Count 구하기
 		var dicTodoListCount:[String: Int] = [:]
 		
-		sql = "SELECT * FROM DBTodo WHERE date CONTAINS '\(curIndex)' OR date CONTAINS '\(prevIndex)' OR date CONTAINS '\(nextIndex)';"
+//		sql = "SELECT * FROM DBTodo WHERE date CONTAINS '\(curIndex)' OR date CONTAINS '\(prevIndex)' OR date CONTAINS '\(nextIndex)';"
+		sql = "SELECT * FROM DBTodo WHERE date CONTAINS '\(curIndex)';"
 		// SQL 결과
 		dicSQLResults = DBManager.SQLExcute(sql: sql)
 		resultCode = dicSQLResults["RESULT_CODE"] as! String

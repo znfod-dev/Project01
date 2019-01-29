@@ -72,6 +72,12 @@ class PromptMessagePopup: BasePopup {
 				lbTitle.text = dicConfig["TITLE"] as? String
 			}
 
+            if dicConfig.keys.contains("MESSAGE") {
+                tfMessage.text = dicConfig["MESSAGE"] as? String
+                // 텍스트 전체 선택
+                tfMessage.selectAll(nil)
+            }
+
 			if dicConfig.keys.contains("KEYBOARD_TYPE") {
 				let keyboardType: UIKeyboardType = dicConfig["KEYBOARD_TYPE"] as! UIKeyboardType
 				tfMessage.keyboardType = keyboardType

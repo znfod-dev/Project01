@@ -97,10 +97,10 @@ class MonthlyPlanViewController: UIViewController {
             
             // 오늘 날짜로 선택날짜 TodoList에 넣기
             self.selectedDayTodoList()
-            
-            // 프로필 오너 DB체크
-            //		self.selectOwnerInfoTable()
         }
+        
+        // 앱 최초 실행인지 체크
+        self.appFirstRunCheck()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -120,6 +120,32 @@ class MonthlyPlanViewController: UIViewController {
         }
     }
     
+    // 앱 최초 실행인지 체크
+    func appFirstRunCheck() {
+        let isFisrtAppRun = CommonUtil.getUserDefaultsBool(forKey: kBool_isFirstAppRun)
+        // 앱 최초 실행일 경우...
+        if isFisrtAppRun == false {
+            CommonUtil.setUserDefaultsBool(true, forKey: kBool_isFirstAppRun)
+
+            // 프로필 화면 보여주기
+            if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
+                let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+                // push
+                self.navigationController?.pushViewController(profileVC, animated: true)
+                
+                // modal popup
+//                self.present(profileVC, animated: true)
+            }
+        }
+    }
+	
+	// 설정할 년/월 재갱신
+	func setDBReloadData() {
+		for monthVC in self.arrChildController {
+			monthVC.setDBReloadData()
+		}
+	}
+	
     // 콜렉션뷰 전체 리로드
     func collectionReloadDataAll() {
         for monthVC in self.arrChildController {
@@ -305,6 +331,33 @@ class MonthlyPlanViewController: UIViewController {
     
     // 추가 버튼
     @IBAction func addClick(_ sender: Any) {
+        // sama73 : Todo 테이터 추가
+        var dicConfig: [String: Any] = [:]
+        dicConfig["TITLE"] = "Todo"
+        dicConfig["MESSAGE"] = ""
+        dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
+        
+        let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+        popup.addActionConfirmClick("추가") { (message) in
+            // 새로운 Todo 추가
+            let uid = UUID().uuidString
+            let title = message
+            let date = self.selectedDay
+            
+            let todo = Todo(uid: uid, title: title!, date: date!)
+            self.todoArray.append(todo)
+            
+            DBManager.sharedInstance.addTodoDB(todo: todo)
+            
+            self.selectedDayTodoList(doReload: true)
+            
+            // sama73 : 화면 재갱신
+            self.setDBReloadData()
+        }
+        
+        popup.addActionCancelClick("취소", handler: {
+        })
+/*
         let alert = UIAlertController(title: "Todo", message: nil, preferredStyle: .alert)
         
         alert.addTextField()
@@ -323,14 +376,12 @@ class MonthlyPlanViewController: UIViewController {
             self.selectedDayTodoList(doReload: true)
 
 			// sama73 : 화면 재갱신
-			let monthVC: CalendarMonthViewController? = self.arrChildController[self.focusIndex]
-			if monthVC != nil {
-				monthVC?.setDBReloadData()
-			}
+			self.setDBReloadData()
         }))
         alert.addAction(UIAlertAction(title: "cancel", style: .cancel))
         
         present(alert, animated: true)
+ */
     }
     
     
@@ -347,7 +398,6 @@ class MonthlyPlanViewController: UIViewController {
 //		print(self.selectedDay)
         self.selectedDayTodo.removeAll()
         for todo in self.todoArray {
-			print(todo)
             if todo.date == self.selectedDay {
                 self.selectedDayTodo.append(todo)
             }
@@ -375,32 +425,6 @@ class MonthlyPlanViewController: UIViewController {
         
         self.selectedDayTodoList(doReload: true)
     }
-    
-    // MARK: - RealmDB SQL Excute
-    // 프로필 오너 DB체크
-    //    func selectOwnerInfoTable() {
-    //
-    //        // 오너 정보 검색
-    //        let sql = "SELECT * FROM OwnerInfo WHERE uid='1';"
-    //        // SQL 결과
-    //        let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
-    //        let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
-    //        // 검색 성공
-    //        if resultCode == "0" {
-    //            let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
-    //            // 오너 정보가 없을때...
-    //            if resultData.count > 0 {
-    //                return
-    //            }
-    //
-    //            // 프로필 설정을 안했을 경우 한번은 띄워준다.
-    //            if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
-    //                if let profileVC: ProfileViewController = (storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController) {
-    //                    self.present(profileVC, animated: true)
-    //                }
-    //            }
-    //        }
-    //    }
 }
 
 extension MonthlyPlanViewController: UIScrollViewDelegate {
@@ -570,6 +594,9 @@ extension MonthlyPlanViewController: UITableViewDataSource {
                 self.selectedDayTodo.remove(at: indexPath.row)
             }
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+			
+			// sama73 : 화면 재갱신
+			self.setDBReloadData()
         }
     }
 }
@@ -579,6 +606,28 @@ extension MonthlyPlanViewController: UITableViewDataSource {
 // TableViewDelegate
 extension MonthlyPlanViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        // sama73 : 테이블뷰셀 선택 해제
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let todo = selectedDayTodo[indexPath.row]
+
+        // sama73 : Todo 테이터 수정
+        var dicConfig: [String: Any] = [:]
+        dicConfig["TITLE"] = "Todo 수정"
+        dicConfig["MESSAGE"] = todo.title
+        dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
+        
+        let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+        popup.addActionConfirmClick("수정") { (message) in
+            todo.title = message
+            DBManager.sharedInstance.updateTodo(todo: todo)
+            self.selectedDayTodoList(doReload: true)
+        }
+        
+        popup.addActionCancelClick("취소", handler: {
+        })
+/*
         let alert = UIAlertController(title: "Todo 수정", message: nil, preferredStyle: .alert)
         
         let todo = selectedDayTodo[indexPath.row]
@@ -594,6 +643,7 @@ extension MonthlyPlanViewController: UITableViewDelegate {
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         
         self.present(alert, animated: true)
+ */
     }
 }
 
