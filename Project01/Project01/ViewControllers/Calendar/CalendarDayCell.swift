@@ -9,7 +9,8 @@
 import UIKit
 
 class CalendarDayCell: UICollectionViewCell {
-    
+	
+	@IBOutlet weak var vHolidayCircle: UIView!
 	@IBOutlet weak var lbDay: UILabel!
     @IBOutlet weak var vToDay: UIView!
 	@IBOutlet weak var vSelectedCell: UIView!
@@ -75,15 +76,25 @@ class CalendarDayCell: UICollectionViewCell {
 		
         // 공휴일 체크
         if isHoliday == true {
+			// 공휴일 동그라미
+			if CommonUtil.isEmpty(holidayName as AnyObject) == false {
+				vHolidayCircle.isHidden = false
+			}
+			else {
+				vHolidayCircle.isHidden = true
+			}
+			
 			// 현재달
 			if monthDirection == 0 {
 				// 오늘일 경우
 				if CalendarManager.getTodayIndex() == cellIndex {
+					vHolidayCircle.backgroundColor = UIColor(hex: 0xffffff)
 					lbDay.textColor = UIColor(hex: 0xffffff)
 					vToDay.backgroundColor = UIColor(hex: 0xff0000)
 					vToDay.isHidden = false
 				}
 				else {
+					vHolidayCircle.backgroundColor = UIColor(hex: 0xff0000)
 					lbDay.textColor = UIColor(hex: 0xff0000)
 					vToDay.isHidden = true
 				}
@@ -92,17 +103,22 @@ class CalendarDayCell: UICollectionViewCell {
 			else {
 				// 오늘일 경우
 				if CalendarManager.getTodayIndex() == cellIndex {
+					vHolidayCircle.backgroundColor = UIColor(hex: 0xffffff)
 					lbDay.textColor = UIColor(hex: 0xffffff)
 					vToDay.backgroundColor = UIColor(hex: 0xffaaaa)
 					vToDay.isHidden = false
 				}
 				else {
+					vHolidayCircle.backgroundColor = UIColor(hex: 0xffaaaa)
 					lbDay.textColor = UIColor(hex: 0xffaaaa)
 					vToDay.isHidden = true
 				}
 			}
         }
         else {
+			// 공휴일 동그라미
+			vHolidayCircle.isHidden = true
+			
 			// 현재달
 			if monthDirection == 0 {
 				// 오늘일 경우
