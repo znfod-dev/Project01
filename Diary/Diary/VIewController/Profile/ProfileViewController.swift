@@ -48,6 +48,11 @@ class ProfileViewController: UIViewController {
         self.tableView.reloadData()
     }
     
+    @IBAction func backBtnClicked(_ sender: Any) {
+        self.dismiss(animated: true) {
+            
+        }
+    }
     
     
     // 초기 화면 설정

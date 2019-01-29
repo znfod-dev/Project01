@@ -48,11 +48,18 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadData()
     }
     
-    @IBAction func settingBarBtnClicked(_ sender: Any) {
-        let storyboard:UIStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        let viewController:SettingViewController = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
-        
-        self.navigationController?.pushViewController(viewController, animated: true)
+    @IBAction func backBtnClicked(_ sender: Any) {
+        if isFirstAppRun == true {
+            // 프로필 화면 보여주기
+            if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
+                let mainVC:UIViewController = storyboard.instantiateInitialViewController()!
+                self.present(mainVC)
+            }
+        }else {
+            self.dismiss(animated: true) {
+                
+            }
+        }
     }
     
     func setTableSetting() {

@@ -10,6 +10,7 @@ import UIKit
 
 class SettingViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var backBarBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     var fontPickerView:PickerView!
@@ -50,9 +51,15 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         let fontSizeSubmit = UITapGestureRecognizer(target: self, action: #selector(handleFontSizeSubmit))
         self.fontSizePickerView.submitBtn.addGestureRecognizer(fontSizeSubmit)
         self.view.addSubview(self.fontSizePickerView)
-        
-        
         // Do any additional setup after loading the view.
+    }
+    
+    
+    // MARK: - UIButton Action
+    // 사이드 메뉴
+    @IBAction func onMenuClick(_ sender: Any) {
+        print("onMenuClick")
+        sideMenuController?.revealMenu()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -242,7 +249,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     func showProfileView() {
         let storyboard:UIStoryboard = UIStoryboard.init(name: "Profile", bundle: nil)
         let viewController:ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
-        self.navigationController?.pushViewController(viewController, animated: true)
+        self.present(viewController)
     }
     @objc func handleDateSubmit(_ recognizer : UITapGestureRecognizer) {
         let view = recognizer.view!

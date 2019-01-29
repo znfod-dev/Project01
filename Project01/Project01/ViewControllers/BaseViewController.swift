@@ -27,9 +27,6 @@ class BaseViewController: UIViewController {
         //self.view.gestureRecognizers = [swipeUp, swipeDown, swipeLeft, swipeRight]
         
     }
-    @IBAction func backBarBtnClicked(_ sender:Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
     
     func dismiss() {
         let transition = CATransition()
