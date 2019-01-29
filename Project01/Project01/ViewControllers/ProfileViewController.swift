@@ -111,29 +111,47 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         }
         DBManager.sharedInstance.updateProfile(profile: self.profile)
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
         let text = textField.text!
         let tag = textField.tag
         if tag == Profile.name.section() {
             self.profile.name = text
-            surnameTextField.becomeFirstResponder()
         }else if tag == Profile.surname.section() {
             self.profile.surname = text
-            addressTextView.becomeFirstResponder()
         }else if tag == Profile.phone.section() {
             self.profile.phone = text
-            mobileTextField.becomeFirstResponder()
         }else if tag == Profile.mobile.section() {
             self.profile.mobile = text
-            emailTextField.becomeFirstResponder()
         }else if tag == Profile.email.section() {
             self.profile.email = text
-            workaddressTextView.becomeFirstResponder()
         }else if tag == Profile.workPhone.section() {
             self.profile.workPhone = text
-            workemailTextField.becomeFirstResponder()
         }else if tag == Profile.workEmail.section() {
             self.profile.workEmail = text
+        }else {
+            
+        }
+        DBManager.sharedInstance.updateProfile(profile: self.profile)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let text = textField.text!
+        let tag = textField.tag
+        if tag == Profile.name.section() {
+            surnameTextField.becomeFirstResponder()
+        }else if tag == Profile.surname.section() {
+            addressTextView.becomeFirstResponder()
+        }else if tag == Profile.phone.section() {
+            mobileTextField.becomeFirstResponder()
+        }else if tag == Profile.mobile.section() {
+            emailTextField.becomeFirstResponder()
+        }else if tag == Profile.email.section() {
+            workaddressTextView.becomeFirstResponder()
+        }else if tag == Profile.workPhone.section() {
+            workemailTextField.becomeFirstResponder()
+        }else if tag == Profile.workEmail.section() {
             favouritefilmTextView.becomeFirstResponder()
         }else {
             
@@ -143,8 +161,4 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         return true
         
     }
-    
-    
-    
-    
 }
