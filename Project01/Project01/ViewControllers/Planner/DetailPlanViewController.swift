@@ -11,8 +11,9 @@ import UIKit
 class DetailPlanViewController: UIViewController {
     // MARK:- Actions
     @IBOutlet var planTitleLabel: UILabel!
-    @IBOutlet var planTermLabel: UILabel!
     @IBOutlet var topView: UIView!
+    @IBOutlet var startDayLabel: UILabel!
+    @IBOutlet var endDayLabel: UILabel!
     
     
     
@@ -28,7 +29,8 @@ class DetailPlanViewController: UIViewController {
         self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
         
         self.planTitleLabel.text = plan.planTitle
-        self.planTermLabel.text = "\(plan.startDay!) ~ \(plan.endDay!)"
+        self.startDayLabel.text = plan.startDay!
+        self.endDayLabel.text = plan.endDay!
     }
     
     
