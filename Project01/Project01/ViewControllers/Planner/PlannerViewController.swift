@@ -14,12 +14,21 @@ class PlannerViewController: UIViewController {
     // MARK:- Outlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet var topView: UIView!
+    @IBOutlet var emptyImage: UIImageView!
     
     
     
     // MARK:- Variables
-    var planArray = Array<Plan>()
-    
+    var planArray = Array<Plan>() {
+        willSet(new) {
+            if new.count == 0 { // 리스트가 없다면 이미지 표시
+                self.emptyImage.isHidden = false
+            } else {
+                self.emptyImage.isHidden = true
+            }
+        }
+    }
+        
     
 
     // MARK:- Methods
@@ -112,4 +121,11 @@ extension PlannerViewController: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
+}
+
+
+
+class PlanCell: UITableViewCell {
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
 }

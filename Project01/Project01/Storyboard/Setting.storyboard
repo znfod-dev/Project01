@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LlU-pk-wVd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="72Y-UX-2NY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,8 +23,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6c-si-qsn">
+                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4N6-Rb-V5L">
+                                        <rect key="frame" x="10" y="12" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="nAe-XU-Ecn"/>
+                                            <constraint firstAttribute="height" constant="36" id="yUT-04-6RQ"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_menu.png"/>
+                                        <connections>
+                                            <action selector="onMenuClick:" destination="72Y-UX-2NY" eventType="touchUpInside" id="Hd4-h8-Qwe"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaI-uV-pW5">
+                                        <rect key="frame" x="170" y="18" width="35" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYe-wq-lJp">
+                                        <rect key="frame" x="0.0" y="59" width="375" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="2Wl-5k-7gQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qaI-uV-pW5" firstAttribute="centerY" secondItem="k6c-si-qsn" secondAttribute="centerY" id="3ky-Lb-80A"/>
+                                    <constraint firstAttribute="bottom" secondItem="LYe-wq-lJp" secondAttribute="bottom" id="6Yb-DF-ndl"/>
+                                    <constraint firstItem="LYe-wq-lJp" firstAttribute="leading" secondItem="k6c-si-qsn" secondAttribute="leading" id="XzG-qS-N4S"/>
+                                    <constraint firstAttribute="height" constant="60" id="aP7-43-JjI"/>
+                                    <constraint firstItem="qaI-uV-pW5" firstAttribute="centerX" secondItem="k6c-si-qsn" secondAttribute="centerX" id="bT8-t2-uet"/>
+                                    <constraint firstItem="4N6-Rb-V5L" firstAttribute="centerY" secondItem="k6c-si-qsn" secondAttribute="centerY" id="h9J-Ge-kCc"/>
+                                    <constraint firstItem="4N6-Rb-V5L" firstAttribute="leading" secondItem="k6c-si-qsn" secondAttribute="leading" constant="10" id="lKx-LN-w0g"/>
+                                    <constraint firstAttribute="trailing" secondItem="LYe-wq-lJp" secondAttribute="trailing" id="ujQ-aa-5Mu"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A2g-TG-5pr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="588"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
@@ -303,14 +343,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oY9-aR-nzj" firstAttribute="bottom" secondItem="A2g-TG-5pr" secondAttribute="bottom" constant="15" id="9KW-lG-j2y"/>
-                            <constraint firstItem="A2g-TG-5pr" firstAttribute="top" secondItem="oY9-aR-nzj" secondAttribute="top" id="CV5-Qq-1nW"/>
+                            <constraint firstItem="k6c-si-qsn" firstAttribute="trailing" secondItem="oY9-aR-nzj" secondAttribute="trailing" id="AgC-9a-vyO"/>
                             <constraint firstItem="A2g-TG-5pr" firstAttribute="leading" secondItem="oY9-aR-nzj" secondAttribute="leading" id="MiL-gB-Qvt"/>
+                            <constraint firstItem="k6c-si-qsn" firstAttribute="top" secondItem="oY9-aR-nzj" secondAttribute="top" id="P7R-Gg-Nha"/>
                             <constraint firstItem="oY9-aR-nzj" firstAttribute="trailing" secondItem="A2g-TG-5pr" secondAttribute="trailing" id="bpr-IY-QCW"/>
+                            <constraint firstItem="A2g-TG-5pr" firstAttribute="top" secondItem="k6c-si-qsn" secondAttribute="bottom" id="dnk-ae-IM0"/>
+                            <constraint firstItem="k6c-si-qsn" firstAttribute="leading" secondItem="oY9-aR-nzj" secondAttribute="leading" id="vTC-Fz-64a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oY9-aR-nzj"/>
                     </view>
                     <navigationItem key="navigationItem" title="설정" id="oSt-KJ-jFU" userLabel="설정">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="back_black.png" id="ptc-eq-8EX">
+                        <barButtonItem key="leftBarButtonItem" image="back_black.png" id="ptc-eq-8EX">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backBarBtnClicked:" destination="72Y-UX-2NY" id="Ysu-mF-ifH"/>
@@ -318,31 +361,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backBarBtn" destination="ptc-eq-8EX" id="70s-4b-fjQ"/>
                         <outlet property="tableView" destination="A2g-TG-5pr" id="8R2-t6-pjS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQJ-UE-pRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2561" y="-254"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="lKg-Z2-JWP">
-            <objects>
-                <navigationController id="LlU-pk-wVd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SqN-0J-ztK">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="72Y-UX-2NY" kind="relationship" relationship="rootViewController" id="XKF-dd-FOK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H3B-2F-aM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1722" y="-254"/>
+            <point key="canvasLocation" x="2560.8000000000002" y="-254.12293853073464"/>
         </scene>
     </scenes>
     <resources>
         <image name="back_black.png" width="24" height="24"/>
+        <image name="icon_menu.png" width="36" height="36"/>
     </resources>
 </document>

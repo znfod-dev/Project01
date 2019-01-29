@@ -54,10 +54,10 @@ class SideMenuViewController: UIViewController {
         sideMenuController?.cache(viewControllerGenerator: {
             UIStoryboard.init(name: "Plan", bundle: nil).instantiateViewController(withIdentifier: "PlannerViewController")            
         }, with: "1")
-//
-//        sideMenuController?.cache(viewControllerGenerator: {
-//            self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController")
-//        }, with: "2")
+
+        sideMenuController?.cache(viewControllerGenerator: {
+            UIStoryboard.init(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: "Setting")
+        }, with: "2")
 
         sideMenuController?.delegate = self
         
@@ -231,8 +231,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         }
         // 설정
         else if indexPath.row == 2 {
-//            sideMenuController?.setContentViewController(with: "2", animated: Preferences.shared.enableTransitionAnimation)
-//            sideMenuController?.hideMenu()
+            sideMenuController?.setContentViewController(with: "2", animated: Preferences.shared.enableTransitionAnimation)
+            sideMenuController?.hideMenu()
         }
     }
 }

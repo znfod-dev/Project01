@@ -19,7 +19,6 @@
 		60F47A9521F5705700E0DCB2 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */; };
 		60F47A9721F5706500E0DCB2 /* AddPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9621F5706500E0DCB2 /* AddPlanViewController.swift */; };
 		60F47A9921F5707800E0DCB2 /* DatePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */; };
-		60F47A9B21F5708400E0DCB2 /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9A21F5708400E0DCB2 /* PlanCell.swift */; };
 		60F47A9D21F5722C00E0DCB2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9C21F5722C00E0DCB2 /* Alert.swift */; };
 		60F47A9F21F57FA200E0DCB2 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9E21F57FA200E0DCB2 /* Date+String.swift */; };
 		8DA5D0028A74BB00F2BDC35E /* Pods_Project01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB15EA79718A43B263395EF /* Pods_Project01.framework */; };
@@ -140,7 +139,6 @@
 		60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
 		60F47A9621F5706500E0DCB2 /* AddPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanViewController.swift; sourceTree = "<group>"; };
 		60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickViewController.swift; sourceTree = "<group>"; };
-		60F47A9A21F5708400E0DCB2 /* PlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
 		60F47A9C21F5722C00E0DCB2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		60F47A9E21F57FA200E0DCB2 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		9B26622B21EA3E48007CF0B3 /* Project01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project01.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,14 +270,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		60F47A9321F5701D00E0DCB2 /* Planner */ = {
+		609A3F9922001F6C00A58605 /* Planner */ = {
 			isa = PBXGroup;
 			children = (
 				60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */,
 				6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */,
 				60F47A9621F5706500E0DCB2 /* AddPlanViewController.swift */,
 				60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */,
-				60F47A9A21F5708400E0DCB2 /* PlanCell.swift */,
 			);
 			path = Planner;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 				9BD47E6021FBF75E005350C9 /* Storyboard */,
 				D914E3A521FBF5BE00CFBB8E /* Defines.swift */,
 				D914E38821FBF5BD00CFBB8E /* Fonts */,
-				60F47A9321F5701D00E0DCB2 /* Planner */,
 				D9FBE09F21F32A0D00BDA694 /* Images */,
 				9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */,
 				9B26623521EA3E49007CF0B3 /* Assets.xcassets */,
@@ -367,6 +363,7 @@
 			children = (
 				D914E3DC21FC00CA00CFBB8E /* SideMenu */,
 				D914E3DB21FC00AE00CFBB8E /* Calendar */,
+				609A3F9922001F6C00A58605 /* Planner */,
 				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
 				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
 				D9FBE0D021F32B1B00BDA694 /* SiceMenuCell.swift */,
@@ -758,7 +755,6 @@
 				D9FBE0E221F32B1C00BDA694 /* DBManager.swift in Sources */,
 				D9FBE0E121F32B1C00BDA694 /* SiceMenuCell.swift in Sources */,
 				D914E3D521FBF5BF00CFBB8E /* DiaryPage+TableViewDataSource.swift in Sources */,
-				60F47A9B21F5708400E0DCB2 /* PlanCell.swift in Sources */,
 				D914E3AE21FBF5BF00CFBB8E /* UITextView+DoneAccessory.swift in Sources */,
 				D9FBE0E321F32B1C00BDA694 /* RoundLineButton.swift in Sources */,
 				D914E3CA21FBF5BF00CFBB8E /* ModelDBDiary.swift in Sources */,

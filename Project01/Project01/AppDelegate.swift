@@ -26,10 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // 프로필 화면 보여주기
             if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
+                
                 let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
                 profileVC.isFirstAppRun = true
                 self.window?.rootViewController = profileVC
                 self.window?.makeKeyAndVisible()
+ 
             }
         }
   

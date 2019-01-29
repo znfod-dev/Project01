@@ -610,7 +610,6 @@
             </objects>
             <point key="canvasLocation" x="3679.1999999999998" y="12.143928035982009"/>
         </scene>
-
         <!--Navigation Controller-->
         <scene sceneID="hsN-tp-hHi">
             <objects>
@@ -653,7 +652,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCc-lf-D6n" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
                                             <rect key="frame" x="13.5" y="3" width="26" height="26"/>
-                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.8901960784313725" green="0.015686274509803921" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="26" id="HEx-kj-50d"/>
                                                 <constraint firstAttribute="width" constant="26" id="zKB-9a-GwF"/>
@@ -664,10 +663,26 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6v-t1-gyP">
-                                            <rect key="frame" x="23" y="7.5" width="7" height="17"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2A-nk-qiy" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
+                                            <rect key="frame" x="25" y="5" width="3" height="3"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="3" id="IMc-Iu-7Yd"/>
+                                                <constraint firstAttribute="height" constant="3" id="wzc-Xb-z5e"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="1.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6v-t1-gyP">
+                                            <rect key="frame" x="18" y="9" width="17" height="14"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="14" id="NZv-Z4-MzC"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(음)01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edy-EV-e9L">
@@ -724,6 +739,8 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="H6v-t1-gyP" firstAttribute="top" secondItem="n2A-nk-qiy" secondAttribute="bottom" constant="1" id="Fjo-OZ-g4Q"/>
+                                    <constraint firstItem="n2A-nk-qiy" firstAttribute="centerX" secondItem="BCc-lf-D6n" secondAttribute="centerX" id="QMO-0A-3cS"/>
                                     <constraint firstItem="u9d-oz-c3A" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" id="UFR-oX-CrC"/>
                                     <constraint firstItem="edy-EV-e9L" firstAttribute="top" secondItem="BCc-lf-D6n" secondAttribute="bottom" constant="2" id="eNx-DJ-UgS"/>
                                     <constraint firstItem="u9d-oz-c3A" firstAttribute="leading" secondItem="tNs-gH-LmQ" secondAttribute="leading" id="gQO-aW-8Fj"/>
@@ -742,6 +759,7 @@
                                     <outlet property="lbDayLunar" destination="edy-EV-e9L" id="b8t-K0-ToG"/>
                                     <outlet property="lbHoliday" destination="1Wq-rh-xPR" id="g9e-o2-tdT"/>
                                     <outlet property="vHoliday" destination="HU3-1w-VUH" id="5pH-cf-faL"/>
+                                    <outlet property="vHolidayCircle" destination="n2A-nk-qiy" id="r2L-Jh-5wN"/>
                                     <outlet property="vPageControl" destination="lta-1W-DKr" id="bWj-bJ-j1o"/>
                                     <outlet property="vPageControlWidthConstraint" destination="ttS-qT-rpd" id="B7p-Ln-3pY"/>
                                     <outlet property="vSelectedCell" destination="u9d-oz-c3A" id="IB2-fm-uaW"/>
