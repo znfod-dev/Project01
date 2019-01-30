@@ -29,6 +29,10 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         // sama73 : 네비게이션 숨기기
         self.navigationController?.navigationBar.isHidden = true
         
+        // 375화면 기준으로 스케일 적용
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
+        
         self.datePickerView = DatePickerView.initWithNib(frame: self.view.frame)
         let dateSubmit = UITapGestureRecognizer(target: self, action: #selector(handleDateSubmit(_:)))
         self.datePickerView.submitBtn.addGestureRecognizer(dateSubmit)
