@@ -40,6 +40,10 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         print("Profile viewdidload")
         
+        // 375화면 기준으로 스케일 적용
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
+
         // 앱 최초 실행인지 체크
         if isFirstAppRun == true {
             btnBack.isHidden = true

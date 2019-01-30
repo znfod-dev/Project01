@@ -35,7 +35,12 @@ class PlannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 375화면 기준으로 스케일 적용
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
+        
         self.navigationController?.navigationBar.isHidden = true
+
         self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
         
         self.tableView.separatorStyle = .none

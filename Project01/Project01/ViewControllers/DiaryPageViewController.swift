@@ -43,4 +43,8 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         UIView.setAnimationsEnabled(true)
     }
 
+    // MARK:- Actions
+    @IBAction func backBtnClick(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
