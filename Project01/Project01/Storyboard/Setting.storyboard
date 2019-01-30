@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="72Y-UX-2NY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v2D-jg-iFq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
         <!--설정-->
         <scene sceneID="ud1-Wk-vbC">
             <objects>
-                <viewController storyboardIdentifier="Setting" id="72Y-UX-2NY" customClass="SettingViewController" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="72Y-UX-2NY" customClass="SettingViewController" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hd8-rV-1vC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,17 +355,33 @@
                     <navigationItem key="navigationItem" title="설정" id="oSt-KJ-jFU" userLabel="설정">
                         <barButtonItem key="leftBarButtonItem" image="back_black.png" id="ptc-eq-8EX">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="backBarBtnClicked:" destination="72Y-UX-2NY" id="Ysu-mF-ifH"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backBarBtn" destination="ptc-eq-8EX" id="70s-4b-fjQ"/>
                         <outlet property="tableView" destination="A2g-TG-5pr" id="8R2-t6-pjS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQJ-UE-pRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3500" y="-254.12293853073464"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1ZZ-Yv-kWx">
+            <objects>
+                <navigationController storyboardIdentifier="Setting" automaticallyAdjustsScrollViewInsets="NO" id="v2D-jg-iFq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9hE-5d-yGg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="72Y-UX-2NY" kind="relationship" relationship="rootViewController" id="LRY-0a-K69"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnv-2J-tPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2560.8000000000002" y="-254.12293853073464"/>
         </scene>

@@ -15,6 +15,9 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     // 앱 최초 실행인지 체크
     var isFirstAppRun: Bool = false
     
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var btnClose: UIButton!
+    
     var nameTextField: UITextField!
     var surnameTextField: UITextField!
     var addressTextView:UITextView!
@@ -37,6 +40,16 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         print("Profile viewdidload")
         
+        // 앱 최초 실행인지 체크
+        if isFirstAppRun == true {
+            btnBack.isHidden = true
+            btnClose.isHidden = false
+        }
+        else {
+            btnBack.isHidden = false
+            btnClose.isHidden = true
+        }
+        
         self.profile = DBManager.sharedInstance.selectProfile()
         
         self.setTableSetting()
@@ -48,18 +61,15 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadData()
     }
     
+    // sama73 : 뒤로가기 버큰 액션
     @IBAction func backBtnClicked(_ sender: Any) {
-        if isFirstAppRun == true {
-            // 프로필 화면 보여주기
-            if let storyboard = AppDelegate.sharedNamedStroyBoard("Main") as? UIStoryboard {
-                let mainVC:UIViewController = storyboard.instantiateInitialViewController()!
-                self.present(mainVC)
-            }
-        }else {
-            self.dismiss(animated: true) {
-                
-            }
-        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // sama73 : 닫기 버큰 액션
+    @IBAction func closeBtnClicked(_ sender: Any) {
+        let sideMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuController")
+        UIApplication.shared.keyWindow?.rootViewController = sideMenuController
     }
     
     func setTableSetting() {

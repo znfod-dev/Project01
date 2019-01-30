@@ -34,7 +34,7 @@
                                         </constraints>
                                         <state key="normal" image="icon_navigation_back.png"/>
                                         <connections>
-                                            <action selector="backBtnClicked:" destination="Pib-fs-sBP" eventType="touchUpInside" id="cDJ-7A-PdY"/>
+                                            <action selector="backBtnClicked:" destination="Pib-fs-sBP" eventType="touchUpInside" id="VVD-e7-rAq"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKQ-mq-bdP">
@@ -50,6 +50,17 @@
                                             <constraint firstAttribute="height" constant="1" id="J4I-oT-y6f"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkl-Ic-H5R">
+                                        <rect key="frame" x="329" y="12" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="aOL-an-BJ6"/>
+                                            <constraint firstAttribute="width" constant="36" id="nHN-pe-Gws"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_close.png"/>
+                                        <connections>
+                                            <action selector="closeBtnClicked:" destination="Pib-fs-sBP" eventType="touchUpInside" id="FYM-2x-gGV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -57,10 +68,12 @@
                                     <constraint firstAttribute="height" constant="60" id="VxZ-w8-0Gg"/>
                                     <constraint firstItem="Par-JX-tYh" firstAttribute="centerY" secondItem="h81-sL-cSF" secondAttribute="centerY" id="Waf-YI-fBa"/>
                                     <constraint firstItem="YKQ-mq-bdP" firstAttribute="centerX" secondItem="h81-sL-cSF" secondAttribute="centerX" id="btn-Yp-Wek"/>
+                                    <constraint firstAttribute="trailing" secondItem="gkl-Ic-H5R" secondAttribute="trailing" constant="10" id="cLy-1h-VQ1"/>
                                     <constraint firstItem="Par-JX-tYh" firstAttribute="leading" secondItem="h81-sL-cSF" secondAttribute="leading" constant="10" id="ko3-Ql-JIA"/>
                                     <constraint firstAttribute="trailing" secondItem="ySv-DY-8el" secondAttribute="trailing" id="koS-Nt-gMg"/>
                                     <constraint firstItem="ySv-DY-8el" firstAttribute="leading" secondItem="h81-sL-cSF" secondAttribute="leading" id="lh5-4e-bHv"/>
                                     <constraint firstItem="YKQ-mq-bdP" firstAttribute="centerY" secondItem="h81-sL-cSF" secondAttribute="centerY" id="vD4-po-ien"/>
+                                    <constraint firstItem="gkl-Ic-H5R" firstAttribute="centerY" secondItem="h81-sL-cSF" secondAttribute="centerY" id="vfk-FF-JUQ"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sgH-nl-vho">
@@ -270,13 +283,11 @@
                         <viewLayoutGuide key="safeArea" id="nqm-6G-nKy"/>
                     </view>
                     <navigationItem key="navigationItem" title="프로필" id="rp5-Be-1Zf">
-                        <barButtonItem key="leftBarButtonItem" image="back_black.png" id="9l0-Sj-eBu">
-                            <connections>
-                                <action selector="backBtnClicked:" destination="Pib-fs-sBP" id="0C8-ND-mBe"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" image="back_black.png" id="9l0-Sj-eBu"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnBack" destination="Par-JX-tYh" id="txb-AD-Oah"/>
+                        <outlet property="btnClose" destination="gkl-Ic-H5R" id="I4V-r9-BYg"/>
                         <outlet property="tableView" destination="sgH-nl-vho" id="zRb-CQ-tPh"/>
                     </connections>
                 </viewController>
@@ -287,6 +298,7 @@
     </scenes>
     <resources>
         <image name="back_black.png" width="24" height="24"/>
+        <image name="icon_close.png" width="36" height="36"/>
         <image name="icon_navigation_back.png" width="36" height="36"/>
     </resources>
 </document>

@@ -26,6 +26,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // sama73 : 네비게이션 숨기기
+        self.navigationController?.navigationBar.isHidden = true
+        
         self.datePickerView = DatePickerView.initWithNib(frame: self.view.frame)
         let dateSubmit = UITapGestureRecognizer(target: self, action: #selector(handleDateSubmit(_:)))
         self.datePickerView.submitBtn.addGestureRecognizer(dateSubmit)
@@ -248,8 +251,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     func showProfileView() {
         let storyboard:UIStoryboard = UIStoryboard.init(name: "Profile", bundle: nil)
-        let viewController:ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
-        self.present(viewController)
+        let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+        // sama73 : 네비게이션바를 이용해서 이동
+        self.navigationController?.pushViewController(profileVC, animated: true)
     }
     @objc func handleDateSubmit(_ recognizer : UITapGestureRecognizer) {
         let view = recognizer.view!
