@@ -30,8 +30,8 @@ class MonthlyPlanViewController: UIViewController {
     var arrChildController = [CalendarMonthViewController]()
     
     // sama73: 시작일/종료일 샘플
-    var startYYYYMMDD = 20180701
-    var endYYYYMMDD = 20190701
+    var startYYYYMMDD = 20181101
+    var endYYYYMMDD = 20190301
     
     // 스크롤 Direction(-1: 좌측, 0: 정지, 1: 우측
     var scrollDirection: Int = 0
