@@ -37,6 +37,6 @@ class DetailPlanViewController: UIViewController {
     
     // MARK:- Actions
     @IBAction func backBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }

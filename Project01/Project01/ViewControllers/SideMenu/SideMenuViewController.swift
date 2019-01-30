@@ -52,7 +52,7 @@ class SideMenuViewController: UIViewController {
 		
 		// 사이드메뉴 설정
         sideMenuController?.cache(viewControllerGenerator: {
-            UIStoryboard.init(name: "Plan", bundle: nil).instantiateViewController(withIdentifier: "PlannerViewController")            
+            UIStoryboard.init(name: "Plan", bundle: nil).instantiateViewController(withIdentifier: "_PlannerViewController")            
         }, with: "1")
 
         sideMenuController?.cache(viewControllerGenerator: {
