@@ -114,8 +114,8 @@ class DBManager: NSObject {
     static func SQLExcute(sql: String) -> [String: Any] {
         
         // SQL 결과
+        var RESULT_CODE = "0"
         var dicSQLResults:[String: Any] = [:]
-        dicSQLResults["RESULT_CODE"] = "0"
         
         let sqlTemp = DBManager.commandUppercased(sql: sql)
         print("\n명령어=\(sqlTemp)")
@@ -127,139 +127,45 @@ class DBManager: NSObject {
             return dicSQLResults
         }
         
-        let command: String = dicTableData["COMMAND"] as! String
-        if command == "INSERT" {
-            // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
-            let tableName: String = dicTableData["TABLE_NAME"] as! String
-            //            if tableName == String(describing: OwnerInfo.self) {
-            //                let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
-            //                OwnerInfo.SQLExcute(command: command, condition: nil, dicFields: dicFields)
-            //            }
-            //            else {
-            //                dicSQLResults["RESULT_CODE"] = "3"
-            //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-            //            }
-            if tableName == String(describing: ModelDBHoliday.self) {
-                let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
-                ModelDBHoliday.SQLExcute(command: command, condition: nil, dicFields: dicFields)
-            }
-			else if tableName == String(describing: DBTodo.self) {
-				let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
-				DBTodo.SQLExcute(command: command, condition: nil, dicFields: dicFields)
-			}
-            else {
-                dicSQLResults["RESULT_CODE"] = "3"
-                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-            }
-        }
-        else if command == "UPDATE" {
-            // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
-            let tableName: String = dicTableData["TABLE_NAME"] as! String
-            let condition: String? = dicTableData["WHERE"] as? String
-            let dicFields:[String: String] = dicTableData["FIELDS"] as! [String: String]
+        // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
+        let tableName: String = dicTableData["TABLE_NAME"] as! String
+        if tableName == String(describing: ModelDBHoliday.self) {
+            let result: (RESULT_CODE: String, RESULT_DATA: Results<Object>?) = ModelDBHoliday.SQLExcute(dicTableData: dicTableData)
+            RESULT_CODE = result.RESULT_CODE
             
-            // 검색후 업데이트해준다.
-            //            if tableName == String(describing: OwnerInfo.self) {
-            //                if condition != nil {
-            //                    OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: dicFields)
-            //                }
-            //                else {
-            //                    dicSQLResults["RESULT_CODE"] = "2"
-            //                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
-            //                }
-            //            }
-            //            else {
-            //                dicSQLResults["RESULT_CODE"] = "3"
-            //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-            //            }
-            if tableName == String(describing: ModelDBHoliday.self) {
-                if condition != nil {
-                    ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: dicFields)
-                }
-                else {
-                    dicSQLResults["RESULT_CODE"] = "2"
-                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
-                }
-            }
-			else if tableName == String(describing: DBTodo.self) {
-				if condition != nil {
-					DBTodo.SQLExcute(command: command, condition: condition, dicFields: dicFields)
-				}
-				else {
-					dicSQLResults["RESULT_CODE"] = "2"
-					dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
-				}
-			}
-            else {
-                dicSQLResults["RESULT_CODE"] = "3"
-                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+            if result.RESULT_DATA != nil {
+                dicSQLResults["RESULT_DATA"] = result.RESULT_DATA
             }
         }
-        else if command == "DELETE" {
-            // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
-            let tableName: String = dicTableData["TABLE_NAME"] as! String
-            let condition: String? = dicTableData["WHERE"] as? String
-            // 검색후 삭제해준다.
-            //            if tableName == String(describing: OwnerInfo.self) {
-            //                if condition != nil {
-            //                    OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: nil)
-            //                }
-            //                else {
-            //                    dicSQLResults["RESULT_CODE"] = "2"
-            //                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
-            //                }
-            //            }
-            //            else {
-            //                dicSQLResults["RESULT_CODE"] = "3"
-            //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-            //            }
-            if tableName == String(describing: ModelDBHoliday.self) {
-                if condition != nil {
-                    ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: nil)
-                }
-                else {
-                    dicSQLResults["RESULT_CODE"] = "2"
-                    dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
-                }
-            }
-			else if tableName == String(describing: DBTodo.self) {
-				if condition != nil {
-					DBTodo.SQLExcute(command: command, condition: condition, dicFields: nil)
-				}
-				else {
-					dicSQLResults["RESULT_CODE"] = "2"
-					dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
-				}
-			}
-            else {
-                dicSQLResults["RESULT_CODE"] = "3"
-                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-            }
-        }
-        else if command == "SELECT" {
+        else if tableName == String(describing: DBTodo.self) {
+            let result: (RESULT_CODE: String, RESULT_DATA: Results<Object>?) = DBTodo.SQLExcute(dicTableData: dicTableData)
+            RESULT_CODE = result.RESULT_CODE
             
-            // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
-            let tableName: String = dicTableData["TABLE_NAME"] as! String
-            let condition: String? = dicTableData["WHERE"] as? String
-            //            if tableName == String(describing: OwnerInfo.self) {
-            //                dicSQLResults["RESULT_DATA"] = OwnerInfo.SQLExcute(command: command, condition: condition, dicFields: nil)
-            //            }
-            //            else {
-            //                dicSQLResults["RESULT_CODE"] = "3"
-            //                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
-            //            }
-            if tableName == String(describing: ModelDBHoliday.self) {
-                dicSQLResults["RESULT_DATA"] = ModelDBHoliday.SQLExcute(command: command, condition: condition, dicFields: nil)
+            if result.RESULT_DATA != nil {
+                dicSQLResults["RESULT_DATA"] = result.RESULT_DATA
             }
-			else if tableName == String(describing: DBTodo.self) {
-				dicSQLResults["RESULT_DATA"] = DBTodo.SQLExcute(command: command, condition: condition, dicFields: nil)
-			}
-            else {
-                dicSQLResults["RESULT_CODE"] = "3"
-                dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+        }
+        else if tableName == String(describing: ModelDBProfile.self) {
+            let result: (RESULT_CODE: String, RESULT_DATA: Results<Object>?) = ModelDBProfile.SQLExcute(dicTableData: dicTableData)
+            RESULT_CODE = result.RESULT_CODE
+            
+            if result.RESULT_DATA != nil {
+                dicSQLResults["RESULT_DATA"] = result.RESULT_DATA
             }
+        }
+        else {
+            RESULT_CODE = "3"
         }
         
+        // 결과 코드 저장
+        dicSQLResults["RESULT_CODE"] = RESULT_CODE
+        if RESULT_CODE == "2" {
+            dicSQLResults["MESSAGE"] = "검색 조건에 맞는 데이터가 존재하지 않습니다."
+        }
+        else if RESULT_CODE == "3" {
+            dicSQLResults["MESSAGE"] = "해당 테이블이 존재하지 않습니다."
+        }
+
         return dicSQLResults
     }
 }

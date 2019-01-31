@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ModelDBProfile: Object {
+class ModelDBProfile: BaseObject {
     
     // ID
     @objc dynamic var id = UUID().uuidString
@@ -44,7 +44,7 @@ class ModelDBProfile: Object {
     // 좋아하는 음악 favourite music
     @objc dynamic var favouriteMusic:String? = nil
     
-    convenience init(id:String, name:String, surname:String, address:String, phone:String, mobile:String, email:String, workAddress:String, workPhone:String, workEamil:String, favouriteFilm:String, favouriteBook:String, favouriteMusic:String) {
+    convenience init(id:String, name:String, surname:String, address:String, phone:String, mobile:String, email:String, workAddress:String, workPhone:String, workEmail:String, favouriteFilm:String, favouriteBook:String, favouriteMusic:String) {
         self.init()
         self.id = id
         self.name = name
@@ -55,7 +55,7 @@ class ModelDBProfile: Object {
         self.email = email
         self.workAddress = workAddress
         self.workPhone = workPhone
-        self.workEmail = workEamil
+        self.workEmail = workEmail
         self.favouriteFilm = favouriteFilm
         self.favouriteBook = favouriteBook
         self.favouriteMusic = favouriteMusic
@@ -75,10 +75,107 @@ class ModelDBProfile: Object {
         let favouriteBook = profile.favouriteBook
         let favouriteMusic = profile.favouriteMusic
         
-        self.init(id:id, name: name, surname: surname, address: address, phone: phone, mobile: mobile, email: email, workAddress: workAddress, workPhone: workPhone, workEamil: workEmail, favouriteFilm: favouriteFilm, favouriteBook: favouriteBook, favouriteMusic: favouriteMusic)
+        self.init(id:id, name: name, surname: surname, address: address, phone: phone, mobile: mobile, email: email, workAddress: workAddress, workPhone: workPhone, workEmail: workEmail, favouriteFilm: favouriteFilm, favouriteBook: favouriteBook, favouriteMusic: favouriteMusic)
     }
     
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    // 프라이머리키 설정했나?
+    override class func isPrimaryKey() -> Bool {
+        return (primaryKey() != nil)
+    }
+    
+    // 오브젝트 생성
+    override class func createObject(_ dicFields: [String: String]) -> ModelDBProfile {
+        let this = self.init()
+        
+        this.SQLParsing(dicFields)
+        
+        return this
+    }
+    
+    // 오브젝트 복사후 필드값 세팅
+    override class func copyObject(object: Object, dicFields: [String: String]) -> ModelDBProfile {
+        let newObject: ModelDBProfile = object.copy() as! ModelDBProfile
+        newObject.SQLParsing(dicFields)
+        
+        return newObject
+    }
+}
+
+// NSCopying copy기능 처리 해줄려고
+extension ModelDBProfile: NSCopying {
+    // 클래스 복사
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = ModelDBProfile(id: id,
+                                  name: name!,
+                                  surname: surname!,
+                                  address: address!,
+                                  phone: phone!,
+                                  mobile: mobile!,
+                                  email: email!,
+                                  workAddress: workAddress!,
+                                  workPhone: workPhone!,
+                                  workEmail: workEmail!,
+                                  favouriteFilm: favouriteFilm!,
+                                  favouriteBook: favouriteBook!,
+                                  favouriteMusic: favouriteMusic!)
+        
+        return copy
+    }
+    
+    // SQL 파싱
+    func SQLParsing(_ dicFields: [String: String]) {
+        
+        for key in dicFields.keys {
+            // 필드 값 세팅
+            self.setField(field: key, value: dicFields[key]!)
+        }
+    }
+    
+    // 필드 값 세팅
+    func setField(field: String, value: String) {
+        
+        if field == "id" {
+            self.id = value
+        }
+        else if field == "name" {
+            self.name = value
+        }
+        else if field == "surname" {
+            self.surname = value
+        }
+        else if field == "address" {
+            self.address = value
+        }
+        else if field == "phone" {
+            self.phone = value
+        }
+        else if field == "mobile" {
+            self.mobile = value
+        }
+        else if field == "email" {
+            self.email = value
+        }
+        else if field == "workAddress" {
+            self.workAddress = value
+        }
+        else if field == "workPhone" {
+            self.workPhone = value
+        }
+        else if field == "workEmail" {
+            self.workEmail = value
+        }
+        else if field == "favouriteFilm" {
+            self.favouriteFilm = value
+        }
+        else if field == "favouriteBook" {
+            self.favouriteBook = value
+        }
+        else if field == "favouriteMusic" {
+            self.favouriteMusic = value
+        }
     }
 }

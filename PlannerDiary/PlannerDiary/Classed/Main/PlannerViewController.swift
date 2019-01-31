@@ -109,6 +109,14 @@ class PlannerViewController: UIViewController {
     }
     
     @IBAction func onConfirmClick(_ sender: Any) {
+        let popup = AlertMessagePopup.messagePopup(message: "업데이트 하시겠습니까?")
+        popup.addActionConfirmClick("확인", handler: {
+            
+        })
+        popup.addActionCancelClick("취소", handler: {
+            
+        })
+/*
 		var dicConfig: [String: Any] = [:]
 		dicConfig["TITLE"] = "URL Setting"
 		dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.URL
@@ -120,6 +128,7 @@ class PlannerViewController: UIViewController {
 		
 		popup.addActionCancelClick("취소", handler: {
 		})
+ */
     }
     
     @IBAction func onHoliday1Click(_ sender: Any) {

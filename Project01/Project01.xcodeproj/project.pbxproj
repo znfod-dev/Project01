@@ -28,6 +28,7 @@
 		9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623721EA3E49007CF0B3 /* LaunchScreen.storyboard */; };
 		9E601467220009CA0062D991 /* icon_notdata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E601465220009C90062D991 /* icon_notdata@3x.png */; };
 		9E601468220009CA0062D991 /* icon_notdata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E601466220009C90062D991 /* icon_notdata@2x.png */; };
+		9E75D8862202BBF90042263A /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E75D8852202BBF90042263A /* BaseObject.swift */; };
 		9E954C9321F848E1006356BF /* CalendarLunar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E954C9221F848E1006356BF /* CalendarLunar.swift */; };
 		9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */; };
 		9EC46C5C21F6F91A00765274 /* ModelHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */; };
@@ -150,6 +151,7 @@
 		9DB15EA79718A43B263395EF /* Pods_Project01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E601465220009C90062D991 /* icon_notdata@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notdata@3x.png"; sourceTree = "<group>"; };
 		9E601466220009C90062D991 /* icon_notdata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notdata@2x.png"; sourceTree = "<group>"; };
+		9E75D8852202BBF90042263A /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		9E954C9221F848E1006356BF /* CalendarLunar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLunar.swift; sourceTree = "<group>"; };
 		9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDBHoliday.swift; sourceTree = "<group>"; };
 		9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelHoliday.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 		9BD47E6321FBF986005350C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9E75D8852202BBF90042263A /* BaseObject.swift */,
 				D914E39E21FBF5BE00CFBB8E /* ModelDBDiary.swift */,
 				D914E38621FBF5BD00CFBB8E /* ModelDBProfile.swift */,
 				D914E38221FBF5BC00CFBB8E /* ModelDBTodo.swift */,
@@ -772,6 +775,7 @@
 				D9FBE0E521F32B1C00BDA694 /* CommonUtil.swift in Sources */,
 				D914E3C521FBF5BF00CFBB8E /* ModelTodo.swift in Sources */,
 				D914E3CE21FBF5BF00CFBB8E /* ProfileViewController.swift in Sources */,
+				9E75D8862202BBF90042263A /* BaseObject.swift in Sources */,
 				D914E3B121FBF5BF00CFBB8E /* DBManager+UD.swift in Sources */,
 				60F47A9521F5705700E0DCB2 /* PlannerViewController.swift in Sources */,
 				D914E3C821FBF5BF00CFBB8E /* DiaryPageTableCell.swift in Sources */,
@@ -937,7 +941,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GN3PLAKW34;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -957,7 +961,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GN3PLAKW34;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
