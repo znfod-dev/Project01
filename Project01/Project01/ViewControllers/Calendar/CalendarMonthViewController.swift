@@ -143,6 +143,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		let calendar = Calendar(identifier: .gregorian)
 		let date: Date? = calendar.date(from: dateComponents)
 		diaryPage.currentDate = date!
+        print("self.navigationController?.pushViewController(diaryPage, animated: true)")
 		self.navigationController?.pushViewController(diaryPage, animated: true)
         
         // 셀선택
