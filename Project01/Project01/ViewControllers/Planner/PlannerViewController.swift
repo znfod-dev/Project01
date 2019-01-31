@@ -14,7 +14,7 @@ class PlannerViewController: UIViewController {
     // MARK:- Outlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet var topView: UIView!
-    @IBOutlet var emptyImage: UIImageView!
+    @IBOutlet var emptyView: UIView!
     
     
     
@@ -22,9 +22,9 @@ class PlannerViewController: UIViewController {
     var planArray = Array<Plan>() {
         willSet(new) {
             if new.count == 0 { // 리스트가 없다면 이미지 표시
-                self.emptyImage.isHidden = false
+                self.emptyView.isHidden = false
             } else {
-                self.emptyImage.isHidden = true
+                self.emptyView.isHidden = true
             }
         }
     }
@@ -35,7 +35,12 @@ class PlannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = true
+        // 375화면 기준으로 스케일 적용
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
+        
+        self.navigationController?.navigationBar.isHidden = true
+
         self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
         
         self.tableView.separatorStyle = .none
@@ -44,7 +49,10 @@ class PlannerViewController: UIViewController {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.planArray = DBManager.sharedInstance.selectPlanDB()
         self.tableView.reloadData()
     }
@@ -62,9 +70,10 @@ class PlannerViewController: UIViewController {
         let addPlanVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
         
         // 화면 넘기는 애니메이션
-        addPlanVC.hero.modalAnimationType = .selectBy(presenting: .push(direction: .left), dismissing: .push(direction: .right))
+        addPlanVC.hero.modalAnimationType = .selectBy(presenting: .slide(direction: .up), dismissing: .slide(direction: .down))
         addPlanVC.hero.isEnabled = true
         
+//        self.navigationController?.pushViewController(addPlanVC, animated: true)
         self.present(addPlanVC, animated: true)
     }
 }
@@ -107,7 +116,7 @@ extension PlannerViewController: UITableViewDataSource {
         let plan = self.planArray[indexPath.row]
         detailPlanVC.plan = plan
         
-        self.present(detailPlanVC, animated: true)
+        self.navigationController?.pushViewController(detailPlanVC, animated: true)
     }
     
     

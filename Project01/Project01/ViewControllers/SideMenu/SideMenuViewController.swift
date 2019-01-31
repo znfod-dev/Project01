@@ -52,7 +52,7 @@ class SideMenuViewController: UIViewController {
 		
 		// 사이드메뉴 설정
         sideMenuController?.cache(viewControllerGenerator: {
-            UIStoryboard.init(name: "Plan", bundle: nil).instantiateViewController(withIdentifier: "PlannerViewController")            
+            UIStoryboard.init(name: "Plan", bundle: nil).instantiateViewController(withIdentifier: "_PlannerViewController")            
         }, with: "1")
 
         sideMenuController?.cache(viewControllerGenerator: {
@@ -70,8 +70,8 @@ class SideMenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 프로필 오너 DB체크
-//        self.selectOwnerInfoTable()
+        // // 프로필 정보 DB체크
+        self.selectDBProfile()
     }
 
     /*
@@ -91,30 +91,39 @@ class SideMenuViewController: UIViewController {
     }
     
     // MARK: - RealmDB SQL Excute
-    // 프로필 오너 DB체크
-//    func selectOwnerInfoTable() {
-//        
-//        // 오너 정보 검색
-//        let sql = "SELECT * FROM OwnerInfo WHERE uid='1';"
-//        // SQL 결과
-//        let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
-//        let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
-//        // 검색 성공
-//        if resultCode == "0" {
-//            let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
-//            // 오너 정보가 없을때...
-//            if resultData.count > 0 {
-//                let ownerInfo: OwnerInfo = resultData.first as! OwnerInfo
-//                
-//                lbMessage.text = "\(ownerInfo.surName)\(ownerInfo.name)님의 다이어리 입니다."
-//                lbMessage.textColor = UIColor(hex: 0x254EFF)
-//            }
-//            else {
-//                lbMessage.text = "프로필 정보를 설정해주세요!"
-//                lbMessage.textColor = UIColor(hex: 0xFF1615)
-//            }
-//        }
-//    }
+    // 프로필 정보 DB체크
+    func selectDBProfile() {
+        
+        // 이름
+        var name: String = ""
+        // 성
+        var surname: String = ""
+
+        // 오너 정보 검색
+        let sql = "SELECT * FROM ModelDBProfile;"
+        // SQL 결과
+        let dicSQLResults:[String: Any] = DBManager.SQLExcute(sql: sql)
+        let resultCode: String = dicSQLResults["RESULT_CODE"] as! String
+        // 검색 성공
+        if resultCode == "0" {
+            let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
+            if resultData.count > 0 {
+                let profileInfo: ModelDBProfile = resultData.first as! ModelDBProfile
+                name = profileInfo.name!
+                surname = profileInfo.surname!
+            }
+        }
+        
+        // 성, 이름중 빈문자열이 아닐 경우
+        if CommonUtil.isEmpty(surname as AnyObject) == false || CommonUtil.isEmpty(name as AnyObject) == false {
+            lbMessage.text = "\(surname)\(name)님의 다이어리 입니다."
+            lbMessage.textColor = UIColor(hex: 0x254EFF)
+        }
+        else {
+            lbMessage.text = "프로필 정보를 설정해주세요!"
+            lbMessage.textColor = UIColor(hex: 0xFF1615)
+        }
+    }
 }
 
 
