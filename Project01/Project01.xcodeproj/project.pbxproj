@@ -114,6 +114,12 @@
 		D9FBE0E421F32B1C00BDA694 /* CalendarMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0D321F32B1B00BDA694 /* CalendarMonthViewController.swift */; };
 		D9FBE0E521F32B1C00BDA694 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0D421F32B1B00BDA694 /* CommonUtil.swift */; };
 		D9FBE0E821F32B4600BDA694 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0E621F32B4600BDA694 /* Common.storyboard */; };
+		D9FC02B62203B8E500FC7037 /* menu_calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FC02B02203B8E500FC7037 /* menu_calendar@2x.png */; };
+		D9FC02B72203B8E500FC7037 /* menu_calendar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FC02B12203B8E500FC7037 /* menu_calendar@3x.png */; };
+		D9FC02B82203B8E500FC7037 /* menu_event_note@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FC02B22203B8E500FC7037 /* menu_event_note@3x.png */; };
+		D9FC02B92203B8E500FC7037 /* menu_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FC02B32203B8E500FC7037 /* menu_setting@2x.png */; };
+		D9FC02BA2203B8E500FC7037 /* menu_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FC02B42203B8E500FC7037 /* menu_setting@3x.png */; };
+		D9FC02BB2203B8E500FC7037 /* menu_event_note@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FC02B52203B8E500FC7037 /* menu_event_note@2x.png */; };
 		D9FED00521FC2C7900689BC9 /* PromptMessagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FED00421FC2C7900689BC9 /* PromptMessagePopup.swift */; };
 		D9FED01221FC4B7D00689BC9 /* icon_date_range@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00821FC4B7C00689BC9 /* icon_date_range@3x.png */; };
 		D9FED01321FC4B7D00689BC9 /* icon_remove@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FED00921FC4B7C00689BC9 /* icon_remove@3x.png */; };
@@ -239,6 +245,12 @@
 		D9FBE0D321F32B1B00BDA694 /* CalendarMonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonthViewController.swift; sourceTree = "<group>"; };
 		D9FBE0D421F32B1B00BDA694 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		D9FBE0E721F32B4600BDA694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Common.storyboard; sourceTree = "<group>"; };
+		D9FC02B02203B8E500FC7037 /* menu_calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_calendar@2x.png"; sourceTree = "<group>"; };
+		D9FC02B12203B8E500FC7037 /* menu_calendar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_calendar@3x.png"; sourceTree = "<group>"; };
+		D9FC02B22203B8E500FC7037 /* menu_event_note@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_event_note@3x.png"; sourceTree = "<group>"; };
+		D9FC02B32203B8E500FC7037 /* menu_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_setting@2x.png"; sourceTree = "<group>"; };
+		D9FC02B42203B8E500FC7037 /* menu_setting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_setting@3x.png"; sourceTree = "<group>"; };
+		D9FC02B52203B8E500FC7037 /* menu_event_note@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_event_note@2x.png"; sourceTree = "<group>"; };
 		D9FED00421FC2C7900689BC9 /* PromptMessagePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptMessagePopup.swift; sourceTree = "<group>"; };
 		D9FED00821FC4B7C00689BC9 /* icon_date_range@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_date_range@3x.png"; sourceTree = "<group>"; };
 		D9FED00921FC4B7C00689BC9 /* icon_remove@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_remove@3x.png"; sourceTree = "<group>"; };
@@ -368,7 +380,6 @@
 				609A3F9922001F6C00A58605 /* Planner */,
 				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
 				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
-				D9FBE0D021F32B1B00BDA694 /* SiceMenuCell.swift */,
 				D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */,
 				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
 				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
@@ -495,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				D9FBE0C421F32B1A00BDA694 /* SideMenuViewController.swift */,
+				D9FBE0D021F32B1B00BDA694 /* SiceMenuCell.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -502,6 +514,7 @@
 		D9FBE09F21F32A0D00BDA694 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D9FC02AF2203B8E500FC7037 /* menu */,
 				9E601466220009C90062D991 /* icon_notdata@2x.png */,
 				9E601465220009C90062D991 /* icon_notdata@3x.png */,
 				D9FED00F21FC4B7D00689BC9 /* icon_add@2x.png */,
@@ -534,6 +547,19 @@
 				D9FBE0B121F32A0D00BDA694 /* icon_close@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		D9FC02AF2203B8E500FC7037 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				D9FC02B02203B8E500FC7037 /* menu_calendar@2x.png */,
+				D9FC02B12203B8E500FC7037 /* menu_calendar@3x.png */,
+				D9FC02B22203B8E500FC7037 /* menu_event_note@3x.png */,
+				D9FC02B32203B8E500FC7037 /* menu_setting@2x.png */,
+				D9FC02B42203B8E500FC7037 /* menu_setting@3x.png */,
+				D9FC02B52203B8E500FC7037 /* menu_event_note@2x.png */,
+			);
+			path = menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,6 +623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D914E3BC21FBF5BF00CFBB8E /* NanumBarunGothicBold.ttf in Resources */,
+				D9FC02B72203B8E500FC7037 /* menu_calendar@3x.png in Resources */,
 				9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */,
 				D914E3BA21FBF5BF00CFBB8E /* NanumBarunGothic.ttf in Resources */,
 				D914E3C921FBF5BF00CFBB8E /* DiaryPage.storyboard in Resources */,
@@ -621,9 +648,12 @@
 				D9FBE0B821F32A0D00BDA694 /* icon_menu@3x.png in Resources */,
 				D9FED01B21FC4B7D00689BC9 /* icon_remove@2x.png in Resources */,
 				D9FBE0E821F32B4600BDA694 /* Common.storyboard in Resources */,
+				D9FC02B62203B8E500FC7037 /* menu_calendar@2x.png in Resources */,
+				D9FC02BA2203B8E500FC7037 /* menu_setting@3x.png in Resources */,
 				D914E3B621FBF5BF00CFBB8E /* NanumBarunpenR.ttf in Resources */,
 				D914E3CC21FBF5BF00CFBB8E /* Setting.storyboard in Resources */,
 				D9FED01521FC4B7D00689BC9 /* icon_date_range@2x.png in Resources */,
+				D9FC02BB2203B8E500FC7037 /* menu_event_note@2x.png in Resources */,
 				D9FED01A21FC4B7D00689BC9 /* icon_event@3x.png in Resources */,
 				D9FBE0B521F32A0D00BDA694 /* icon_save@2x.png in Resources */,
 				D9FBE0B721F32A0D00BDA694 /* icon_setting@2x.png in Resources */,
@@ -632,6 +662,7 @@
 				D914E3D921FBF5BF00CFBB8E /* TimePickerView.xib in Resources */,
 				D9FBE0B421F32A0D00BDA694 /* icon_loading@3x.png in Resources */,
 				D9FBE0BE21F32A0D00BDA694 /* icon_delete@3x.png in Resources */,
+				D9FC02B92203B8E500FC7037 /* menu_setting@2x.png in Resources */,
 				D9FBE0C221F32A0D00BDA694 /* icon_close@3x.png in Resources */,
 				9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */,
 				D9FBE0BC21F32A0D00BDA694 /* icon_navigation_next@3x.png in Resources */,
@@ -641,6 +672,7 @@
 				D9FBE0C021F32A0D00BDA694 /* icon_navigation_back@3x.png in Resources */,
 				D9FBE0C121F32A0D00BDA694 /* icon_delete@2x.png in Resources */,
 				D9FED01421FC4B7D00689BC9 /* icon_add@3x.png in Resources */,
+				D9FC02B82203B8E500FC7037 /* menu_event_note@3x.png in Resources */,
 				D9FBE0B621F32A0D00BDA694 /* icon_navigation_next@2x.png in Resources */,
 				D9FED01921FC4B7D00689BC9 /* icon_add@2x.png in Resources */,
 				D914E3B921FBF5BF00CFBB8E /* NanumBrush.ttf in Resources */,

@@ -10,6 +10,7 @@ import UIKit
 
 class SiceMenuCell: UITableViewCell {
 
+	@IBOutlet weak var ivIcon: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
     
     override func awakeFromNib() {
@@ -28,7 +29,13 @@ class SiceMenuCell: UITableViewCell {
         guard let title = dicInfoData!["TITLE"] else {
             return
         }
-        
+		
+		guard let iconName = dicInfoData!["IMAGE"] else {
+			return
+		}
+		
+		ivIcon.image = UIImage(named: iconName)
+		
         lbTitle.text = title
     }
 }

@@ -62,9 +62,9 @@ class SideMenuViewController: UIViewController {
         sideMenuController?.delegate = self
         
         // init Data
-        arrMenuItem += [["TITLE":"월간 일정", "IMAGE":""]]
-        arrMenuItem += [["TITLE":"계획리스트", "IMAGE":""]]
-        arrMenuItem += [["TITLE":"설정", "IMAGE":""]]
+        arrMenuItem += [["TITLE":"월간 일정", "IMAGE":"menu_calendar"]]
+        arrMenuItem += [["TITLE":"계획리스트", "IMAGE":"menu_event_note"]]
+        arrMenuItem += [["TITLE":"설정", "IMAGE":"menu_setting"]]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -170,7 +170,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44.0
+        return 50.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

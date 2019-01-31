@@ -102,36 +102,58 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SiceMenuCell" id="yZb-BJ-iCK" customClass="SiceMenuCell" customModule="Project01" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="270" height="44"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SiceMenuCell" rowHeight="50" id="yZb-BJ-iCK" customClass="SiceMenuCell" customModule="Project01" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="270" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yZb-BJ-iCK" id="VWS-nc-Qsc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월간 계획" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ry-we-dpp">
-                                                            <rect key="frame" x="109" y="13.5" width="52" height="17"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUV-CK-QfV">
-                                                            <rect key="frame" x="16" y="43" width="238" height="1"/>
+                                                            <rect key="frame" x="16" y="49" width="238" height="1"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="zDP-aq-rwJ"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3O-2S-tut">
+                                                            <rect key="frame" x="91" y="15" width="88" height="20"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="YgN-q8-DMz">
+                                                                    <rect key="frame" x="0.0" y="1" width="18" height="18"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="18" id="A5B-Li-7rh"/>
+                                                                        <constraint firstAttribute="width" constant="18" id="Gfw-6X-3xA"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월간 계획" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ry-we-dpp">
+                                                                    <rect key="frame" x="28" y="0.0" width="60" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="5Ry-we-dpp" firstAttribute="leading" secondItem="YgN-q8-DMz" secondAttribute="trailing" constant="10" id="Lg2-d7-rO8"/>
+                                                                <constraint firstItem="YgN-q8-DMz" firstAttribute="centerY" secondItem="g3O-2S-tut" secondAttribute="centerY" id="SeH-IN-q8R"/>
+                                                                <constraint firstItem="YgN-q8-DMz" firstAttribute="leading" secondItem="g3O-2S-tut" secondAttribute="leading" id="fZK-OI-Ypw"/>
+                                                                <constraint firstAttribute="trailing" secondItem="5Ry-we-dpp" secondAttribute="trailing" id="hmE-hB-NhY"/>
+                                                                <constraint firstItem="5Ry-we-dpp" firstAttribute="top" secondItem="g3O-2S-tut" secondAttribute="top" id="lVq-IZ-ajT"/>
+                                                                <constraint firstAttribute="bottom" secondItem="5Ry-we-dpp" secondAttribute="bottom" id="xlY-n6-mnJ"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="g3O-2S-tut" firstAttribute="centerX" secondItem="VWS-nc-Qsc" secondAttribute="centerX" id="MzK-Rs-jeq"/>
+                                                        <constraint firstItem="g3O-2S-tut" firstAttribute="centerY" secondItem="VWS-nc-Qsc" secondAttribute="centerY" id="XuV-wj-JMM"/>
                                                         <constraint firstAttribute="bottom" secondItem="IUV-CK-QfV" secondAttribute="bottom" id="adZ-z0-riJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="IUV-CK-QfV" secondAttribute="trailing" constant="16" id="hmZ-QD-TNE"/>
                                                         <constraint firstItem="IUV-CK-QfV" firstAttribute="leading" secondItem="VWS-nc-Qsc" secondAttribute="leading" constant="16" id="jeH-Sq-9Jd"/>
-                                                        <constraint firstItem="5Ry-we-dpp" firstAttribute="centerX" secondItem="VWS-nc-Qsc" secondAttribute="centerX" id="nMX-iY-ErF"/>
-                                                        <constraint firstItem="5Ry-we-dpp" firstAttribute="centerY" secondItem="VWS-nc-Qsc" secondAttribute="centerY" id="x3P-x2-8NQ"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="ivIcon" destination="YgN-q8-DMz" id="c2V-gW-QpW"/>
                                                     <outlet property="lbTitle" destination="5Ry-we-dpp" id="dbd-IB-cfw"/>
                                                 </connections>
                                             </tableViewCell>
@@ -782,5 +804,6 @@
         <image name="icon_close.png" width="36" height="36"/>
         <image name="icon_menu.png" width="36" height="36"/>
         <image name="icon_today.png" width="36" height="36"/>
+        <image name="menu_calendar.png" width="18" height="18"/>
     </resources>
 </document>
