@@ -115,7 +115,7 @@ class SideMenuViewController: UIViewController {
         }
         
         // 성, 이름중 빈문자열이 아닐 경우
-        if CommonUtil.isEmpty(name as AnyObject) == false || CommonUtil.isEmpty(name as AnyObject) == false {
+        if CommonUtil.isEmpty(surname as AnyObject) == false || CommonUtil.isEmpty(name as AnyObject) == false {
             lbMessage.text = "\(surname)\(name)님의 다이어리 입니다."
             lbMessage.textColor = UIColor(hex: 0x254EFF)
         }
