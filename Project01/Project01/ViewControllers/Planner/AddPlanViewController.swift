@@ -29,7 +29,11 @@ class AddPlanViewController: UIViewController {
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
+		// sama73 : 375화면 기준으로 스케일 적용
+		let scale: CGFloat = DEF_WIDTH_375_SCALE
+		view.transform = view.transform.scaledBy(x: scale, y: scale)
+
         self.initSet()
     }
     
