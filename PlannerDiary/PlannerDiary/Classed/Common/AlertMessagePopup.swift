@@ -84,7 +84,7 @@ class AlertMessagePopup: BasePopup {
     
     // 취소 버튼
     @IBAction func onCancelClick(_ sender: Any) {
-        callbackWithClose()
+        callbackWithCancel()
     }
 
     // MARK: - Callback Event

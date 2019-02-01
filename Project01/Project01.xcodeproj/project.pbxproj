@@ -338,7 +338,6 @@
 				D9FBE09F21F32A0D00BDA694 /* Images */,
 				9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */,
 				9B26623521EA3E49007CF0B3 /* Assets.xcassets */,
-				9B26623721EA3E49007CF0B3 /* LaunchScreen.storyboard */,
 				9B26623A21EA3E49007CF0B3 /* Info.plist */,
 			);
 			path = Project01;
@@ -347,6 +346,7 @@
 		9BD47E6021FBF75E005350C9 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9B26623721EA3E49007CF0B3 /* LaunchScreen.storyboard */,
 				D914E3A021FBF5BE00CFBB8E /* Setting.storyboard */,
 				D914E39D21FBF5BE00CFBB8E /* DiaryPage.storyboard */,
 				D914E39321FBF5BD00CFBB8E /* Profile.storyboard */,

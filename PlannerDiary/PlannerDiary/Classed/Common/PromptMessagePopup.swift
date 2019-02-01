@@ -8,6 +8,19 @@
 
 import UIKit
 
+/* Ex)
+var dicConfig: [String: Any] = [:]
+dicConfig["TITLE"] = "Phone Setting"
+dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
+
+let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+popup.addActionConfirmClick("확인") { (message) in
+
+}
+
+popup.addActionCancelClick("취소", handler: {
+})
+*/
 class PromptMessagePopup: BasePopup {
 
 	@IBOutlet private weak var lbTitle: UILabel!
@@ -119,7 +132,7 @@ class PromptMessagePopup: BasePopup {
 	
 	// 취소 버튼
 	@IBAction func onCancelClick(_ sender: Any) {
-		callbackWithClose()
+		callbackWithCancel()
 	}
 	
 	// MARK: - NotificationCenter
