@@ -58,6 +58,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         
         self.setTableSetting()
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

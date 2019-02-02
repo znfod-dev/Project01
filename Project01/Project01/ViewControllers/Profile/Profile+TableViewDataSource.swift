@@ -13,27 +13,25 @@ extension ProfileViewController {
         return Profile.favouriteMusic.section() + 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numberOfRow = 1
-        if section == Profile.address.section() {
-            numberOfRow = 2
-        }else if section == Profile.workAddress.section() {
-            numberOfRow = 2
-        }else if section == Profile.favouriteFilm.section() {
-            numberOfRow = 2
-        }else if section == Profile.favouriteBook.section() {
-            numberOfRow = 2
-        }else if section == Profile.favouriteMusic.section() {
-            numberOfRow = 2
-        }
+        let numberOfRow = 2
+        
         return numberOfRow
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let row = indexPath.row
         if section == Profile.name.section() {
-            return cellForNameAt()
+            if row == 0 {
+                return cellForNameTitleAt()
+            }else {
+                return cellForNameAt()
+            }
         }else if section == Profile.surname.section() {
-            return cellForSurnameAt()
+            if row == 0 {
+                return cellForSurnameTitleAt()
+            }else {
+                return cellForSurnameAt()
+            }
         }else if section == Profile.address.section() {
             if row == 0 {
                 return cellForAddressTitleAt()
@@ -41,11 +39,23 @@ extension ProfileViewController {
                 return cellForAddressAt()
             }
         }else if section == Profile.phone.section() {
-            return cellForPhoneAt()
+            if row == 0 {
+                return cellForPhoneTitleAt()
+            }else {
+                return cellForPhoneAt()
+            }
         }else if section == Profile.mobile.section() {
-            return cellForMobileAt()
+            if row == 0 {
+                return cellForMobileTitleAt()
+            }else {
+                return cellForMobileAt()
+            }
         }else if section == Profile.email.section() {
-            return cellForEmailAt()
+            if row == 0 {
+                return cellForEmailTitleAt()
+            }else {
+                return cellForEmailAt()
+            }
         }else if section == Profile.workAddress.section() {
             if row == 0 {
                 return cellForWorkAddressTitleAt()
@@ -53,9 +63,17 @@ extension ProfileViewController {
                 return cellForWorkAddressAt()
             }
         }else if section == Profile.workPhone.section() {
-            return cellForWorkPhoneAt()
+            if row == 0 {
+                return cellForWorkPhoneTitleAt()
+            }else {
+                return cellForWorkPhoneAt()
+            }
         }else if section == Profile.workEmail.section() {
-            return cellForWorkEmailAt()
+            if row == 0 {
+                return cellForWorkEmailTitleAt()
+            }else {
+                return cellForWorkEmailAt()
+            }
         }else if section == Profile.favouriteFilm.section() {
             if row == 0 {
                 return cellForFavouriteFilmTitleAt()
@@ -80,11 +98,21 @@ extension ProfileViewController {
         }
     }
     
+    func cellForNameTitleAt() -> ProfileTableCell {
+        let cell = cellForTitleAt(title: "name")
+        return cell
+    }
+    
     func cellForNameAt() -> ProfileTableCell{
         let cell = cellForTextFieldAt(title: "name", placeholder: "Steven")
         cell.textField.text = self.profile.name
         self.nameTextField = cell.textField
         self.nameTextField.tag = Profile.name.section()
+        return cell
+    }
+    
+    func cellForSurnameTitleAt() -> ProfileTableCell {
+        let cell = cellForTitleAt(title: "surname")
         return cell
     }
     
@@ -108,6 +136,10 @@ extension ProfileViewController {
         self.addressTextView.tag = Profile.address.section()
         return cell
     }
+    func cellForPhoneTitleAt() -> ProfileTableCell {
+        let cell = cellForTitleAt(title: "phone")
+        return cell
+    }
     func cellForPhoneAt() -> ProfileTableCell{
         let cell = cellForTextFieldAt(title: "phone", placeholder: "070-0000-0000")
         cell.textField.text = self.profile.phone
@@ -115,11 +147,19 @@ extension ProfileViewController {
         self.phoneTextField.tag = Profile.phone.section()
         return cell
     }
+    func cellForMobileTitleAt() -> ProfileTableCell {
+        let cell = cellForTitleAt(title: "mobile")
+        return cell
+    }
     func cellForMobileAt() -> ProfileTableCell{
         let cell = cellForTextFieldAt(title: "mobile", placeholder: "010-0000-0000")
         cell.textField.text = self.profile.mobile
         self.mobileTextField = cell.textField
         self.mobileTextField.tag = Profile.mobile.section()
+        return cell
+    }
+    func cellForEmailTitleAt() -> ProfileTableCell {
+        let cell = cellForTitleAt(title: "Email")
         return cell
     }
     func cellForEmailAt() -> ProfileTableCell{
@@ -141,11 +181,19 @@ extension ProfileViewController {
         self.workaddressTextView.tag = Profile.workAddress.section()
         return cell
     }
+    func cellForWorkPhoneTitleAt() -> ProfileTableCell {
+        let cell = cellForTitleAt(title: "WorkPhone")
+        return cell
+    }
     func cellForWorkPhoneAt() -> ProfileTableCell{
         let cell = cellForTextFieldAt(title: "WorkPhone", placeholder: "070-0000-0000")
         cell.textField.text = self.profile.workPhone
         self.workphoneTextField = cell.textField
         self.workphoneTextField.tag = Profile.workPhone.section()
+        return cell
+    }
+    func cellForWorkEmailTitleAt() -> ProfileTableCell {
+        let cell = cellForTitleAt(title: "WorkEmail")
         return cell
     }
     func cellForWorkEmailAt() -> ProfileTableCell{
@@ -190,8 +238,6 @@ extension ProfileViewController {
     }
     func cellForTextFieldAt(title:String, placeholder:String) -> ProfileTableCell {
         let cell:ProfileTableCell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableTextFieldCell") as! ProfileTableCell
-        cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: title)
-        cell.titleLabel.font = FontManager.shared.getTextFont()
         cell.textField.font = FontManager.shared.getTextFont()
         cell.textField.placeholder = placeholder
         return cell
