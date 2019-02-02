@@ -36,8 +36,7 @@ extension DBManager {
         if let dbDiary = self.database.objects(ModelDBDiary.self).filter("id = '\(id)'").first {
             print("있음")
             let diary = ModelDiary.init(dbDiary: dbDiary)
-            let dbTodoList = self.database.objects(DBTodo.self)
-            print("dbTodoList : \(dbTodoList.count)")
+            let dbTodoList = self.database.objects(DBTodo.self).filter("date = '\(id)'")
             for dbTodo in dbTodoList {
                 diary.todoList.append(Todo.init(dbTodo: dbTodo))
             }

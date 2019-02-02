@@ -23,7 +23,6 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
 		let scale: CGFloat = DEF_WIDTH_375_SCALE
 		view.transform = view.transform.scaledBy(x: scale, y: scale)
         
-        diary = DBManager.sharedInstance.selectDiary(date: currentDate)
         self.setTableSetting()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -33,6 +32,8 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.diary = DBManager.sharedInstance.selectDiary(date: currentDate)
+        print("self.diary : \(self.diary.todoList)")
         self.tableView.reloadData()
     }
     

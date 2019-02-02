@@ -35,9 +35,11 @@ class ModelDiary: NSObject {
         let id = dbDiary.id
         let date = dbDiary.date
         var list = Array<Todo>()
+        /*
         for dbTodo in dbDiary.todoList {
             list.append(Todo(dbTodo: dbTodo))
         }
+         */
         let diary = dbDiary.diary
         self.init(id: id, date: date, todoList: list, diary: diary!)
     }
