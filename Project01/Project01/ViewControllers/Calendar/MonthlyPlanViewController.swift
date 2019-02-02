@@ -573,7 +573,9 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         
         let todo = self.selectedDayTodo[indexPath.row]
         
+        // 현재 타이틀의 포인트를 가져온다.
         let fontSize = cell.titleLabel.font.pointSize
+        // attributeText에 font를 적용한 Text를 넣는다.
         cell.titleLabel.attributedText = FontManager.shared.getTextWithOnlyFont(text: todo.title!, size:fontSize)
         //cell.titleLabel.text = todo.title
         
