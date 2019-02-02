@@ -13,6 +13,9 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     var currentDate = Date()
     var diary = ModelDiary()
+    
+    var activeView:UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -23,6 +26,10 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         diary = DBManager.sharedInstance.selectDiary(date: currentDate)
         self.setTableSetting()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,6 +40,8 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = FontManager.shared.getLineHeight()
     }
+    
+    // MARK:- UITextViewDelegate
     func textViewDidChange(_ textView: UITextView) {
         let size = textView.bounds.size
         
@@ -46,9 +55,50 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         tableView?.endUpdates()
         UIView.setAnimationsEnabled(true)
     }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        print("textViewDidBeginEditing")
+        activeView = textView
+        
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("textViewDidEndEditing")
+        self.diary.diary = textView.text
+        if self.diary.diary == "" {
+            self.diary.diary = " "
+        }
+        DBManager.sharedInstance.updateDiary(diary: self.diary)
+        self.tableView.reloadData()
+    }
+    
+    // MARK:- Keyboard
+    @objc func keyboardWillShow(notification: Notification) {
+        if let kbSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            print("notification: Keyboard will show")
+            let contentInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: kbSize.height, right: 0)
+            self.tableView.contentInset = contentInsets
+            self.tableView.scrollIndicatorInsets = contentInsets
+            var aRect:CGRect = self.view.frame
+            aRect.size.height -= kbSize.height
+        }
+    }
+    @objc func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
+    }
 
     // MARK:- Actions
     @IBAction func backBtnClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK:- Handle Swipe
+    override func handleSwipeLeftGesture(_ recognizer: UISwipeGestureRecognizer) {
+        print("handleSwipeLeftGesture")
+        
+    }
+    override func handleSwipeRightGesture(_ recognizer: UISwipeGestureRecognizer) {
+        print("handleSwipeRightGesture")
+        
     }
 }

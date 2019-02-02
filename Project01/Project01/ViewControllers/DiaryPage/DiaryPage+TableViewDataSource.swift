@@ -65,13 +65,16 @@ extension DiaryPageViewController {
                 let row = indexPath.row
                 let todo = self.diary.todoList[row]
                 cell = tableView.dequeueReusableCell(withIdentifier: "DiaryPageTableTodoCell") as! DiaryPageTableCell
-                cell.todoLabel.attributedText = FontManager.shared.getTextWithFont(text: todo.title)
+                cell.todoLabel.attributedText = FontManager.shared.getTextWithFont(text: todo.title!)
             }
             
             
         }else if section == 2 {
             cell = tableView.dequeueReusableCell(withIdentifier: "DiaryPageTableDiaryCell") as! DiaryPageTableCell
-            let diaryText = "Hello\nWorld\nHello\nWorld"
+            if self.diary.diary == "" {
+                self.diary.diary = " "
+            }
+            let diaryText = self.diary.diary
             cell.diaryTextView.attributedText = FontManager.shared.getTextWithFont(text: diaryText)
             
             cell.diaryTextView.textContainerInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)

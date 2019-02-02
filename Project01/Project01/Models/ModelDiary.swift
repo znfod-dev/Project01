@@ -14,7 +14,7 @@ class ModelDiary: NSObject {
     // date 저장날짜
     var date = Date()
     // 날짜에 해당하는 todoList
-    var todoList = Array<ModelTodo>()
+    var todoList = Array<Todo>()
     // 날짜에 해당하는 일기
     var diary = String()
     
@@ -23,7 +23,7 @@ class ModelDiary: NSObject {
         super.init()
     }
     
-    convenience init(id:String, date:Date, todoList:Array<ModelTodo>, diary:String) {
+    convenience init(id:String, date:Date, todoList:Array<Todo>, diary:String) {
         self.init()
         self.id = id
         self.date = date
@@ -34,9 +34,9 @@ class ModelDiary: NSObject {
     convenience init(dbDiary:ModelDBDiary) {
         let id = dbDiary.id
         let date = dbDiary.date
-        var list = Array<ModelTodo>()
+        var list = Array<Todo>()
         for dbTodo in dbDiary.todoList {
-            list.append(ModelTodo(dbTodo: dbTodo))
+            list.append(Todo(dbTodo: dbTodo))
         }
         let diary = dbDiary.diary
         self.init(id: id, date: date, todoList: list, diary: diary!)

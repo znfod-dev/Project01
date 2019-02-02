@@ -15,11 +15,11 @@ class ModelDBDiary: Object {
     // date 저장날짜
     @objc dynamic var date = Date()
     // 날짜에 해당하는 todoList
-    var todoList = List<ModelDBTodo>()
+    var todoList = List<DBTodo>()
     // 날짜에 해당하는 일기
     @objc dynamic var diary:String? = nil
     
-    convenience init(id:String, date:Date, todoList:List<ModelDBTodo>, diary:String) {
+    convenience init(id:String, date:Date, todoList:List<DBTodo>, diary:String) {
         self.init()
         self.id = id
         self.date = date
@@ -29,9 +29,9 @@ class ModelDBDiary: Object {
     convenience init(diary:ModelDiary) {
         let id = diary.id
         let date = diary.date
-        let list = List<ModelDBTodo>()
+        let list = List<DBTodo>()
         for todo in diary.todoList {
-            list.append(ModelDBTodo(todo: todo))
+            list.append(DBTodo(todo: todo))
         }
         let diary = diary.diary
         self.init(id: id, date: date, todoList: list, diary: diary)

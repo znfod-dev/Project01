@@ -95,6 +95,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         
     }
     
+    // MARK:- UITextViewDelegate
     func textViewDidChange(_ textView: UITextView) {
         let size = textView.bounds.size
         
@@ -108,7 +109,6 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView?.endUpdates()
         UIView.setAnimationsEnabled(true)
     }
-    
     func textViewDidEndEditing(_ textView: UITextView) {
         let tag = textView.tag
         if tag == Profile.address.section() {
@@ -127,6 +127,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         DBManager.sharedInstance.updateProfile(profile: self.profile)
     }
     
+    // MARK:- UITextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField) {
         let text = textField.text!
         let tag = textField.tag
