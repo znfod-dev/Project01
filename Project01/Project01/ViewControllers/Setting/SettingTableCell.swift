@@ -18,6 +18,8 @@ class SettingTableCell: UITableViewCell {
     @IBOutlet weak var fontLabel: UILabel!
     @IBOutlet weak var fontSizeLabel: UILabel!
     
+    @IBOutlet weak var lunarSwitch: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

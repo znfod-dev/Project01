@@ -25,6 +25,20 @@ let DEF_WIDTH_375_SCALE: CGFloat = (DEF_SCREEN_WIDTH < DEF_SCREEN_HEIGHT) ? (DEF
 // MARK: - NSUserDefaults Key Define
 // 앱 최초 실행했는지
 let kBool_isFirstAppRun = "isFirstAppRunKey"
+// 음력 키값
+let kBool_isLunarCalendar = "isLunarCalendarKey"
+// 시작날짜
+let kDate_MinimumDate = "minimumDateKey"
+// 마지막날짜
+let kDate_MaximumDate = "maximumDateKey"
+// 알람시간 날짜
+let kDate_AlarmTime = "alarmTimeKey"
+// 저장된 폰트
+let kFont_SavedFont = "savedFontKey"
+// 저장된 폰트 이름
+let kFont_FontName = "fontNameKey"
+// 저장된 폰트 사이즈
+let kFloat_fontSize = "fontSizeKey"
 
 // MARK: - enum
 enum Month: Int {

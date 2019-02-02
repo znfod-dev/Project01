@@ -209,8 +209,53 @@
                                             <outlet property="titleLabel" destination="3rj-QQ-Ikg" id="wV7-5K-9Vp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingFontCell" id="Q3M-3Q-ReO" customClass="SettingTableCell" customModule="Project01" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingLunarCell" id="i09-ou-dbS" customClass="SettingTableCell" customModule="Project01" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i09-ou-dbS" id="S2f-ME-krI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfE-An-3zu">
+                                                    <rect key="frame" x="20" y="0.0" width="335" height="38.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQu-qf-JOp">
+                                                            <rect key="frame" x="0.0" y="6.5" width="30.5" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="NanumBarunpen" family="NanumBarunpen" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFZ-rC-xJF">
+                                                            <rect key="frame" x="286" y="4" width="51" height="31"/>
+                                                            <connections>
+                                                                <action selector="lunarValueChanged:" destination="72Y-UX-2NY" eventType="valueChanged" id="fQs-KB-CTS"/>
+                                                            </connections>
+                                                        </switch>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="gQu-qf-JOp" firstAttribute="centerY" secondItem="EfE-An-3zu" secondAttribute="centerY" id="42O-ej-2uS"/>
+                                                        <constraint firstItem="gQu-qf-JOp" firstAttribute="leading" secondItem="EfE-An-3zu" secondAttribute="leading" id="IJH-Ma-w57"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wFZ-rC-xJF" secondAttribute="trailing" id="K6O-0W-iR2"/>
+                                                        <constraint firstItem="wFZ-rC-xJF" firstAttribute="centerY" secondItem="EfE-An-3zu" secondAttribute="centerY" id="izB-2c-92Z"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="EfE-An-3zu" secondAttribute="bottom" constant="5" id="4dN-pj-iQS"/>
+                                                <constraint firstItem="EfE-An-3zu" firstAttribute="top" secondItem="S2f-ME-krI" secondAttribute="top" id="EMj-oO-bzy"/>
+                                                <constraint firstAttribute="trailing" secondItem="EfE-An-3zu" secondAttribute="trailing" constant="20" id="R9r-ll-NN2"/>
+                                                <constraint firstAttribute="trailing" secondItem="EfE-An-3zu" secondAttribute="trailing" constant="20" id="Z7u-Jh-POD"/>
+                                                <constraint firstItem="EfE-An-3zu" firstAttribute="leading" secondItem="S2f-ME-krI" secondAttribute="leading" constant="20" id="tQb-E9-h9H"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lunarSwitch" destination="wFZ-rC-xJF" id="dOO-TY-ewQ"/>
+                                            <outlet property="titleLabel" destination="gQu-qf-JOp" id="eOp-DT-T3B"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingFontCell" id="Q3M-3Q-ReO" customClass="SettingTableCell" customModule="Project01" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q3M-3Q-ReO" id="jCS-Np-QPI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -254,7 +299,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingFontSizeCell" id="nbA-xT-wVu" customClass="SettingTableCell" customModule="Project01" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="248" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nbA-xT-wVu" id="EUN-se-rGD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -298,7 +343,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingProfileCell" id="cKz-Fx-SuZ" customClass="SettingTableCell" customModule="Project01" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="248" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="292" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cKz-Fx-SuZ" id="kqJ-AI-Jbm">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -360,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQJ-UE-pRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3500" y="-254.12293853073464"/>
+            <point key="canvasLocation" x="3434" y="-254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1ZZ-Yv-kWx">
@@ -373,7 +418,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="72Y-UX-2NY" kind="relationship" relationship="rootViewController" id="LRY-0a-K69"/>
+                        <segue destination="72Y-UX-2NY" kind="relationship" relationship="rootViewController" id="Cvf-ix-RHZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xnv-2J-tPN" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -33,13 +33,6 @@ class DBManager: NSObject {
     
     var database: Realm!
     
-    let minimumDateKey = "MinimumDateKEY"
-    let maximumDateKey = "MaximumDateKEY"
-    let alarmTimeKey = "AlarmTimeKEY"
-    let savedFontKey = "SavedFontKEY"
-    let fontNameKey = "FontNameKEY"
-    let fontSizeKey = "FontSizeKEY"
-    
     override init() {
         super.init()
         print("DBManager init")

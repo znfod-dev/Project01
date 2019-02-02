@@ -25,13 +25,19 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("SettingViewController viewDidLoad")
+        self.addPickerViews()
         // sama73 : 네비게이션 숨기기
         self.navigationController?.navigationBar.isHidden = true
         
         // sama73 : 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
+        
+        // Do any additional setup after loading the view.
+    }
+    // PickerView 추가
+    func addPickerViews() {
         
         self.datePickerView = DatePickerView.initWithNib(frame: self.view.frame)
         let dateSubmit = UITapGestureRecognizer(target: self, action: #selector(handleDateSubmit(_:)))
@@ -58,9 +64,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         let fontSizeSubmit = UITapGestureRecognizer(target: self, action: #selector(handleFontSizeSubmit))
         self.fontSizePickerView.submitBtn.addGestureRecognizer(fontSizeSubmit)
         self.view.addSubview(self.fontSizePickerView)
-        // Do any additional setup after loading the view.
     }
-    
     
     // MARK: - UIButton Action
     // 사이드 메뉴
@@ -69,6 +73,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         sideMenuController?.revealMenu()
     }
     
+    // MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         // Diary
         // Font
@@ -81,7 +86,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 0
         if section == 0 {
-            numberOfRow = 3
+            numberOfRow = 4
         }else if section == 1 {
             numberOfRow = 2
         }else if section == 2 {
@@ -164,6 +169,12 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 //cell.alarmLabel.text = time
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.alarmLabel.attributedText = FontManager.shared.getTextWithFont(text: time)
+            }else if row == 3 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "SettingLunarCell") as! SettingTableCell
+                let lunarOnOff = DBManager.sharedInstance.loadLunarCalendarFromUD()
+                
+                cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
+                cell.lunarSwitch.isOn = lunarOnOff
             }else {
                 
             }
@@ -196,6 +207,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
         let row = indexPath.row
@@ -235,6 +247,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // MARK: - Show Hide Picker
     func showDatePickerView(date:Date) {
         
         self.datePickerView.showDatePickerView(date: date)
@@ -259,6 +272,8 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         // sama73 : 네비게이션바를 이용해서 이동
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
+    
+    // MARK: - HandleDate
     @objc func handleDateSubmit(_ recognizer : UITapGestureRecognizer) {
         let view = recognizer.view!
         let type = view.tag
@@ -305,5 +320,10 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadData()
     }
     
+    @IBAction func lunarValueChanged(_ sender: Any) {
+        let lunaSwitch:UISwitch = sender as! UISwitch
+        let lunarOnoff = lunaSwitch.isOn
+        DBManager.sharedInstance.saveLunarCalendarInUD(value: lunarOnoff)
+    }
     
 }
