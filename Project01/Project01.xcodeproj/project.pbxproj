@@ -372,21 +372,13 @@
 		9BD47E6221FBF96D005350C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BDCAB992205ADE30001A57B /* DiaryPage */,
+				9BDCAB982205ADDD0001A57B /* Setting */,
+				9BDCAB972205ADD20001A57B /* Profile */,
 				D914E3DC21FC00CA00CFBB8E /* SideMenu */,
 				D914E3DB21FC00AE00CFBB8E /* Calendar */,
 				609A3F9922001F6C00A58605 /* Planner */,
 				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
-				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
-				D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */,
-				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
-				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
-				D914E3A221FBF5BE00CFBB8E /* ProfileViewController.swift */,
-				D914E3A321FBF5BE00CFBB8E /* Setting+PickerViewDelegate.swift */,
-				D914E38721FBF5BD00CFBB8E /* SettingTableCell.swift */,
-				D914E39521FBF5BD00CFBB8E /* SettingViewController.swift */,
-				D914E3A921FBF5BE00CFBB8E /* DiaryPage+TableViewDataSource.swift */,
-				D914E3A421FBF5BE00CFBB8E /* DiaryPage+TableViewDelegate.swift */,
-				D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -461,6 +453,38 @@
 				D9FBE0D421F32B1B00BDA694 /* CommonUtil.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9BDCAB972205ADD20001A57B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */,
+				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
+				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
+				D914E3A221FBF5BE00CFBB8E /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9BDCAB982205ADDD0001A57B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D914E3A321FBF5BE00CFBB8E /* Setting+PickerViewDelegate.swift */,
+				D914E38721FBF5BD00CFBB8E /* SettingTableCell.swift */,
+				D914E39521FBF5BD00CFBB8E /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		9BDCAB992205ADE30001A57B /* DiaryPage */ = {
+			isa = PBXGroup;
+			children = (
+				D914E3A921FBF5BE00CFBB8E /* DiaryPage+TableViewDataSource.swift */,
+				D914E3A421FBF5BE00CFBB8E /* DiaryPage+TableViewDelegate.swift */,
+				D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */,
+				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
+			);
+			path = DiaryPage;
 			sourceTree = "<group>";
 		};
 		D914E38821FBF5BD00CFBB8E /* Fonts */ = {
