@@ -330,13 +330,17 @@ class MonthlyPlanViewController: UIViewController {
         dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
         
         let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
-        popup.addActionConfirmClick("추가") { (message) in
+        popup.addActionConfirmClick("추가") { (msg) in
+            guard let message = msg else {
+                return
+            }
+            
             // 새로운 Todo 추가
             let uid = UUID().uuidString
             let title = message
             let date = self.selectedDay
             
-            let todo = Todo(uid: uid, title: title!, date: date!)
+            let todo = Todo(uid: uid, title: title, date: date!)
             self.todoArray.append(todo)
             
             DBManager.sharedInstance.addTodoDB(todo: todo)
