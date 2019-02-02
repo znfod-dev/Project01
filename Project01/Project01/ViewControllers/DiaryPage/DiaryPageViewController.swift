@@ -32,6 +32,10 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("currentDate : \(currentDate)")
         self.diary = DBManager.sharedInstance.selectDiary(date: currentDate)
         print("self.diary : \(self.diary.todoList)")
         self.tableView.reloadData()
