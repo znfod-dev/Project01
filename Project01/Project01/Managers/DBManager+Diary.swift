@@ -32,9 +32,7 @@ extension DBManager {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
         let id = dateFormatter.string(from: date)
-        print("id : \(id)")
         if let dbDiary = self.database.objects(ModelDBDiary.self).filter("id = '\(id)'").first {
-            print("있음")
             let diary = ModelDiary.init(dbDiary: dbDiary)
             let dbTodoList = self.database.objects(DBTodo.self).filter("date = '\(id)'")
             for dbTodo in dbTodoList {
@@ -42,7 +40,6 @@ extension DBManager {
             }
             return diary
         }else {
-            print("없음")
             let diary = ModelDiary.init()
             diary.id = id
             self.insertDiary(diary: diary)

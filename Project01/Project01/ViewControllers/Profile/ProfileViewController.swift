@@ -58,6 +58,9 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         
         self.setTableSetting()
         
+        // 키보드 show hide 추가
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
@@ -176,5 +179,22 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         
         return true
         
+    }
+    
+    // MARK:- Keyboard
+    @objc func keyboardWillShow(notification: Notification) {
+        if let kbSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            print("notification: Keyboard will show")
+            let contentInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: kbSize.height, right: 0)
+            self.tableView.contentInset = contentInsets
+            self.tableView.scrollIndicatorInsets = contentInsets
+            var aRect:CGRect = self.view.frame
+            aRect.size.height -= kbSize.height
+        }
+    }
+    @objc func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
     }
 }

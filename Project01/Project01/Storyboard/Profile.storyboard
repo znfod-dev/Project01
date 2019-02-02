@@ -77,7 +77,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sgH-nl-vho">
-                                <rect key="frame" x="10" y="80" width="355" height="577"/>
+                                <rect key="frame" x="10" y="80" width="355" height="587"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -144,6 +144,9 @@
                                                             <rect key="frame" x="5" y="18" width="345" height="21"/>
                                                             <attributedString key="attributedText"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <outlet property="delegate" destination="Pib-fs-sBP" id="pv0-7l-UKW"/>
                                                             </connections>
@@ -197,7 +200,7 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="saveAccessory" value="YES"/>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <outlet property="delegate" destination="Pib-fs-sBP" id="OPN-aU-Z8d"/>
@@ -256,7 +259,7 @@
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sgH-nl-vho" firstAttribute="leading" secondItem="nqm-6G-nKy" secondAttribute="leading" constant="10" id="75U-Rm-ega"/>
-                            <constraint firstItem="nqm-6G-nKy" firstAttribute="bottom" secondItem="sgH-nl-vho" secondAttribute="bottom" constant="10" id="OzQ-Gg-0xD"/>
+                            <constraint firstItem="nqm-6G-nKy" firstAttribute="bottom" secondItem="sgH-nl-vho" secondAttribute="bottom" id="OzQ-Gg-0xD"/>
                             <constraint firstItem="nqm-6G-nKy" firstAttribute="trailing" secondItem="sgH-nl-vho" secondAttribute="trailing" constant="10" id="Qdk-9a-dN4"/>
                             <constraint firstItem="sgH-nl-vho" firstAttribute="top" secondItem="h81-sL-cSF" secondAttribute="bottom" id="WGf-gA-SX2"/>
                             <constraint firstItem="h81-sL-cSF" firstAttribute="leading" secondItem="nqm-6G-nKy" secondAttribute="leading" id="dsK-Bt-bJj"/>

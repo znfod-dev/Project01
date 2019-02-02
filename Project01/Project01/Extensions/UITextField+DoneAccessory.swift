@@ -1,14 +1,14 @@
 //
-//  UITextView+DoneAccessory.swift
-//  Project01
+//  UITextField+DoneAccessory.swift
+//  
 //
-//  Created by 박종현 on 01/01/2019.
-//  Copyright © 2019 박종현. All rights reserved.
+//  Created by 박종현 on 02/02/2019.
 //
+
 
 import Foundation
 import UIKit
-extension ZnTextView{
+extension UITextField{
     
     @IBInspectable var doneAccessory: Bool{
         get{
@@ -41,5 +41,3 @@ extension ZnTextView{
         self.resignFirstResponder()
     }
 }
-
-
