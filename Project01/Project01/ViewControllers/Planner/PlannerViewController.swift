@@ -28,6 +28,9 @@ class PlannerViewController: UIViewController {
             }
         }
     }
+    
+    var isModi: Bool? = false
+    
         
     
 
@@ -39,13 +42,13 @@ class PlannerViewController: UIViewController {
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true // 내비게이션바 스와이프 기능을 살린채 숨김
 
-        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
+        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3) // 내비게이션 밑줄
+        self.tableView.separatorStyle = .none // 테이블 뷰 구분선 삭제
         
-        self.tableView.separatorStyle = .none
-        
-        print(NSHomeDirectory())
+        // 데이터 받아 오기
+        self.planArray = DBManager.sharedInstance.selectPlanDB()
     }
     
     
@@ -53,8 +56,13 @@ class PlannerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.planArray = DBManager.sharedInstance.selectPlanDB()
-        self.tableView.reloadData()
+        print(self.isModi!)
+        if self.isModi! { // 수정이 되었다면 테이블 뷰 리로드
+            self.isModi = false // 수정 값을 다시 false
+            
+            self.planArray = DBManager.sharedInstance.selectPlanDB()
+            self.tableView.reloadData()
+        }
     }
     
     
@@ -70,11 +78,17 @@ class PlannerViewController: UIViewController {
         let addPlanVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
         
         // 화면 넘기는 애니메이션
-        addPlanVC.hero.modalAnimationType = .selectBy(presenting: .slide(direction: .up), dismissing: .slide(direction: .down))
+        addPlanVC.hero.modalAnimationType = .selectBy(presenting: .push(direction: .left), dismissing: .push(direction: .right))
         addPlanVC.hero.isEnabled = true
         
-//        self.navigationController?.pushViewController(addPlanVC, animated: true)
-        self.present(addPlanVC, animated: true)
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let addPlanVC = segue.destination as? AddPlanViewController {
+            addPlanVC.delegate = self
+        }
     }
 }
 

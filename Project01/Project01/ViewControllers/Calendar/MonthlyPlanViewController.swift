@@ -73,6 +73,9 @@ class MonthlyPlanViewController: UIViewController {
         vWeekString.layer.shadowOffset = CGSize(width: 0, height: 1)
         vWeekString.layer.shadowOpacity = 0.1
         
+        // 테이블 뷰 구분선 삭제
+        self.todoTableView.separatorStyle = .none
+        
         // 오늘 년/월 구하기
         self.curentDate = CalendarManager.getYearMonth(amount: 0)
         
@@ -330,8 +333,8 @@ class MonthlyPlanViewController: UIViewController {
         dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
         
         let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
-        popup.addActionConfirmClick("추가") { (msg) in
-            guard let message = msg else {
+        popup.addActionConfirmClick("추가") { (message) in
+            if (message?.isEmpty)! { // 메세지 값이 비었다면 리턴처리
                 return
             }
             
@@ -340,7 +343,7 @@ class MonthlyPlanViewController: UIViewController {
             let title = message
             let date = self.selectedDay
             
-            let todo = Todo(uid: uid, title: title, date: date!)
+            let todo = Todo(uid: uid, title: title!, date: date!)
             self.todoArray.append(todo)
             
             DBManager.sharedInstance.addTodoDB(todo: todo)
@@ -353,31 +356,6 @@ class MonthlyPlanViewController: UIViewController {
         
         popup.addActionCancelClick("취소", handler: {
         })
-/*
-        let alert = UIAlertController(title: "Todo", message: nil, preferredStyle: .alert)
-        
-        alert.addTextField()
-        
-        alert.addAction(UIAlertAction(title: "save", style: .default, handler: { (_) in
-            // 새로운 Todo 추가
-            let uid = UUID().uuidString
-            let title = alert.textFields?.last?.text
-            let date = self.selectedDay
-            
-            let todo = Todo(uid: uid, title: title!, date: date!)
-            self.todoArray.append(todo)
-            
-            DBManager.sharedInstance.addTodoDB(todo: todo)
-            
-            self.selectedDayTodoList(doReload: true)
-
-			// sama73 : 화면 재갱신
-			self.setDBReloadData()
-        }))
-        alert.addAction(UIAlertAction(title: "cancel", style: .cancel))
-        
-        present(alert, animated: true)
- */
     }
     
     
@@ -389,9 +367,7 @@ class MonthlyPlanViewController: UIViewController {
         } else { // 체크 박스 까지 보여줄 때
             self.todoArray = DBManager.sharedInstance.selectTodoDB()
         }
-		
-//		print(self.todoArray)
-//		print(self.selectedDay)
+        
         self.selectedDayTodo.removeAll()
         for todo in self.todoArray {
             if todo.date == self.selectedDay {
@@ -572,10 +548,15 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         return self.selectedDayTodo.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell") as! TodoCell
         
         let todo = self.selectedDayTodo[indexPath.row]
+        
+        // 셀의 밑줄을 그린다
+        cell.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
         
         // 현재 타이틀의 포인트를 가져온다.
         let fontSize = cell.titleLabel.font.pointSize
@@ -596,6 +577,8 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -637,23 +620,6 @@ extension MonthlyPlanViewController: UITableViewDelegate {
         
         popup.addActionCancelClick("취소", handler: {
         })
-/*
-        let alert = UIAlertController(title: "Todo 수정", message: nil, preferredStyle: .alert)
-        
-        let todo = selectedDayTodo[indexPath.row]
-        alert.addTextField { (tf) in
-            tf.text = todo.title
-        }
-        
-        alert.addAction(UIAlertAction(title: "변경", style: .default, handler: { (_) in
-            todo.title = alert.textFields?.last?.text
-            DBManager.sharedInstance.updateTodo(todo: todo)
-            self.selectedDayTodoList(doReload: true)
-        }))
-        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
-        
-        self.present(alert, animated: true)
- */
     }
 }
 

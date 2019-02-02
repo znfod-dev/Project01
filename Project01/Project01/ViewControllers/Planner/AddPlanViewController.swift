@@ -24,6 +24,8 @@ class AddPlanViewController: UIViewController {
     var startDay: String? = Date().string()
     var endDay: String? = Date().string()
     
+    var delegate: PlannerViewController? // 데이터 값을 넘기기위한 델리게이트
+    
     
     
     // MARK:- Methods
@@ -63,10 +65,13 @@ class AddPlanViewController: UIViewController {
         
         datePickVC.startDay = self.startDay
         datePickVC.endDay = self.endDay
+        datePickVC.selectedDay = self.selectedDay
         
         self.addVCAlert(viewController: datePickVC, okTitle: "변경", cancelTitle: "취소") {
             self.startDay = datePickVC.startDay
             self.endDay = datePickVC.endDay
+            self.selectedDay = datePickVC.selectedDay
+            
             self.startDayLabel.text = self.startDay
             self.endDayLabel.text = self.endDay
             self.dayConvert(index: self.segment)
@@ -134,12 +139,15 @@ class AddPlanViewController: UIViewController {
         
         DBManager.sharedInstance.addPlanDB(plan: plan)
         
-        self.dismiss(animated: true, completion: nil)
+        delegate?.isModi = true
+        self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     
     
     @IBAction func backBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
     }
 }

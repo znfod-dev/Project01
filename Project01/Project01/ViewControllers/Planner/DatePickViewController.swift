@@ -12,7 +12,7 @@ import PopupDialog
 
 class DatePickViewController: UIViewController {
     // MARK:- Variables
-    var selectedDay: String = Date().string()
+    var selectedDay: Date?
     
     var startDay: String?
     var endDay: String?
@@ -32,6 +32,7 @@ class DatePickViewController: UIViewController {
 extension DatePickViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if self.startDayClicked! { // 시작일 클릭 시
+            self.selectedDay = date
             self.startDay = date.string()
         } else { // 종료일 클릭 시
             if self.startDay! > date.string() { // 시작일 보다 작다면
