@@ -35,11 +35,19 @@ extension Date {
     func startOfMonth() -> Date {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
     }
+    func startOfMonth(date:Date) -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: date))!
+    }
     
     // 이번달의 마지막 날
     func endOfMonth() -> Date {
         return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
     }
+    func endOfMonth(date:Date) -> Date {
+        let toDate = startOfMonth(date: date)
+        return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: toDate)!
+    }
+    
     
     // 이번주의 시작 날 (일요일)
     func startOfWeek() -> Date? {

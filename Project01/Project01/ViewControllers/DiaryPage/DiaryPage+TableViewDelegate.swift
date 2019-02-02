@@ -22,11 +22,17 @@ extension DiaryPageViewController {
         }else {
             
         }
-        print("[\(section)] heightForRow : \(heightForRow)")
         return heightForRow
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let section = indexPath.section
+        if section == 1 {
+            if self.diary.todoList.count == 0 {
+                print("didSelectRowAt 할일 추가")
+            }
+        }
+        
     }
 }

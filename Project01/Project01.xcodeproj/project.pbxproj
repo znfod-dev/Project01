@@ -26,6 +26,7 @@
 		9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623221EA3E48007CF0B3 /* Main.storyboard */; };
 		9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623521EA3E49007CF0B3 /* Assets.xcassets */; };
 		9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623721EA3E49007CF0B3 /* LaunchScreen.storyboard */; };
+		9BDCAB9D2205E1A70001A57B /* UITextField+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDCAB9C2205E1A70001A57B /* UITextField+DoneAccessory.swift */; };
 		9E601467220009CA0062D991 /* icon_notdata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E601465220009C90062D991 /* icon_notdata@3x.png */; };
 		9E601468220009CA0062D991 /* icon_notdata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E601466220009C90062D991 /* icon_notdata@2x.png */; };
 		9E75D8862202BBF90042263A /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E75D8852202BBF90042263A /* BaseObject.swift */; };
@@ -35,7 +36,6 @@
 		9EC46C5E21F6F98000765274 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5D21F6F98000765274 /* URLs.swift */; };
 		9EC46C6021F6F9F400765274 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */; };
 		D914E3AE21FBF5BF00CFBB8E /* UITextView+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38121FBF5BC00CFBB8E /* UITextView+DoneAccessory.swift */; };
-		D914E3AF21FBF5BF00CFBB8E /* ModelDBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38221FBF5BC00CFBB8E /* ModelDBTodo.swift */; };
 		D914E3B021FBF5BF00CFBB8E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */; };
 		D914E3B121FBF5BF00CFBB8E /* DBManager+UD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38421FBF5BD00CFBB8E /* DBManager+UD.swift */; };
 		D914E3B221FBF5BF00CFBB8E /* Profile+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */; };
@@ -56,7 +56,6 @@
 		D914E3C221FBF5BF00CFBB8E /* ModelProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39621FBF5BD00CFBB8E /* ModelProfile.swift */; };
 		D914E3C321FBF5BF00CFBB8E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */; };
 		D914E3C421FBF5BF00CFBB8E /* DiaryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */; };
-		D914E3C521FBF5BF00CFBB8E /* ModelTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39921FBF5BD00CFBB8E /* ModelTodo.swift */; };
 		D914E3C621FBF5BF00CFBB8E /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39A21FBF5BD00CFBB8E /* PickerView.swift */; };
 		D914E3C721FBF5BF00CFBB8E /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39B21FBF5BD00CFBB8E /* PopupManager.swift */; };
 		D914E3C821FBF5BF00CFBB8E /* DiaryPageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */; };
@@ -100,7 +99,6 @@
 		D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0C521F32B1B00BDA694 /* String+Substring.swift */; };
 		D9FBE0D721F32B1C00BDA694 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0C621F32B1B00BDA694 /* CalendarManager.swift */; };
 		D9FBE0D821F32B1C00BDA694 /* AlertMessagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0C721F32B1B00BDA694 /* AlertMessagePopup.swift */; };
-		D9FBE0D921F32B1C00BDA694 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0C821F32B1B00BDA694 /* Define.swift */; };
 		D9FBE0DA21F32B1C00BDA694 /* LoaddingPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0C921F32B1B00BDA694 /* LoaddingPopup.swift */; };
 		D9FBE0DB21F32B1C00BDA694 /* RoundLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0CA21F32B1B00BDA694 /* RoundLineView.swift */; };
 		D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0CB21F32B1B00BDA694 /* CalendarDayCell.swift */; };
@@ -154,6 +152,7 @@
 		9B26623521EA3E49007CF0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B26623821EA3E49007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B26623A21EA3E49007CF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BDCAB9C2205E1A70001A57B /* UITextField+DoneAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITextField+DoneAccessory.swift"; path = "/Users/Znfod/Documents/Xcode/study/Project01/Project01/Project01/Extensions/UITextField+DoneAccessory.swift"; sourceTree = "<absolute>"; };
 		9DB15EA79718A43B263395EF /* Pods_Project01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E601465220009C90062D991 /* icon_notdata@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notdata@3x.png"; sourceTree = "<group>"; };
 		9E601466220009C90062D991 /* icon_notdata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notdata@2x.png"; sourceTree = "<group>"; };
@@ -166,7 +165,6 @@
 		B7690B753F6ECDE90240E9FB /* Pods-Project01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01/Pods-Project01.release.xcconfig"; sourceTree = "<group>"; };
 		BF4051DE8180CEC9611E2531 /* Pods-Project01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01/Pods-Project01.debug.xcconfig"; sourceTree = "<group>"; };
 		D914E38121FBF5BC00CFBB8E /* UITextView+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+DoneAccessory.swift"; sourceTree = "<group>"; };
-		D914E38221FBF5BC00CFBB8E /* ModelDBTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDBTodo.swift; sourceTree = "<group>"; };
 		D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		D914E38421FBF5BD00CFBB8E /* DBManager+UD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DBManager+UD.swift"; sourceTree = "<group>"; };
 		D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+TableViewDelegate.swift"; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 		D914E39621FBF5BD00CFBB8E /* ModelProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelProfile.swift; sourceTree = "<group>"; };
 		D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryPageViewController.swift; sourceTree = "<group>"; };
-		D914E39921FBF5BD00CFBB8E /* ModelTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTodo.swift; sourceTree = "<group>"; };
 		D914E39A21FBF5BD00CFBB8E /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		D914E39B21FBF5BD00CFBB8E /* PopupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
 		D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryPageTableCell.swift; sourceTree = "<group>"; };
@@ -231,7 +228,6 @@
 		D9FBE0C521F32B1B00BDA694 /* String+Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
 		D9FBE0C621F32B1B00BDA694 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		D9FBE0C721F32B1B00BDA694 /* AlertMessagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessagePopup.swift; sourceTree = "<group>"; };
-		D9FBE0C821F32B1B00BDA694 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		D9FBE0C921F32B1B00BDA694 /* LoaddingPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaddingPopup.swift; sourceTree = "<group>"; };
 		D9FBE0CA21F32B1B00BDA694 /* RoundLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLineView.swift; sourceTree = "<group>"; };
 		D9FBE0CB21F32B1B00BDA694 /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
@@ -333,7 +329,6 @@
 				9BD47E6221FBF96D005350C9 /* ViewControllers */,
 				9BD47E6121FBF956005350C9 /* Views */,
 				9BD47E6021FBF75E005350C9 /* Storyboard */,
-				D914E3A521FBF5BE00CFBB8E /* Defines.swift */,
 				D914E38821FBF5BD00CFBB8E /* Fonts */,
 				D9FBE09F21F32A0D00BDA694 /* Images */,
 				9B26622E21EA3E48007CF0B3 /* AppDelegate.swift */,
@@ -375,21 +370,13 @@
 		9BD47E6221FBF96D005350C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BDCAB992205ADE30001A57B /* DiaryPage */,
+				9BDCAB982205ADDD0001A57B /* Setting */,
+				9BDCAB972205ADD20001A57B /* Profile */,
 				D914E3DC21FC00CA00CFBB8E /* SideMenu */,
 				D914E3DB21FC00AE00CFBB8E /* Calendar */,
 				609A3F9922001F6C00A58605 /* Planner */,
 				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
-				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
-				D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */,
-				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
-				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
-				D914E3A221FBF5BE00CFBB8E /* ProfileViewController.swift */,
-				D914E3A321FBF5BE00CFBB8E /* Setting+PickerViewDelegate.swift */,
-				D914E38721FBF5BD00CFBB8E /* SettingTableCell.swift */,
-				D914E39521FBF5BD00CFBB8E /* SettingViewController.swift */,
-				D914E3A921FBF5BE00CFBB8E /* DiaryPage+TableViewDataSource.swift */,
-				D914E3A421FBF5BE00CFBB8E /* DiaryPage+TableViewDelegate.swift */,
-				D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -400,10 +387,8 @@
 				9E75D8852202BBF90042263A /* BaseObject.swift */,
 				D914E39E21FBF5BE00CFBB8E /* ModelDBDiary.swift */,
 				D914E38621FBF5BD00CFBB8E /* ModelDBProfile.swift */,
-				D914E38221FBF5BC00CFBB8E /* ModelDBTodo.swift */,
 				D914E3AA21FBF5BE00CFBB8E /* ModelDiary.swift */,
 				D914E39621FBF5BD00CFBB8E /* ModelProfile.swift */,
-				D914E39921FBF5BD00CFBB8E /* ModelTodo.swift */,
 				9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */,
 				9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */,
 				60F47A8A21F3873900E0DCB2 /* Todo.swift */,
@@ -445,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				60F47A9C21F5722C00E0DCB2 /* Alert.swift */,
+				9BDCAB9C2205E1A70001A57B /* UITextField+DoneAccessory.swift */,
 				D914E38121FBF5BC00CFBB8E /* UITextView+DoneAccessory.swift */,
 				D9FBE0C521F32B1B00BDA694 /* String+Substring.swift */,
 				D9FBE0CD21F32B1B00BDA694 /* UIColor+hexString.swift */,
@@ -457,13 +443,45 @@
 		9BD47E6721FBFAFB005350C9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D914E3A521FBF5BE00CFBB8E /* Defines.swift */,
 				9E954C9221F848E1006356BF /* CalendarLunar.swift */,
 				9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */,
 				9EC46C5D21F6F98000765274 /* URLs.swift */,
 				D9FBE0D421F32B1B00BDA694 /* CommonUtil.swift */,
-				D9FBE0C821F32B1B00BDA694 /* Define.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9BDCAB972205ADD20001A57B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D914E3A121FBF5BE00CFBB8E /* Profile+TableViewDataSource.swift */,
+				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
+				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
+				D914E3A221FBF5BE00CFBB8E /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9BDCAB982205ADDD0001A57B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D914E3A321FBF5BE00CFBB8E /* Setting+PickerViewDelegate.swift */,
+				D914E38721FBF5BD00CFBB8E /* SettingTableCell.swift */,
+				D914E39521FBF5BD00CFBB8E /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		9BDCAB992205ADE30001A57B /* DiaryPage */ = {
+			isa = PBXGroup;
+			children = (
+				D914E3A921FBF5BE00CFBB8E /* DiaryPage+TableViewDataSource.swift */,
+				D914E3A421FBF5BE00CFBB8E /* DiaryPage+TableViewDelegate.swift */,
+				D914E39821FBF5BD00CFBB8E /* DiaryPageViewController.swift */,
+				D914E39C21FBF5BE00CFBB8E /* DiaryPageTableCell.swift */,
+			);
+			path = DiaryPage;
 			sourceTree = "<group>";
 		};
 		D914E38821FBF5BD00CFBB8E /* Fonts */ = {
@@ -774,9 +792,9 @@
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
-				D914E3AF21FBF5BF00CFBB8E /* ModelDBTodo.swift in Sources */,
 				60427142220005A6001F0E40 /* DBManager+Plan.swift in Sources */,
 				60F47A9221F56C3400E0DCB2 /* ModelDBPlan.swift in Sources */,
+				9BDCAB9D2205E1A70001A57B /* UITextField+DoneAccessory.swift in Sources */,
 				D9FBE0DE21F32B1C00BDA694 /* UIColor+hexString.swift in Sources */,
 				D914E3C221FBF5BF00CFBB8E /* ModelProfile.swift in Sources */,
 				60F47A9F21F57FA200E0DCB2 /* Date+String.swift in Sources */,
@@ -805,7 +823,6 @@
 				D9FBE0D721F32B1C00BDA694 /* CalendarManager.swift in Sources */,
 				D9FBE0D821F32B1C00BDA694 /* AlertMessagePopup.swift in Sources */,
 				D9FBE0E521F32B1C00BDA694 /* CommonUtil.swift in Sources */,
-				D914E3C521FBF5BF00CFBB8E /* ModelTodo.swift in Sources */,
 				D914E3CE21FBF5BF00CFBB8E /* ProfileViewController.swift in Sources */,
 				9E75D8862202BBF90042263A /* BaseObject.swift in Sources */,
 				D914E3B121FBF5BF00CFBB8E /* DBManager+UD.swift in Sources */,
@@ -814,7 +831,6 @@
 				D914E3BD21FBF5BF00CFBB8E /* ZnTextView.swift in Sources */,
 				D914E3B321FBF5BF00CFBB8E /* ModelDBProfile.swift in Sources */,
 				D914E3C721FBF5BF00CFBB8E /* PopupManager.swift in Sources */,
-				D9FBE0D921F32B1C00BDA694 /* Define.swift in Sources */,
 				D914E3C621FBF5BF00CFBB8E /* PickerView.swift in Sources */,
 				D914E3D721FBF5BF00CFBB8E /* FontManager.swift in Sources */,
 				60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */,
@@ -973,7 +989,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BAEBSW672H;
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -993,7 +1009,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BAEBSW672H;
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -95,14 +95,33 @@ class MonthlyPlanViewController: UIViewController {
             // 오늘 날짜로 선택날짜 TodoList에 넣기
             self.selectedDayTodoList()
         }
-        
-        // 앱 최초 실행인지 체크
-//        self.appFirstRunCheck()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+		
+		// 시작 날짜, 마지막 날짜 변경 사항이 있으면 갱신해준다.
+		let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
+		let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+		
+		let formatter = DateFormatter()
+		formatter.locale = Locale(identifier:"ko_KR")
+		formatter.dateFormat = "yyyyMMdd"
+		let startDate2 = formatter.string(from: startDate)
+		let endDate2 = formatter.string(from: endDate)
+		
+		let start: Int = Int(startDate2)!
+		let end: Int = Int(endDate2)!
+		
+		if startYYYYMMDD != start || endYYYYMMDD != end {
+			startYYYYMMDD = start
+			endYYYYMMDD = end
+			
+			print("startDate=\(startYYYYMMDD)")
+			print("endDate=\(endYYYYMMDD)")
+
+			goThisMonth()
+		}
     }
     
     override func viewDidLayoutSubviews() {
@@ -112,25 +131,6 @@ class MonthlyPlanViewController: UIViewController {
         if isFirstLoad == true {
             isFirstLoad = false
             goThisMonth()
-        }
-    }
-    
-    // 앱 최초 실행인지 체크
-    func appFirstRunCheck() {
-        let isFisrtAppRun = CommonUtil.getUserDefaultsBool(forKey: kBool_isFirstAppRun)
-        // 앱 최초 실행일 경우...
-        if isFisrtAppRun == false {
-            CommonUtil.setUserDefaultsBool(true, forKey: kBool_isFirstAppRun)
-
-            // 프로필 화면 보여주기
-            if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
-                let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
-                // push
-                self.navigationController?.pushViewController(profileVC, animated: true)
-                
-                // modal popup
-//                self.present(profileVC, animated: true)
-            }
         }
     }
 	
@@ -577,7 +577,11 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         
         let todo = self.selectedDayTodo[indexPath.row]
         
-        cell.titleLabel.text = todo.title
+        // 현재 타이틀의 포인트를 가져온다.
+        let fontSize = cell.titleLabel.font.pointSize
+        // attributeText에 font를 적용한 Text를 넣는다.
+        cell.titleLabel.attributedText = FontManager.shared.getTextWithOnlyFont(text: todo.title!, size:fontSize)
+        //cell.titleLabel.text = todo.title
         
         cell.checkBox.boxType = .square
         cell.checkBox.delegate = self

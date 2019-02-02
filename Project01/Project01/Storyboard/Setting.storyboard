@@ -352,14 +352,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oY9-aR-nzj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="설정" id="oSt-KJ-jFU" userLabel="설정">
-                        <barButtonItem key="leftBarButtonItem" image="back_black.png" id="ptc-eq-8EX">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="설정" id="oSt-KJ-jFU" userLabel="설정"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="backBarBtn" destination="ptc-eq-8EX" id="70s-4b-fjQ"/>
                         <outlet property="tableView" destination="A2g-TG-5pr" id="8R2-t6-pjS"/>
                     </connections>
                 </viewController>
@@ -387,7 +382,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back_black.png" width="24" height="24"/>
         <image name="icon_menu.png" width="36" height="36"/>
     </resources>
 </document>

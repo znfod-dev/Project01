@@ -18,9 +18,9 @@ extension DBManager {
             self.database.add(dbDiary)
         }
     }
-    func insertTodo(todo:ModelTodo) {
+    func insertTodo(todo:Todo) {
         print("insertDiary")
-        let dbTodo = ModelDBTodo.init(todo: todo)
+        let dbTodo = DBTodo.init(todo: todo)
         try! self.database.write {
             self.database.add(dbTodo)
         }
@@ -32,31 +32,25 @@ extension DBManager {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
         let id = dateFormatter.string(from: date)
-        print("id : \(id)")
         if let dbDiary = self.database.objects(ModelDBDiary.self).filter("id = '\(id)'").first {
-            print("있음")
             let diary = ModelDiary.init(dbDiary: dbDiary)
-            let dbTodoList = self.database.objects(ModelDBTodo.self)
-            print("dbTodoList : \(dbTodoList.count)")
+            let dbTodoList = self.database.objects(DBTodo.self).filter("date = '\(id)'")
             for dbTodo in dbTodoList {
-                diary.todoList.append(ModelTodo.init(dbTodo: dbTodo))
+                diary.todoList.append(Todo.init(dbTodo: dbTodo))
             }
             return diary
         }else {
-            print("없음")
-            
-            
             let diary = ModelDiary.init()
             diary.id = id
             self.insertDiary(diary: diary)
             return diary
         }
     }
-    func selectTodo(date:Date) -> Array<ModelTodo> {
-        var todoList = Array<ModelTodo>()
-        let dbTodoList = self.database.objects(ModelDBTodo.self)
+    func selectTodo(date:Date) -> Array<Todo> {
+        var todoList = Array<Todo>()
+        let dbTodoList = self.database.objects(DBTodo.self)
         for dbTodo in dbTodoList {
-            todoList.append(ModelTodo.init(dbTodo: dbTodo))
+            todoList.append(Todo.init(dbTodo: dbTodo))
         }
         return todoList
     }
@@ -70,10 +64,5 @@ extension DBManager {
             self.database.add(dbDiary, update: true)
         }
     }
-    func updateTodo(todo:ModelTodo) {
-        let dbTodo = ModelDBTodo.init(todo: todo)
-        try! self.database.write {
-            self.database.add(dbTodo, update: true)
-        }
-    }
+    
 }

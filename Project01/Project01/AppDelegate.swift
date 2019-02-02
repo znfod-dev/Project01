@@ -22,6 +22,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let isFisrtAppRun = CommonUtil.getUserDefaultsBool(forKey: kBool_isFirstAppRun)
         // 앱 최초 실행일 경우...
         if isFisrtAppRun == false {
+            print("isFisrtAppRun")
+            // 앱 최소 실행일 경우 MinDate, MaxDate 설정
+            let now = Date()
+            let calendar = Calendar.current
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            var day = DateComponents(day: -180)
+            if let d180 = calendar.date(byAdding: day, to: now)
+            {
+                DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: Date().startOfMonth(date: d180))
+                print("Date().startOfMonth(date: d180) : \(Date().startOfMonth(date: d180))")
+                let min = DBManager.sharedInstance.loadMinimumDateFromUD()
+                print("min : \(min.description(with: Locale.current))")
+            }
+            day = DateComponents(day: 180)
+            if let d180 = calendar.date(byAdding: day, to: now)
+            {
+                DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: Date().endOfMonth(date: d180))
+                print("Date().endOfMonth(date: d180) : \(Date().endOfMonth(date: d180))")
+                let max = DBManager.sharedInstance.loadMaximumDateFromUD()
+                print("max : \(max.description(with: Locale.current))")
+            }
             CommonUtil.setUserDefaultsBool(true, forKey: kBool_isFirstAppRun)
             
             // 프로필 화면 보여주기

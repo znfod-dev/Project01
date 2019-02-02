@@ -60,7 +60,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ylf-sf-Ajg">
                                 <rect key="frame" x="20" y="80" width="335" height="587"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiaryPageTableTitleCell" id="2wb-0z-Cmo" customClass="DiaryPageTableCell" customModule="Project01" customModuleProvider="target">
@@ -205,21 +205,24 @@
                                             <outlet property="todoLabel" destination="TIa-bP-GYT" id="sKk-HJ-1rK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiaryPageTableDiaryCell" rowHeight="88" id="DYY-21-X1T" customClass="DiaryPageTableCell" customModule="Project01" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="160" width="335" height="88"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiaryPageTableDiaryCell" rowHeight="44" id="DYY-21-X1T" customClass="DiaryPageTableCell" customModule="Project01" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="160" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DYY-21-X1T" id="VPl-Ww-SfY">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAg-QQ-qjZ">
-                                                    <rect key="frame" x="0.0" y="-5" width="335" height="88"/>
+                                                    <rect key="frame" x="0.0" y="-5" width="335" height="44"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mh2-Nf-qYe" customClass="ZnTextView" customModule="Project01">
-                                                            <rect key="frame" x="5" y="0.0" width="325" height="88"/>
+                                                            <rect key="frame" x="5" y="0.0" width="325" height="44"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <attributedString key="attributedText"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <outlet property="delegate" destination="mBU-oK-K84" id="Ncj-Lp-cKp"/>
                                                             </connections>
@@ -234,7 +237,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtJ-Xn-vTT">
-                                                    <rect key="frame" x="0.0" y="87" width="335" height="1"/>
+                                                    <rect key="frame" x="0.0" y="43" width="335" height="1"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="EUH-zR-IuR"/>
@@ -258,7 +261,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiaryPageTableNoneCell" id="UiN-ol-BN8" customClass="DiaryPageTableCell" customModule="Project01" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="248" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="204" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UiN-ol-BN8" id="zrp-qh-o2X">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
@@ -274,7 +277,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ylf-sf-Ajg" firstAttribute="bottom" secondItem="mPf-M7-sBe" secondAttribute="bottom" id="Giz-UX-x9X"/>
                             <constraint firstItem="mPf-M7-sBe" firstAttribute="trailing" secondItem="Ylf-sf-Ajg" secondAttribute="trailing" constant="20" id="YB3-Wp-SEe"/>
