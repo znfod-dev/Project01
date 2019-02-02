@@ -26,12 +26,18 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addPickerViews()
         // sama73 : 네비게이션 숨기기
         self.navigationController?.navigationBar.isHidden = true
         
         // sama73 : 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
+        
+        // Do any additional setup after loading the view.
+    }
+    // PickerView 추가
+    func addPickerViews() {
         
         self.datePickerView = DatePickerView.initWithNib(frame: self.view.frame)
         let dateSubmit = UITapGestureRecognizer(target: self, action: #selector(handleDateSubmit(_:)))
@@ -58,9 +64,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         let fontSizeSubmit = UITapGestureRecognizer(target: self, action: #selector(handleFontSizeSubmit))
         self.fontSizePickerView.submitBtn.addGestureRecognizer(fontSizeSubmit)
         self.view.addSubview(self.fontSizePickerView)
-        // Do any additional setup after loading the view.
     }
-    
     
     // MARK: - UIButton Action
     // 사이드 메뉴
