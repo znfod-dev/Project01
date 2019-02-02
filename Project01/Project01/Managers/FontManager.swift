@@ -67,6 +67,13 @@ class FontManager: NSObject {
         
         return NSAttributedString(string: text, attributes: self.textAttributes)
     }
+    
+    func getTextWithOnlyFont(text:String, size:CGFloat) -> NSAttributedString {
+        var textAttribute:[NSAttributedString.Key:Any] = [NSAttributedString.Key.paragraphStyle : NSParagraphStyle.init()]
+        let font = UIFont(name: fontType.ttf(), size: size)!
+        textAttribute.updateValue(font, forKey: NSAttributedString.Key.font)
+        return NSAttributedString(string: text, attributes: textAttribute)
+    }
     // 지금 사용하는 UIFont를 반환한다. ( font와 fontsize를 사용 )
     func getTextFont() -> UIFont {
         return UIFont(name: fontType.ttf(), size: self.fontSize)!

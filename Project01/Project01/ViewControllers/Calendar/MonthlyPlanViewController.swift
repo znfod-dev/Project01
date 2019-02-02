@@ -573,7 +573,9 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         
         let todo = self.selectedDayTodo[indexPath.row]
         
-        cell.titleLabel.text = todo.title
+        let fontSize = cell.titleLabel.font.pointSize
+        cell.titleLabel.attributedText = FontManager.shared.getTextWithOnlyFont(text: todo.title!, size:fontSize)
+        //cell.titleLabel.text = todo.title
         
         cell.checkBox.boxType = .square
         cell.checkBox.delegate = self
