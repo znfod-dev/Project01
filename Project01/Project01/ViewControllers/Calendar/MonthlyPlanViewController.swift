@@ -32,6 +32,9 @@ class MonthlyPlanViewController: UIViewController {
     // sama73: 시작일/종료일 샘플
     var startYYYYMMDD = 20181101
     var endYYYYMMDD = 20190301
+	
+	// 음력 키값
+	var isLunarCalendar = false
     
     // 스크롤 Direction(-1: 좌측, 0: 정지, 1: 우측
     var scrollDirection: Int = 0
@@ -103,6 +106,15 @@ class MonthlyPlanViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 		
+		var isRefresh = false
+		
+		// 이전 음력설정과 변경유무 체크
+		let isLunarCalendar = CommonUtil.getUserDefaultsBool(forKey: kBool_isLunarCalendar)
+		if self.isLunarCalendar != isLunarCalendar {
+			self.isLunarCalendar = isLunarCalendar
+			isRefresh = true
+		}
+
 		// 시작 날짜, 마지막 날짜 변경 사항이 있으면 갱신해준다.
 		let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
 		let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
@@ -116,6 +128,7 @@ class MonthlyPlanViewController: UIViewController {
 		let start: Int = Int(startDate2)!
 		let end: Int = Int(endDate2)!
 		
+		// 시작일, 종료일이 변경되었으면 달력데이터 정보 갱신
 		if startYYYYMMDD != start || endYYYYMMDD != end {
 			startYYYYMMDD = start
 			endYYYYMMDD = end
@@ -123,7 +136,15 @@ class MonthlyPlanViewController: UIViewController {
 			print("startDate=\(startYYYYMMDD)")
 			print("endDate=\(endYYYYMMDD)")
 
-			goThisMonth()
+			// 첫번째 이번달 호출시 화면 완료된 이후에 호출해준다.
+			if isFirstLoad == false {
+				goThisMonth()
+			}
+		}
+		// 음력설정이 변경된 경우...
+		else if isRefresh == true {
+			// 콜렉션뷰 전체 리로드
+			collectionReloadDataAll()
 		}
     }
     

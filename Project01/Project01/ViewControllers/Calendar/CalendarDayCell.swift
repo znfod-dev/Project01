@@ -26,7 +26,7 @@ class CalendarDayCell: UICollectionViewCell {
         if CommonUtil.isEmpty(infoData as AnyObject) {
             return
         }
-        
+		
         let day: Int = infoData["day"] as! Int
         let cellIndex: Int = infoData["cellIndex"] as! Int
         let monthDirection: Int = infoData["monthDirection"] as! Int
@@ -50,7 +50,9 @@ class CalendarDayCell: UICollectionViewCell {
             lbDayLunar.isHidden = true
         }
         else {
-            lbDayLunar.isHidden = false
+			// 이전 음력설정과 변경유무 체크
+			let isLunarCalendar = !CommonUtil.getUserDefaultsBool(forKey: kBool_isLunarCalendar)
+            lbDayLunar.isHidden = isLunarCalendar
             lbDayLunar.text = String(format: "%02d.%02d", monthLunar, dayLunar)
         }
         
