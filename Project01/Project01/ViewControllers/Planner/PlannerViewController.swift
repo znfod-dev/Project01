@@ -111,7 +111,8 @@ extension PlannerViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanCell") as! PlanCell
         let plan = planArray[indexPath.row]
         
-        cell.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3, isCell: true)
+        cell.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3, isCell: true) // 셀의 밑줄
+        cell.selectionStyle = .none
         
         cell.titleLabel.text = plan.planTitle
         cell.timeLabel.text = plan.date?.stringAll()
