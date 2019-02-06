@@ -8,12 +8,17 @@
 
 import UIKit
 import RealmSwift
+import IceCream
+import CloudKit
+import Foundation
 
 class DBTodo: BaseObject {
     @objc dynamic var uid: String? // uid
     @objc dynamic var title: String?
     @objc dynamic var isSelected = false
     @objc dynamic var date:String?
+    
+    @objc dynamic var isDeleted = false
     
     convenience init(uid: String, title: String, date: String, isSelected: Bool) {
         self.init()
@@ -94,4 +99,14 @@ extension DBTodo: NSCopying {
 			self.isSelected = Bool(value) ?? true
 		}
 	}
+}
+
+
+
+extension DBTodo: CKRecordConvertible {
+    // Yep, leave it blank!
+}
+
+extension DBTodo: CKRecordRecoverable {
+    // Leave it blank, too.
 }

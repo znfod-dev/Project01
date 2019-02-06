@@ -19,7 +19,7 @@ class PlannerViewController: UIViewController {
     
     
     // MARK:- Variables
-    var planArray = Array<Plan>() {
+    var planArray = Array<ModelPlan>() {
         willSet(new) {
             if new.count == 0 { // 리스트가 없다면 이미지 표시
                 self.emptyView.isHidden = false

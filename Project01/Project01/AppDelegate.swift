@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import IceCream
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var syncEngine: SyncEngine? // 아이클라우드 연동을 위한 싱크엔진 객체
+    
     let deviceWidth = UIScreen.main.bounds.size.width
     let deviceHeight = UIScreen.main.bounds.size.height
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Realm과 아이클라우드와 연동
+        self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(), SyncObject<ModelDBProfile>(), SyncObject<DBTodo>(), SyncObject<ModelDBPlan>()])
+        application.registerForRemoteNotifications()
         
         // 앱 최초 실행인지 체크
         let isFisrtAppRun = CommonUtil.getUserDefaultsBool(forKey: kBool_isFirstAppRun)
@@ -81,6 +89,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        let dict = userInfo as! [String: NSObject]
+        let notification = CKNotification(fromRemoteNotificationDictionary: dict)
+        
+        if (notification.subscriptionID == IceCreamConstant.cloudKitSubscriptionID) {
+            NotificationCenter.default.post(name: Notifications.cloudKitDataDidChangeRemotely.name, object: nil, userInfo: userInfo)
+        }
+        completionHandler(.newData)
+        
     }
 
 
