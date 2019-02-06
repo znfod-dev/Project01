@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import IceCream
+import CloudKit
 
 class ModelDBDiary: Object {
     // ID 저장 아이디 = 20190101 형식
@@ -18,6 +20,7 @@ class ModelDBDiary: Object {
     var todoList = List<DBTodo>()
     // 날짜에 해당하는 일기
     @objc dynamic var diary:String? = nil
+    @objc dynamic var isDeleted = false
     
     convenience init(id:String, date:Date, todoList:List<DBTodo>, diary:String) {
         self.init()
@@ -40,4 +43,14 @@ class ModelDBDiary: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+}
+
+
+
+extension ModelDBDiary: CKRecordConvertible {
+
+}
+
+extension ModelDBDiary: CKRecordRecoverable {
+    
 }

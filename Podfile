@@ -13,6 +13,7 @@ target 'Project01' do
     pod 'PopupDialog', '~> 0.9'
     pod 'FSCalendar'
     pod 'Hero'
+    pod 'IceCream'
 
 end
 

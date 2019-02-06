@@ -9,10 +9,11 @@
 
 import UIKit
 import RealmSwift
-
+import IceCream
+import CloudKit
 
 class ModelDBHoliday: BaseObject {
-	
+    
 	// 날짜(YYYYMM) 공휴일 API 불렀는지 체크하기 위해서
 	@objc dynamic var dateYYYYMM: Int = 0
 	// 날짜(YYYYMMDD)
@@ -20,6 +21,7 @@ class ModelDBHoliday: BaseObject {
 	// 공휴일 이름
 	@objc dynamic var name: String = ""
 	
+    @objc dynamic var isDeleted = false
 	
 	convenience init(dateYYYYMM: Int,
 					 dateYYYYMMDD: Int,
@@ -30,7 +32,6 @@ class ModelDBHoliday: BaseObject {
 		self.dateYYYYMMDD = dateYYYYMMDD
 		self.name = name
 	}
-    
     
     // 프라이머리키 설정했나?
     override class func isPrimaryKey() -> Bool {
@@ -88,4 +89,14 @@ extension ModelDBHoliday: NSCopying {
 			self.name = value
 		}
 	}
+}
+
+
+
+extension ModelDBHoliday: CKRecordConvertible {
+    // Yep, leave it blank!
+}
+
+extension ModelDBHoliday: CKRecordRecoverable {
+    // Leave it blank, too.
 }

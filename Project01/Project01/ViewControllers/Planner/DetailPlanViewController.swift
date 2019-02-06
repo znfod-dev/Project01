@@ -18,7 +18,7 @@ class DetailPlanViewController: UIViewController {
     
     
     // MARK:- Variables
-    var plan = Plan()
+    var plan = ModelPlan()
     
     
     

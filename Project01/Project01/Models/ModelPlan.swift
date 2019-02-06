@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Plan {
+class ModelPlan {
     var uid: String?
     var date: Date?
     var planType: Int?
@@ -27,7 +27,7 @@ class Plan {
         self.endDay = endDay
     }
     
-    convenience init(dbPlan: DBPlan) {
+    convenience init(dbPlan: ModelDBPlan) {
         let uid = dbPlan.uid
         let date = dbPlan.date
         let planType = dbPlan.planType

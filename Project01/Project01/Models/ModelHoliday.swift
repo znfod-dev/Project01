@@ -10,7 +10,6 @@
 import UIKit
 
 class ModelHoliday: NSObject {
-
     // 날짜(YYYYMM) 공휴일 API 불렀는지 체크하기 위해서
     @objc dynamic var dateYYYYMM: Int = 0
     // 날짜(YYYYMMDD)

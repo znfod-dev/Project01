@@ -8,8 +8,10 @@
 
 import UIKit
 import RealmSwift
+import IceCream
+import CloudKit
 
-class DBPlan: Object {
+class ModelDBPlan: Object {
     @objc dynamic var uid: String? // uid
     
     @objc dynamic var date: Date? // 계획 추가한 시간
@@ -18,6 +20,8 @@ class DBPlan: Object {
     @objc dynamic var planTitle: String? // 계획명
     @objc dynamic var startDay: String? // 계획 시작일
     @objc dynamic var endDay: String? // 계획 종료일
+    
+    @objc dynamic var isDeleted = false
     
     convenience init(planType: Int, planTitle: String, startDay: String, endDay: String) {
         self.init()
@@ -30,7 +34,7 @@ class DBPlan: Object {
         self.endDay = endDay
     }
     
-    convenience init(plan: Plan) {
+    convenience init(plan: ModelPlan) {
         let planType = plan.planType
         let planTitle = plan.planTitle
         let startDay = plan.startDay
@@ -42,4 +46,12 @@ class DBPlan: Object {
     override static func primaryKey() -> String? {
         return "uid"
     }
+}
+
+extension ModelDBPlan: CKRecordConvertible {
+    // Yep, leave it blank!
+}
+
+extension ModelDBPlan: CKRecordRecoverable {
+    // Leave it blank, too.
 }

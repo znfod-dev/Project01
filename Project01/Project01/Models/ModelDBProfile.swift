@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import IceCream
+import CloudKit
 
 class ModelDBProfile: BaseObject {
     
@@ -43,6 +45,8 @@ class ModelDBProfile: BaseObject {
     @objc dynamic var favouriteBook:String? = nil
     // 좋아하는 음악 favourite music
     @objc dynamic var favouriteMusic:String? = nil
+    
+    @objc dynamic var isDeleted = false
     
     convenience init(id:String, name:String, surname:String, address:String, phone:String, mobile:String, email:String, workAddress:String, workPhone:String, workEmail:String, favouriteFilm:String, favouriteBook:String, favouriteMusic:String) {
         self.init()
@@ -178,4 +182,14 @@ extension ModelDBProfile: NSCopying {
             self.favouriteMusic = value
         }
     }
+}
+
+
+
+extension ModelDBProfile: CKRecordConvertible {
+    // Yep, leave it blank!
+}
+
+extension ModelDBProfile: CKRecordRecoverable {
+    // Leave it blank, too.
 }

@@ -13,13 +13,13 @@ import RealmSwift
 extension DBManager {
     // Select
     // 계획 정보 불러오기
-    func selectPlanDB() -> Array<Plan> {
+    func selectPlanDB() -> Array<ModelPlan> {
         print("selectPlanDB")
-        var planArray = Array<Plan>()
+        var planArray = Array<ModelPlan>()
         
-        let dbPlanArray = self.database.objects(DBPlan.self)
+        let dbPlanArray = self.database.objects(ModelDBPlan.self)
         for dbPlan in dbPlanArray {
-            let plan = Plan.init(dbPlan: dbPlan)
+            let plan = ModelPlan.init(dbPlan: dbPlan)
             planArray.append(plan)
         }
         
@@ -30,8 +30,8 @@ extension DBManager {
     
     // Insert
     // 계획 추가
-    func addPlanDB(plan: Plan) {
-        let dbPlan = DBPlan.init(plan: plan)
+    func addPlanDB(plan: ModelPlan) {
+        let dbPlan = ModelDBPlan.init(plan: plan)
         
         try! self.database.write {
             self.database.add(dbPlan)
@@ -44,9 +44,9 @@ extension DBManager {
     
     // Delete
     // 계획 삭제
-    func deletePlanDB(plan: Plan, completion: (()->Void)? = nil) {
+    func deletePlanDB(plan: ModelPlan, completion: (()->Void)? = nil) {
         // DB에서 uid를 가지고 객체 찾기
-        guard let planToDelete = self.database.object(ofType: DBPlan.self, forPrimaryKey: plan.uid!) else {
+        guard let planToDelete = self.database.object(ofType: ModelDBPlan.self, forPrimaryKey: plan.uid!) else {
             print("deletePlanDB Fail")
             return
         }
