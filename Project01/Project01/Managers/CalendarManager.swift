@@ -379,21 +379,24 @@ class CalendarManager {
                 dicDayData["holidayName"] = holiday
             }
 
-            // 음력 구하기
-            let solar = Solar(year: curYear, month: curMonth, day: countDay)
-            do {
-                let lunar = try solar.toLunar()
-                dicDayData["yearLunar"] = lunar.year
-                dicDayData["monthLunar"] = lunar.month
-                dicDayData["dayLunar"] = lunar.day
-
-//                print("lunar year=\(lunar.year), month=\(lunar.month), day=\(lunar.day)")
-            } catch let e {
-                if e is CalendarLunar.ConvertError {
-                    let error = e as! CalendarLunar.ConvertError
-                    print(error.message)
-                }
-            }
+			// 2000 ~ 2049년까지 음력 구해주기
+			if curYear >= 2000 && curYear <= 2049 {
+				// 음력 구하기
+				let solar = Solar(year: curYear, month: curMonth, day: countDay)
+				do {
+					let lunar = try solar.toLunar()
+					dicDayData["yearLunar"] = lunar.year
+					dicDayData["monthLunar"] = lunar.month
+					dicDayData["dayLunar"] = lunar.day
+					
+					//                print("lunar year=\(lunar.year), month=\(lunar.month), day=\(lunar.day)")
+				} catch let e {
+					if e is CalendarLunar.ConvertError {
+						let error = e as! CalendarLunar.ConvertError
+						print(error.message)
+					}
+				}
+			}
 			
 			// Todo List Count
 			if dicTodoListCount.keys.contains("\(cellIndex)") {
