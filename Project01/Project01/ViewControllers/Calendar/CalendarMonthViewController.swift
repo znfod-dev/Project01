@@ -213,11 +213,12 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
             
             let totalCount: Int = body!["totalCount"] as? Int ?? 0
             if totalCount == 0 {
+				// dateYYYYMMDD필드가 프라이머리키인데 데이터 자체가 없을때는 'YYYYMM'값을 프라이머리키필드에 세팅해준다.
                 // RelamDB INSERT문
                 var sql = "INSERT INTO ModelDBHoliday(dateYYYYMM, "
                 sql += "dateYYYYMMDD, "
                 sql += "name) VALUES('\(curIndex)', "
-                sql += "'0', "
+                sql += "'\(curIndex)', "
                 sql += "'');"
                 
                 // SQL 결과

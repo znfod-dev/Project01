@@ -25,14 +25,18 @@ class ModelDBHoliday: BaseObject {
 	
 	convenience init(dateYYYYMM: Int,
 					 dateYYYYMMDD: Int,
-					 name: String) {
+					 name: String) {	
 		self.init()
 		
 		self.dateYYYYMM = dateYYYYMM
 		self.dateYYYYMMDD = dateYYYYMMDD
 		self.name = name
 	}
-    
+	
+	override static func primaryKey() -> String? {
+		return "dateYYYYMMDD"
+	}
+	
     // 프라이머리키 설정했나?
     override class func isPrimaryKey() -> Bool {
         return (primaryKey() != nil)

@@ -23,7 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Realm과 아이클라우드와 연동
-        self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(), SyncObject<ModelDBProfile>(), SyncObject<DBTodo>(), SyncObject<ModelDBPlan>()])
+        self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
+											   SyncObject<ModelDBProfile>(),
+											   SyncObject<DBTodo>(),
+											   SyncObject<ModelDBPlan>(),
+											   SyncObject<ModelDBHoliday>()])
         application.registerForRemoteNotifications()
         
         // 앱 최초 실행인지 체크
