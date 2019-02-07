@@ -58,7 +58,8 @@ extension DBManager {
         
         // 찾은 객체 삭제
         try! self.database.write {
-            self.database.delete(todoToDelete)
+//            self.database.delete(todoToDelete)
+            todoToDelete.isDeleted = true
             
             completion?()
         }

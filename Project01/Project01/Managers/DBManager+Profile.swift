@@ -17,6 +17,7 @@ extension DBManager {
             self.database.add(dbProfile)
         }
     }
+    
     // Select
     func selectProfile() -> ModelProfile {
         print("selectProfile")
@@ -25,12 +26,14 @@ extension DBManager {
             let profile = ModelProfile.init(dbProfile: dbProfile)
             return profile
         }else {
+            print("new Profile")
             let profile = ModelProfile.init()
             profile.id = UUID().uuidString
             self.insertProfile(profile: profile)
             return profile
         }
     }
+    
     // Update
     func updateProfile(profile:ModelProfile) {
         print("updateProfile")

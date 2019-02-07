@@ -18,7 +18,7 @@ class DBTodo: BaseObject {
     @objc dynamic var isSelected = false
     @objc dynamic var date:String?
     
-    @objc dynamic var isDeleted = false
+    @objc dynamic var isDeleted = true
     
     convenience init(uid: String, title: String, date: String, isSelected: Bool) {
         self.init()
@@ -104,7 +104,7 @@ extension DBTodo: NSCopying {
 
 
 extension DBTodo: CKRecordConvertible {
-    // Yep, leave it blank!
+    
 }
 
 extension DBTodo: CKRecordRecoverable {
