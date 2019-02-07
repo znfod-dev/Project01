@@ -85,16 +85,13 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tableView.estimatedRowHeight = FontManager.shared.getLineHeight()
     }
     
+    // MARK:- Handle Swipe
     override func handleSwipeLeftGesture(_ recognizer: UISwipeGestureRecognizer) {
-        super.handleSwipeLeftGesture(recognizer)
-        let storyboard:UIStoryboard = self.storyboard!
+        print("handleSwipeLeftGesture")
         
-        let viewController:UINavigationController = storyboard.instantiateViewController(withIdentifier: "PlanListNavigation") as! UINavigationController
-        
-        self.present(viewController)
     }
     override func handleSwipeRightGesture(_ recognizer: UISwipeGestureRecognizer) {
-        super.handleSwipeRightGesture(recognizer)
+        print("handleSwipeRightGesture")
         
     }
     
