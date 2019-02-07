@@ -36,6 +36,7 @@
 		9EC46C5C21F6F91A00765274 /* ModelHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */; };
 		9EC46C5E21F6F98000765274 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5D21F6F98000765274 /* URLs.swift */; };
 		9EC46C6021F6F9F400765274 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */; };
+		D9037BA9220BE55100F8A535 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037BA8220BE55000F8A535 /* NotificationHelper.swift */; };
 		D914E3AE21FBF5BF00CFBB8E /* UITextView+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38121FBF5BC00CFBB8E /* UITextView+DoneAccessory.swift */; };
 		D914E3B021FBF5BF00CFBB8E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */; };
 		D914E3B121FBF5BF00CFBB8E /* DBManager+UD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E38421FBF5BD00CFBB8E /* DBManager+UD.swift */; };
@@ -167,6 +168,7 @@
 		9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		B7690B753F6ECDE90240E9FB /* Pods-Project01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01/Pods-Project01.release.xcconfig"; sourceTree = "<group>"; };
 		BF4051DE8180CEC9611E2531 /* Pods-Project01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project01.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Project01/Pods-Project01.debug.xcconfig"; sourceTree = "<group>"; };
+		D9037BA8220BE55000F8A535 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		D914E38121FBF5BC00CFBB8E /* UITextView+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+DoneAccessory.swift"; sourceTree = "<group>"; };
 		D914E38321FBF5BC00CFBB8E /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		D914E38421FBF5BD00CFBB8E /* DBManager+UD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DBManager+UD.swift"; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 		9BD47E6721FBFAFB005350C9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D9037BA8220BE55000F8A535 /* NotificationHelper.swift */,
 				D914E3A521FBF5BE00CFBB8E /* Defines.swift */,
 				9E954C9221F848E1006356BF /* CalendarLunar.swift */,
 				9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */,
@@ -785,6 +788,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9037BA9220BE55100F8A535 /* NotificationHelper.swift in Sources */,
 				D9FBE0DB21F32B1C00BDA694 /* RoundLineView.swift in Sources */,
 				D9FBE0E021F32B1C00BDA694 /* BasePopup.swift in Sources */,
 				D9FBE0DF21F32B1C00BDA694 /* InfiniteScrollView.swift in Sources */,

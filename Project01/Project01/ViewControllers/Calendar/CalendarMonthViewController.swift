@@ -276,7 +276,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
                 self.setMonthToDays(year: self.curentYear, month: self.curentMonth, isRequest: false)
             }
         }) { (error) in
-//            print(error!)
+            print(error!)
         }
     }
 }
