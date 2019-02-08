@@ -10,11 +10,23 @@ import UIKit
 
 class IntroViewController: UIViewController {
 
+	@IBOutlet weak var ivCloud: UIImageView!
+	@IBOutlet weak var ivRefresh: UIImageView!
+	var ivRefreshMask: UIImageView!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		let isCloudMask = UIImageView(image: UIImage(named: "img_cloud_mask"))
+		ivCloud.mask = isCloudMask
 		
+		ivRefreshMask = UIImageView(image: UIImage(named: "img_refresh_mask"))
+		ivRefresh.mask = ivRefreshMask
+		
+		// 리프레쉬 이미지 회전
+		rotateAnimation()
+
 		// NotificationCenter에 등록하는 것
 		NotificationCenter.default.addObserver(self,  // 추천 항목
 			selector: #selector(catchNotification(notification:)), // 통지를받은 때 던지는 메소드
@@ -28,6 +40,19 @@ class IntroViewController: UIViewController {
 		// Stop listening notification
 		NotificationCenter.default.removeObserver(self, name: Notification.Name("CloudLoadComplete"), object: nil)
 	}
+	
+	// 리프레쉬 이미지 회전
+	func rotateAnimation(duration: CFTimeInterval = 2.0) {
+		let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+		rotateAnimation.fromValue = 0.0
+		rotateAnimation.toValue = CGFloat(.pi * 2.0)
+		rotateAnimation.duration = duration
+		rotateAnimation.repeatCount = Float.greatestFiniteMagnitude;
+		
+		self.ivRefreshMask!.layer.add(rotateAnimation, forKey: nil)
+		//		self.ivLoadding!.layer.add(rotateAnimation, forKey: nil)
+	}
+	
     /*
     // MARK: - Navigation
 

@@ -213,19 +213,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloud Load..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6D-SK-fwX">
-                                <rect key="frame" x="95.5" y="315.5" width="184.5" height="36"/>
+                                <rect key="frame" x="95.5" y="418.5" width="184.5" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_cloud_sync.png" translatesAutoresizingMaskIntoConstraints="NO" id="cbR-5s-kyK">
+                                <rect key="frame" x="102.5" y="248.5" width="170" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_refresh_sync.png" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-bC-OTK">
+                                <rect key="frame" x="140.5" y="312.5" width="94" height="94"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="r6D-SK-fwX" firstAttribute="centerY" secondItem="5xR-3J-zqg" secondAttribute="centerY" id="9qL-1k-tVK"/>
+                            <constraint firstItem="cbR-5s-kyK" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="OJc-EZ-b1Y"/>
+                            <constraint firstItem="w9h-bC-OTK" firstAttribute="top" secondItem="bnb-KK-CFe" secondAttribute="top" constant="292.5" id="Qtl-40-muz"/>
+                            <constraint firstItem="w9h-bC-OTK" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="gf5-69-FnD"/>
                             <constraint firstItem="r6D-SK-fwX" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="kvT-0v-n0a"/>
+                            <constraint firstItem="r6D-SK-fwX" firstAttribute="top" secondItem="cbR-5s-kyK" secondAttribute="bottom" id="poh-P9-AoY"/>
+                            <constraint firstItem="cbR-5s-kyK" firstAttribute="centerY" secondItem="5xR-3J-zqg" secondAttribute="centerY" id="xaS-wk-FnC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bnb-KK-CFe"/>
                     </view>
+                    <connections>
+                        <outlet property="ivCloud" destination="cbR-5s-kyK" id="mzO-1E-mGA"/>
+                        <outlet property="ivRefresh" destination="w9h-bC-OTK" id="o6I-Hm-tY9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIE-6u-qmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -831,6 +845,8 @@
         <image name="icon_close.png" width="36" height="36"/>
         <image name="icon_menu.png" width="36" height="36"/>
         <image name="icon_today.png" width="36" height="36"/>
+        <image name="img_cloud_sync.png" width="170" height="170"/>
+        <image name="img_refresh_sync.png" width="94" height="94"/>
         <image name="menu_calendar.png" width="18" height="18"/>
     </resources>
 </document>

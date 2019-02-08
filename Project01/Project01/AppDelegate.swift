@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
 											   SyncObject<ModelDBProfile>(),
 											   SyncObject<ModelDBTodo>(),
-											   SyncObject<ModelDBPlan>(),
-											   SyncObject<ModelDBHoliday>()],
+											   SyncObject<ModelDBPlan>()],
 									 callback: {
 										print("클라우드 로드 완료")
 
