@@ -78,6 +78,7 @@
 		D914E3D721FBF5BF00CFBB8E /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3AB21FBF5BE00CFBB8E /* FontManager.swift */; };
 		D914E3D821FBF5BF00CFBB8E /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3AC21FBF5BE00CFBB8E /* TimePickerView.swift */; };
 		D914E3D921FBF5BF00CFBB8E /* TimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D914E3AD21FBF5BF00CFBB8E /* TimePickerView.xib */; };
+		D93931BD220D5574005713AF /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93931BC220D5574005713AF /* IntroViewController.swift */; };
 		D9FB06D521FD7EB5006C4DCA /* CustomPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FB06D421FD7EB5006C4DCA /* CustomPageControlView.swift */; };
 		D9FBE0B221F32A0D00BDA694 /* icon_save@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0A021F32A0D00BDA694 /* icon_save@3x.png */; };
 		D9FBE0B321F32A0D00BDA694 /* icon_loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0A121F32A0D00BDA694 /* icon_loading@2x.png */; };
@@ -210,6 +211,7 @@
 		D914E3AB21FBF5BE00CFBB8E /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		D914E3AC21FBF5BE00CFBB8E /* TimePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		D914E3AD21FBF5BF00CFBB8E /* TimePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerView.xib; sourceTree = "<group>"; };
+		D93931BC220D5574005713AF /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		D9FB06D421FD7EB5006C4DCA /* CustomPageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageControlView.swift; sourceTree = "<group>"; };
 		D9FBE0A021F32A0D00BDA694 /* icon_save@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_save@3x.png"; sourceTree = "<group>"; };
 		D9FBE0A121F32A0D00BDA694 /* icon_loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_loading@2x.png"; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				D914E3DB21FC00AE00CFBB8E /* Calendar */,
 				609A3F9922001F6C00A58605 /* Planner */,
 				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
+				D93931BC220D5574005713AF /* IntroViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */,
 				D914E3D621FBF5BF00CFBB8E /* ModelDiary.swift in Sources */,
 				D914E3B221FBF5BF00CFBB8E /* Profile+TableViewDelegate.swift in Sources */,
+				D93931BD220D5574005713AF /* IntroViewController.swift in Sources */,
 				D914E3C121FBF5BF00CFBB8E /* SettingViewController.swift in Sources */,
 				60F47A9921F5707800E0DCB2 /* DatePickViewController.swift in Sources */,
 				D914E3D821FBF5BF00CFBB8E /* TimePickerView.swift in Sources */,

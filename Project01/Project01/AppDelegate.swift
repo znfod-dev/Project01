@@ -23,9 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
-		// 로딩 스피너 활성화
-		CommonUtil.showLoaderCount()
-
         // Realm과 아이클라우드와 연동
 		self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
 											   SyncObject<ModelDBProfile>(),
@@ -34,51 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 											   SyncObject<ModelDBHoliday>()],
 									 callback: {
 										print("클라우드 로드 완료")
-										// 로딩 스피너 비활성화
-										CommonUtil.hideLoaderCount()
+
+										// Notification 통지 쓰기 (통지를 보내고 싶은 곳에 쓴다. 예를 들어 어떤 버튼을 눌렀을 때의 처리 중등)
+										NotificationCenter.default.post(name: Notification.Name("CloudLoadComplete"), object: nil)
 		})
         application.registerForRemoteNotifications()
-        
-        // 앱 최초 실행인지 체크
-        let isFisrtAppRun = CommonUtil.getUserDefaultsBool(forKey: kBool_isFirstAppRun)
-        // 앱 최초 실행일 경우...
-        if isFisrtAppRun == false {
-            print("isFisrtAppRun")
-            // 앱 최소 실행일 경우 MinDate, MaxDate 설정
-            let now = Date()
-            let calendar = Calendar.current
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            
-            var day = DateComponents(day: -180)
-            if let d180 = calendar.date(byAdding: day, to: now)
-            {
-                DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: Date().startOfMonth(date: d180))
-                print("Date().startOfMonth(date: d180) : \(Date().startOfMonth(date: d180))")
-                let min = DBManager.sharedInstance.loadMinimumDateFromUD()
-                print("min : \(min.description(with: Locale.current))")
-            }
-            day = DateComponents(day: 180)
-            if let d180 = calendar.date(byAdding: day, to: now)
-            {
-                DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: Date().endOfMonth(date: d180))
-                print("Date().endOfMonth(date: d180) : \(Date().endOfMonth(date: d180))")
-                let max = DBManager.sharedInstance.loadMaximumDateFromUD()
-                print("max : \(max.description(with: Locale.current))")
-            }
-            CommonUtil.setUserDefaultsBool(true, forKey: kBool_isFirstAppRun)
-            
-            // 프로필 화면 보여주기
-            if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
-                
-                let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
-                profileVC.isFirstAppRun = true
-                self.window?.rootViewController = profileVC
-                self.window?.makeKeyAndVisible()
- 
-            }
-        }
-  
+
         return true
     }
 
