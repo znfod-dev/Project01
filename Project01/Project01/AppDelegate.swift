@@ -22,12 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		
+		// 로딩 스피너 활성화
+		CommonUtil.showLoaderCount()
+
         // Realm과 아이클라우드와 연동
-        self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
+		self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
 											   SyncObject<ModelDBProfile>(),
 											   SyncObject<DBTodo>(),
 											   SyncObject<ModelDBPlan>(),
-											   SyncObject<ModelDBHoliday>()])
+											   SyncObject<ModelDBHoliday>()],
+									 callback: {
+										print("클라우드 로드 완료")
+										// 로딩 스피너 비활성화
+										CommonUtil.hideLoaderCount()
+		})
         application.registerForRemoteNotifications()
         
         // 앱 최초 실행인지 체크

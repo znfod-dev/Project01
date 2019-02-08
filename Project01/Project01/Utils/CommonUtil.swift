@@ -41,8 +41,7 @@ class CommonUtil: NSObject {
 		CommonUtil.self.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.hideLoaderClear), object: nil)
 		
 		// 스케쥴 시작
-//		CommonUtil.self.perform(#selector(self.hideLoaderClear), with: nil, afterDelay: 30.0)
-		CommonUtil.self.perform(#selector(self.hideLoaderClear), with: nil, afterDelay: 5.0)
+		CommonUtil.self.perform(#selector(self.hideLoaderClear), with: nil, afterDelay: DEF_TIMEOUT_INTERVAL)
 		
 		CommonUtil.gLoaderCount+=1
 	}

@@ -21,6 +21,9 @@ let DEF_SCREEN_375_HEIGHT: CGFloat = 667.0
 // 375화면 기준 스케일값
 let DEF_WIDTH_375_SCALE: CGFloat = (DEF_SCREEN_WIDTH < DEF_SCREEN_HEIGHT) ? (DEF_SCREEN_WIDTH / DEF_SCREEN_375_WIDTH) : (DEF_SCREEN_HEIGHT / DEF_SCREEN_375_WIDTH)
 
+// 네트워크 타임아웃 인터벌
+let DEF_TIMEOUT_INTERVAL: TimeInterval = 10.0
+
 
 // MARK: - NSUserDefaults Key Define
 // 앱 최초 실행했는지

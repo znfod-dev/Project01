@@ -30,7 +30,7 @@ public final class SyncEngine {
     private let syncObjects: [Syncable]
     
     /// We recommend processing the initialization when app launches
-    public init(objects: [Syncable]) {
+    public init(objects: [Syncable], callback: (() -> Void)? = nil) {
         self.syncObjects = objects
         for syncObject in syncObjects {
             syncObject.pipeToEngine = { [weak self] recordsToStore, recordIDsToDelete in
@@ -48,7 +48,7 @@ public final class SyncEngine {
                 /// Apple suggests that we should fetch changes in database, *especially* the very first launch.
                 /// But actually, there **might** be some rare unknown and weird reason that the data is not synced between muilty devices.
                 /// So I suggests fetch changes in database everytime app launches.
-                self.fetchChangesInDatabase()
+                self.fetchChangesInDatabase(callback)
 
                 self.resumeLongLivedOperationIfPossible()
 
@@ -241,10 +241,15 @@ extension SyncEngine {
             guard let self = self else { return }
             switch self.errorHandler.resultType(with: error) {
             case .success:
-                guard let syncObject = self.syncObjects.first(where: { $0.customZoneID == zoneId }) else { return }
-                syncObject.zoneChangesToken = token
-                callback?()
-                print("Sync successfully: \(zoneId))")
+				guard let syncObject = self.syncObjects.first(where: { $0.customZoneID == zoneId }) else { return }
+				guard let lastObject = self.syncObjects.last else { return }
+				
+				syncObject.zoneChangesToken = token
+				if syncObject.customZoneID.zoneName == lastObject.customZoneID.zoneName {
+					callback?()
+				}
+				print("Sync successfully: \(zoneId))")
+
             case .retry(let timeToWait, _):
                 self.errorHandler.retryOperationIfPossible(retryAfter: timeToWait, block: {
                     self.fetchChangesInZones(callback)

@@ -9,10 +9,6 @@
 import UIKit
 import Alamofire
 
-// 네트워크 타임아웃 인터벌
-let DEF_TIMEOUT_INTERVAL: TimeInterval = 10.0
-
-
 class AlamofireHelper: NSObject {
     
     static var alamoFireManager: SessionManager? // this line
