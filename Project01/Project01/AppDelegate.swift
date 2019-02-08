@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Realm과 아이클라우드와 연동
 		self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
 											   SyncObject<ModelDBProfile>(),
-											   SyncObject<DBTodo>(),
+											   SyncObject<ModelDBTodo>(),
 											   SyncObject<ModelDBPlan>(),
 											   SyncObject<ModelDBHoliday>()],
 									 callback: {

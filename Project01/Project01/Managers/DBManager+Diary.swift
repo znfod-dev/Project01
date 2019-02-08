@@ -18,9 +18,9 @@ extension DBManager {
             self.database.add(dbDiary)
         }
     }
-    func insertTodo(todo:Todo) {
+    func insertTodo(todo:ModelTodo) {
         print("insertDiary")
-        let dbTodo = DBTodo.init(todo: todo)
+        let dbTodo = ModelDBTodo.init(todo: todo)
         try! self.database.write {
             self.database.add(dbTodo)
         }
@@ -40,18 +40,18 @@ extension DBManager {
             let diary = ModelDiary.init()
             diary.id = id
             self.insertDiary(diary: diary)
-            let dbTodoList = self.database.objects(DBTodo.self).filter("date = '\(id)'")
+            let dbTodoList = self.database.objects(ModelDBTodo.self).filter("date = '\(id)'")
             for dbTodo in dbTodoList {
-                diary.todoList.append(Todo.init(dbTodo: dbTodo))
+                diary.todoList.append(ModelTodo.init(dbTodo: dbTodo))
             }
             return diary
         }
     }
-    func selectTodo(date:Date) -> Array<Todo> {
-        var todoList = Array<Todo>()
-        let dbTodoList = self.database.objects(DBTodo.self)
+    func selectTodo(date:Date) -> Array<ModelTodo> {
+        var todoList = Array<ModelTodo>()
+        let dbTodoList = self.database.objects(ModelDBTodo.self)
         for dbTodo in dbTodoList {
-            todoList.append(Todo.init(dbTodo: dbTodo))
+            todoList.append(ModelTodo.init(dbTodo: dbTodo))
         }
         return todoList
     }

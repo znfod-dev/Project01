@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Todo {
+class ModelTodo {
     var uid: String?
     var title: String?
     var isSelected: Bool?
@@ -22,7 +22,7 @@ class Todo {
         self.isSelected = isSelected
     }
     
-    convenience init(dbTodo: DBTodo) {
+    convenience init(dbTodo: ModelDBTodo) {
         let uid = dbTodo.uid
         let title = dbTodo.title
         let date = dbTodo.date

@@ -12,7 +12,7 @@ import IceCream
 import CloudKit
 import Foundation
 
-class DBTodo: BaseObject {
+class ModelDBTodo: BaseObject {
     @objc dynamic var uid: String? // uid
     @objc dynamic var title: String?
     @objc dynamic var isSelected = false
@@ -29,7 +29,7 @@ class DBTodo: BaseObject {
         self.isSelected = isSelected        
     }
     
-    convenience init(todo: Todo) {
+    convenience init(todo: ModelTodo) {
         let uid = todo.uid
         let title = todo.title
         let date = todo.date
@@ -48,7 +48,7 @@ class DBTodo: BaseObject {
     }
     
     // 오브젝트 생성
-    override class func createObject(_ dicFields: [String: String]) -> DBTodo {
+    override class func createObject(_ dicFields: [String: String]) -> ModelDBTodo {
         let this = self.init()
         
         this.SQLParsing(dicFields)
@@ -57,8 +57,8 @@ class DBTodo: BaseObject {
     }
     
     // 오브젝트 복사후 필드값 세팅
-    override class func copyObject(object: Object, dicFields: [String: String]) -> DBTodo {
-        let newObject: DBTodo = object.copy() as! DBTodo
+    override class func copyObject(object: Object, dicFields: [String: String]) -> ModelDBTodo {
+        let newObject: ModelDBTodo = object.copy() as! ModelDBTodo
         newObject.SQLParsing(dicFields)
         
         return newObject
@@ -66,10 +66,10 @@ class DBTodo: BaseObject {
 }
 
 // NSCopying copy기능 처리 해줄려고
-extension DBTodo: NSCopying {
+extension ModelDBTodo: NSCopying {
 	// 클래스 복사
 	func copy(with zone: NSZone? = nil) -> Any {
-		let copy = DBTodo(uid: uid!, title: title!, date: date!, isSelected: isSelected)
+		let copy = ModelDBTodo(uid: uid!, title: title!, date: date!, isSelected: isSelected)
 		
 		return copy
 	}
@@ -103,10 +103,10 @@ extension DBTodo: NSCopying {
 
 
 
-extension DBTodo: CKRecordConvertible {
+extension ModelDBTodo: CKRecordConvertible {
     
 }
 
-extension DBTodo: CKRecordRecoverable {
+extension ModelDBTodo: CKRecordRecoverable {
     // Leave it blank, too.
 }

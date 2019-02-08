@@ -14,8 +14,9 @@
 		60427144220005B6001F0E40 /* DBManager+Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60427143220005B6001F0E40 /* DBManager+Todo.swift */; };
 		609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */; };
 		609A3FE5220B1FC200A58605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609A3FE4220B1FC200A58605 /* CloudKit.framework */; };
-		60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* Todo.swift */; };
-		60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* DBTodo.swift */; };
+		609A3FE7220D6C7500A58605 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FE6220D6C7300A58605 /* IntroViewController.swift */; };
+		60F47A8B21F3873900E0DCB2 /* ModelTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */; };
+		60F47A8D21F3874600E0DCB2 /* ModelDBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* ModelDBTodo.swift */; };
 		60F47A9021F56C2D00E0DCB2 /* ModelPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8F21F56C2D00E0DCB2 /* ModelPlan.swift */; };
 		60F47A9221F56C3400E0DCB2 /* ModelDBPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9121F56C3400E0DCB2 /* ModelDBPlan.swift */; };
 		60F47A9521F5705700E0DCB2 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */; };
@@ -78,7 +79,6 @@
 		D914E3D721FBF5BF00CFBB8E /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3AB21FBF5BE00CFBB8E /* FontManager.swift */; };
 		D914E3D821FBF5BF00CFBB8E /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914E3AC21FBF5BE00CFBB8E /* TimePickerView.swift */; };
 		D914E3D921FBF5BF00CFBB8E /* TimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D914E3AD21FBF5BF00CFBB8E /* TimePickerView.xib */; };
-		D93931BD220D5574005713AF /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93931BC220D5574005713AF /* IntroViewController.swift */; };
 		D9FB06D521FD7EB5006C4DCA /* CustomPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FB06D421FD7EB5006C4DCA /* CustomPageControlView.swift */; };
 		D9FBE0B221F32A0D00BDA694 /* icon_save@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0A021F32A0D00BDA694 /* icon_save@3x.png */; };
 		D9FBE0B321F32A0D00BDA694 /* icon_loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FBE0A121F32A0D00BDA694 /* icon_loading@2x.png */; };
@@ -143,8 +143,9 @@
 		609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+DoneAccessory.swift"; sourceTree = "<group>"; };
 		609A3FE1220B1C6900A58605 /* Project01.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Project01.entitlements; sourceTree = "<group>"; };
 		609A3FE4220B1FC200A58605 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		60F47A8A21F3873900E0DCB2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		60F47A8C21F3874600E0DCB2 /* DBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTodo.swift; sourceTree = "<group>"; };
+		609A3FE6220D6C7300A58605 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTodo.swift; sourceTree = "<group>"; };
+		60F47A8C21F3874600E0DCB2 /* ModelDBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDBTodo.swift; sourceTree = "<group>"; };
 		60F47A8F21F56C2D00E0DCB2 /* ModelPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPlan.swift; sourceTree = "<group>"; };
 		60F47A9121F56C3400E0DCB2 /* ModelDBPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDBPlan.swift; sourceTree = "<group>"; };
 		60F47A9421F5705700E0DCB2 /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +212,6 @@
 		D914E3AB21FBF5BE00CFBB8E /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		D914E3AC21FBF5BE00CFBB8E /* TimePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		D914E3AD21FBF5BF00CFBB8E /* TimePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerView.xib; sourceTree = "<group>"; };
-		D93931BC220D5574005713AF /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		D9FB06D421FD7EB5006C4DCA /* CustomPageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageControlView.swift; sourceTree = "<group>"; };
 		D9FBE0A021F32A0D00BDA694 /* icon_save@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_save@3x.png"; sourceTree = "<group>"; };
 		D9FBE0A121F32A0D00BDA694 /* icon_loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_loading@2x.png"; sourceTree = "<group>"; };
@@ -387,7 +387,7 @@
 				D914E3DB21FC00AE00CFBB8E /* Calendar */,
 				609A3F9922001F6C00A58605 /* Planner */,
 				D914E39721FBF5BD00CFBB8E /* BaseViewController.swift */,
-				D93931BC220D5574005713AF /* IntroViewController.swift */,
+				609A3FE6220D6C7300A58605 /* IntroViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -402,8 +402,8 @@
 				D914E39621FBF5BD00CFBB8E /* ModelProfile.swift */,
 				9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */,
 				9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */,
-				60F47A8A21F3873900E0DCB2 /* Todo.swift */,
-				60F47A8C21F3874600E0DCB2 /* DBTodo.swift */,
+				60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */,
+				60F47A8C21F3874600E0DCB2 /* ModelDBTodo.swift */,
 				60F47A8F21F56C2D00E0DCB2 /* ModelPlan.swift */,
 				60F47A9121F56C3400E0DCB2 /* ModelDBPlan.swift */,
 			);
@@ -798,7 +798,7 @@
 				9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */,
 				D914E3D621FBF5BF00CFBB8E /* ModelDiary.swift in Sources */,
 				D914E3B221FBF5BF00CFBB8E /* Profile+TableViewDelegate.swift in Sources */,
-				D93931BD220D5574005713AF /* IntroViewController.swift in Sources */,
+				609A3FE7220D6C7500A58605 /* IntroViewController.swift in Sources */,
 				D914E3C121FBF5BF00CFBB8E /* SettingViewController.swift in Sources */,
 				60F47A9921F5707800E0DCB2 /* DatePickViewController.swift in Sources */,
 				D914E3D821FBF5BF00CFBB8E /* TimePickerView.swift in Sources */,
@@ -843,7 +843,7 @@
 				D914E3D421FBF5BF00CFBB8E /* DBManager+Diary.swift in Sources */,
 				60427144220005B6001F0E40 /* DBManager+Todo.swift in Sources */,
 				D914E3D321FBF5BF00CFBB8E /* DBManager+Profile.swift in Sources */,
-				60F47A8D21F3874600E0DCB2 /* DBTodo.swift in Sources */,
+				60F47A8D21F3874600E0DCB2 /* ModelDBTodo.swift in Sources */,
 				D914E3CB21FBF5BF00CFBB8E /* ProfileTableCell.swift in Sources */,
 				D9FBE0D721F32B1C00BDA694 /* CalendarManager.swift in Sources */,
 				D9FBE0D821F32B1C00BDA694 /* AlertMessagePopup.swift in Sources */,
@@ -858,7 +858,7 @@
 				D914E3C721FBF5BF00CFBB8E /* PopupManager.swift in Sources */,
 				D914E3C621FBF5BF00CFBB8E /* PickerView.swift in Sources */,
 				D914E3D721FBF5BF00CFBB8E /* FontManager.swift in Sources */,
-				60F47A8B21F3873900E0DCB2 /* Todo.swift in Sources */,
+				60F47A8B21F3873900E0DCB2 /* ModelTodo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

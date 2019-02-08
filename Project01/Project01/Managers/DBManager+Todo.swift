@@ -13,19 +13,19 @@ import RealmSwift
 extension DBManager {
     // Select
     // TodoList 불러오기
-    func selectTodoDB(withoutCheckedBox: Bool = false) -> Array<Todo> {
+    func selectTodoDB(withoutCheckedBox: Bool = false) -> Array<ModelTodo> {
         print("selectTodoDB")
-        var todoArray = Array<Todo>()
+        var todoArray = Array<ModelTodo>()
         
-        let dbTodoArray: Results<DBTodo>?
+        let dbTodoArray: Results<ModelDBTodo>?
         if withoutCheckedBox { // 체크 박스가 체크된 todo 제외할 때
-            dbTodoArray = self.database.objects(DBTodo.self).filter("isSelected = false")
+            dbTodoArray = self.database.objects(ModelDBTodo.self).filter("isSelected = false")
         } else { // 모든 todo
-            dbTodoArray = self.database.objects(DBTodo.self)
+            dbTodoArray = self.database.objects(ModelDBTodo.self)
         }
         
         for dbTodo in dbTodoArray! {
-            let todo = Todo.init(dbTodo: dbTodo)
+            let todo = ModelTodo.init(dbTodo: dbTodo)
             todoArray.append(todo)
         }
         
@@ -36,8 +36,8 @@ extension DBManager {
     
     // Insert
     // Todo 추가하기
-    func addTodoDB(todo: Todo) {
-        let dbTodo = DBTodo.init(todo: todo)
+    func addTodoDB(todo: ModelTodo) {
+        let dbTodo = ModelDBTodo.init(todo: todo)
         
         try! self.database.write {
             database.add(dbTodo, update: true)
@@ -49,9 +49,9 @@ extension DBManager {
     
     
     // 계획 삭제
-    func deleteTodoDB(todo: Todo, completion: (()->Void)? = nil) {
+    func deleteTodoDB(todo: ModelTodo, completion: (()->Void)? = nil) {
         // DB에서 uid를 가지고 객체 찾기
-        guard let todoToDelete = self.database.object(ofType: DBTodo.self, forPrimaryKey: todo.uid!) else {
+        guard let todoToDelete = self.database.object(ofType: ModelDBTodo.self, forPrimaryKey: todo.uid!) else {
             print("deletePlanDB Fail")
             return
         }
@@ -69,8 +69,8 @@ extension DBManager {
     
     // Update
     // Todo 체크 정보 업데이트
-    func updateTodo(todo: Todo) {
-        let dbTodo = DBTodo.init(todo: todo)
+    func updateTodo(todo: ModelTodo) {
+        let dbTodo = ModelDBTodo.init(todo: todo)
         
         try! self.database.write {
             database.add(dbTodo, update: true)

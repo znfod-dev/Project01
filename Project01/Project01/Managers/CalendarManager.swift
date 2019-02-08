@@ -251,7 +251,7 @@ class CalendarManager {
 			let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
 			
 			for i in 0..<resultData.count {
-				let todo: DBTodo = resultData[i] as! DBTodo
+				let todo: ModelDBTodo = resultData[i] as! ModelDBTodo
 				if dicTodoListCount.keys.contains(todo.date!) {
 					
 					var count: Int = dicTodoListCount[todo.date!]!

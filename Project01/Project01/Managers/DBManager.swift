@@ -130,8 +130,8 @@ class DBManager: NSObject {
                 dicSQLResults["RESULT_DATA"] = result.RESULT_DATA
             }
         }
-        else if tableName == String(describing: DBTodo.self) {
-            let result: (RESULT_CODE: String, RESULT_DATA: Results<Object>?) = DBTodo.SQLExcute(dicTableData: dicTableData)
+        else if tableName == String(describing: ModelDBTodo.self) {
+            let result: (RESULT_CODE: String, RESULT_DATA: Results<Object>?) = ModelDBTodo.SQLExcute(dicTableData: dicTableData)
             RESULT_CODE = result.RESULT_CODE
             
             if result.RESULT_DATA != nil {

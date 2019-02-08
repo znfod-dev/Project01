@@ -48,8 +48,8 @@ class MonthlyPlanViewController: UIViewController {
     var isFirstLoad: Bool = true
     
     // 테이블 뷰
-    var todoArray = Array<Todo>() // 전체 TodoList
-    var selectedDayTodo = Array<Todo>() // 특정 날짜의 TodoList
+    var todoArray = Array<ModelTodo>() // 전체 TodoList
+    var selectedDayTodo = Array<ModelTodo>() // 특정 날짜의 TodoList
     
     var selectedDay:String? = Date().cmpString() // 선택한 날짜
     
@@ -364,7 +364,7 @@ class MonthlyPlanViewController: UIViewController {
             let title = message
             let date = self.selectedDay
             
-            let todo = Todo(uid: uid, title: title!, date: date!)
+            let todo = ModelTodo(uid: uid, title: title!, date: date!)
             self.todoArray.append(todo)
             
             DBManager.sharedInstance.addTodoDB(todo: todo)
