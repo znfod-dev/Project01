@@ -38,7 +38,6 @@ public final class SyncEngine {
                 self.syncRecordsToCloudKit(recordsToStore: recordsToStore, recordIDsToDelete: recordIDsToDelete)
             }
         }
-        
         /// Check iCloud status so that we can go on
         CKContainer.default().accountStatus { [weak self] (status, error) in
             guard let self = self else { return }
@@ -152,7 +151,7 @@ extension SyncEngine {
 
     /// Only update the changeToken when fetch process completes
     private func fetchChangesInDatabase(_ callback: (() -> Void)? = nil) {
-
+        print("fetchChangesInDatabase")
         let changesOperation = CKFetchDatabaseChangesOperation(previousServerChangeToken: databaseChangeToken)
         
         /// For more, see the source code, it has the detailed explanation
@@ -214,6 +213,7 @@ extension SyncEngine {
     }
 
     private func fetchChangesInZones(_ callback: (() -> Void)? = nil) {
+        print("fetchChangesInZones")
         let changesOp = CKFetchRecordZoneChangesOperation(recordZoneIDs: zoneIds, optionsByRecordZoneID: zoneIdOptions)
         changesOp.fetchAllChanges = true
         
@@ -265,6 +265,7 @@ extension SyncEngine {
                     return
                 }
             default:
+                callback?()
                 return
             }
         }

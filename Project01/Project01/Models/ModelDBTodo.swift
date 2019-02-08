@@ -18,7 +18,7 @@ class ModelDBTodo: BaseObject {
     @objc dynamic var isSelected = false
     @objc dynamic var date:String?
     
-    @objc dynamic var isDeleted = true
+    @objc dynamic var isDeleted = false
     
     convenience init(uid: String, title: String, date: String, isSelected: Bool) {
         self.init()
