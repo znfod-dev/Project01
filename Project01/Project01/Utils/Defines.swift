@@ -42,6 +42,8 @@ let kFont_SavedFont = "savedFontKey"
 let kFont_FontName = "fontNameKey"
 // 저장된 폰트 사이즈
 let kFloat_fontSize = "fontSizeKey"
+// 음력 키값
+let kBool_isiCloudEnd = "isiCloudEndKey"
 
 // MARK: - enum
 enum Month: Int {

@@ -32,6 +32,9 @@ class IntroViewController: UIViewController {
 			selector: #selector(catchNotification(notification:)), // 통지를받은 때 던지는 메소드
 			name: Notification.Name("CloudLoadComplete"), // 통지의 이름
 			object: nil)
+        
+        AppDelegate.sharedAppDelegate()?.accessiCloudData()
+       
     }
     
 	override func viewWillDisappear(_ animated: Bool) {

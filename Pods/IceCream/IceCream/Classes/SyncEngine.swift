@@ -79,6 +79,7 @@ public final class SyncEngine {
             } else {
                 /// Handle when user account is not available
                 print("Easy, my boy. You haven't logged into iCloud account on your device/simulator yet.")
+                callback?()
             }
         }
     }

@@ -29,6 +29,7 @@
 		9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623221EA3E48007CF0B3 /* Main.storyboard */; };
 		9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623521EA3E49007CF0B3 /* Assets.xcassets */; };
 		9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623721EA3E49007CF0B3 /* LaunchScreen.storyboard */; };
+		9B297C17220DAF6E004231E4 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B297C16220DAF6E004231E4 /* OpenSourceViewController.swift */; };
 		9E601467220009CA0062D991 /* icon_notdata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E601465220009C90062D991 /* icon_notdata@3x.png */; };
 		9E601468220009CA0062D991 /* icon_notdata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E601466220009C90062D991 /* icon_notdata@2x.png */; };
 		9E75D8862202BBF90042263A /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E75D8852202BBF90042263A /* BaseObject.swift */; };
@@ -167,6 +168,7 @@
 		9B26623521EA3E49007CF0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B26623821EA3E49007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B26623A21EA3E49007CF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B297C16220DAF6E004231E4 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		9DB15EA79718A43B263395EF /* Pods_Project01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E601465220009C90062D991 /* icon_notdata@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notdata@3x.png"; sourceTree = "<group>"; };
 		9E601466220009C90062D991 /* icon_notdata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notdata@2x.png"; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				D914E3A321FBF5BE00CFBB8E /* Setting+PickerViewDelegate.swift */,
 				D914E38721FBF5BD00CFBB8E /* SettingTableCell.swift */,
 				D914E39521FBF5BD00CFBB8E /* SettingViewController.swift */,
+				9B297C16220DAF6E004231E4 /* OpenSourceViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -857,6 +860,7 @@
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
+				9B297C17220DAF6E004231E4 /* OpenSourceViewController.swift in Sources */,
 				60427142220005A6001F0E40 /* DBManager+Plan.swift in Sources */,
 				60F47A9221F56C3400E0DCB2 /* ModelDBPlan.swift in Sources */,
 				609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */,

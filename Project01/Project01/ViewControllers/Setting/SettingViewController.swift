@@ -86,9 +86,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 0
         if section == 0 {
-            numberOfRow = 4
+            numberOfRow = 5
         }else if section == 1 {
-            numberOfRow = 2
+            numberOfRow = 3
         }else if section == 2 {
             numberOfRow = 1
         }else {
@@ -134,7 +134,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let row = indexPath.row
-        var cell:SettingTableCell = tableView.dequeueReusableCell(withIdentifier: "SettingStartDateCell") as! SettingTableCell
+        var cell:SettingTableCell = tableView.dequeueReusableCell(withIdentifier: "SettingNoneCell") as! SettingTableCell
         if section == 0 {
             if row == 0 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingStartDateCell") as! SettingTableCell
@@ -175,6 +175,10 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.lunarSwitch.isOn = lunarOnOff
+            }else if row == 4 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "SettingiCloudCell") as! SettingTableCell
+                cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
+            
             }else {
                 
             }
@@ -190,6 +194,10 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 let fontSize = String("\(FontManager.shared.getTextFont().pointSize)")
                 cell.fontSizeLabel.attributedText = FontManager.shared.getTextWithFont(text: fontSize)
+            }else if row == 2 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "SettingOpenSourceCell") as! SettingTableCell
+                cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
+                
             }else {
                 
             }
@@ -233,6 +241,8 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.showFontPickerView()
             }else if row == 1 {
                 self.showFontSizePickerView()
+            }else if row == 2 {
+                self.showOpenSourceView()
             }else {
                 
             }
@@ -271,6 +281,13 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
         // sama73 : 네비게이션바를 이용해서 이동
         self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    // 오픈소스 라이브러리
+    func showOpenSourceView() {
+        let storyboard:UIStoryboard = UIStoryboard.init(name: "Setting", bundle: nil)
+        let opensourceVC: OpenSourceViewController = storyboard.instantiateViewController(withIdentifier: "OpenSource") as! OpenSourceViewController
+        self.navigationController?.pushViewController(opensourceVC, animated: true)
+        
     }
     
     // MARK: - HandleDate

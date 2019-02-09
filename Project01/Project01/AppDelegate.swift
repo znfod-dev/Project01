@@ -23,17 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
-        // Realm과 아이클라우드와 연동
-		self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
-											   SyncObject<ModelDBProfile>(),
-											   SyncObject<ModelDBTodo>(),
-											   SyncObject<ModelDBPlan>()],
-									 callback: {
-										print("클라우드 로드 완료")
-
-										// Notification 통지 쓰기 (통지를 보내고 싶은 곳에 쓴다. 예를 들어 어떤 버튼을 눌렀을 때의 처리 중등)
-										NotificationCenter.default.post(name: Notification.Name("CloudLoadComplete"), object: nil)
-		})
         application.registerForRemoteNotifications()
 
         return true
@@ -88,5 +77,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		//스토리 보드 id 로딩
 		return UIStoryboard(name: storyBoardName ?? "", bundle: Bundle.main)
 	}
+    
+    // MARK: - iCloud 연동
+    func accessiCloudData() {
+        // Realm과 아이클라우드와 연동
+        self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
+                                               SyncObject<ModelDBProfile>(),
+                                               SyncObject<ModelDBTodo>(),
+                                               SyncObject<ModelDBPlan>()],
+                                     callback: {
+                                        print("클라우드 로드 완료")
+                                        
+                                        // Notification 통지 쓰기 (통지를 보내고 싶은 곳에 쓴다. 예를 들어 어떤 버튼을 눌렀을 때의 처리 중등)
+                                        NotificationCenter.default.post(name: Notification.Name("CloudLoadComplete"), object: nil)
+        })
+    }
 }
 
