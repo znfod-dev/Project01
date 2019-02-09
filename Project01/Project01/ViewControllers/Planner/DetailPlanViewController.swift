@@ -31,7 +31,7 @@ class DetailPlanViewController: UIViewController {
 		view.transform = view.transform.scaledBy(x: scale, y: scale)
 
         
-        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
+        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.5)
         
         self.planTitleLabel.text = plan.planTitle
         self.startDayLabel.text = plan.startDay!

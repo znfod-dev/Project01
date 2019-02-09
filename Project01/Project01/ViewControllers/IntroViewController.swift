@@ -18,6 +18,10 @@ class IntroViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		// 375화면 기준으로 스케일 적용
+		let scale: CGFloat = DEF_WIDTH_375_SCALE
+		view.transform = view.transform.scaledBy(x: scale, y: scale)
+
 		ivRefreshMask = UIImageView(image: UIImage(named: "img_refresh_mask"))
 		ivRefresh.mask = ivRefreshMask
 		

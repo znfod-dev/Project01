@@ -44,7 +44,7 @@ class PlannerViewController: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true // 내비게이션바 스와이프 기능을 살린채 숨김
 
-        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3) // 내비게이션 밑줄
+        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.5) // 내비게이션 밑줄
         self.tableView.separatorStyle = .none // 테이블 뷰 구분선 삭제
         
         // 데이터 받아 오기
@@ -111,7 +111,6 @@ extension PlannerViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanCell") as! PlanCell
         let plan = planArray[indexPath.row]
         
-        cell.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3, isCell: true) // 셀의 밑줄
         cell.selectionStyle = .none
         
         cell.titleLabel.text = plan.planTitle
@@ -152,4 +151,15 @@ extension PlannerViewController: UITableViewDataSource {
 class PlanCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // 셀의 밑줄을 그린다
+        self.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3, isCell: true)
+    }
 }

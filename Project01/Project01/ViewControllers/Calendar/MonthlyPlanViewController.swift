@@ -576,9 +576,6 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         
         let todo = self.selectedDayTodo[indexPath.row]
         
-        // 셀의 밑줄을 그린다
-        cell.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
-        
         // 현재 타이틀의 포인트를 가져온다.
         let fontSize = cell.titleLabel.font.pointSize
         // attributeText에 font를 적용한 Text를 넣는다.
@@ -667,6 +664,17 @@ extension MonthlyPlanViewController: BEMCheckBoxDelegate {
 class TodoCell: UITableViewCell {
     @IBOutlet var checkBox: BEMCheckBox!
     @IBOutlet var titleLabel: UILabel!
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // 셀의 밑줄을 그린다
+        self.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
+    }
 }
 
 
