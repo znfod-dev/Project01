@@ -34,7 +34,10 @@ extension DBManager {
         let id = dateFormatter.string(from: date)
         if let dbDiary = self.database.objects(ModelDBDiary.self).filter("id = '\(id)'").first {
             let diary = ModelDiary.init(dbDiary: dbDiary)
-            
+            let dbTodoList = self.database.objects(ModelDBTodo.self).filter("date = '\(id)'")
+            for dbTodo in dbTodoList {
+                diary.todoList.append(ModelTodo.init(dbTodo: dbTodo))
+            }
             return diary
         }else {
             let diary = ModelDiary.init()

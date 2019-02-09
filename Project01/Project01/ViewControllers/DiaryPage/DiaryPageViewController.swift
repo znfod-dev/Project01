@@ -31,16 +31,8 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("currentDate : \(currentDate)")
-        self.diary = DBManager.sharedInstance.selectDiary(date: currentDate)
-        print("self.diary : \(self.diary.todoList)")
-        self.tableView.reloadData()
+        
+        self.loadDiary()
     }
     
     func setTableSetting() {
@@ -105,7 +97,7 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         
         if self.checkMaximumDate() {
             self.currentDate = Calendar.current.date(byAdding: .day, value: +1, to: self.currentDate)!
-            self.tableView.reloadData()
+            self.loadDiary()
         } else {
             self.showAlert(title: "Warning", message: "마지막 페이지입니다.", submitTitle: "확인", submitHandler: { submit in
                 
@@ -119,7 +111,7 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         print("handleSwipeRightGesture")
         if self.checkMinimumDate() {
             self.currentDate = Calendar.current.date(byAdding: .day, value: -1, to: self.currentDate)!
-            self.tableView.reloadData()
+            self.loadDiary()
         } else {
             self.showAlert(title: "Warning", message: "첫 페이지입니다.", submitTitle: "확인", submitHandler: { submit in
                 
@@ -154,4 +146,14 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
             return true
         }
     }
+    
+    // 다이어리 가져오기
+    func loadDiary() {
+        print("currentDate : \(currentDate)")
+        self.diary = DBManager.sharedInstance.selectDiary(date: currentDate)
+        print("self.diary : \(self.diary.todoList)")
+        self.tableView.reloadData()
+    }
+    
+    
 }

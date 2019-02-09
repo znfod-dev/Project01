@@ -16,27 +16,19 @@ class ZnTextView: UITextView {
     }
     override func caretRect(for position: UITextPosition) -> CGRect {
         var superRect = super.caretRect(for: position)
-        print("caretRect : \(superRect)")
         guard let isFont = self.font else {
-            print("caretRect update : \(superRect)")
             return superRect
             
         }
         
         superRect.size.height = isFont.pointSize - isFont.descender
         superRect.origin.y = superRect.origin.y + isFont.pointSize
-        print("caretRect update : \(superRect)")
         return superRect
     }
     override func firstRect(for range: UITextRange) -> CGRect {
-        print("firstRect")
         let superRect = super.firstRect(for: range)
         return superRect
     }
-    
-    //let selectionRange = self.selectedTextRange
-    //let selectionStartRect = self.caretRect(for: (selectionRange?.start)!)
-    //let selectionEndRect = self.caretRect(for: (selectionRange?.end)!)
     
     
 }

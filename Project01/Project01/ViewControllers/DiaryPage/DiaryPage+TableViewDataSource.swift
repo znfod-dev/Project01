@@ -93,7 +93,6 @@ extension DiaryPageViewController {
                 backgroundView.isUserInteractionEnabled = false
                 cell.addSubview(backgroundView)
             }
-            print("cell : \(cell.frame.height)")
         }
         return cell
     }
