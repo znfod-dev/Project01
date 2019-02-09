@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'customfont';
+  font-style: normal;
+  font-weight: normal;
+  src: url(./font/NotoSansKR-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'latofont';
+  font-style: normal;
+  font-weight: normal;
+  src: url(./font/Lato-Regular.woff) format('woff');
+}
+
+/* 애드캡슐 UI개발팀 guide reset CSS */
+/* CSS 적용순서 : 아이디 > 태그와 클래스 > 클래스 > 태그 /*
+/* CSS 선택자 선언순서 : Type Selector, Layout Selector, Class Selector, Etc */
+/* CSS 속성 선언순서 : display, position, float/clear, overflow, padding/margin, width/height, border, background, color/font, align, etc */
+html,body,div,p,iframe,frameset, h1,h2,h3,h4,h5,h6, strong,span,b,em,var,label,legend, ul,ol,li,dl,dt,dd,
+table,thead,tbody,tfoot,tr,th,td,caption, form,fieldset,input,textarea, sub,sup,img,a,del,button,pre,
+header,footer,section,article,aside {padding:0;margin:0;box-sizing:border-box;}
+
+body {color:#555;font-size:13px;line-height:normal;font-family:'customfont','Malgun Gothic','돋음',Dotum,Apple SD Gothic Neo,AppeGothic,Arial,Helvetica,sans-serif;}
+body.bg {background: #eeeeee;}
+
+/* 태그 리셋 */
+button {position:relative;background:transparent;cursor:pointer;}
+img {vertical-align:top;}
+img,button,fieldset,table {border:0;}
+em, address, del {font-style:normal;}
+label,a {display:inline-block;}
+strong,b {font-weight:bold;}
+
+/* form */
+select,label,button,textarea {border-radius: 0; -webkit-border-radius:0; background-color:transparent;color:#222;font-size:13px;line-height:normal;font-family:'customfont','맑은 고딕','Malgun Gothic','돋음',Dotum,Apple SD Gothic Neo,AppeGothic,Arial,Helvetica,sans-serif;vertical-align:middle;-webkit-appearance: none;appearance: none;-moz-appearance: none;}
+button {vertical-align:top;}
+textarea {padding:10px;border:1px solid #d5d5d5;color:#222;background:#fafafa;font-family:'customfont','맑은 고딕','Malgun Gothic','돋음',Dotum,Apple SD Gothic Neo,AppeGothic,Arial,Helvetica,sans-serif;}
+textarea:target,
+textarea:focus {border:3px solid #000;padding:8px 7px 8px 9px;}
+select {height:46px;}
+
+/* 목록 스타일 리셋 */
+ul, ol, li {list-style:none;}
+
+/* table */
+table {width:100%;border-collapse:separate;border-spacing:0;}
+th, td {word-break:keep-all;word-wrap:break-word;}
+
+/* alink 세팅 */
+a {border:0;color:#222;text-decoration:none;}
+a:hover {text-decoration:none;}
+a.on {height:auto;text-indent:inherit;background-image:none;}
+
+/* 대체텍스트 and 숨김처리 */
+caption, legend, .hidden {position:absolute !important;top:0;left:0;overflow:hidden;width:0 !important;height:0 !important;font-size:0 !important;line-height:0 !important;}
+.lato {font-family: 'latofont',sans-serif;}

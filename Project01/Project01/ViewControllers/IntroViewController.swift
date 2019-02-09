@@ -18,9 +18,6 @@ class IntroViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		let isCloudMask = UIImageView(image: UIImage(named: "img_cloud_mask"))
-		ivCloud.mask = isCloudMask
-		
 		ivRefreshMask = UIImageView(image: UIImage(named: "img_refresh_mask"))
 		ivRefresh.mask = ivRefreshMask
 		
