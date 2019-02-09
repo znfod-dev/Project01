@@ -339,7 +339,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             // 시작날 - 마지막날
             let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
             if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
-                DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: startDate)
+                DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: endDate)
             }else {
                 self.okAlert("Warning", "마지막날짜를 시작날짜보다 일찍 설정할 수 없습니다.")
             }
