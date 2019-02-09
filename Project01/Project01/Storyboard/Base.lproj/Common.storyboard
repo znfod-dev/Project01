@@ -265,5 +265,24 @@
             </objects>
             <point key="canvasLocation" x="1991" y="-1630"/>
         </scene>
+        <!--Base Web View Controller-->
+        <scene sceneID="F6i-RH-MDs">
+            <objects>
+                <viewController storyboardIdentifier="BaseWebViewController" id="lGe-Qy-deg" customClass="BaseWebViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B3b-ez-com"/>
+                        <viewControllerLayoutGuide type="bottom" id="lol-dA-1TT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dwh-yi-5VA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Atc-Pd-wfa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUV-eU-uCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1145" y="-908"/>
+        </scene>
     </scenes>
 </document>
