@@ -325,11 +325,24 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         if type == 0 {
             print("\(self.monthPickerView.date)")
             let startDate = self.monthPickerView.date
-            DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: startDate)
+            // 시작날 - 마지막날
+            let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+            if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
+                DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: startDate)
+            }else {
+                self.okAlert("Warning", "시작날짜를 마지막날짜보다 늦게 설정할 수 없습니다.")
+            }
             // type == 1 종료일
         }else if type == 1 {
             print("\(self.monthPickerView.date)")
             let endDate = self.monthPickerView.date
+            // 시작날 - 마지막날
+            let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
+            if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
+                DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: startDate)
+            }else {
+                self.okAlert("Warning", "마지막날짜를 시작날짜보다 일찍 설정할 수 없습니다.")
+            }
             DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: endDate)
         }
         self.monthPickerView.dismissMonthPickerView()
