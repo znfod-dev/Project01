@@ -343,7 +343,6 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             }else {
                 self.okAlert("Warning", "마지막날짜를 시작날짜보다 일찍 설정할 수 없습니다.")
             }
-            DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: endDate)
         }
         self.monthPickerView.dismissMonthPickerView()
         self.tableView.reloadData()
