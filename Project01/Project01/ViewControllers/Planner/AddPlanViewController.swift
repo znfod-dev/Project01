@@ -43,7 +43,7 @@ class AddPlanViewController: UIViewController {
     
     // 초기 세팅
     func initSet() {
-        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.3)
+        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.5)
         
         // 오늘 날짜로 세팅
         self.startDayLabel.text = self.startDay
