@@ -20,6 +20,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     var pickerViewArray = 0
     
     var datePickerView:DatePickerView!
+    var monthPickerView:MonthPickerView!
     var timePickerView:TimePickerView!
     var fontSizePickerView:PickerView!
     
@@ -38,11 +39,17 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     // PickerView 추가
     func addPickerViews() {
-        
+        /*
         self.datePickerView = DatePickerView.initWithNib(frame: self.view.frame)
         let dateSubmit = UITapGestureRecognizer(target: self, action: #selector(handleDateSubmit(_:)))
         self.datePickerView.submitBtn.addGestureRecognizer(dateSubmit)
         self.view.addSubview(self.datePickerView)
+        */
+        self.monthPickerView = MonthPickerView.initWithNib(frame: self.view.frame)
+        let monthSubmit = UITapGestureRecognizer(target: self, action: #selector(handleMonthSubmit(_:)))
+        self.monthPickerView.submitBtn.addGestureRecognizer(monthSubmit)
+      
+        self.view.addSubview(self.monthPickerView)
         
         self.timePickerView = TimePickerView.initWithNib(frame: self.view.frame)
         let timeSubmit = UITapGestureRecognizer(target: self, action: #selector(handleTimeSubmit(_:)))
@@ -142,9 +149,8 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier:"ko_KR")
-                formatter.dateFormat = "yyyy-MM-dd"
+                formatter.dateFormat = "yyyy-MM"
                 let minimumDate = formatter.string(from: startDate)
-                //cell.startDateLabel.text = minimumDate
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.startDateLabel.attributedText = FontManager.shared.getTextWithFont(text: minimumDate)
             }else if row == 1 {
@@ -153,9 +159,8 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier:"ko_KR")
-                formatter.dateFormat = "yyyy-MM-dd"
+                formatter.dateFormat = "yyyy-MM"
                 let maximumDate = formatter.string(from: endDate)
-                //cell.lastDateLabel.text = maximumDate
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.lastDateLabel.attributedText = FontManager.shared.getTextWithFont(text: maximumDate)
             }else if row == 2 {
@@ -223,12 +228,12 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         if section == 0 {
             if row == 0 {
                 let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
-                self.datePickerView.submitBtn.tag = 0
-                self.showDatePickerView(date: startDate)
+                self.monthPickerView.submitBtn.tag = 0
+                self.showMonthPickerView(date: startDate)
             }else if row == 1 {
                 let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
-                self.datePickerView.submitBtn.tag = 1
-                self.showDatePickerView(date: endDate)
+                self.monthPickerView.submitBtn.tag = 1
+                self.showMonthPickerView(date: endDate)
             }else if row == 2 {
                 let alarmTime = DBManager.sharedInstance.loadAlarmTimeFromUD()
                 self.timePickerView.submitBtn.tag = 0
@@ -261,6 +266,10 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     func showDatePickerView(date:Date) {
         
         self.datePickerView.showDatePickerView(date: date)
+    }
+    func showMonthPickerView(date:Date) {
+        
+        self.monthPickerView.showMonthPickerView(date: date)
     }
     func showTimePickerView(time:Date) {
         self.timePickerView.showTimePickerView(time: time)
@@ -305,6 +314,25 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: endDate)
         }
         self.datePickerView.dismissDatePickerView()
+        self.tableView.reloadData()
+        
+    }
+    @objc func handleMonthSubmit(_ recognizer : UITapGestureRecognizer) {
+        let view = recognizer.view!
+        let type = view.tag
+        print("type : \(type)")
+        // type == 0 시작일
+        if type == 0 {
+            print("\(self.monthPickerView.date)")
+            let startDate = self.monthPickerView.date
+            DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: startDate)
+            // type == 1 종료일
+        }else if type == 1 {
+            print("\(self.monthPickerView.date)")
+            let endDate = self.monthPickerView.date
+            DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: endDate)
+        }
+        self.monthPickerView.dismissMonthPickerView()
         self.tableView.reloadData()
         
     }

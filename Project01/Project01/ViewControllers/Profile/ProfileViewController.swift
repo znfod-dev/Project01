@@ -153,7 +153,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let text = textField.text!
+        // let text = textField.text!
         let tag = textField.tag
         if tag == Profile.name.section() {
             surnameTextField.becomeFirstResponder()

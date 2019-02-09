@@ -490,7 +490,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="A2g-TG-5pr" id="8R2-t6-pjS"/>
-                        <segue destination="CfC-CI-vWd" kind="show" id="UNH-O7-IUt"/>
+                        <segue destination="CfC-CI-vWd" kind="show" identifier="showopensource" id="UNH-O7-IUt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQJ-UE-pRq" userLabel="First Responder" sceneMemberID="firstResponder"/>

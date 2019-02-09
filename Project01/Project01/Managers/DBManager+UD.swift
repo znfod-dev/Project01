@@ -10,19 +10,6 @@ import UIKit
 
 extension DBManager {
     
-    // 초기설정
-    func firstInit() {
-        let font = UIFont.init(name: FontType.nanumBarunpenR.ttf(), size: 20.0)
-        saveFontInUD(font: font!)
-        
-        let minDate = Date().startOfYear()
-        DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: minDate)
-        
-        let maxDate = Date().endOfYear()
-        DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: maxDate)
-        
-    }
-    
     func saveFontInUD(font:UIFont) {
         print("saveFontInUD")
         let fontName = font.fontName

@@ -9,19 +9,21 @@
 import UIKit
 
 class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var currentDate = Date()
     var diary = ModelDiary()
+    var minimumDate = DBManager.sharedInstance.loadMinimumDateFromUD()
+    var maximumDate = DBManager.sharedInstance.loadMaximumDateFromUD()
     
     var activeView:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		// sama73 : 375화면 기준으로 스케일 적용
-		let scale: CGFloat = DEF_WIDTH_375_SCALE
-		view.transform = view.transform.scaledBy(x: scale, y: scale)
+        
+        // sama73 : 375화면 기준으로 스케일 적용
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         self.setTableSetting()
         
@@ -91,7 +93,7 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
     }
-
+    
     // MARK:- Actions
     @IBAction func backBtnClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -101,9 +103,55 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
     override func handleSwipeLeftGesture(_ recognizer: UISwipeGestureRecognizer) {
         print("handleSwipeLeftGesture")
         
+        if self.checkMaximumDate() {
+            self.currentDate = Calendar.current.date(byAdding: .day, value: +1, to: self.currentDate)!
+            self.tableView.reloadData()
+        } else {
+            self.showAlert(title: "Warning", message: "마지막 페이지입니다.", submitTitle: "확인", submitHandler: { submit in
+                
+            }, cancelTitle: "취소", cancelHandler: { cancel in
+                
+            })
+        }
+        
     }
     override func handleSwipeRightGesture(_ recognizer: UISwipeGestureRecognizer) {
         print("handleSwipeRightGesture")
+        if self.checkMinimumDate() {
+            self.currentDate = Calendar.current.date(byAdding: .day, value: -1, to: self.currentDate)!
+            self.tableView.reloadData()
+        } else {
+            self.showAlert(title: "Warning", message: "첫 페이지입니다.", submitTitle: "확인", submitHandler: { submit in
+                
+            }, cancelTitle: "취소", cancelHandler: { cancel in
+                
+            })
+        }
         
+    }
+    // 최소 날짜 검사
+    func checkMinimumDate() -> Bool {
+        let updatePage = Calendar.current.date(byAdding: .day, value: -1, to: self.currentDate)
+        let temp = updatePage!.timeIntervalSince(self.minimumDate)
+        if Double(temp) < 0 {
+            print("제한범위를 넘어갔습니다.")
+            return false
+        }else {
+            
+            return true
+        }
+    }
+    // 최대 날짜 검사
+    func checkMaximumDate() -> Bool {
+        
+        let updatePage = Calendar.current.date(byAdding: .day, value: 1, to: self.currentDate)
+        let temp = updatePage!.timeIntervalSince(self.maximumDate)
+        if Double(temp) > 0 {
+            print("제한범위를 넘어갔습니다.")
+            return false
+        }else {
+            
+            return true
+        }
     }
 }
