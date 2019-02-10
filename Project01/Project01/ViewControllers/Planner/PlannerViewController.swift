@@ -30,6 +30,7 @@ class PlannerViewController: UIViewController {
     }
     
     var isModi: Bool? = false
+    var plan = ModelPlan() // detailVC로 넘겨줄 plan
     
         
     
@@ -74,20 +75,11 @@ class PlannerViewController: UIViewController {
     
     
     
-    @IBAction func addBtnClick(_ sender: Any) {
-        let addPlanVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
-        
-        // 화면 넘기는 애니메이션
-        addPlanVC.hero.modalAnimationType = .selectBy(presenting: .push(direction: .left), dismissing: .push(direction: .right))
-        addPlanVC.hero.isEnabled = true
-        
-    }
-    
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addPlanVC = segue.destination as? AddPlanViewController {
+        if let addPlanVC = segue.destination as? AddPlanViewController { // 추가 버튼을 눌렀을 때
             addPlanVC.delegate = self
+        } else if let detailPlanVC = segue.destination as? DetailPlanViewController { // 디테일 화면으로 넘어갈 때
+            detailPlanVC.plan = self.plan
         }
     }
 }
@@ -122,15 +114,8 @@ extension PlannerViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
-        let detailPlanVC = storyboard.instantiateViewController(withIdentifier: "DetailPlanViewController") as! DetailPlanViewController
-        detailPlanVC.hero.modalAnimationType = .selectBy(presenting: .push(direction: .left), dismissing: .push(direction: .right))
-        detailPlanVC.hero.isEnabled = true
-        
-        let plan = self.planArray[indexPath.row]
-        detailPlanVC.plan = plan
-        
-        self.navigationController?.pushViewController(detailPlanVC, animated: true)
+        self.plan = self.planArray[indexPath.row]
+        self.performSegue(withIdentifier: "planToDetail", sender: self)
     }
     
     
