@@ -93,7 +93,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 0
         if section == 0 {
-            numberOfRow = 6
+            numberOfRow = 5
         }else if section == 1 {
             numberOfRow = 2
         }else if section == 2 {
@@ -189,9 +189,30 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
             
             }else if row == 5 {
+                print("SettingPagingCell")
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingPagingCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 
+                let pagingNumber = DBManager.sharedInstance.loadPagingNumberFromUD()
+               
+                if pagingNumber == 1 {
+                    cell.pagingBtn.titleLabel?.text = "페이징1"
+                    cell.pagingBtn.tag = 1
+                    
+                }else if pagingNumber == 2 {
+                    cell.pagingBtn.titleLabel?.text = "페이징2"
+                    cell.pagingBtn.tag = 2
+                    
+                }else if pagingNumber == 3 {
+                    cell.pagingBtn.titleLabel?.text = "페이징3"
+                    cell.pagingBtn.tag = 3
+                    
+                }else {
+                    cell.pagingBtn.titleLabel?.text = "페이징1"
+                    cell.pagingBtn.tag = 1
+                    
+                    DBManager.sharedInstance.savePagingNumberInUD(value: 1)
+                }
             }else {
                 
             }
@@ -240,10 +261,12 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             if row == 0 {
                 let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
                 self.monthPickerView.submitBtn.tag = 0
+                self.monthPickerView.tag = 0
                 self.showMonthPickerView(date: startDate)
             }else if row == 1 {
                 let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
                 self.monthPickerView.submitBtn.tag = 1
+                self.monthPickerView.tag = 1
                 self.showMonthPickerView(date: endDate)
             }else if row == 2 {
                 let alarmTime = DBManager.sharedInstance.loadAlarmTimeFromUD()
@@ -393,7 +416,17 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func pagingBtnClicked(_ sender: Any) {
-        
+        print("pagingBtnClicked")
+        let tag = (sender as! UIButton).tag
+        print("tag : \(tag)")
+        if tag == 1 {
+            DBManager.sharedInstance.savePagingNumberInUD(value: 2)
+        }else if tag == 2 {
+            DBManager.sharedInstance.savePagingNumberInUD(value: 3)
+        }else if tag == 3 {
+            DBManager.sharedInstance.savePagingNumberInUD(value: 1)
+        }
+        self.tableView.reloadRows(at: [IndexPath.init(row: 5, section: 0)], with: .automatic)
     }
     
     @IBAction func lunarValueChanged(_ sender: Any) {

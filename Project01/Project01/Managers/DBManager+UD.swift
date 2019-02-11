@@ -79,4 +79,13 @@ extension DBManager {
         let value = UserDefaults.standard.bool(forKey: kBool_isLunarCalendar)
         return value
     }
+    // MARK: - 페이징선택
+    func savePagingNumberInUD(value:Int) {
+        UserDefaults.standard.set(value, forKey: kInt_pagingNumber)
+        UserDefaults.standard.synchronize()
+    }
+    func loadPagingNumberFromUD() -> Int {
+        let value = UserDefaults.standard.integer(forKey: kInt_pagingNumber)
+        return value
+    }
 }

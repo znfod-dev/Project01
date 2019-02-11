@@ -30,6 +30,11 @@ let DEF_TIMEOUT_INTERVAL: TimeInterval = 10.0
 let kBool_isFirstAppRun = "isFirstAppRunKey"
 // 음력 키값
 let kBool_isLunarCalendar = "isLunarCalendarKey"
+// 페이징 키값
+// 1
+// 2
+// 3
+let kInt_pagingNumber = "pagingNumberKey"
 // 시작날짜
 let kDate_MinimumDate = "minimumDateKey"
 // 마지막날짜

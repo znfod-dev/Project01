@@ -104,17 +104,27 @@ class MonthPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         let calendar = Calendar.current
         var dateComponents: DateComponents? = calendar.dateComponents([.year, .month], from: self.date)
+        print("self.date : \(self.date)")
         if pickerView.tag == 0 {
             dateComponents?.month = self.monthArray[row]
             // 시작날 - 마지막날
-            self.date = calendar.date(from: dateComponents!)!
+            if self.tag == 0 {
+                self.date = Date().startOfMonth(date: calendar.date(from: dateComponents!)!)
+            }else if self.tag == 1 {
+                self.date = Date().endOfMonth(date: calendar.date(from: dateComponents!)!)
+            }
         }else if pickerView.tag == 1 {
             dateComponents?.year = self.yearArray[row]
             // 시작날 - 마지막날
-            self.date = Date().endOfMonth(date: calendar.date(from: dateComponents!)!)
+            if self.tag == 0 {
+                self.date = Date().startOfMonth(date: calendar.date(from: dateComponents!)!)
+            }else if self.tag == 1 {
+                self.date = Date().endOfMonth(date: calendar.date(from: dateComponents!)!)
+            }
         }else {
             
         }
+        print("self.date : \(self.date)")
         
         
     }

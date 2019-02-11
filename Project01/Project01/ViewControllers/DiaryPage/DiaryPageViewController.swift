@@ -32,6 +32,10 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
         self.loadDiary()
     }
     
@@ -59,6 +63,7 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         activeView = textView
         
     }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         print("textViewDidEndEditing")
         self.diary.diary = textView.text
@@ -80,6 +85,7 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
             aRect.size.height -= kbSize.height
         }
     }
+    
     @objc func keyboardWillHide(notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
         self.tableView.contentInset = contentInsets
