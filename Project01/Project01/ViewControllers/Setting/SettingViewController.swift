@@ -1,6 +1,6 @@
 //
 //  SettingViewController.swift
-//  Project01ForZn
+//  Project01
 //
 //  Created by 박종현 on 14/01/2019.
 //  Copyright © 2019 Znfod. All rights reserved.
@@ -16,7 +16,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     var fontPickerView:PickerView!
     
     var fontArray = FontType.allCases
-    var fontSizeArray = [14,16,18,20]
+    var fontSizeArray = [14,16,18]
     var pickerViewArray = 0
     
     var datePickerView:DatePickerView!
@@ -87,16 +87,18 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         // Profile
         // OpenSource
         //
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 0
         if section == 0 {
-            numberOfRow = 5
+            numberOfRow = 6
         }else if section == 1 {
-            numberOfRow = 3
+            numberOfRow = 2
         }else if section == 2 {
+            numberOfRow = 1
+        }else if section == 3 {
             numberOfRow = 1
         }else {
             
@@ -111,6 +113,8 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             titleForHeader = "Font"
         }else if section == 2 {
             titleForHeader = "Profile"
+        }else if section == 3 {
+            titleForHeader = "OpenSource"
         }else {
             
         }
@@ -184,6 +188,10 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingiCloudCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
             
+            }else if row == 5 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "SettingPagingCell") as! SettingTableCell
+                cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
+                
             }else {
                 
             }
@@ -199,16 +207,19 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 let fontSize = String("\(FontManager.shared.getTextFont().pointSize)")
                 cell.fontSizeLabel.attributedText = FontManager.shared.getTextWithFont(text: fontSize)
-            }else if row == 2 {
-                cell = tableView.dequeueReusableCell(withIdentifier: "SettingOpenSourceCell") as! SettingTableCell
-                cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
-                
             }else {
                 
             }
         }else if section == 2 {
             if row == 0 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingProfileCell") as! SettingTableCell
+                cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
+            }else {
+                
+            }
+        }else if section == 3 {
+            if row == 0 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "SettingOpenSourceCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
             }else {
                 
@@ -246,14 +257,18 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.showFontPickerView()
             }else if row == 1 {
                 self.showFontSizePickerView()
-            }else if row == 2 {
-                self.showOpenSourceView()
             }else {
                 
             }
         }else if section == 2 {
             if row == 0 {
                 self.showProfileView()
+            }else {
+                
+            }
+        }else if section == 3 {
+            if row == 0 {
+                self.showOpenSourceView()
             }else {
                 
             }
@@ -375,6 +390,10 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         FontManager.shared.setFontSize(size: CGFloat.init(fontSizeArray[temp]))
         self.fontSizePickerView.dismissPickerView()
         self.tableView.reloadData()
+    }
+    
+    @IBAction func pagingBtnClicked(_ sender: Any) {
+        
     }
     
     @IBAction func lunarValueChanged(_ sender: Any) {

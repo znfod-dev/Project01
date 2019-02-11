@@ -19,6 +19,8 @@ class SettingTableCell: UITableViewCell {
     @IBOutlet weak var fontSizeLabel: UILabel!
     
     @IBOutlet weak var lunarSwitch: UISwitch!
+    @IBOutlet weak var iCloudSwitch: UISwitch!
+    @IBOutlet weak var pagingBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -105,7 +105,6 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
                 
             })
         }
-        
     }
     override func handleSwipeRightGesture(_ recognizer: UISwipeGestureRecognizer) {
         print("handleSwipeRightGesture")
@@ -119,7 +118,6 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
                 
             })
         }
-        
     }
     // 최소 날짜 검사
     func checkMinimumDate() -> Bool {
