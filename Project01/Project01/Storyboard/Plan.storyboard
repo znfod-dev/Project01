@@ -83,7 +83,6 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="icon_add.png"/>
                                         <connections>
-                                            <action selector="addBtnClick:" destination="O5f-xT-WUY" eventType="touchUpInside" id="Jqt-CM-uem"/>
                                             <segue destination="Zjm-XO-pua" kind="show" id="PEp-1r-BHo"/>
                                         </connections>
                                     </button>
@@ -160,7 +159,7 @@
                         <outlet property="emptyView" destination="eEJ-t0-4xt" id="opt-G4-WFP"/>
                         <outlet property="tableView" destination="NZV-6g-K3w" id="jWY-DY-sbF"/>
                         <outlet property="topView" destination="LpW-wJ-BVx" id="E4w-Zc-Y6A"/>
-                        <segue destination="fzg-R4-6vY" kind="show" id="cHc-id-07h"/>
+                        <segue destination="fzg-R4-6vY" kind="show" identifier="planToDetail" id="cHc-id-07h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MdV-ou-iee" userLabel="First Responder" sceneMemberID="firstResponder"/>
