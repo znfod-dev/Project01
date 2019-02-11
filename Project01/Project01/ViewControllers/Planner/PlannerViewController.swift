@@ -85,13 +85,6 @@ class PlannerViewController: UIViewController {
 }
 
 
-
-extension PlannerViewController: UITableViewDelegate {
-    
-}
-
-
-
 extension PlannerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.planArray.count
@@ -112,14 +105,6 @@ extension PlannerViewController: UITableViewDataSource {
     }
     
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.plan = self.planArray[indexPath.row]
-        self.performSegue(withIdentifier: "planToDetail", sender: self)
-    }
-    
-    
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             let plan = self.planArray[indexPath.row]
@@ -131,6 +116,13 @@ extension PlannerViewController: UITableViewDataSource {
     }
 }
 
+
+extension PlannerViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.plan = self.planArray[indexPath.row]
+		self.performSegue(withIdentifier: "planToDetail", sender: self)
+	}
+}
 
 
 class PlanCell: UITableViewCell {

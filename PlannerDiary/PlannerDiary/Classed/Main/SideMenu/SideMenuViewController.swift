@@ -148,7 +148,7 @@ extension SideMenuViewController: SideMenuControllerDelegate {
 }
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
-    // MARK: - UITableViewDelegate
+    // MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -209,7 +209,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
      }
      */
     
-    // MARK: - UITableViewDataSource
+    // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
