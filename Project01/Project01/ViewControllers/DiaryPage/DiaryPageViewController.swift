@@ -105,11 +105,10 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
             self.currentDate = Calendar.current.date(byAdding: .day, value: +1, to: self.currentDate)!
             self.loadDiary()
         } else {
-            self.showAlert(title: "Warning", message: "마지막 페이지입니다.", submitTitle: "확인", submitHandler: { submit in
-                
-            }, cancelTitle: "취소", cancelHandler: { cancel in
-                
-            })
+			let popup = AlertMessagePopup.messagePopup(message: "마지막 페이지입니다.")
+			popup.addActionConfirmClick("확인", handler: {
+				
+			})
         }
     }
     override func handleSwipeRightGesture(_ recognizer: UISwipeGestureRecognizer) {
@@ -118,11 +117,10 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
             self.currentDate = Calendar.current.date(byAdding: .day, value: -1, to: self.currentDate)!
             self.loadDiary()
         } else {
-            self.showAlert(title: "Warning", message: "첫 페이지입니다.", submitTitle: "확인", submitHandler: { submit in
-                
-            }, cancelTitle: "취소", cancelHandler: { cancel in
-                
-            })
+			let popup = AlertMessagePopup.messagePopup(message: "첫 페이지입니다.")
+			popup.addActionConfirmClick("확인", handler: {
+				
+			})
         }
     }
     // 최소 날짜 검사
