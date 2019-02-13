@@ -60,6 +60,11 @@ class PageController: UIPageViewController {
 		
         // Do any additional setup after loading the view.
     }
+	
+	// 타임 아웃 되었을때...
+	@objc func UserInteractionClear() {
+		self.view.isUserInteractionEnabled = true
+	}
 }
 
 extension PageController: UIPageViewControllerDataSource {
@@ -79,6 +84,11 @@ extension PageController: UIPageViewControllerDataSource {
 				prevIndex = arrVC.count - 1
 			}
 			
+			// 페이징 애니 완료 될때까지 화면 제어 막음
+			self.view.isUserInteractionEnabled = false
+			// 스케쥴 시작
+			self.perform(#selector(self.UserInteractionClear), with: nil, afterDelay: 2.0)
+
 			return arrVC[prevIndex]
 		}
 		else {
@@ -102,6 +112,11 @@ extension PageController: UIPageViewControllerDataSource {
 				nextIndex = 0
 			}
 			
+			// 페이징 애니 완료 될때까지 화면 제어 막음
+			self.view.isUserInteractionEnabled = false
+			// 스케쥴 시작
+			self.perform(#selector(self.UserInteractionClear), with: nil, afterDelay: 2.0)
+
 			return arrVC[nextIndex]
 		}
 		else {
@@ -154,6 +169,11 @@ extension PageController: UIPageViewControllerDataSource {
 extension PageController: UIPageViewControllerDelegate {
 	public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
 		
+		// 페이징 애니 완료 될때까지 화면 제어 해제
+		self.view.isUserInteractionEnabled = true
+		// 스케쥴 종료
+		NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.UserInteractionClear), object: nil)
+
 		if completed == false {
 			return
 		}
