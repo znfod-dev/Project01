@@ -17,35 +17,37 @@ class Preferences {
 
 class SideMenuViewController: UIViewController {
 
-    @IBOutlet weak var vNavigation: UIView!
     @IBOutlet weak var lbMessage: UILabel!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tableView: UITableView!
-    
-    var arrMenuItem = [[String:String]]()
-    
+	
+	@IBOutlet weak var vCalendar: UIView!
+	@IBOutlet weak var vPlanlist: UIView!
+	@IBOutlet weak var vDiary: UIView!
+	@IBOutlet weak var vSetting: UIView!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        // IOS11 이하에서는 마진값 20을 더해준다.
-        if #available(iOS 11, *)  {
-        }
-        else{
-            topConstraint.constant = 20
-        }
-        
         // 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         // 그림자 처리
-        vNavigation.layer.shadowColor = UIColor.black.cgColor
-        vNavigation.layer.shadowOffset = CGSize(width: 0, height: 1)
-        vNavigation.layer.shadowOpacity = 0.1
+        vCalendar.layer.shadowColor = UIColor.black.cgColor
+        vCalendar.layer.shadowOffset = CGSize(width: 0, height: 2)
+        vCalendar.layer.shadowOpacity = 0.2
+		vPlanlist.layer.shadowColor = UIColor.black.cgColor
+		vPlanlist.layer.shadowOffset = CGSize(width: 0, height: 2)
+		vPlanlist.layer.shadowOpacity = 0.2
+		vDiary.layer.shadowColor = UIColor.black.cgColor
+		vDiary.layer.shadowOffset = CGSize(width: 0, height: 2)
+		vDiary.layer.shadowOpacity = 0.2
+		vSetting.layer.shadowColor = UIColor.black.cgColor
+		vSetting.layer.shadowOffset = CGSize(width: 0, height: 2)
+		vSetting.layer.shadowOpacity = 0.2
 
 		// 사이드 메뉴 폭
-		SideMenuController.preferences.basic.menuWidth = 270 * scale
+		SideMenuController.preferences.basic.menuWidth = DEF_SCREEN_375_WIDTH * scale
 		SideMenuController.preferences.basic.defaultCacheKey = "0"
 		SideMenuController.preferences.basic.direction = .left
 		SideMenuController.preferences.basic.enablePanGesture = false
@@ -62,9 +64,9 @@ class SideMenuViewController: UIViewController {
         sideMenuController?.delegate = self
         
         // init Data
-        arrMenuItem += [["TITLE":"월간 일정", "IMAGE":"menu_calendar"]]
-        arrMenuItem += [["TITLE":"계획리스트", "IMAGE":"menu_event_note"]]
-        arrMenuItem += [["TITLE":"설정", "IMAGE":"menu_setting"]]
+//        arrMenuItem += [["TITLE":"월간 일정", "IMAGE":"menu_calendar"]]
+//        arrMenuItem += [["TITLE":"계획리스트", "IMAGE":"menu_event_note"]]
+//        arrMenuItem += [["TITLE":"설정", "IMAGE":"menu_setting"]]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +91,30 @@ class SideMenuViewController: UIViewController {
     @IBAction func onCloseClick(_ sender: Any) {
         sideMenuController?.hideMenu()
     }
-    
+	
+	// 셀 클릭
+	@IBAction func onSelectRowAtClick(_ sender: UIButton) {
+		let tag = sender.tag
+		// 계획리스트
+		if tag == 1 {
+			sideMenuController?.setContentViewController(with: "1", animated: Preferences.shared.enableTransitionAnimation)
+			sideMenuController?.hideMenu()
+		}
+		// 다이어리
+		else if tag == 2 {
+		}
+		// 설정
+		else if tag == 3 {
+			sideMenuController?.setContentViewController(with: "2", animated: Preferences.shared.enableTransitionAnimation)
+			sideMenuController?.hideMenu()
+		}
+		// 월간 일정
+		else {
+			sideMenuController?.setContentViewController(with: "0", animated: Preferences.shared.enableTransitionAnimation)
+			sideMenuController?.hideMenu()
+		}
+	}
+	
     // MARK: - RealmDB SQL Excute
     // 프로필 정보 DB체크
     func selectDBProfile() {
@@ -116,12 +141,27 @@ class SideMenuViewController: UIViewController {
         
         // 성, 이름중 빈문자열이 아닐 경우
         if CommonUtil.isEmpty(surname as AnyObject) == false || CommonUtil.isEmpty(name as AnyObject) == false {
-            lbMessage.text = "\(surname)\(name)님의 다이어리 입니다."
-            lbMessage.textColor = UIColor(hex: 0x254EFF)
+			// 글자 속성 지정
+			let attrs1 = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)]
+			let attrs2 = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)]
+			
+			let strAttributed1 = NSMutableAttributedString(string:"\(surname)\(name)님", attributes:attrs1)
+			let strAttributed2 = NSMutableAttributedString(string:"의\n", attributes:attrs2)
+			let strAttributed3 = NSMutableAttributedString(string:"다이어리", attributes:attrs1)
+			let strAttributed4 = NSMutableAttributedString(string:"입니다.", attributes:attrs2)
+			
+			strAttributed1.append(strAttributed2)
+			strAttributed1.append(strAttributed3)
+			strAttributed1.append(strAttributed4)
+			
+			// 글자 자간 조정
+			let paragraphStyle = NSMutableParagraphStyle()
+			paragraphStyle.lineSpacing = 8
+			strAttributed1.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, strAttributed1.length))
+			lbMessage.attributedText = strAttributed1;
         }
         else {
             lbMessage.text = "프로필 정보를 설정해주세요!"
-            lbMessage.textColor = UIColor(hex: 0xFF1615)
         }
     }
 }
@@ -154,94 +194,5 @@ extension SideMenuViewController: SideMenuControllerDelegate {
     
     func sideMenuDidReveal(_ sideMenu: SideMenuController) {
         print("[Example] Menu did show.")
-    }
-}
-
-extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
-    // MARK: - UITableViewDataSource
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return arrMenuItem.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: SiceMenuCell = tableView.dequeueReusableCell(withIdentifier: "SiceMenuCell", for: indexPath) as! SiceMenuCell
-        
-        // Configure the cell...
-        let dicMenuItem = arrMenuItem[indexPath.row]
-        cell.setCellInfo(dicMenuItem)
-        
-        return cell
-    }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    // MARK: - UITableViewDelegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-         // 월간 일정
-        if indexPath.row == 0 {
-            print("planner")
-            sideMenuController?.setContentViewController(with: "0", animated: Preferences.shared.enableTransitionAnimation)
-            sideMenuController?.hideMenu()
-        }
-        // 계획리스트
-        else if indexPath.row == 1 {
-            sideMenuController?.setContentViewController(with: "1", animated: Preferences.shared.enableTransitionAnimation)
-            sideMenuController?.hideMenu()
-//            print("planner")
-//            let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
-//            let plannerVC = storyboard.instantiateViewController(withIdentifier: "_PlannerViewController") as! UINavigationController
-//            self.present(plannerVC, animated: true)
-        }
-        // 설정
-        else if indexPath.row == 2 {
-            sideMenuController?.setContentViewController(with: "2", animated: Preferences.shared.enableTransitionAnimation)
-            sideMenuController?.hideMenu()
-        }
     }
 }
