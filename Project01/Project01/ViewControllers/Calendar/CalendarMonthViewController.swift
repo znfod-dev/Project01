@@ -285,7 +285,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 53.0, height: 60.0)
+        return CGSize(width: 53.0, height: 55.0)
     }
 
     /*

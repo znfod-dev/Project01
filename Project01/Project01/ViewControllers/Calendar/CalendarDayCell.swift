@@ -66,38 +66,38 @@ class CalendarDayCell: UICollectionViewCell {
                 vToDay.isHidden = false
             }
             else {
-                lbDay.textColor = UIColor(hex: 0x222222)
+                lbDay.textColor = UIColor(hex: 0x2E2E39)
                 vToDay.isHidden = true
             }
         }
         // -1 or 1 이면 이전달, 다음달
         else {
-            lbDay.textColor = UIColor.lightGray
+            lbDay.textColor = UIColor(hex: 0xBBBBBB)
             vToDay.isHidden = true
         }
 		
         // 공휴일 체크
         if isHoliday == true {
 			// 공휴일 동그라미
-			if CommonUtil.isEmpty(holidayName as AnyObject) == false {
-				vHolidayCircle.isHidden = false
-			}
-			else {
-				vHolidayCircle.isHidden = true
-			}
+//			if CommonUtil.isEmpty(holidayName as AnyObject) == false {
+//				vHolidayCircle.isHidden = false
+//			}
+//			else {
+//				vHolidayCircle.isHidden = true
+//			}
 			
 			// 현재달
 			if monthDirection == 0 {
 				// 오늘일 경우
 				if CalendarManager.getTodayIndex() == cellIndex {
-					vHolidayCircle.backgroundColor = UIColor(hex: 0xffffff)
+//					vHolidayCircle.backgroundColor = UIColor(hex: 0xffffff)
 					lbDay.textColor = UIColor(hex: 0xffffff)
-					vToDay.backgroundColor = UIColor(hex: 0xff0000)
+					vToDay.backgroundColor = UIColor(hex: 0x8578DF)
 					vToDay.isHidden = false
 				}
 				else {
-					vHolidayCircle.backgroundColor = UIColor(hex: 0xff0000)
-					lbDay.textColor = UIColor(hex: 0xff0000)
+//					vHolidayCircle.backgroundColor = UIColor(hex: 0xF9553C)
+					lbDay.textColor = UIColor(hex: 0xF9553C)
 					vToDay.isHidden = true
 				}
 			}
@@ -105,32 +105,32 @@ class CalendarDayCell: UICollectionViewCell {
 			else {
 				// 오늘일 경우
 				if CalendarManager.getTodayIndex() == cellIndex {
-					vHolidayCircle.backgroundColor = UIColor(hex: 0xffffff)
+//					vHolidayCircle.backgroundColor = UIColor(hex: 0xffffff)
 					lbDay.textColor = UIColor(hex: 0xffffff)
-					vToDay.backgroundColor = UIColor(hex: 0xffaaaa)
+					vToDay.backgroundColor = UIColor(hex: 0x8578DF)
 					vToDay.isHidden = false
 				}
 				else {
-					vHolidayCircle.backgroundColor = UIColor(hex: 0xffaaaa)
-					lbDay.textColor = UIColor(hex: 0xffaaaa)
+//					vHolidayCircle.backgroundColor = UIColor(hex: 0xF9553C)
+					lbDay.textColor = UIColor(hex: 0xBBBBBB)
 					vToDay.isHidden = true
 				}
 			}
         }
         else {
 			// 공휴일 동그라미
-			vHolidayCircle.isHidden = true
+//			vHolidayCircle.isHidden = true
 			
 			// 현재달
 			if monthDirection == 0 {
 				// 오늘일 경우
 				if CalendarManager.getTodayIndex() == cellIndex {
 					lbDay.textColor = UIColor.white
-					vToDay.backgroundColor = UIColor(hex: 0x222222)
+					vToDay.backgroundColor = UIColor(hex: 0x8578DF)
 					vToDay.isHidden = false
 				}
 				else {
-					lbDay.textColor = UIColor(hex: 0x222222)
+					lbDay.textColor = UIColor(hex: 0x2E2E39)
 					vToDay.isHidden = true
 				}
 			}
@@ -139,11 +139,11 @@ class CalendarDayCell: UICollectionViewCell {
 				// 오늘일 경우
 				if CalendarManager.getTodayIndex() == cellIndex {
 					lbDay.textColor = UIColor.white
-					vToDay.backgroundColor = UIColor(hex: 0xaaaaaa)
+					vToDay.backgroundColor = UIColor(hex: 0x8578DF)
 					vToDay.isHidden = false
 				}
 				else {
-					lbDay.textColor = UIColor(hex: 0xaaaaaa)
+					lbDay.textColor = UIColor(hex: 0xBBBBBB)
 					vToDay.isHidden = true
 				}
 			}
@@ -151,7 +151,7 @@ class CalendarDayCell: UICollectionViewCell {
 		
 		// 셀선택
 		if CalendarManager.selectedCell == cellIndex {
-			vSelectedCell.isHidden = false
+//			vSelectedCell.isHidden = false
 			
 			// 선택했을때 공휴일 표시
 			if CommonUtil.isEmpty(holidayName as AnyObject) == false {
@@ -163,7 +163,7 @@ class CalendarDayCell: UICollectionViewCell {
 			}
 		}
 		else {
-			vSelectedCell.isHidden = true
+//			vSelectedCell.isHidden = true
 			vHoliday.isHidden = true
 		}
 		
@@ -177,11 +177,11 @@ class CalendarDayCell: UICollectionViewCell {
                 todoCount = 3
             }
             
-			let gapWidth: CGFloat = 6.0
+			let gapWidth: CGFloat = 5.0
 			// 페이지 컨트롤
 			vPageControl.gapWidth = gapWidth
-			vPageControl.normalItem = UIColor(hex: 0x0096FF)
-			vPageControl.selectedItem = UIColor(hex: 0x0096FF)
+			vPageControl.normalItem = UIColor(hex: 0x8578DF)
+			vPageControl.selectedItem = UIColor(hex: 0x8578DF)
 			vPageControl.setTotalPage(todoCount)
 			// 10px : 이미지 크기 8px 이미지 간격
 			vPageControlWidthConstraint.constant = (vPageControl.frame.size.height * CGFloat(todoCount) + gapWidth * CGFloat(todoCount-1))

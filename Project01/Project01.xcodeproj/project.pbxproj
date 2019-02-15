@@ -129,6 +129,8 @@
 		D927150B2216593400284967 /* menu_planlist@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D92715072216593400284967 /* menu_planlist@3x.png */; };
 		D927150E2216594100284967 /* icon_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D927150C2216594100284967 /* icon_back@3x.png */; };
 		D927150F2216594100284967 /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D927150D2216594100284967 /* icon_back@2x.png */; };
+		D92715122216913600284967 /* icon_drop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D92715102216913500284967 /* icon_drop@3x.png */; };
+		D92715132216913600284967 /* icon_drop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D92715112216913600284967 /* icon_drop@2x.png */; };
 		D9FB06D521FD7EB5006C4DCA /* CustomPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FB06D421FD7EB5006C4DCA /* CustomPageControlView.swift */; };
 		D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0C421F32B1A00BDA694 /* SideMenuViewController.swift */; };
 		D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FBE0C521F32B1B00BDA694 /* String+Substring.swift */; };
@@ -278,6 +280,8 @@
 		D92715072216593400284967 /* menu_planlist@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_planlist@3x.png"; sourceTree = "<group>"; };
 		D927150C2216594100284967 /* icon_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@3x.png"; sourceTree = "<group>"; };
 		D927150D2216594100284967 /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
+		D92715102216913500284967 /* icon_drop@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_drop@3x.png"; sourceTree = "<group>"; };
+		D92715112216913600284967 /* icon_drop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_drop@2x.png"; sourceTree = "<group>"; };
 		D9FB06D421FD7EB5006C4DCA /* CustomPageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageControlView.swift; sourceTree = "<group>"; };
 		D9FBE0C421F32B1A00BDA694 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D9FBE0C521F32B1B00BDA694 /* String+Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
@@ -553,6 +557,8 @@
 		D9030AA9220EA38F008D5A9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D92715112216913600284967 /* icon_drop@2x.png */,
+				D92715102216913500284967 /* icon_drop@3x.png */,
 				D927150D2216594100284967 /* icon_back@2x.png */,
 				D927150C2216594100284967 /* icon_back@3x.png */,
 				D9030AAA220EA38F008D5A9E /* icon_refresh@2x.png */,
@@ -769,6 +775,7 @@
 				D9030AFF220EA390008D5A9E /* img_cloud_sync@3x.png in Resources */,
 				D9030AE7220EA390008D5A9E /* icon_date_range@3x.png in Resources */,
 				D9030B10220EA390008D5A9E /* NanumBarunGothicLight.ttf in Resources */,
+				D92715132216913600284967 /* icon_drop@2x.png in Resources */,
 				D9030B11220EA390008D5A9E /* NanumBrush.ttf in Resources */,
 				D927150E2216594100284967 /* icon_back@3x.png in Resources */,
 				D9030AEA220EA390008D5A9E /* icon_setting@2x.png in Resources */,
@@ -790,6 +797,7 @@
 				D9030AF4220EA390008D5A9E /* icon_setting@3x.png in Resources */,
 				D9030AFB220EA390008D5A9E /* img_refresh_sync@2x.png in Resources */,
 				D9030B0C220EA390008D5A9E /* icon_close@2x.png in Resources */,
+				D92715122216913600284967 /* icon_drop@3x.png in Resources */,
 				D9030AE5220EA390008D5A9E /* icon_save@2x.png in Resources */,
 				9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */,
 				D9030AE8220EA390008D5A9E /* icon_notdata@3x.png in Resources */,

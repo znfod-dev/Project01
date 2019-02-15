@@ -13,9 +13,10 @@ import BEMCheckBox
 
 
 class MonthlyPlanViewController: UIViewController {
-    
+	
+	@IBOutlet var vNavigationBar: UIView!
     @IBOutlet var vWeekString: UIView!
-    @IBOutlet weak var lbCalendarTitle: UILabel!
+    @IBOutlet weak var btnCalendarTitle: UIButton!
     @IBOutlet var vContent: UIView!
     @IBOutlet var scrollView: InfiniteScrollView!
     @IBOutlet var vHLine: UIView!
@@ -72,9 +73,9 @@ class MonthlyPlanViewController: UIViewController {
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         // 그림자 처리
-        vWeekString.layer.shadowColor = UIColor.black.cgColor
-        vWeekString.layer.shadowOffset = CGSize(width: 0, height: 1)
-        vWeekString.layer.shadowOpacity = 0.1
+        vNavigationBar.layer.shadowColor = UIColor.black.cgColor
+        vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
+        vNavigationBar.layer.shadowOpacity = 0.2
         
         // 테이블 뷰 구분선 삭제
         self.todoTableView.separatorStyle = .none
@@ -227,13 +228,12 @@ class MonthlyPlanViewController: UIViewController {
     
     // 달력 타이틀 세팅
     func setCalendarTitle(centerIndex: Int = -1) {
-        
-        let monthTitle = CalendarManager.getMonthString(monthIndex: self.curentDate.month)
-        self.lbCalendarTitle.text = "\(monthTitle) \(self.curentDate.year)"
+		let title = String(format: "%d년 %02d월", self.curentDate.year, self.curentDate.month)
+		self.btnCalendarTitle.setTitle(title, for: .normal)
         
         let monthVC: CalendarMonthViewController? = arrChildController[centerIndex == -1 ? scrollView.centerIndex : centerIndex]
         if monthVC != nil {
-            let scrollHeight: CGFloat = CGFloat(monthVC!.cellLineCount) * 60.0
+            let scrollHeight: CGFloat = CGFloat(monthVC!.cellLineCount) * 55.0
             // -1은 라인 굵기
             todoListHeightConstraint.constant = vContent.bounds.height - scrollHeight - 1
             
