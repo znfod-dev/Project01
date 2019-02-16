@@ -50,6 +50,7 @@ class PageController: UIPageViewController {
 		for _ in 0..<3 {
             let viewController = VCInstance(name: "DiaryPage")
             viewController.currentDate = Calendar.current.date(byAdding: DateComponents(month: 0, day: countDay), to: currentDate)!
+			viewController.parentVC = self
             arrVC.append(viewController)
 			
 			countDay += 1

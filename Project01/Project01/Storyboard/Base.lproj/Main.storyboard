@@ -697,6 +697,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrS-Xc-lTP">
                                         <rect key="frame" x="10" y="12" width="36" height="36"/>
+                                        <accessibility key="accessibilityConfiguration" label="사이드메뉴"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="0eX-p5-cyu"/>
                                             <constraint firstAttribute="height" constant="36" id="Seq-6R-ZXw"/>

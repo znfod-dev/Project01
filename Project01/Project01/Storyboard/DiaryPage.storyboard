@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1J7-Gm-f0i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b2h-db-5vu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -311,12 +311,12 @@
             <point key="canvasLocation" x="376.80000000000001" y="-270.31484257871068"/>
         </scene>
         <!--Page Controller-->
-        <scene sceneID="DY7-1r-0Wo">
+        <scene sceneID="1Yx-6K-aoy">
             <objects>
-                <viewController storyboardIdentifier="Page" id="1J7-Gm-f0i" customClass="PageController" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PF6-rw-aWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController storyboardIdentifier="Page" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="b2h-db-5vu" customClass="PageController" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HSF-NQ-GFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-354" y="-270"/>
+            <point key="canvasLocation" x="-454" y="-270"/>
         </scene>
     </scenes>
     <resources>

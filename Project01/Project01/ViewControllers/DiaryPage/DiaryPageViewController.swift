@@ -11,6 +11,10 @@ import UIKit
 class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+	
+	// 부모VC
+	var parentVC: PageController?
+
     var currentDate = Date()
     var diary = ModelDiary()
     var minimumDate = DBManager.sharedInstance.loadMinimumDateFromUD()
@@ -156,4 +160,60 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
     }
     
     
+}
+
+extension DiaryPageViewController: UIScrollViewDelegate {
+	
+	// 스크롤 뷰에서 내용 스크롤을 시작할 시점을 대리인에게 알립니다.
+	
+	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+		print("scrollViewWillBeginDragging:")
+		
+	}
+	
+	// 드래그가 스크롤 뷰에서 끝났을 때 대리자에게 알립니다.
+	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+		print("scrollViewDidEndDragging:willDecelerate:")
+		
+	}
+	
+	// (현재 못씀)
+	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+		print("scrollViewDidEndScrollingAnimation")
+		
+	}
+	
+	// 스크롤뷰가 Touch-up 이벤트를 받아 스크롤 속도가 줄어들때 실행된다.
+	func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+		print("scrollViewWillBeginDecelerating")
+		
+	}
+	
+	// 스크롤 애니메이션의 감속 효과가 종료된 후에 실행된다.
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+		// 타임 아웃 되었을때...
+		if let parentVC = self.parentVC {
+			parentVC.UserInteractionClear()
+		}
+	}
+	
+	// scrollView.scrollsToTop = YES 설정이 되어 있어야 아래 이벤트를 받을수 있다.
+	// 스크롤뷰가 가장 위쪽으로 스크롤 되기 전에 실행된다. NO를 리턴할 경우 위쪽으로 스크롤되지 않도록 한다.
+	//- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
+	//{
+	//    NSLog(@"scrollViewShouldScrollToTop");
+	//    return YES;
+	//}
+	
+	// 스크롤뷰가 가장 위쪽으로 스크롤 된 후에 실행된다.
+	//- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
+	//{
+	//    NSLog(@"scrollViewDidScrollToTop");
+	//}
+	
+	// 사용자가 콘텐츠 스크롤을 마쳤을 때 대리인에게 알립니다.
+	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+		print("scrollViewWillEndDragging:withVelocity:targetContentOffset:")
+		
+	}
 }
