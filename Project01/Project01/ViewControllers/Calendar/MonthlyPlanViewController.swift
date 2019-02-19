@@ -16,7 +16,7 @@ class MonthlyPlanViewController: UIViewController {
 	
 	@IBOutlet var vNavigationBar: UIView!
     @IBOutlet var vWeekString: UIView!
-    @IBOutlet weak var btnCalendarTitle: UIButton!
+    @IBOutlet weak var lbCalendarTitle: UILabel!
     @IBOutlet var vContent: UIView!
     @IBOutlet var scrollView: InfiniteScrollView!
     @IBOutlet var vHLine: UIView!
@@ -228,8 +228,7 @@ class MonthlyPlanViewController: UIViewController {
     
     // 달력 타이틀 세팅
     func setCalendarTitle(centerIndex: Int = -1) {
-		let title = String(format: "%d년 %02d월", self.curentDate.year, self.curentDate.month)
-		self.btnCalendarTitle.setTitle(title, for: .normal)
+		self.lbCalendarTitle.text = String(format: "%d년 %02d월", self.curentDate.year, self.curentDate.month)
         
         let monthVC: CalendarMonthViewController? = arrChildController[centerIndex == -1 ? scrollView.centerIndex : centerIndex]
         if monthVC != nil {

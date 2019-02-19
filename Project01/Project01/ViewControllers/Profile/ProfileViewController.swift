@@ -14,7 +14,10 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     // 앱 최초 실행인지 체크
     var isFirstAppRun: Bool = false
-    
+	
+	// 모달인가?
+    var isModal: Bool = false
+	
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnClose: UIButton!
     
@@ -44,8 +47,8 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
 
-        // 앱 최초 실행인지 체크
-        if isFirstAppRun == true {
+        // 앱 최초 실행인지 체크 or 모달인지?
+        if isFirstAppRun == true || isModal == true {
             btnBack.isHidden = true
             btnClose.isHidden = false
         }
@@ -76,8 +79,16 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     
     // sama73 : 닫기 버큰 액션
     @IBAction func closeBtnClicked(_ sender: Any) {
-        let sideMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuController")
-        UIApplication.shared.keyWindow?.rootViewController = sideMenuController
+		// 사이드 메뉴 모달 오픈
+		if isModal == true {
+			self.view.endEditing(true)
+			self.dismiss(animated: true, completion: nil)
+		}
+		// 최초 실행
+		else {
+			let sideMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuController")
+			UIApplication.shared.keyWindow?.rootViewController = sideMenuController
+		}
     }
     
     func setTableSetting() {

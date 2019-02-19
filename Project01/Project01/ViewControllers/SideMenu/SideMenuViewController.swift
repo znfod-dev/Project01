@@ -92,6 +92,18 @@ class SideMenuViewController: UIViewController {
         sideMenuController?.hideMenu()
     }
 	
+	// 프로필 설정
+	@IBAction func onProfileSettingClick(_ sender: Any) {
+		// 프로필 화면 보여주기
+		if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
+			
+			let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+			// 모달 설정
+			profileVC.isModal = true
+			self.present(profileVC, animated: true, completion: nil)
+		}
+	}
+	
 	// 셀 클릭
 	@IBAction func onSelectRowAtClick(_ sender: UIButton) {
 		let tag = sender.tag
@@ -141,6 +153,7 @@ class SideMenuViewController: UIViewController {
         
         // 성, 이름중 빈문자열이 아닐 경우
         if CommonUtil.isEmpty(surname as AnyObject) == false || CommonUtil.isEmpty(name as AnyObject) == false {
+/*
 			// 글자 속성 지정
 			let attrs1 = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)]
 			let attrs2 = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)]
@@ -159,6 +172,8 @@ class SideMenuViewController: UIViewController {
 			paragraphStyle.lineSpacing = 8
 			strAttributed1.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, strAttributed1.length))
 			lbMessage.attributedText = strAttributed1;
+*/
+			lbMessage.text = "\(surname)\(name)님"
         }
         else {
             lbMessage.text = "프로필 정보를 설정해주세요!"
