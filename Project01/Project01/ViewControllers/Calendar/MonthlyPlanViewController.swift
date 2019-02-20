@@ -16,7 +16,7 @@ class MonthlyPlanViewController: UIViewController {
 	
 	@IBOutlet var vNavigationBar: UIView!
     @IBOutlet var vWeekString: UIView!
-    @IBOutlet weak var lbCalendarTitle: UILabel!
+    @IBOutlet weak var btnCalendarTitle: UIButton!
     @IBOutlet var vContent: UIView!
     @IBOutlet var scrollView: InfiniteScrollView!
     @IBOutlet var vHLine: UIView!
@@ -155,7 +155,7 @@ class MonthlyPlanViewController: UIViewController {
         // 첫번째 이번달 호출시 화면 완료된 이후에 호출해준다.
         if isFirstLoad == true {
             isFirstLoad = false
-            goThisMonth()
+			goThisMonth()
         }
     }
 	
@@ -174,62 +174,70 @@ class MonthlyPlanViewController: UIViewController {
     }
     
     // 이번달 이동
-    func goThisMonth() {
-        // 셀선택
-        CalendarManager.selectedCell = -1
-
-        // 달력날짜 시작/종료일 세팅
-        let dicResult: [String: Any] = CalendarManager.getYearMontLimite(startYYYYMMDD: startYYYYMMDD, endYYYYMMDD: endYYYYMMDD)
-        print(dicResult)
-        
-        // 보여줄 년/월일 목록
-        let arrResultMonths: [(year:Int, month:Int)]? = dicResult["arrResultMonths"] as? [(year: Int, month: Int)]
-        guard let arrResult = arrResultMonths else {
-            return
-        }
-        
-        // 보여줄 콜렉션뷰 초기화
-        arrChildController.removeAll()
-        // 스크롤 서브페이지 초기화
-        scrollView.removeAllSubCell()
-        self.focusIndex = dicResult["focusIndex"] as! Int
-        for i in 0..<arrResult.count {
-            let newYearMonth: (year:Int, month:Int) = arrResult[i]
-            let monthVC = self.arrOriginController[i]
-            
-            // 스크롤뷰에 SubCell 추가
-            scrollView.addScrollSubview(monthVC.view)
-            arrChildController.append(monthVC)
-            
-            monthVC.setMonthToDays(year: newYearMonth.year, month: newYearMonth.month)
-            
-            // 포커스 페이지면...
-            if focusIndex == i {
-                self.curentDate = newYearMonth
-            }
-            
-            // 혹시 3개가 인경우 더이상 처리하지 않는다.
-            if arrChildController.count == 3 {
-                break
-            }
-        }
-        
-        // 서브셀 위치 재설정
-        scrollView.reposSubCell()
-        
-        // 포커스 페이지 이동 시킨다.
-        self.scrollView.goFocusPageMove(focusIndex: focusIndex)
-        
-        // 달력 타이틀 세팅
-        setCalendarTitle(centerIndex: focusIndex)
-        
-        self.scrollDirection = 0
+	func goThisMonth(_ dicResult: [String: Any] = [:]) {
+		// 셀선택
+		CalendarManager.selectedCell = -1
+		
+		// 달력날짜 시작/종료일 세팅
+		var dicRetResult: [String: Any]
+		
+		// 전달받은 데이터가 없으면 이번달 기준으로 새로 데이터를 구하기
+		if dicResult.isEmpty == true {
+			dicRetResult = CalendarManager.getYearMontLimite(startYYYYMMDD: startYYYYMMDD, endYYYYMMDD: endYYYYMMDD)
+		}
+		else {
+			dicRetResult = dicResult
+		}
+		
+		// 보여줄 년/월일 목록
+		let arrResultMonths: [(year:Int, month:Int)]? = dicRetResult["arrResultMonths"] as? [(year: Int, month: Int)]
+		guard let arrResult = arrResultMonths else {
+			return
+		}
+		
+		// 보여줄 콜렉션뷰 초기화
+		arrChildController.removeAll()
+		// 스크롤 서브페이지 초기화
+		scrollView.removeAllSubCell()
+		self.focusIndex = dicRetResult["focusIndex"] as! Int
+		for i in 0..<arrResult.count {
+			let newYearMonth: (year:Int, month:Int) = arrResult[i]
+			let monthVC = self.arrOriginController[i]
+			
+			// 스크롤뷰에 SubCell 추가
+			scrollView.addScrollSubview(monthVC.view)
+			arrChildController.append(monthVC)
+			
+			monthVC.setMonthToDays(year: newYearMonth.year, month: newYearMonth.month)
+			
+			// 포커스 페이지면...
+			if focusIndex == i {
+				self.curentDate = newYearMonth
+			}
+			
+			// 혹시 3개가 인경우 더이상 처리하지 않는다.
+			if arrChildController.count == 3 {
+				break
+			}
+		}
+		
+		// 서브셀 위치 재설정
+		scrollView.reposSubCell()
+		
+		// 포커스 페이지 이동 시킨다.
+		self.scrollView.goFocusPageMove(focusIndex: focusIndex)
+		
+		// 달력 타이틀 세팅
+		setCalendarTitle(centerIndex: focusIndex)
+		
+		self.scrollDirection = 0
     }
     
     // 달력 타이틀 세팅
     func setCalendarTitle(centerIndex: Int = -1) {
-		self.lbCalendarTitle.text = String(format: "%d년 %02d월", self.curentDate.year, self.curentDate.month)
-        
+		let title = String(format: "%d년 %02d월", self.curentDate.year, self.curentDate.month)
+		btnCalendarTitle.setTitle(title, for: .normal)
+		
         let monthVC: CalendarMonthViewController? = arrChildController[centerIndex == -1 ? scrollView.centerIndex : centerIndex]
         if monthVC != nil {
             let scrollHeight: CGFloat = CGFloat(monthVC!.cellLineCount) * 55.0
@@ -243,7 +251,7 @@ class MonthlyPlanViewController: UIViewController {
             //            print("전체높이 = \(vContent.bounds.height - scrollHeight)")
         }
     }
-    
+	
     // 이전 페이지 이동시 처리
     func goPrevPage(year:Int, month:Int) {
         
@@ -338,11 +346,84 @@ class MonthlyPlanViewController: UIViewController {
     // 오늘 날짜
     @IBAction func onTodayClick(_ sender: Any) {
         // 이번달 이동
-        goThisMonth()
+		goThisMonth()
         
         self.selectedDay = Date().cmpString()
         self.selectedDayTodoList(doReload: true)
     }
+	
+	// 년월 선택
+	@IBAction func onYYYYMMClick(_ sender: Any) {
+		var arrData: [[String: Any]] = []
+		
+		var startYYYYMM: String = "\(startYYYYMMDD/100)"
+		let endYYYYMM: String = "\(endYYYYMMDD/100)"
+		
+		let year: Int = Int(startYYYYMM.left(4))!
+		let month: Int = Int(startYYYYMM.mid(4, amount: 2))!
+		var count = 0
+		
+		repeat {
+			let dateNext = CalendarManager.getYearMonth(year: year, month: month, amount: count)
+			startYYYYMM = String(format: "%d%02d", dateNext.year, dateNext.month)
+			
+			let dateYYYYMM = "\(startYYYYMM.left(4))년 \(startYYYYMM.mid(4, amount: 2))월"
+			arrData += [["DATE_TEXT":dateYYYYMM, "DATE_YEAR":dateNext.year, "DATE_MONTH":dateNext.month, "DATE_COUNT":count]]
+			
+			count += 1
+		} while startYYYYMM != endYYYYMM
+		
+		let popup = SelectedPopup.selectedPopup(arrayData: arrData, key: "DATE_TEXT")
+		popup.addActionCellSelected { (item) in
+			if let item: [String: Any] = item as? [String : Any] {
+				// 기본 3페이지 중간 페이지를 보여준다.
+				var focusIndex: Int = 1
+
+				var startIndex: Int = -1
+				let selectedCount: Int = item["DATE_COUNT"] as! Int
+				
+				if selectedCount == 0 {
+					focusIndex = 0
+					startIndex = 0
+				}
+				else if selectedCount == (arrData.count - 1) {
+					focusIndex = 2
+					startIndex = selectedCount - 2
+				}
+				else {
+					startIndex = selectedCount - 1
+				}
+				
+				if startIndex < 0 {
+					focusIndex = 0
+					startIndex = 0
+				}
+				
+				// 반환해줄 목록
+				var dicResult = [String: Any]()
+
+				// 보여줄 년/월일 목록
+				var arrResultMonths = [(year:Int, month:Int)]()
+				
+				for i in startIndex..<arrData.count {
+					let dicItem = arrData[i]
+					let year: Int = dicItem["DATE_YEAR"] as! Int
+					let month: Int = dicItem["DATE_MONTH"] as! Int
+
+					arrResultMonths += [(year, month)]
+					if arrResultMonths.count == 3 {
+						break
+					}
+				}
+				
+				dicResult["focusIndex"] = focusIndex
+				dicResult["arrResultMonths"] = arrResultMonths
+
+				// 이번달 이동
+				self.goThisMonth(dicResult)
+			}
+		}
+	}
     
     // 추가 버튼
     @IBAction func addClick(_ sender: Any) {

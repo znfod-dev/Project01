@@ -106,7 +106,30 @@ class CommonUtil: NSObject {
         }
     }
     
-    
+	// MARK: - Other
+	// 375 기준으로 스케일이 적용되는데 스케일비 가로/세로값 구하기
+	static func viewScaleSize(with view: UIView?) -> CGSize {
+		if CommonUtil.isEmpty(view) {
+			return CGSize.zero
+		}
+		
+		var scale: CGFloat
+		if (view?.frame.size.width ?? 0.0) < (view?.frame.size.height ?? 0.0) {
+			scale = DEF_SCREEN_375_WIDTH / (view?.frame.size.width ?? 0.0)
+		} else {
+			scale = DEF_SCREEN_375_WIDTH / (view?.frame.size.height ?? 0.0)
+		}
+		let width: CGFloat = (view?.frame.size.width ?? 0.0) * scale
+		var height: CGFloat = (view?.frame.size.height ?? 0.0) * scale
+		
+		// 아이폰 X일때 해상도가 특이해서...
+		//    CGFloat boundsHeight = self.bounds.size.height;
+		if CommonUtil.isIphoneX {
+			height = DEF_SCREEN_HEIGHT - 34
+		}
+		
+		return CGSize(width: width, height: height)
+	}
 }
 
 // MARK: - NSUserDefaults

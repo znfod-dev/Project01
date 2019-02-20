@@ -720,12 +720,6 @@
                                             <action selector="onMenuClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="b3f-VW-PPu"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019년 02월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFT-Lt-dRB">
-                                        <rect key="frame" x="133" y="18" width="109" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.21568627450980393" green="0.20784313725490194" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msg-1h-LwJ">
                                         <rect key="frame" x="329" y="12" width="36" height="36"/>
                                         <accessibility key="accessibilityConfiguration" label="사이드메뉴"/>
@@ -738,16 +732,26 @@
                                             <action selector="onTodayClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="9aQ-Pd-ZfW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6OI-83-FLF">
+                                        <rect key="frame" x="133" y="12" width="109" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="2019년 02월">
+                                            <color key="titleColor" red="0.21568627450980393" green="0.20784313725490194" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onYYYYMMClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="0tc-fc-a3v"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="IFT-Lt-dRB" firstAttribute="centerX" secondItem="EcJ-W0-9Hf" secondAttribute="centerX" id="3Mb-mF-nQ3"/>
                                     <constraint firstItem="zrS-Xc-lTP" firstAttribute="leading" secondItem="EcJ-W0-9Hf" secondAttribute="leading" constant="10" id="Ct7-Gg-KCp"/>
-                                    <constraint firstItem="IFT-Lt-dRB" firstAttribute="centerY" secondItem="EcJ-W0-9Hf" secondAttribute="centerY" id="I8Z-LC-llK"/>
+                                    <constraint firstItem="6OI-83-FLF" firstAttribute="centerY" secondItem="EcJ-W0-9Hf" secondAttribute="centerY" id="PDi-nJ-TKR"/>
                                     <constraint firstAttribute="height" constant="60" id="Z1z-Xh-Ad4"/>
                                     <constraint firstAttribute="trailing" secondItem="Msg-1h-LwJ" secondAttribute="trailing" constant="10" id="fSg-Hb-dLQ"/>
                                     <constraint firstItem="Msg-1h-LwJ" firstAttribute="centerY" secondItem="EcJ-W0-9Hf" secondAttribute="centerY" id="hF1-QB-ckO"/>
                                     <constraint firstItem="zrS-Xc-lTP" firstAttribute="centerY" secondItem="EcJ-W0-9Hf" secondAttribute="centerY" id="wEX-SG-Ceh"/>
+                                    <constraint firstItem="6OI-83-FLF" firstAttribute="centerX" secondItem="EcJ-W0-9Hf" secondAttribute="centerX" id="z70-Xr-MD7"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25c-E0-8Tj">
@@ -778,8 +782,8 @@
                     <navigationItem key="navigationItem" id="7Gb-9W-5wT"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnCalendarTitle" destination="6OI-83-FLF" id="Zxz-UA-dMa"/>
                         <outlet property="hideBtn" destination="BLU-J2-pl1" id="lMN-SY-t24"/>
-                        <outlet property="lbCalendarTitle" destination="IFT-Lt-dRB" id="tka-3L-rGd"/>
                         <outlet property="scrollView" destination="DbH-wm-7qL" id="ZKz-Rw-4fT"/>
                         <outlet property="todoListHeightConstraint" destination="n72-nt-n9B" id="ZWr-dB-A5k"/>
                         <outlet property="todoTableView" destination="15M-qo-MYh" id="MqS-Ye-rTP"/>
