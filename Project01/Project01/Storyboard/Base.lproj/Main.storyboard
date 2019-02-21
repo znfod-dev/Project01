@@ -469,14 +469,14 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZS-7x-mwR">
                                                         <rect key="frame" x="312" y="18" width="49" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="onTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="onTintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="thumbTintColor" red="0.52104455230000002" green="0.45827448370000001" blue="0.88590478900000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="switchClick:" destination="lrI-bH-IEv" eventType="valueChanged" id="wzm-yu-mVX"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="TeC-Na-QyR" firstAttribute="top" secondItem="PHR-03-T0a" secondAttribute="top" constant="23" id="8hl-qH-78y"/>
                                                     <constraint firstItem="TeC-Na-QyR" firstAttribute="leading" secondItem="PHR-03-T0a" secondAttribute="leading" constant="21" id="Mxq-SR-anv"/>
@@ -485,7 +485,7 @@
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tqy-Ua-Sdt">
                                                 <rect key="frame" x="0.0" y="53" width="375" height="143"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" rowHeight="60" id="suG-2g-l2g" customClass="TodoCell" customModule="Project01" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
@@ -512,7 +512,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="ZJG-Bj-K9R" firstAttribute="leading" secondItem="BuV-hH-aQP" secondAttribute="leading" constant="17" id="0GQ-2X-526"/>
                                                                         <constraint firstItem="ZZu-Of-s4m" firstAttribute="leading" secondItem="ZJG-Bj-K9R" secondAttribute="trailing" constant="14" id="3b5-5n-dV9"/>
@@ -528,6 +528,7 @@
                                                                 <constraint firstAttribute="trailing" secondItem="BuV-hH-aQP" secondAttribute="trailing" constant="21" id="yEg-hB-ECM"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <outlet property="cellView" destination="BuV-hH-aQP" id="RJB-do-Fwg"/>
                                                             <outlet property="checkBox" destination="ZJG-Bj-K9R" id="rPa-KH-DLh"/>
@@ -541,6 +542,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
+                                                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </tableViewCell>
                                                 </prototypes>
                                                 <connections>
@@ -555,9 +557,48 @@
                                                     <constraint firstAttribute="width" constant="58" id="fHB-EP-VtY"/>
                                                 </constraints>
                                             </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="px3-pE-tRp">
+                                                <rect key="frame" x="117.5" y="48" width="140" height="100"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpw-UK-ArU">
+                                                        <rect key="frame" x="20" y="0.0" width="100" height="60"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_emptyTotoList.png" translatesAutoresizingMaskIntoConstraints="NO" id="0gX-OG-Odb">
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="ETj-FR-QYu"/>
+                                                            <constraint firstAttribute="height" constant="60" id="JP1-6N-Ea1"/>
+                                                            <constraint firstAttribute="trailing" secondItem="0gX-OG-Odb" secondAttribute="trailing" id="PDW-is-S8l"/>
+                                                            <constraint firstItem="0gX-OG-Odb" firstAttribute="top" secondItem="lpw-UK-ArU" secondAttribute="top" id="hav-U0-cGF"/>
+                                                            <constraint firstItem="0gX-OG-Odb" firstAttribute="leading" secondItem="lpw-UK-ArU" secondAttribute="leading" id="hrd-oM-P2z"/>
+                                                            <constraint firstAttribute="bottom" secondItem="0gX-OG-Odb" secondAttribute="bottom" id="xaM-jR-aIG"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 일정이 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaG-mM-3Ty">
+                                                        <rect key="frame" x="3.5" y="79" width="133" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="GSd-m5-dBF"/>
+                                                    <constraint firstItem="lpw-UK-ArU" firstAttribute="top" secondItem="px3-pE-tRp" secondAttribute="top" id="L2V-QJ-cVp"/>
+                                                    <constraint firstItem="oaG-mM-3Ty" firstAttribute="top" secondItem="lpw-UK-ArU" secondAttribute="bottom" constant="19" id="dND-H2-vZn"/>
+                                                    <constraint firstItem="oaG-mM-3Ty" firstAttribute="centerX" secondItem="px3-pE-tRp" secondAttribute="centerX" id="mL3-as-Euj"/>
+                                                    <constraint firstItem="lpw-UK-ArU" firstAttribute="centerX" secondItem="px3-pE-tRp" secondAttribute="centerX" id="v6m-RP-eM7"/>
+                                                    <constraint firstAttribute="width" constant="140" id="zCX-Xf-bSz"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="px3-pE-tRp" firstAttribute="centerY" secondItem="rYH-BU-Lam" secondAttribute="centerY" id="1xM-RA-bca"/>
+                                            <constraint firstItem="px3-pE-tRp" firstAttribute="centerX" secondItem="rYH-BU-Lam" secondAttribute="centerX" id="5VW-ST-cl5"/>
                                             <constraint firstAttribute="trailing" secondItem="yrS-ey-Mfs" secondAttribute="trailing" constant="21" id="CYG-TY-vJE"/>
                                             <constraint firstAttribute="bottom" secondItem="yrS-ey-Mfs" secondAttribute="bottom" constant="24" id="FvE-Iy-bpm"/>
                                             <constraint firstItem="PHR-03-T0a" firstAttribute="top" secondItem="rYH-BU-Lam" secondAttribute="top" id="KEc-sS-nmd"/>
@@ -855,8 +896,11 @@
                     <connections>
                         <outlet property="addButton" destination="yrS-ey-Mfs" id="rqq-d7-5yS"/>
                         <outlet property="btnCalendarTitle" destination="6OI-83-FLF" id="Zxz-UA-dMa"/>
+                        <outlet property="emptyTodoListView" destination="px3-pE-tRp" id="BBf-z7-Vhu"/>
+                        <outlet property="fixedTodoListInfoView" destination="PHR-03-T0a" id="rZC-PD-1Nh"/>
                         <outlet property="hideSwitch" destination="qZS-7x-mwR" id="GTd-3O-a7d"/>
                         <outlet property="scrollView" destination="DbH-wm-7qL" id="ZKz-Rw-4fT"/>
+                        <outlet property="todoListDateLabel" destination="TeC-Na-QyR" id="n3e-YZ-9jB"/>
                         <outlet property="todoListHeightConstraint" destination="Tql-vn-gRb" id="SGc-TG-QEx"/>
                         <outlet property="todoTableView" destination="tqy-Ua-Sdt" id="gh5-Km-PSt"/>
                         <outlet property="vContent" destination="FxS-RH-b7x" id="38p-Mn-qp5"/>
@@ -1006,6 +1050,7 @@
     <resources>
         <image name="icon_addButton.png" width="57" height="57"/>
         <image name="icon_back.png" width="19" height="19"/>
+        <image name="icon_emptyTotoList.png" width="119" height="72"/>
         <image name="icon_menu.png" width="36" height="36"/>
         <image name="icon_today.png" width="36" height="36"/>
         <image name="img_cloud_sync.png" width="170" height="170"/>

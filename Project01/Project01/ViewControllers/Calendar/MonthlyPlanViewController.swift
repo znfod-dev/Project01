@@ -21,9 +21,13 @@ class MonthlyPlanViewController: UIViewController {
     @IBOutlet var scrollView: InfiniteScrollView!
     @IBOutlet var vHLine: UIView!
     @IBOutlet weak var todoListHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var fixedTodoListInfoView: UIView! // 날짜와 스위치가 포함된 뷰
+    @IBOutlet var hideSwitch: UISwitch! // hide 스위치
     @IBOutlet var todoTableView: UITableView! // tableView
-    @IBOutlet var hideSwitch: UISwitch!
     @IBOutlet var addButton: UIImageView! // 추가 버튼
+    @IBOutlet var todoListDateLabel: UILabel! // todoList에서 날짜 라벨
+    @IBOutlet var emptyTodoListView: UIView! // TodoList가 없을 때 나타나는 뷰
     
     
     
@@ -63,6 +67,8 @@ class MonthlyPlanViewController: UIViewController {
     let ud = UserDefaults.standard
     
     
+    
+    // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,9 +114,6 @@ class MonthlyPlanViewController: UIViewController {
         
         // 스위치 크기 줄이기
         self.hideSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-        
-        // 테이블 뷰 숨기기
-        //        self.todoTableView.isHidden = true
         
         // 버튼에 탭 제스처 추가
         self.addButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addClick)))
@@ -206,8 +209,11 @@ class MonthlyPlanViewController: UIViewController {
         
         let selectYMD = "\(cellIndex)"
         
+        
+        
         // 콜렉션에 맞는 날짜 전달
         selectedDay = String(format: "%04d%02d%@", year, month, selectYMD.right(2))
+        self.todoListDateLabel.text = String(format: "%02d월 %@일 일정", month, selectYMD.right(2))
         selectedDayTodoList(doReload: true)
     }
     
@@ -368,6 +374,50 @@ class MonthlyPlanViewController: UIViewController {
         self.perform(#selector(self.scrollViewDidEndDecelerating(_:)), with: scrollView, afterDelay: 0.5)
     }
     
+    // 날짜에 맞는 TodoList 불러오기
+    func selectedDayTodoList(doReload: Bool = false) {
+        
+        if self.isHide { // 체크한 todo를 보여주지 않을 때
+            self.todoArray = DBManager.sharedInstance.selectTodoDB(withoutCheckedBox: true)
+        } else { // 체크한 todo를 보여줄 때
+            self.todoArray = DBManager.sharedInstance.selectTodoDB()
+        }
+        
+        self.selectedDayTodo.removeAll()
+        for todo in self.todoArray {
+            if todo.date == self.selectedDay {
+                if !todo.isDeleted! { // 삭제한 것을 제외한 나머지만 추가
+                    self.selectedDayTodo.append(todo)
+                }
+            }
+        }
+        
+        if self.selectedDayTodo.count == 0 { // todo가 없다면
+            self.isEmptyTodoList(isEmpty: true)
+        } else {
+            self.isEmptyTodoList(isEmpty: false)
+        }
+        
+        if doReload { // doReload가 true라면
+            self.todoTableView.reloadData()
+        }
+    }
+    
+    // todo가 없으면 일정 없음 이미지 띄워주기
+    func isEmptyTodoList(isEmpty: Bool) {
+        if isEmpty { // todo가 없으면
+            self.emptyTodoListView.isHidden = false // 일정 없음 이미지 띄우기
+            
+            self.fixedTodoListInfoView.isHidden = true
+            self.todoTableView.isHidden = true
+        } else {
+            self.emptyTodoListView.isHidden = true // 일정 없음 이미지 띄우기
+            
+            self.fixedTodoListInfoView.isHidden = false
+            self.todoTableView.isHidden = false
+        }
+    }
+    
     
     
     // 추가 버튼
@@ -502,37 +552,9 @@ class MonthlyPlanViewController: UIViewController {
             }
         }
     }
-    
-    
-    
-    // 날짜에 맞는 TodoList 불러오기
-    func selectedDayTodoList(doReload: Bool = false) {
-        
-        if self.isHide { // 체크한 todo를 보여주지 않을 때
-            self.todoArray = DBManager.sharedInstance.selectTodoDB(withoutCheckedBox: true)
-        } else { // 체크한 todo를 보여줄 때
-            self.todoArray = DBManager.sharedInstance.selectTodoDB()
-        }
-        
-        self.selectedDayTodo.removeAll()
-        for todo in self.todoArray {
-            if todo.date == self.selectedDay {
-                if !todo.isDeleted! { // 삭제한 것을 제외한 나머지만 추가
-                    self.selectedDayTodo.append(todo)
-                }
-            }
-        }
-        
-        if doReload { // doReload가 true라면
-            self.todoTableView.reloadData()
-        }
-    }
-    
-    
 
     // 스위치 클릭 했을 때 처리
     @IBAction func switchClick(_ sender: UISwitch) {
-        print("click switch")
         if self.isHide { // hide 상태일 때, show를 누를 경우
             self.ud.setValue(false, forKey: "isHide")
             ud.synchronize()
@@ -759,22 +781,6 @@ extension MonthlyPlanViewController: UITableViewDataSource {
     }
     
     
-    
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //                if editingStyle == UITableViewCell.EditingStyle.delete {
-    //                    print("editingStyle")
-    ////                    let indexRow = indexPath.row / 2 // 공백 셀 때문에 실질적으로 0,2,4... 셀이 데이터 셀이다
-    ////
-    ////                    let todo = self.selectedDayTodo[indexRow]
-    ////                    DBManager.sharedInstance.deleteTodoDB(todo: todo) {
-    ////                        self.selectedDayTodo.remove(at: indexRow)
-    ////                    }
-    ////                    tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-    ////
-    ////                    // sama73 : 화면 재갱신
-    ////                    self.setDBReloadData()
-    //                }
-    //    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if indexPath.row % 2 == 0 { // todoCell 삭제 가능하게 함

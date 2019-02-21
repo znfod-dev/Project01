@@ -331,6 +331,7 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
 			// 콜렉션에 맞는 날짜 전달
 			parentVC?.selectedDay = String(format: "%04d%02d%02d", year, month, day)
 			parentVC?.selectedDayTodoList(doReload: true)
+            parentVC?.todoListDateLabel.text = String(format: "%02d월 %02d일 일정", month, day)
 		}
     }
 }
