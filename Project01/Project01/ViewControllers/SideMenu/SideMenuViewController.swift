@@ -27,6 +27,9 @@ class SideMenuViewController: UIViewController {
 	@IBOutlet weak var vDiary: UIView!
 	@IBOutlet weak var vSetting: UIView!
 	
+	// 모달 오픈했는지?
+	var isModal: Bool = true
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,17 +81,30 @@ class SideMenuViewController: UIViewController {
 		
 		// 사이드 메뉴 열때...
 		if sideMenuController?.isMenuRevealed == false {
-			// 아이콘 이미지 회전
-			rotateAnimation()
-
-			// 프로필 정보 DB체크
-			self.selectDBProfile()
+			if isModal == false {
+				// 아이콘 이미지 회전
+				rotateAnimation()
+				
+				// 프로필 정보 DB체크
+				self.selectDBProfile()
+			}
 		}
 		// 사이드 메뉴 닫을때...
 		else {
 			self.ivIcon.layer.removeAllAnimations()
 			self.ivIconMask.layer.removeAllAnimations()
+			
+			if isModal == true {
+				// 아이콘 이미지 회전
+				rotateAnimation()
+				
+				// 프로필 정보 DB체크
+				self.selectDBProfile()
+			}
 		}
+		
+		// 모달 오픈했는지?
+		isModal = false
     }
 
     /*
@@ -134,6 +150,9 @@ class SideMenuViewController: UIViewController {
 		// 프로필 화면 보여주기
 		if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
 			
+			// 모달 오픈했는지?
+			isModal = true
+
 			let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
 			// 모달 설정
 			profileVC.isModal = true

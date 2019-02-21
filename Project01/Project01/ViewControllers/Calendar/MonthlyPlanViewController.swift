@@ -612,50 +612,54 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
     
     // 스크롤 애니메이션의 감속 효과가 종료된 후에 실행된다.
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let tabIndex: CGFloat = scrollView.contentOffset.x / scrollView.bounds.width
-        
-        // 마지막페이지에서 한번더 댕겼을 경우 상세페이지 이동
-        if self.scrollDirection == 1 {
-            if focusIndex == (self.arrChildController.count-1) {
-                
-                let YYYYMMDD: String = "\(startYYYYMMDD)"
-                let year: Int = Int(YYYYMMDD.left(4))!
-                let month: Int = Int(YYYYMMDD.mid(4, amount: 2))!
-                let day: Int = Int(YYYYMMDD.right(2))!
-                
-                // 다음페이지 이동
-				let storyboard = UIStoryboard.init(name: "DiaryPage", bundle: nil)
-				let diaryPage:PageController = storyboard.instantiateInitialViewController() as! PageController
-                
-                // sama73 : 날짜 변환
-                var dateComponents = DateComponents()
-                dateComponents.year = year
-                dateComponents.month = month
-                dateComponents.day = day
-                
-                let calendar = Calendar(identifier: .gregorian)
-                let date: Date? = calendar.date(from: dateComponents)
-                diaryPage.currentDate = date!
-                self.navigationController?.pushViewController(diaryPage, animated: true)
-            }
-        }
-        
-        // 스크롤 셀 포커스 인덱스
-        self.focusIndex = Int(tabIndex)
-        
-        // 스크롤 방향 초기화
-        self.scrollDirection = 0
-        
-//        print("focusIndex=\(focusIndex)")
-		let monthVC: CalendarMonthViewController? = self.arrChildController[self.focusIndex]
-		if let monthVC = monthVC {
-			if monthVC.curentYear != curentDate.year || monthVC.curentMonth != curentDate.month {
-				// 달력 타이틀 세팅
-				self.curentDate = (monthVC.curentYear, monthVC.curentMonth)
-				setCalendarTitle(centerIndex: self.focusIndex)
-				
-				// 기본 선택 날짜
-				defaultSelectDate(year: self.curentDate.year, month: self.curentDate.month)
+		
+		// 무한스크롤뷰 일때
+		if scrollView is InfiniteScrollView {
+			let tabIndex: CGFloat = scrollView.contentOffset.x / scrollView.bounds.width
+			
+			// 마지막페이지에서 한번더 댕겼을 경우 상세페이지 이동
+			if self.scrollDirection == 1 {
+				if focusIndex == (self.arrChildController.count-1) {
+					
+					let YYYYMMDD: String = "\(startYYYYMMDD)"
+					let year: Int = Int(YYYYMMDD.left(4))!
+					let month: Int = Int(YYYYMMDD.mid(4, amount: 2))!
+					let day: Int = Int(YYYYMMDD.right(2))!
+					
+					// 다음페이지 이동
+					let storyboard = UIStoryboard.init(name: "DiaryPage", bundle: nil)
+					let diaryPage:PageController = storyboard.instantiateInitialViewController() as! PageController
+					
+					// sama73 : 날짜 변환
+					var dateComponents = DateComponents()
+					dateComponents.year = year
+					dateComponents.month = month
+					dateComponents.day = day
+					
+					let calendar = Calendar(identifier: .gregorian)
+					let date: Date? = calendar.date(from: dateComponents)
+					diaryPage.currentDate = date!
+					self.navigationController?.pushViewController(diaryPage, animated: true)
+				}
+			}
+			
+			// 스크롤 셀 포커스 인덱스
+			self.focusIndex = Int(tabIndex)
+			
+			// 스크롤 방향 초기화
+			self.scrollDirection = 0
+			
+			//        print("focusIndex=\(focusIndex)")
+			let monthVC: CalendarMonthViewController? = self.arrChildController[self.focusIndex]
+			if let monthVC = monthVC {
+				if monthVC.curentYear != curentDate.year || monthVC.curentMonth != curentDate.month {
+					// 달력 타이틀 세팅
+					self.curentDate = (monthVC.curentYear, monthVC.curentMonth)
+					setCalendarTitle(centerIndex: self.focusIndex)
+					
+					// 기본 선택 날짜
+					defaultSelectDate(year: self.curentDate.year, month: self.curentDate.month)
+				}
 			}
 		}
     }
