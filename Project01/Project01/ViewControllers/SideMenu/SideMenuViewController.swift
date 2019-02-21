@@ -17,6 +17,9 @@ class Preferences {
 
 class SideMenuViewController: UIViewController {
 
+	@IBOutlet weak var ivIcon: UIImageView!
+	var ivIconMask: UIImageView!
+	
     @IBOutlet weak var lbMessage: UILabel!
 	
 	@IBOutlet weak var vCalendar: UIView!
@@ -52,6 +55,10 @@ class SideMenuViewController: UIViewController {
 		SideMenuController.preferences.basic.direction = .left
 		SideMenuController.preferences.basic.enablePanGesture = false
 		
+		// icon
+		ivIconMask = UIImageView(image: UIImage(named: "menu_icon_mask"))
+		ivIcon.mask = ivIconMask
+		
 		// 사이드메뉴 설정
         sideMenuController?.cache(viewControllerGenerator: {
             UIStoryboard.init(name: "Plan", bundle: nil).instantiateViewController(withIdentifier: "_PlannerViewController")            
@@ -64,16 +71,24 @@ class SideMenuViewController: UIViewController {
         sideMenuController?.delegate = self
         
         // init Data
-//        arrMenuItem += [["TITLE":"월간 일정", "IMAGE":"menu_calendar"]]
-//        arrMenuItem += [["TITLE":"계획리스트", "IMAGE":"menu_event_note"]]
-//        arrMenuItem += [["TITLE":"설정", "IMAGE":"menu_setting"]]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // // 프로필 정보 DB체크
-        self.selectDBProfile()
+		
+		// 사이드 메뉴 열때...
+		if sideMenuController?.isMenuRevealed == false {
+			// 아이콘 이미지 회전
+			rotateAnimation()
+
+			// 프로필 정보 DB체크
+			self.selectDBProfile()
+		}
+		// 사이드 메뉴 닫을때...
+		else {
+			self.ivIcon.layer.removeAllAnimations()
+			self.ivIconMask.layer.removeAllAnimations()
+		}
     }
 
     /*
@@ -86,6 +101,28 @@ class SideMenuViewController: UIViewController {
     }
     */
 
+	// 아이콘 이미지 회전
+	func rotateAnimation(duration: CFTimeInterval = 2.0) {
+		// 아이콘 이미지
+		let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+		rotateAnimation.fromValue = 0.0
+		rotateAnimation.toValue = CGFloat(.pi * 2.0)
+		rotateAnimation.duration = duration
+		rotateAnimation.repeatCount = Float.greatestFiniteMagnitude;
+		
+		self.ivIcon!.layer.add(rotateAnimation, forKey: nil)
+		
+		// 마스크
+		let rotateAnimation2 = CABasicAnimation(keyPath: "transform.rotation")
+		rotateAnimation2.fromValue = 0.0
+		rotateAnimation2.toValue = -CGFloat(.pi * 2.0)
+		rotateAnimation2.duration = duration
+		rotateAnimation2.repeatCount = Float.greatestFiniteMagnitude;
+		
+		self.ivIconMask!.layer.add(rotateAnimation2, forKey: nil)
+	}
+
+	
     // MARK: - UIButton Action
     // 사이드 메뉴 닫기
     @IBAction func onCloseClick(_ sender: Any) {

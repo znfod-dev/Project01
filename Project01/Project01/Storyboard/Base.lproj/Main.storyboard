@@ -298,20 +298,37 @@
                                             <constraint firstItem="y3n-ca-7IE" firstAttribute="top" secondItem="IpL-04-fOL" secondAttribute="top" id="d4t-Vb-08s"/>
                                         </constraints>
                                     </scrollView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_check.png" translatesAutoresizingMaskIntoConstraints="NO" id="jg7-Bc-K3F">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oz9-fO-pMs" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
                                         <rect key="frame" x="144.5" y="54" width="86" height="86"/>
-                                    </imageView>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_icon_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="jg7-Bc-K3F">
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="86"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="jg7-Bc-K3F" firstAttribute="centerY" secondItem="oz9-fO-pMs" secondAttribute="centerY" id="65R-ME-rN1"/>
+                                            <constraint firstAttribute="height" constant="86" id="BAQ-E6-WeP"/>
+                                            <constraint firstItem="jg7-Bc-K3F" firstAttribute="centerX" secondItem="oz9-fO-pMs" secondAttribute="centerX" id="Gbm-UB-gC8"/>
+                                            <constraint firstAttribute="width" constant="86" id="V0x-6N-tsa"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="43"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="IpL-04-fOL" firstAttribute="top" secondItem="yih-Zh-SgJ" secondAttribute="bottom" constant="10" id="617-2n-tgA"/>
-                                    <constraint firstItem="jg7-Bc-K3F" firstAttribute="top" secondItem="i4I-YT-EXw" secondAttribute="top" constant="54" id="AUl-QL-HIn"/>
                                     <constraint firstItem="LVg-DC-7aN" firstAttribute="bottom" secondItem="IpL-04-fOL" secondAttribute="top" constant="118" id="Ai9-VU-H19"/>
                                     <constraint firstItem="IpL-04-fOL" firstAttribute="leading" secondItem="i4I-YT-EXw" secondAttribute="leading" id="ES2-4W-Csw"/>
                                     <constraint firstItem="LVg-DC-7aN" firstAttribute="centerX" secondItem="i4I-YT-EXw" secondAttribute="centerX" id="GbB-UC-T8v"/>
-                                    <constraint firstItem="yih-Zh-SgJ" firstAttribute="top" secondItem="jg7-Bc-K3F" secondAttribute="bottom" constant="18" id="O0i-3J-7tt"/>
+                                    <constraint firstItem="oz9-fO-pMs" firstAttribute="top" secondItem="i4I-YT-EXw" secondAttribute="top" constant="54" id="Spw-cp-Lsa"/>
                                     <constraint firstItem="yih-Zh-SgJ" firstAttribute="centerX" secondItem="i4I-YT-EXw" secondAttribute="centerX" id="ZUf-zi-a5g"/>
-                                    <constraint firstItem="jg7-Bc-K3F" firstAttribute="centerX" secondItem="i4I-YT-EXw" secondAttribute="centerX" id="ckm-ZV-R80"/>
+                                    <constraint firstItem="oz9-fO-pMs" firstAttribute="centerX" secondItem="i4I-YT-EXw" secondAttribute="centerX" id="flm-mH-0pS"/>
+                                    <constraint firstItem="yih-Zh-SgJ" firstAttribute="top" secondItem="oz9-fO-pMs" secondAttribute="bottom" constant="18" id="j3g-em-yC4"/>
                                     <constraint firstAttribute="trailing" secondItem="4pZ-qY-TBs" secondAttribute="trailing" constant="12" id="t8Q-gZ-8q3"/>
                                     <constraint firstAttribute="bottom" secondItem="IpL-04-fOL" secondAttribute="bottom" id="ted-bg-Wz8"/>
                                     <constraint firstAttribute="trailing" secondItem="IpL-04-fOL" secondAttribute="trailing" id="uTU-4P-e69"/>
@@ -330,6 +347,7 @@
                         <viewLayoutGuide key="safeArea" id="ehf-J4-gMA"/>
                     </view>
                     <connections>
+                        <outlet property="ivIcon" destination="jg7-Bc-K3F" id="RUt-ns-iDA"/>
                         <outlet property="lbMessage" destination="TdB-L8-9aO" id="ije-OU-sce"/>
                         <outlet property="vCalendar" destination="ELv-Fm-tD6" id="IGX-lg-JcR"/>
                         <outlet property="vDiary" destination="Tfc-4o-DvX" id="sAn-bL-OSw"/>
@@ -939,8 +957,8 @@
         <image name="img_refresh_sync.png" width="94" height="94"/>
         <image name="menu_background.png" width="393" height="382"/>
         <image name="menu_calendar.png" width="35" height="32"/>
-        <image name="menu_check.png" width="86" height="86"/>
         <image name="menu_diary.png" width="31" height="37"/>
+        <image name="menu_icon_image.png" width="86" height="86"/>
         <image name="menu_planlist.png" width="25" height="40"/>
         <image name="menu_profile.png" width="33" height="33"/>
         <image name="menu_setting.png" width="28" height="32"/>
