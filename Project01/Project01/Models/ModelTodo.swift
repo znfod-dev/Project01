@@ -13,13 +13,15 @@ class ModelTodo {
     var title: String?
     var isSelected: Bool?
     var date: String?
+    var isDeleted: Bool?
     
-    convenience init(uid: String, title: String, date: String, isSelected: Bool = false) {
+    convenience init(uid: String, title: String, date: String, isSelected: Bool = false, isDeleted:Bool = false) {
         self.init()
         self.uid = uid
         self.title = title
         self.date = date
         self.isSelected = isSelected
+        self.isDeleted = isDeleted
     }
     
     convenience init(dbTodo: ModelDBTodo) {
@@ -27,7 +29,8 @@ class ModelTodo {
         let title = dbTodo.title
         let date = dbTodo.date
         let isSelected = dbTodo.isSelected
+        let isDeleted = dbTodo.isDeleted
         
-        self.init(uid: uid!, title: title!, date: date!, isSelected: isSelected)
+        self.init(uid: uid!, title: title!, date: date!, isSelected: isSelected, isDeleted: isDeleted)
     }
 }

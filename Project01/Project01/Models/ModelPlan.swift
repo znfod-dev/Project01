@@ -16,7 +16,9 @@ class ModelPlan {
     var startDay: String? = ""
     var endDay: String? = ""
     
-    convenience init(uid: String, date: Date, planType: Int,planTitle: String, startDay: String, endDay: String) {
+    var isDeleted = false
+    
+    convenience init(uid: String, date: Date, planType: Int,planTitle: String, startDay: String, endDay: String, isDeleted: Bool) {
         self.init()
         
         self.uid = uid
@@ -25,6 +27,7 @@ class ModelPlan {
         self.planTitle = planTitle
         self.startDay = startDay
         self.endDay = endDay
+        self.isDeleted = isDeleted
     }
     
     convenience init(dbPlan: ModelDBPlan) {
@@ -34,7 +37,8 @@ class ModelPlan {
         let planTitle = dbPlan.planTitle!
         let startDay = dbPlan.startDay!
         let endDay = dbPlan.endDay!
+        let isDeleted = dbPlan.isDeleted
         
-        self.init(uid: uid!, date: date!, planType: planType ,planTitle: planTitle, startDay: startDay, endDay: endDay)
+        self.init(uid: uid!, date: date!, planType: planType ,planTitle: planTitle, startDay: startDay, endDay: endDay, isDeleted: isDeleted)
     }
 }

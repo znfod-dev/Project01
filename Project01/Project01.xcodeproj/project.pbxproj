@@ -12,6 +12,9 @@
 		6042714021FFF23C001F0E40 /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042713F21FFF23C001F0E40 /* CALayer+Border.swift */; };
 		60427142220005A6001F0E40 /* DBManager+Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60427141220005A6001F0E40 /* DBManager+Plan.swift */; };
 		60427144220005B6001F0E40 /* DBManager+Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60427143220005B6001F0E40 /* DBManager+Todo.swift */; };
+		6063C2A2221E77D100260419 /* icon_addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C29F221E77CF00260419 /* icon_addButton.png */; };
+		6063C2A3221E77D100260419 /* icon_addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A0221E77D000260419 /* icon_addButton@2x.png */; };
+		6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A1221E77D100260419 /* icon_addButton@3x.png */; };
 		609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */; };
 		609A3FE5220B1FC200A58605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609A3FE4220B1FC200A58605 /* CloudKit.framework */; };
 		609A3FE7220D6C7500A58605 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FE6220D6C7300A58605 /* IntroViewController.swift */; };
@@ -163,6 +166,9 @@
 		6042713F21FFF23C001F0E40 /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
 		60427141220005A6001F0E40 /* DBManager+Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBManager+Plan.swift"; sourceTree = "<group>"; };
 		60427143220005B6001F0E40 /* DBManager+Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBManager+Todo.swift"; sourceTree = "<group>"; };
+		6063C29F221E77CF00260419 /* icon_addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addButton.png; sourceTree = "<group>"; };
+		6063C2A0221E77D000260419 /* icon_addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@2x.png"; sourceTree = "<group>"; };
+		6063C2A1221E77D100260419 /* icon_addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@3x.png"; sourceTree = "<group>"; };
 		609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+DoneAccessory.swift"; sourceTree = "<group>"; };
 		609A3FE1220B1C6900A58605 /* Project01.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Project01.entitlements; sourceTree = "<group>"; };
 		609A3FE4220B1FC200A58605 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -568,6 +574,9 @@
 		D9030AA9220EA38F008D5A9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6063C29F221E77CF00260419 /* icon_addButton.png */,
+				6063C2A0221E77D000260419 /* icon_addButton@2x.png */,
+				6063C2A1221E77D100260419 /* icon_addButton@3x.png */,
 				D927150D2216594100284967 /* icon_back@2x.png */,
 				D927150C2216594100284967 /* icon_back@3x.png */,
 				D9030AAA220EA38F008D5A9E /* icon_refresh@2x.png */,
@@ -784,6 +793,7 @@
 				D9030B0E220EA390008D5A9E /* NanumBarunpenR.ttf in Resources */,
 				D914E3BF21FBF5BF00CFBB8E /* Profile.storyboard in Resources */,
 				6042713E21FD52E0001F0E40 /* Plan.storyboard in Resources */,
+				6063C2A3221E77D100260419 /* icon_addButton@2x.png in Resources */,
 				D9030AF1220EA390008D5A9E /* icon_event@2x.png in Resources */,
 				D927150A2216593400284967 /* menu_diary@3x.png in Resources */,
 				D914E3D221FBF5BF00CFBB8E /* PickerView.xib in Resources */,
@@ -802,6 +812,7 @@
 				D9030AF9220EA390008D5A9E /* icon_remove@2x.png in Resources */,
 				D9030B14220EA390008D5A9E /* NanumBarunGothicBold.ttf in Resources */,
 				D9030B13220EA390008D5A9E /* NanumBarunGothicUltraLight.ttf in Resources */,
+				6063C2A2221E77D100260419 /* icon_addButton.png in Resources */,
 				D9030AFD220EA390008D5A9E /* img_refresh_mask@2x.png in Resources */,
 				D9ED7B0E221BF04F00414AE6 /* menu_profile@3x.png in Resources */,
 				D914E3CC21FBF5BF00CFBB8E /* Setting.storyboard in Resources */,
@@ -814,6 +825,7 @@
 				D9030B06220EA390008D5A9E /* menu_setting@2x.png in Resources */,
 				D9030AF4220EA390008D5A9E /* icon_setting@3x.png in Resources */,
 				D9030AFB220EA390008D5A9E /* img_refresh_sync@2x.png in Resources */,
+				6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */,
 				D9030B0C220EA390008D5A9E /* icon_close@2x.png in Resources */,
 				D9030AE5220EA390008D5A9E /* icon_save@2x.png in Resources */,
 				9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */,
