@@ -313,18 +313,6 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         let cellIndex: Int = item["cellIndex"] as! Int
         let monthDirection: Int = item["monthDirection"] as! Int
 
-//        let message: String = "\(year)년 \(month)월 \(day)일 ToDo 리스트 보여주기"
-//        let popup = AlertMessagePopup.messagePopup(withMessage: message)
-//        popup.addActionConfirmClick("확인", handler: {
-//        
-//        })
-        
-        // 셀선택
-		CalendarManager.selectedCell = cellIndex
-        
-        // 콜렉션뷰 전체 리로드
-        parentVC?.collectionReloadDataAll()
-        
         // 현재달력에서 이전달 선택시 이전달로 스크롤링
         if monthDirection == -1 {
             parentVC?.goPrevPageScrollAnimation()
@@ -333,9 +321,16 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         else if monthDirection == 1 {
             parentVC?.goNextPageScrollAnimation()
         }
-        
-        // 콜렉션에 맞는 날짜 전달
-        parentVC?.selectedDay = String(format: "%04d%02d%02d", year, month, day)
-        parentVC?.selectedDayTodoList(doReload: true)
+		else {
+			// 셀선택
+			CalendarManager.selectedCell = cellIndex
+			
+			// 콜렉션뷰 전체 리로드
+			parentVC?.collectionReloadDataAll()
+
+			// 콜렉션에 맞는 날짜 전달
+			parentVC?.selectedDay = String(format: "%04d%02d%02d", year, month, day)
+			parentVC?.selectedDayTodoList(doReload: true)
+		}
     }
 }
