@@ -242,7 +242,7 @@ class CalendarManager {
 		var dicTodoListCount:[String: Int] = [:]
 		
 //		sql = "SELECT * FROM ModelDBTodo WHERE date CONTAINS '\(curIndex)' OR date CONTAINS '\(prevIndex)' OR date CONTAINS '\(nextIndex)';"
-		sql = "SELECT * FROM ModelDBTodo WHERE date CONTAINS '\(curIndex)';"
+		sql = "SELECT * FROM ModelDBTodo WHERE date CONTAINS '\(curIndex)' AND isDeleted=false;"
 		// SQL 결과
 		dicSQLResults = DBManager.SQLExcute(sql: sql)
 		resultCode = dicSQLResults["RESULT_CODE"] as! String
