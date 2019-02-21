@@ -172,6 +172,32 @@ class MonthlyPlanViewController: UIViewController {
             monthVC.collectionView.reloadData()
         }
     }
+	
+	// 기본 선택 날짜
+	func defaultSelectDate(year:Int, month:Int) {
+		
+		// 선택한 년/월/01 선택되도록
+		var cellIndex: Int = (year * 10000) + (month * 100) + 1
+
+		// 오늘 년/월 구하기
+		let thisYear: (year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
+		// 이번달 일때 오늘 날짜로 선택해준다.
+		if thisYear.year == year && thisYear.month == month {
+			cellIndex = CalendarManager.getTodayIndex()
+		}
+		
+		// 셀선택
+		CalendarManager.selectedCell = cellIndex
+		
+		// 콜렉션뷰 전체 리로드
+		collectionReloadDataAll()
+		
+		let selectYMD = "\(cellIndex)"
+		
+		// 콜렉션에 맞는 날짜 전달
+		selectedDay = String(format: "%04d%02d%@", year, month, selectYMD.right(2))
+		selectedDayTodoList(doReload: true)
+	}
     
     // 이번달 이동
 	func goThisMonth(_ dicResult: [String: Any] = [:]) {
@@ -231,6 +257,9 @@ class MonthlyPlanViewController: UIViewController {
 		setCalendarTitle(centerIndex: focusIndex)
 		
 		self.scrollDirection = 0
+		
+		// 기본 선택 날짜
+		defaultSelectDate(year: self.curentDate.year, month: self.curentDate.month)
     }
     
     // 달력 타이틀 세팅
@@ -557,8 +586,8 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
                 }
                 
                 // 달력 타이틀 세팅
-                self.curentDate = (monthVC.curentYear, monthVC.curentMonth)
-                setCalendarTitle(centerIndex: curentIndex)
+//                self.curentDate = (monthVC.curentYear, monthVC.curentMonth)
+//                setCalendarTitle(centerIndex: curentIndex)
             }
         }
     }
@@ -617,7 +646,18 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
         // 스크롤 방향 초기화
         self.scrollDirection = 0
         
-        print("focusIndex=\(focusIndex)")
+//        print("focusIndex=\(focusIndex)")
+		let monthVC: CalendarMonthViewController? = self.arrChildController[self.focusIndex]
+		if let monthVC = monthVC {
+			if monthVC.curentYear != curentDate.year || monthVC.curentMonth != curentDate.month {
+				// 달력 타이틀 세팅
+				self.curentDate = (monthVC.curentYear, monthVC.curentMonth)
+				setCalendarTitle(centerIndex: self.focusIndex)
+				
+				// 기본 선택 날짜
+				defaultSelectDate(year: self.curentDate.year, month: self.curentDate.month)
+			}
+		}
     }
     
     // scrollView.scrollsToTop = YES 설정이 되어 있어야 아래 이벤트를 받을수 있다.

@@ -60,7 +60,7 @@ class CalendarManager {
 
 		return (year * 10000 + month * 100 + day)
     }
-    
+	
     // 이번달 기준으로 value값을 가감 계산해준다.
     static func getYearMonth(amount:Int) -> (year:Int, month:Int) {
         // 오늘날짜로 년월일을 구해준다.
