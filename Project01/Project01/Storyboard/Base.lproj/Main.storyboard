@@ -441,7 +441,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxS-RH-b7x">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYH-BU-Lam">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYH-BU-Lam">
                                         <rect key="frame" x="0.0" y="351" width="375" height="196"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHR-03-T0a">
@@ -538,7 +538,7 @@
                                                     <outlet property="delegate" destination="lrI-bH-IEv" id="C2r-88-2Fg"/>
                                                 </connections>
                                             </tableView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="px3-pE-tRp">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="px3-pE-tRp">
                                                 <rect key="frame" x="0.0" y="53" width="375" height="143"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-Nc-tbL">
