@@ -79,13 +79,13 @@ class MonthlyPlanViewController: UIViewController {
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         // 그림자 처리
-        vNavigationBar.layer.shadowColor = UIColor.black.cgColor
-        vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
-        vNavigationBar.layer.shadowOpacity = 0.2
+        vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+        vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+        vNavigationBar.layer.shadowOpacity = 0.16
 
 		vShadow.layer.shadowColor = UIColor.black.cgColor
-		vShadow.layer.shadowOffset = CGSize(width: 0, height: 2)
-		vShadow.layer.shadowOpacity = 0.2
+		vShadow.layer.shadowOffset = CGSize(width: 0, height: 3)
+		vShadow.layer.shadowOpacity = 0.1
 		
 		btnAdd.layer.shadowColor = UIColor(hex: 0x8578DF).cgColor
 		btnAdd.layer.shadowOffset = CGSize(width: 0, height: 8)
