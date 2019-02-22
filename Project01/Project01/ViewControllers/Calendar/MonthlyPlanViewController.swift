@@ -760,9 +760,11 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         if todo.isSelected! { // 체크박스에 체크가 되어있다면
             cell.checkBox.setOn(true, animated: true)
             cell.titleLabel.textColor = UIColor.lightGray
+			cell.cellView.backgroundColor = UIColor(hex: 0xFBFBFB)
         } else { // 체크박스에 체크가 되어있지 않다면
             cell.checkBox.setOn(false, animated: true)
             cell.titleLabel.textColor = UIColor.black
+			cell.cellView.backgroundColor = UIColor(hex: 0xFFFFFF)
         }
         
         return cell
@@ -788,7 +790,7 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         }
     }
     
-    
+/*
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let copyButton = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             let indexRow = index.row / 2 // 공백 셀 때문에 실질적으로 0,2,4... 셀이 데이터 셀이다
@@ -807,6 +809,7 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         
         return [copyButton]
     }
+*/
 }
 
 
@@ -836,6 +839,35 @@ extension MonthlyPlanViewController: UITableViewDelegate {
         popup.addActionCancelClick("취소", handler: {
         })
     }
+	
+	// 스와이프 delete 액션 세팅
+	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let delete = deleteAction(at: indexPath)
+		return UISwipeActionsConfiguration(actions: [delete])
+	}
+	
+	func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+			let indexRow = indexPath.row / 2 // 공백 셀 때문에 실질적으로 0,2,4... 셀이 데이터 셀이다
+			let todo = self.selectedDayTodo[indexRow]
+			
+			DBManager.sharedInstance.deleteTodoDB(todo: todo) {
+				self.selectedDayTodo.remove(at: indexRow)
+			}
+			
+			// 테이블뷰 갱신
+			self.selectedDayTodoList(doReload: true)
+			
+			// sama73 : 화면 재갱신
+			self.setDBReloadData()
+
+			completion(true)
+		}
+		action.image = UIImage(named: "icon_cell_delete")
+		action.backgroundColor = UIColor(hex: 0x929292)
+		
+		return action
+	}
 }
 
 
