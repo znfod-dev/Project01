@@ -550,13 +550,17 @@
                                                     <outlet property="delegate" destination="lrI-bH-IEv" id="C2r-88-2Fg"/>
                                                 </connections>
                                             </tableView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_addButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="yrS-ey-Mfs">
-                                                <rect key="frame" x="296" y="114" width="58" height="58"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gko-ki-cT6">
+                                                <rect key="frame" x="296" y="113" width="58" height="58"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="58" id="MTW-rf-J7g"/>
-                                                    <constraint firstAttribute="width" constant="58" id="fHB-EP-VtY"/>
+                                                    <constraint firstAttribute="width" constant="58" id="K7C-zD-dgC"/>
+                                                    <constraint firstAttribute="height" constant="58" id="pCQ-Ji-YZz"/>
                                                 </constraints>
-                                            </imageView>
+                                                <state key="normal" image="icon_addButton.png"/>
+                                                <connections>
+                                                    <action selector="onAddClick" destination="lrI-bH-IEv" eventType="touchUpInside" id="Dc2-ff-gds"/>
+                                                </connections>
+                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="px3-pE-tRp">
                                                 <rect key="frame" x="117.5" y="48" width="140" height="100"/>
                                                 <subviews>
@@ -599,13 +603,13 @@
                                         <constraints>
                                             <constraint firstItem="px3-pE-tRp" firstAttribute="centerY" secondItem="rYH-BU-Lam" secondAttribute="centerY" id="1xM-RA-bca"/>
                                             <constraint firstItem="px3-pE-tRp" firstAttribute="centerX" secondItem="rYH-BU-Lam" secondAttribute="centerX" id="5VW-ST-cl5"/>
-                                            <constraint firstAttribute="trailing" secondItem="yrS-ey-Mfs" secondAttribute="trailing" constant="21" id="CYG-TY-vJE"/>
-                                            <constraint firstAttribute="bottom" secondItem="yrS-ey-Mfs" secondAttribute="bottom" constant="24" id="FvE-Iy-bpm"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gko-ki-cT6" secondAttribute="bottom" constant="25" id="EAK-D0-c7c"/>
                                             <constraint firstItem="PHR-03-T0a" firstAttribute="top" secondItem="rYH-BU-Lam" secondAttribute="top" id="KEc-sS-nmd"/>
                                             <constraint firstAttribute="bottom" secondItem="tqy-Ua-Sdt" secondAttribute="bottom" id="OL0-aK-ddx"/>
                                             <constraint firstItem="PHR-03-T0a" firstAttribute="leading" secondItem="rYH-BU-Lam" secondAttribute="leading" id="Tqd-gd-Bxe"/>
                                             <constraint firstAttribute="height" constant="196" id="Tql-vn-gRb"/>
                                             <constraint firstAttribute="trailing" secondItem="PHR-03-T0a" secondAttribute="trailing" id="Y1D-ot-hl1"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gko-ki-cT6" secondAttribute="trailing" constant="21" id="fJ8-2x-o4L"/>
                                             <constraint firstItem="tqy-Ua-Sdt" firstAttribute="top" secondItem="PHR-03-T0a" secondAttribute="bottom" id="isH-Xi-G6Q"/>
                                             <constraint firstAttribute="trailing" secondItem="tqy-Ua-Sdt" secondAttribute="trailing" id="mvg-qZ-IJX"/>
                                             <constraint firstItem="tqy-Ua-Sdt" firstAttribute="leading" secondItem="rYH-BU-Lam" secondAttribute="leading" id="qI9-i2-YGc"/>
@@ -894,7 +898,7 @@
                     <navigationItem key="navigationItem" id="7Gb-9W-5wT"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="addButton" destination="yrS-ey-Mfs" id="rqq-d7-5yS"/>
+                        <outlet property="btnAdd" destination="Gko-ki-cT6" id="gaT-D2-jpd"/>
                         <outlet property="btnCalendarTitle" destination="6OI-83-FLF" id="Zxz-UA-dMa"/>
                         <outlet property="emptyTodoListView" destination="px3-pE-tRp" id="BBf-z7-Vhu"/>
                         <outlet property="fixedTodoListInfoView" destination="PHR-03-T0a" id="rZC-PD-1Nh"/>

@@ -25,7 +25,7 @@ class MonthlyPlanViewController: UIViewController {
     @IBOutlet var fixedTodoListInfoView: UIView! // 날짜와 스위치가 포함된 뷰
     @IBOutlet var hideSwitch: UISwitch! // hide 스위치
     @IBOutlet var todoTableView: UITableView! // tableView
-    @IBOutlet var addButton: UIImageView! // 추가 버튼
+	@IBOutlet var btnAdd: UIButton!
     @IBOutlet var todoListDateLabel: UILabel! // todoList에서 날짜 라벨
     @IBOutlet var emptyTodoListView: UIView! // TodoList가 없을 때 나타나는 뷰
     
@@ -83,6 +83,10 @@ class MonthlyPlanViewController: UIViewController {
         vNavigationBar.layer.shadowColor = UIColor.black.cgColor
         vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         vNavigationBar.layer.shadowOpacity = 0.2
+		
+		btnAdd.layer.shadowColor = UIColor(hex: 0x8578DF).cgColor
+		btnAdd.layer.shadowOffset = CGSize(width: 0, height: 8)
+		btnAdd.layer.shadowOpacity = 0.2
         
         // 테이블 뷰 구분선 삭제
         self.todoTableView.separatorStyle = .none
@@ -114,9 +118,6 @@ class MonthlyPlanViewController: UIViewController {
         
         // 스위치 크기 줄이기
         self.hideSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-        
-        // 버튼에 탭 제스처 추가
-        self.addButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addClick)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -417,44 +418,7 @@ class MonthlyPlanViewController: UIViewController {
             self.todoTableView.isHidden = false
         }
     }
-    
-    
-    
-    // 추가 버튼
-    @objc func addClick() {
-        // sama73 : Todo 테이터 추가
-        var dicConfig: [String: Any] = [:]
-        dicConfig["TITLE"] = "Todo"
-        dicConfig["MESSAGE"] = ""
-        dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
-        
-        let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
-        popup.addActionConfirmClick("추가") { (message) in
-            if (message?.isEmpty)! { // 메세지 값이 비었다면 리턴처리
-                return
-            }
-            
-            // 새로운 Todo 추가
-            let uid = UUID().uuidString
-            let title = message
-            let date = self.selectedDay
-            
-            let todo = ModelTodo(uid: uid, title: title!, date: date!)
-            self.todoArray.append(todo)
-            
-            DBManager.sharedInstance.addTodoDB(todo: todo)
-            
-            self.selectedDayTodoList(doReload: true)
-            
-            // sama73 : 화면 재갱신
-            self.setDBReloadData()
-        }
-        
-        popup.addActionCancelClick("취소", handler: {
-        })
-    }
-    
-    
+	
     /*
      // MARK: - Navigation
      
@@ -552,6 +516,40 @@ class MonthlyPlanViewController: UIViewController {
             }
         }
     }
+	
+	// 추가 버튼
+	@IBAction func onAddClick() {
+		// sama73 : Todo 테이터 추가
+		var dicConfig: [String: Any] = [:]
+		dicConfig["TITLE"] = "Todo"
+		dicConfig["MESSAGE"] = ""
+		dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
+		
+		let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+		popup.addActionConfirmClick("추가") { (message) in
+			if (message?.isEmpty)! { // 메세지 값이 비었다면 리턴처리
+				return
+			}
+			
+			// 새로운 Todo 추가
+			let uid = UUID().uuidString
+			let title = message
+			let date = self.selectedDay
+			
+			let todo = ModelTodo(uid: uid, title: title!, date: date!)
+			self.todoArray.append(todo)
+			
+			DBManager.sharedInstance.addTodoDB(todo: todo)
+			
+			self.selectedDayTodoList(doReload: true)
+			
+			// sama73 : 화면 재갱신
+			self.setDBReloadData()
+		}
+		
+		popup.addActionCancelClick("취소", handler: {
+		})
+	}
 
     // 스위치 클릭 했을 때 처리
     @IBAction func switchClick(_ sender: UISwitch) {
