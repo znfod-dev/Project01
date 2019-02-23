@@ -444,7 +444,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYH-BU-Lam">
                                         <rect key="frame" x="0.0" y="351" width="375" height="196"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHR-03-T0a">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHR-03-T0a">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11월 19일 수요일 일정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeC-Na-QyR">
@@ -914,6 +914,7 @@
                         <outlet property="hideSwitch" destination="qZS-7x-mwR" id="GTd-3O-a7d"/>
                         <outlet property="scrollView" destination="DbH-wm-7qL" id="ZKz-Rw-4fT"/>
                         <outlet property="todoListDateLabel" destination="TeC-Na-QyR" id="n3e-YZ-9jB"/>
+                        <outlet property="todoListHeaderHeightConstraint" destination="ZGB-5f-lIP" id="7Mk-jQ-7Ct"/>
                         <outlet property="todoListHeightConstraint" destination="Tql-vn-gRb" id="SGc-TG-QEx"/>
                         <outlet property="todoTableView" destination="tqy-Ua-Sdt" id="gh5-Km-PSt"/>
                         <outlet property="vContent" destination="FxS-RH-b7x" id="38p-Mn-qp5"/>

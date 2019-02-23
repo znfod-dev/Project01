@@ -22,7 +22,8 @@ class MonthlyPlanViewController: UIViewController {
 	@IBOutlet weak var vShadow: UIView!
     @IBOutlet weak var vHLine: UIView!
     @IBOutlet weak var todoListHeightConstraint: NSLayoutConstraint!
-    
+	
+	@IBOutlet weak var todoListHeaderHeightConstraint: NSLayoutConstraint!
 //    @IBOutlet var fixedTodoListInfoView: UIView! // 날짜와 스위치가 포함된 뷰
     @IBOutlet weak var hideSwitch: UISwitch! // hide 스위치
     @IBOutlet weak var todoTableView: UITableView! // tableView
@@ -206,7 +207,7 @@ class MonthlyPlanViewController: UIViewController {
         }
         
         // 셀선택
-        CalendarManager.selectedCell = cellIndex
+        CalendarManager.setSelectedCell(selectedCell: cellIndex)
         
         // 콜렉션뷰 전체 리로드
         collectionReloadDataAll()
@@ -217,15 +218,15 @@ class MonthlyPlanViewController: UIViewController {
         
         // 콜렉션에 맞는 날짜 전달
         selectedDay = String(format: "%04d%02d%@", year, month, selectYMD.right(2))
-        self.todoListDateLabel.text = String(format: "%02d월 %@일 일정", month, selectYMD.right(2))
+        self.todoListDateLabel.text = CalendarManager.todolistDateText
         selectedDayTodoList(doReload: true)
     }
     
     // 이번달 이동
     func goThisMonth(_ dicResult: [String: Any] = [:]) {
         // 셀선택
-        CalendarManager.selectedCell = -1
-        
+		CalendarManager.setSelectedCell(selectedCell: -1)
+		
         // 달력날짜 시작/종료일 세팅
         var dicRetResult: [String: Any]
         
@@ -410,11 +411,27 @@ class MonthlyPlanViewController: UIViewController {
     // todo가 없으면 일정 없음 이미지 띄워주기
     func isEmptyTodoList(isEmpty: Bool) {
         if isEmpty { // todo가 없으면
-            self.emptyTodoListView.isHidden = false // 일정 없음 이미지 띄우기
-            
+			// sama73 : todo list 헤더 높이 세팅
+			// todo list 데이터가 있으나 전체 숨김 처리가 된경우.
+			if CalendarManager.todolistCount != 0 {
+				self.todoListHeaderHeightConstraint.constant = 53.0
+				
+				// sama73 : 히든 empty 뷰를 보여준다.
+				self.emptyTodoListView.isHidden = false // 일정 없음 이미지 띄우기
+			}
+			// todo list 데이터가 아예 없을 때...
+			else {
+				self.todoListHeaderHeightConstraint.constant = 0.0
+				
+				// sama73 : 데이터 empty 뷰를 보여준다.
+				self.emptyTodoListView.isHidden = false // 일정 없음 이미지 띄우기
+			}
+			
 //            self.fixedTodoListInfoView.isHidden = true
             self.todoTableView.isHidden = true
         } else {
+			// todo list 헤더 높이 세팅
+			self.todoListHeaderHeightConstraint.constant = 53.0
             self.emptyTodoListView.isHidden = true // 일정 없음 이미지 띄우기
             
 //            self.fixedTodoListInfoView.isHidden = false
