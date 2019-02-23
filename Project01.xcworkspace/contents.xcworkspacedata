@@ -5,15 +5,6 @@
       location = "group:Project01/Project01.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:PlannerDiary/PlannerDiary.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Project01ForZn/Project01ForZn.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Diary/Diary.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
