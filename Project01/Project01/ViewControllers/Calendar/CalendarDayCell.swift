@@ -10,7 +10,7 @@ import UIKit
 
 class CalendarDayCell: UICollectionViewCell {
 	
-	@IBOutlet weak var vHolidayCircle: UIView!
+//	@IBOutlet weak var vHolidayCircle: UIView!
 	@IBOutlet weak var lbDay: UILabel!
     @IBOutlet weak var vToDay: RoundLineView!
     @IBOutlet weak var lbHoliday: UILabel!
@@ -53,15 +53,15 @@ class CalendarDayCell: UICollectionViewCell {
 			var orgColorDay = 0x1E1E1E
 			var colorHolidayCircle = 0xF9553C
 			
-			vHolidayCircle.isHidden = true
+//			vHolidayCircle.isHidden = true
 			lbHoliday.isHidden = true
-			lbDayLunar.isHidden = true
+//			lbDayLunar.isHidden = true
 			vPageControl.isHidden = true
 
 			// 공휴일 체크
 			if isHoliday == true {
 				orgColorDay = 0xF9553C
-				
+/*
 				// 공휴일 동그라미
 				if CommonUtil.isEmpty(holidayName as AnyObject) == false {
 					vHolidayCircle.isHidden = false
@@ -70,6 +70,7 @@ class CalendarDayCell: UICollectionViewCell {
 				else {
 					vHolidayCircle.isHidden = true
 				}
+*/
 			}
 			
 			colorDay = orgColorDay
@@ -110,16 +111,16 @@ class CalendarDayCell: UICollectionViewCell {
 				colorDay = orgColorDay
 			}
 
-			vHolidayCircle.backgroundColor = UIColor(hex: colorHolidayCircle)
+//			vHolidayCircle.backgroundColor = UIColor(hex: colorHolidayCircle)
 			
 			// 음력 표시
 			if monthLunar == 0 || dayLunar == 0 {
-				lbDayLunar.isHidden = true
+//				lbDayLunar.isHidden = true
 			}
 			else {
 				// 이전 음력설정과 변경유무 체크
 				let isLunarCalendar = !CommonUtil.getUserDefaultsBool(forKey: kBool_isLunarCalendar)
-				lbDayLunar.isHidden = isLunarCalendar
+//				lbDayLunar.isHidden = isLunarCalendar
 				lbDayLunar.text = String(format: "%02d.%02d", monthLunar, dayLunar)
 			}
 			
@@ -148,10 +149,10 @@ class CalendarDayCell: UICollectionViewCell {
 		}
 		// -1 or 1 이면 이전달, 다음달
 		else {
-			vHolidayCircle.isHidden = true
+//			vHolidayCircle.isHidden = true
 			vToDay.isHidden = true
 			lbHoliday.isHidden = true
-			lbDayLunar.isHidden = true
+//			lbDayLunar.isHidden = true
 			vPageControl.isHidden = true
 		}
 		

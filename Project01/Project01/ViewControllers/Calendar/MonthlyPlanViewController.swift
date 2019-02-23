@@ -449,6 +449,9 @@ class MonthlyPlanViewController: UIViewController {
     
     // 년월 선택
     @IBAction func onYYYYMMClick(_ sender: Any) {
+		// 오늘 년/월 구하기
+		let thisMonth: (year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
+
         var arrData: [[String: Any]] = []
         
         var startYYYYMM: String = "\(startYYYYMMDD/100)"
@@ -461,8 +464,14 @@ class MonthlyPlanViewController: UIViewController {
         repeat {
             let dateNext = CalendarManager.getYearMonth(year: year, month: month, amount: count)
             startYYYYMM = String(format: "%d%02d", dateNext.year, dateNext.month)
-            
-            let dateYYYYMM = "\(startYYYYMM.left(4))년 \(startYYYYMM.mid(4, amount: 2))월"
+			
+			var strThisMonth = ""
+			// 이번달
+			if thisMonth.year == dateNext.year && thisMonth.month == dateNext.month {
+				strThisMonth = " (이번달)"
+			}
+			
+            let dateYYYYMM = "\(startYYYYMM.left(4))년 \(startYYYYMM.mid(4, amount: 2))월\(strThisMonth)"
             arrData += [["DATE_TEXT":dateYYYYMM, "DATE_YEAR":dateNext.year, "DATE_MONTH":dateNext.month, "DATE_COUNT":count]]
             
             count += 1
