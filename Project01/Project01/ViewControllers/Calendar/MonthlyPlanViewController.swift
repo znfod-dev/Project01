@@ -792,7 +792,7 @@ extension MonthlyPlanViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let copyButton = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+        let deleteButton = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             let indexRow = index.row / 2 // 공백 셀 때문에 실질적으로 0,2,4... 셀이 데이터 셀이다
             let todo = self.selectedDayTodo[indexRow]
             
@@ -807,7 +807,7 @@ extension MonthlyPlanViewController: UITableViewDataSource {
             self.setDBReloadData()
         }
         
-        return [copyButton]
+        return [deleteButton]
     }
 }
 
