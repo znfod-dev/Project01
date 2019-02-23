@@ -56,7 +56,7 @@ class SideMenuViewController: UIViewController {
 		SideMenuController.preferences.basic.menuWidth = DEF_SCREEN_375_WIDTH * scale
 		SideMenuController.preferences.basic.defaultCacheKey = "0"
 		SideMenuController.preferences.basic.direction = .left
-		SideMenuController.preferences.basic.enablePanGesture = false
+		SideMenuController.preferences.basic.enablePanGesture = true
 		
 		// icon
 		ivIconMask = UIImageView(image: UIImage(named: "menu_icon_mask"))
