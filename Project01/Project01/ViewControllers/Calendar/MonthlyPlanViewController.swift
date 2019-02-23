@@ -14,23 +14,22 @@ import BEMCheckBox
 
 class MonthlyPlanViewController: UIViewController {
     
-    @IBOutlet var vNavigationBar: UIView!
-    @IBOutlet var vWeekString: UIView!
+    @IBOutlet weak var vNavigationBar: UIView!
+    @IBOutlet weak var vWeekString: UIView!
     @IBOutlet weak var btnCalendarTitle: UIButton!
-    @IBOutlet var vContent: UIView!
-    @IBOutlet var scrollView: InfiniteScrollView!
-    @IBOutlet var vHLine: UIView!
+    @IBOutlet weak var vContent: UIView!
+    @IBOutlet weak var scrollView: InfiniteScrollView!
+	@IBOutlet weak var vShadow: UIView!
+    @IBOutlet weak var vHLine: UIView!
     @IBOutlet weak var todoListHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet var fixedTodoListInfoView: UIView! // 날짜와 스위치가 포함된 뷰
-    @IBOutlet var hideSwitch: UISwitch! // hide 스위치
-    @IBOutlet var todoTableView: UITableView! // tableView
-    @IBOutlet var addButton: UIImageView! // 추가 버튼
-    @IBOutlet var todoListDateLabel: UILabel! // todoList에서 날짜 라벨
-    @IBOutlet var emptyTodoListView: UIView! // TodoList가 없을 때 나타나는 뷰
-    
-    
-    
+//    @IBOutlet var fixedTodoListInfoView: UIView! // 날짜와 스위치가 포함된 뷰
+    @IBOutlet weak var hideSwitch: UISwitch! // hide 스위치
+    @IBOutlet weak var todoTableView: UITableView! // tableView
+	@IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var todoListDateLabel: UILabel! // todoList에서 날짜 라벨
+    @IBOutlet weak var emptyTodoListView: UIView! // TodoList가 없을 때 나타나는 뷰
+	
     // 월별뷰컨트롤러 배열
     var arrOriginController = [CalendarMonthViewController]()
     var arrChildController = [CalendarMonthViewController]()
@@ -80,9 +79,17 @@ class MonthlyPlanViewController: UIViewController {
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         // 그림자 처리
-        vNavigationBar.layer.shadowColor = UIColor.black.cgColor
-        vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
-        vNavigationBar.layer.shadowOpacity = 0.2
+        vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+        vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+        vNavigationBar.layer.shadowOpacity = 0.16
+
+		vShadow.layer.shadowColor = UIColor.black.cgColor
+		vShadow.layer.shadowOffset = CGSize(width: 0, height: 3)
+		vShadow.layer.shadowOpacity = 0.1
+		
+		btnAdd.layer.shadowColor = UIColor(hex: 0x8578DF).cgColor
+		btnAdd.layer.shadowOffset = CGSize(width: 0, height: 8)
+		btnAdd.layer.shadowOpacity = 0.2
         
         // 테이블 뷰 구분선 삭제
         self.todoTableView.separatorStyle = .none
@@ -114,9 +121,6 @@ class MonthlyPlanViewController: UIViewController {
         
         // 스위치 크기 줄이기
         self.hideSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-        
-        // 버튼에 탭 제스처 추가
-        self.addButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addClick)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -408,53 +412,16 @@ class MonthlyPlanViewController: UIViewController {
         if isEmpty { // todo가 없으면
             self.emptyTodoListView.isHidden = false // 일정 없음 이미지 띄우기
             
-            self.fixedTodoListInfoView.isHidden = true
+//            self.fixedTodoListInfoView.isHidden = true
             self.todoTableView.isHidden = true
         } else {
             self.emptyTodoListView.isHidden = true // 일정 없음 이미지 띄우기
             
-            self.fixedTodoListInfoView.isHidden = false
+//            self.fixedTodoListInfoView.isHidden = false
             self.todoTableView.isHidden = false
         }
     }
-    
-    
-    
-    // 추가 버튼
-    @objc func addClick() {
-        // sama73 : Todo 테이터 추가
-        var dicConfig: [String: Any] = [:]
-        dicConfig["TITLE"] = "Todo"
-        dicConfig["MESSAGE"] = ""
-        dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
-        
-        let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
-        popup.addActionConfirmClick("추가") { (message) in
-            if (message?.isEmpty)! { // 메세지 값이 비었다면 리턴처리
-                return
-            }
-            
-            // 새로운 Todo 추가
-            let uid = UUID().uuidString
-            let title = message
-            let date = self.selectedDay
-            
-            let todo = ModelTodo(uid: uid, title: title!, date: date!)
-            self.todoArray.append(todo)
-            
-            DBManager.sharedInstance.addTodoDB(todo: todo)
-            
-            self.selectedDayTodoList(doReload: true)
-            
-            // sama73 : 화면 재갱신
-            self.setDBReloadData()
-        }
-        
-        popup.addActionCancelClick("취소", handler: {
-        })
-    }
-    
-    
+	
     /*
      // MARK: - Navigation
      
@@ -552,6 +519,40 @@ class MonthlyPlanViewController: UIViewController {
             }
         }
     }
+	
+	// 추가 버튼
+	@IBAction func onAddClick() {
+		// sama73 : Todo 테이터 추가
+		var dicConfig: [String: Any] = [:]
+		dicConfig["TITLE"] = "Todo"
+		dicConfig["MESSAGE"] = ""
+		dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
+		
+		let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
+		popup.addActionConfirmClick("추가") { (message) in
+			if (message?.isEmpty)! { // 메세지 값이 비었다면 리턴처리
+				return
+			}
+			
+			// 새로운 Todo 추가
+			let uid = UUID().uuidString
+			let title = message
+			let date = self.selectedDay
+			
+			let todo = ModelTodo(uid: uid, title: title!, date: date!)
+			self.todoArray.append(todo)
+			
+			DBManager.sharedInstance.addTodoDB(todo: todo)
+			
+			self.selectedDayTodoList(doReload: true)
+			
+			// sama73 : 화면 재갱신
+			self.setDBReloadData()
+		}
+		
+		popup.addActionCancelClick("취소", handler: {
+		})
+	}
 
     // 스위치 클릭 했을 때 처리
     @IBAction func switchClick(_ sender: UISwitch) {
@@ -762,9 +763,11 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         if todo.isSelected! { // 체크박스에 체크가 되어있다면
             cell.checkBox.setOn(true, animated: true)
             cell.titleLabel.textColor = UIColor.lightGray
+			cell.cellView.backgroundColor = UIColor(hex: 0xFBFBFB)
         } else { // 체크박스에 체크가 되어있지 않다면
             cell.checkBox.setOn(false, animated: true)
             cell.titleLabel.textColor = UIColor.black
+			cell.cellView.backgroundColor = UIColor(hex: 0xFFFFFF)
         }
         
         return cell
@@ -790,7 +793,7 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         }
     }
     
-    
+/*
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteButton = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             let indexRow = index.row / 2 // 공백 셀 때문에 실질적으로 0,2,4... 셀이 데이터 셀이다
@@ -809,6 +812,7 @@ extension MonthlyPlanViewController: UITableViewDataSource {
         
         return [deleteButton]
     }
+*/
 }
 
 
@@ -838,6 +842,35 @@ extension MonthlyPlanViewController: UITableViewDelegate {
         popup.addActionCancelClick("취소", handler: {
         })
     }
+	
+	// 스와이프 delete 액션 세팅
+	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let delete = deleteAction(at: indexPath)
+		return UISwipeActionsConfiguration(actions: [delete])
+	}
+	
+	func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+			let indexRow = indexPath.row / 2 // 공백 셀 때문에 실질적으로 0,2,4... 셀이 데이터 셀이다
+			let todo = self.selectedDayTodo[indexRow]
+			
+			DBManager.sharedInstance.deleteTodoDB(todo: todo) {
+				self.selectedDayTodo.remove(at: indexRow)
+			}
+			
+			// 테이블뷰 갱신
+			self.selectedDayTodoList(doReload: true)
+			
+			// sama73 : 화면 재갱신
+			self.setDBReloadData()
+
+			completion(true)
+		}
+		action.image = UIImage(named: "icon_cell_delete")
+		action.backgroundColor = UIColor(hex: 0x929292)
+		
+		return action
+	}
 }
 
 
