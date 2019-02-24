@@ -44,7 +44,7 @@ class SelectedPopup: BasePopup {
         // 375 기준으로 스케일이 적용되는데 스케일비 가로/세로값 구하기
         let scaleSize: CGSize = CommonUtil.viewScaleSize(with: view)
         tableView.frame = CGRect(x: 0.0, y: scaleSize.height, width: scaleSize.width, height: tableViewHeight)
-        
+		
         // 스케쥴 : 바로 애니메이션 주면 애니메이션이 안먹는 현상이 있다.
         perform(#selector(self.showAnimationSchedule), with: nil, afterDelay: 0.1)
     }

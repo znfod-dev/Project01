@@ -29,6 +29,17 @@ class BasePopup: UIViewController {
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
 
+		// 뷰영역을 미리 스케일에 적용 시켜준다.
+		var bounds: CGRect = view.bounds
+		let width: CGFloat = bounds.size.width
+		if width == DEF_SCREEN_WIDTH {
+			let scale: CGFloat = DEF_SCREEN_375_WIDTH / width
+			bounds.size.width *= scale
+			bounds.size.height *= scale
+			
+			view.bounds = bounds
+		}
+		
         self.vDimmed.isAccessibilityElement = true
         
         view.backgroundColor = UIColor.clear
