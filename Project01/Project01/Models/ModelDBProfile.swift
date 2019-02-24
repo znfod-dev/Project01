@@ -46,12 +46,9 @@ class ModelDBProfile: BaseObject {
     // 좋아하는 음악 favourite music
     @objc dynamic var favouriteMusic:String? = nil
     
-    // 프로필 사진
-    @objc dynamic var profileImage:UIImage? = nil
-    
     @objc dynamic var isDeleted = false
     
-    convenience init(id:String, name:String, surname:String, address:String, phone:String, mobile:String, email:String, workAddress:String, workPhone:String, workEmail:String, favouriteFilm:String, favouriteBook:String, favouriteMusic:String, profileImage:UIImage) {
+    convenience init(id:String, name:String, surname:String, address:String, phone:String, mobile:String, email:String, workAddress:String, workPhone:String, workEmail:String, favouriteFilm:String, favouriteBook:String, favouriteMusic:String) {
         self.init()
         self.id = id
         self.name = name
@@ -66,7 +63,6 @@ class ModelDBProfile: BaseObject {
         self.favouriteFilm = favouriteFilm
         self.favouriteBook = favouriteBook
         self.favouriteMusic = favouriteMusic
-        self.profileImage = profileImage
     }
     convenience init(profile:ModelProfile) {
         let id = profile.id
@@ -82,9 +78,8 @@ class ModelDBProfile: BaseObject {
         let favouriteFilm = profile.favouriteFilm
         let favouriteBook = profile.favouriteBook
         let favouriteMusic = profile.favouriteMusic
-        let profileImage = profile.profileImage
         
-        self.init(id:id, name: name, surname: surname, address: address, phone: phone, mobile: mobile, email: email, workAddress: workAddress, workPhone: workPhone, workEmail: workEmail, favouriteFilm: favouriteFilm, favouriteBook: favouriteBook, favouriteMusic: favouriteMusic, profileImage:profileImage)
+        self.init(id:id, name: name, surname: surname, address: address, phone: phone, mobile: mobile, email: email, workAddress: workAddress, workPhone: workPhone, workEmail: workEmail, favouriteFilm: favouriteFilm, favouriteBook: favouriteBook, favouriteMusic: favouriteMusic)
     }
     
     override static func primaryKey() -> String? {
@@ -130,8 +125,7 @@ extension ModelDBProfile: NSCopying {
                                   workEmail: workEmail!,
                                   favouriteFilm: favouriteFilm!,
                                   favouriteBook: favouriteBook!,
-                                  favouriteMusic: favouriteMusic!
-            profileImage:profileImage!)
+                                  favouriteMusic: favouriteMusic!)
         
         return copy
     }
@@ -186,9 +180,6 @@ extension ModelDBProfile: NSCopying {
         }
         else if field == "favouriteMusic" {
             self.favouriteMusic = value
-        }
-        else if field == "profileImage" {
-            self.profileImage = value
         }
     }
 }
