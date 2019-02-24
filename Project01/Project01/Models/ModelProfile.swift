@@ -41,12 +41,15 @@ class ModelProfile: NSObject {
     // 좋아하는 음악 favourite music
     var favouriteMusic = String()
     
+    // 프로필 사진
+    var profileImage:UIImage!
+    
     override init() {
         super.init()
     }
     convenience init(id:String, name:String, surname:String, address:String, phone:String, mobile:String, email:String,
                      workAddress:String, workPhone:String, workEmail:String,
-                     favouriteFilm:String, favouriteBook:String, favouriteMusic:String) {
+                     favouriteFilm:String, favouriteBook:String, favouriteMusic:String, profileImage:UIImage) {
         self.init()
         self.id = id
         self.name = name
@@ -61,6 +64,7 @@ class ModelProfile: NSObject {
         self.favouriteFilm = favouriteFilm
         self.favouriteBook = favouriteBook
         self.favouriteMusic = favouriteMusic
+        self.profileImage = profileImage
     }
     convenience init(dbProfile:ModelDBProfile) {
         let id = dbProfile.id
@@ -76,7 +80,8 @@ class ModelProfile: NSObject {
         let favouriteFilm = dbProfile.favouriteFilm
         let favouriteBook = dbProfile.favouriteBook
         let favouriteMusic = dbProfile.favouriteMusic
-        self.init(id:id, name: name!, surname: surname!, address: address!, phone: phone!, mobile: mobile!, email: email!, workAddress: workAddress!, workPhone: workPhone!, workEmail: workEmail!, favouriteFilm: favouriteFilm!, favouriteBook: favouriteBook!, favouriteMusic: favouriteMusic!)
+        let profileImage = dbProfile.profileImage
+        self.init(id:id, name: name!, surname: surname!, address: address!, phone: phone!, mobile: mobile!, email: email!, workAddress: workAddress!, workPhone: workPhone!, workEmail: workEmail!, favouriteFilm: favouriteFilm!, favouriteBook: favouriteBook!, favouriteMusic: favouriteMusic!, profileImage:profileImage!)
         
     }
     

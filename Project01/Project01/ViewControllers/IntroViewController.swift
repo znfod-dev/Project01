@@ -112,6 +112,9 @@ class IntroViewController: UIViewController {
 			else {
 				let sideMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuController")
 				UIApplication.shared.keyWindow?.rootViewController = sideMenuController
+                //let storyboard:UIStoryboard = AppDelegate.sharedNamedStroyBoard("Profile") as! UIStoryboard
+                //let profileVC: Profile2ViewController = storyboard.instantiateViewController(withIdentifier: "Profile2") as! Profile2ViewController
+                //UIApplication.shared.keyWindow?.rootViewController = profileVC
 			}
 		}
 	}

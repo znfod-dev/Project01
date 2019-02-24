@@ -39,6 +39,13 @@
 		9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623521EA3E49007CF0B3 /* Assets.xcassets */; };
 		9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26623721EA3E49007CF0B3 /* LaunchScreen.storyboard */; };
 		9B297C17220DAF6E004231E4 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B297C16220DAF6E004231E4 /* OpenSourceViewController.swift */; };
+		9B7C013A2221117800654720 /* Profile2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C01392221117800654720 /* Profile2ViewController.swift */; };
+		9B7C013E22223CF800654720 /* Profile2+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C013D22223CF800654720 /* Profile2+ScrollView.swift */; };
+		9B7C01402222414700654720 /* Profile2+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C013F2222414700654720 /* Profile2+TextField.swift */; };
+		9B7C0142222262BB00654720 /* ImageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C0141222262BB00654720 /* ImageEditViewController.swift */; };
+		9B7C01442222634100654720 /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7C01432222634100654720 /* square.png */; };
+		9B7C0146222266AB00654720 /* Utills.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B7C0145222266AB00654720 /* Utills.storyboard */; };
+		9BB2B6482222C664009E3637 /* ImageEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB2B6472222C664009E3637 /* ImageEditDelegate.swift */; };
 		9E75D8862202BBF90042263A /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E75D8852202BBF90042263A /* BaseObject.swift */; };
 		9E954C9321F848E1006356BF /* CalendarLunar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E954C9221F848E1006356BF /* CalendarLunar.swift */; };
 		9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */; };
@@ -204,6 +211,13 @@
 		9B26623821EA3E49007CF0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B26623A21EA3E49007CF0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B297C16220DAF6E004231E4 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
+		9B7C01392221117800654720 /* Profile2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile2ViewController.swift; sourceTree = "<group>"; };
+		9B7C013D22223CF800654720 /* Profile2+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile2+ScrollView.swift"; sourceTree = "<group>"; };
+		9B7C013F2222414700654720 /* Profile2+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile2+TextField.swift"; sourceTree = "<group>"; };
+		9B7C0141222262BB00654720 /* ImageEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditViewController.swift; sourceTree = "<group>"; };
+		9B7C01432222634100654720 /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
+		9B7C0145222266AB00654720 /* Utills.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Utills.storyboard; sourceTree = "<group>"; };
+		9BB2B6472222C664009E3637 /* ImageEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditDelegate.swift; sourceTree = "<group>"; };
 		9DB15EA79718A43B263395EF /* Pods_Project01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E75D8852202BBF90042263A /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		9E954C9221F848E1006356BF /* CalendarLunar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLunar.swift; sourceTree = "<group>"; };
@@ -417,6 +431,15 @@
 			path = Project01;
 			sourceTree = "<group>";
 		};
+		9BB2B644222289B7009E3637 /* Utills */ = {
+			isa = PBXGroup;
+			children = (
+				9B7C0141222262BB00654720 /* ImageEditViewController.swift */,
+				9BB2B6472222C664009E3637 /* ImageEditDelegate.swift */,
+			);
+			path = Utills;
+			sourceTree = "<group>";
+		};
 		9BD47E6021FBF75E005350C9 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +450,7 @@
 				9B26623221EA3E48007CF0B3 /* Main.storyboard */,
 				D9FBE0E621F32B4600BDA694 /* Common.storyboard */,
 				6042713D21FD52E0001F0E40 /* Plan.storyboard */,
+				9B7C0145222266AB00654720 /* Utills.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -451,6 +475,7 @@
 		9BD47E6221FBF96D005350C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BB2B644222289B7009E3637 /* Utills */,
 				D9030A91220EA319008D5A9E /* WkWebview */,
 				9BDCAB992205ADE30001A57B /* DiaryPage */,
 				9BDCAB982205ADDD0001A57B /* Setting */,
@@ -468,10 +493,10 @@
 			isa = PBXGroup;
 			children = (
 				9E75D8852202BBF90042263A /* BaseObject.swift */,
-				D914E39E21FBF5BE00CFBB8E /* ModelDBDiary.swift */,
-				D914E38621FBF5BD00CFBB8E /* ModelDBProfile.swift */,
 				D914E3AA21FBF5BE00CFBB8E /* ModelDiary.swift */,
+				D914E39E21FBF5BE00CFBB8E /* ModelDBDiary.swift */,
 				D914E39621FBF5BD00CFBB8E /* ModelProfile.swift */,
+				D914E38621FBF5BD00CFBB8E /* ModelDBProfile.swift */,
 				9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */,
 				9EC46C5A21F6F91A00765274 /* ModelHoliday.swift */,
 				60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */,
@@ -544,6 +569,9 @@
 				D914E38521FBF5BD00CFBB8E /* Profile+TableViewDelegate.swift */,
 				D914E39F21FBF5BE00CFBB8E /* ProfileTableCell.swift */,
 				D914E3A221FBF5BE00CFBB8E /* ProfileViewController.swift */,
+				9B7C01392221117800654720 /* Profile2ViewController.swift */,
+				9B7C013D22223CF800654720 /* Profile2+ScrollView.swift */,
+				9B7C013F2222414700654720 /* Profile2+TextField.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -592,6 +620,7 @@
 		D9030AA9220EA38F008D5A9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9B7C01432222634100654720 /* square.png */,
 				D9FD0880221FB13E008AC233 /* icon_cell_delete@2x.png */,
 				D9FD0881221FB13E008AC233 /* icon_cell_delete@3x.png */,
 				6046A77E221EE7CC00D46681 /* icon_emptyTotoList.png */,
@@ -806,6 +835,7 @@
 				D9030AEB220EA390008D5A9E /* icon_add@2x.png in Resources */,
 				D9030B0F220EA390008D5A9E /* NanumPen.ttf in Resources */,
 				D9030AE6220EA390008D5A9E /* icon_refresh@3x.png in Resources */,
+				9B7C01442222634100654720 /* square.png in Resources */,
 				D9030AE1220EA38F008D5A9E /* icon_refresh@2x.png in Resources */,
 				D9030AE2220EA38F008D5A9E /* icon_save@3x.png in Resources */,
 				D9030B02220EA390008D5A9E /* img_cloud_sync@2x.png in Resources */,
@@ -863,6 +893,7 @@
 				9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */,
 				D9FD0883221FB13F008AC233 /* icon_cell_delete@3x.png in Resources */,
 				D9030AE8220EA390008D5A9E /* icon_notdata@3x.png in Resources */,
+				9B7C0146222266AB00654720 /* Utills.storyboard in Resources */,
 				D927150F2216594100284967 /* icon_back@2x.png in Resources */,
 				D9ED7B06221BD08100414AE6 /* menu_background@2x.png in Resources */,
 				D9030AE3220EA390008D5A9E /* icon_loading@2x.png in Resources */,
@@ -981,6 +1012,7 @@
 				60427142220005A6001F0E40 /* DBManager+Plan.swift in Sources */,
 				60F47A9221F56C3400E0DCB2 /* ModelDBPlan.swift in Sources */,
 				609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */,
+				9B7C013A2221117800654720 /* Profile2ViewController.swift in Sources */,
 				D9FEF054221D5A1C00D75CDF /* SelectedPopup.swift in Sources */,
 				D9FBE0DE21F32B1C00BDA694 /* UIColor+hexString.swift in Sources */,
 				D914E3C221FBF5BF00CFBB8E /* ModelProfile.swift in Sources */,
@@ -991,6 +1023,7 @@
 				D914E3B421FBF5BF00CFBB8E /* SettingTableCell.swift in Sources */,
 				6042713B21F6B57F001F0E40 /* DetailPlanViewController.swift in Sources */,
 				D914E3D121FBF5BF00CFBB8E /* Defines.swift in Sources */,
+				9B7C01402222414700654720 /* Profile2+TextField.swift in Sources */,
 				D914E3D021FBF5BF00CFBB8E /* DiaryPage+TableViewDelegate.swift in Sources */,
 				D9FBE0E221F32B1C00BDA694 /* DBManager.swift in Sources */,
 				D9FBE0E121F32B1C00BDA694 /* SiceMenuCell.swift in Sources */,
@@ -1007,14 +1040,17 @@
 				60427144220005B6001F0E40 /* DBManager+Todo.swift in Sources */,
 				D914E3D321FBF5BF00CFBB8E /* DBManager+Profile.swift in Sources */,
 				60F47A8D21F3874600E0DCB2 /* ModelDBTodo.swift in Sources */,
+				9B7C0142222262BB00654720 /* ImageEditViewController.swift in Sources */,
 				9B0666192211306D0057D99B /* PageController.swift in Sources */,
 				D914E3CB21FBF5BF00CFBB8E /* ProfileTableCell.swift in Sources */,
 				D9FBE0D721F32B1C00BDA694 /* CalendarManager.swift in Sources */,
 				D9FBE0D821F32B1C00BDA694 /* AlertMessagePopup.swift in Sources */,
 				D9FBE0E521F32B1C00BDA694 /* CommonUtil.swift in Sources */,
+				9BB2B6482222C664009E3637 /* ImageEditDelegate.swift in Sources */,
 				D914E3CE21FBF5BF00CFBB8E /* ProfileViewController.swift in Sources */,
 				9E75D8862202BBF90042263A /* BaseObject.swift in Sources */,
 				D914E3B121FBF5BF00CFBB8E /* DBManager+UD.swift in Sources */,
+				9B7C013E22223CF800654720 /* Profile2+ScrollView.swift in Sources */,
 				60F47A9521F5705700E0DCB2 /* PlannerViewController.swift in Sources */,
 				D914E3C821FBF5BF00CFBB8E /* DiaryPageTableCell.swift in Sources */,
 				D914E3BD21FBF5BF00CFBB8E /* ZnTextView.swift in Sources */,
