@@ -9,8 +9,14 @@
 import UIKit
 
 class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
-    
+	
+	@IBOutlet weak var btnMenu: UIButton!
+	@IBOutlet weak var btnBack: UIButton!
+
     @IBOutlet weak var tableView: UITableView!
+	
+	// 메뉴 버튼 활성화
+	var isMenuButtonShow = false
 	
 	// 부모VC
 	var parentVC: PageController?
@@ -35,7 +41,16 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
+		
+		// 메뉴 버튼 활성화
+		if isMenuButtonShow == true {
+			btnMenu.isHidden = false
+			btnBack.isHidden = true
+		}
+		else {
+			btnMenu.isHidden = true
+			btnBack.isHidden = false
+		}
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -97,6 +112,12 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
     }
     
     // MARK:- Actions
+	// 사이드 메뉴
+	@IBAction func onMenuClick(_ sender: Any) {
+		sideMenuController?.revealMenu()
+	}
+	
+	// 뒤로
     @IBAction func backBtnClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

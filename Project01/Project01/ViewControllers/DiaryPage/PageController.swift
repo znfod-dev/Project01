@@ -10,6 +10,9 @@ import UIKit
 
 class PageController: UIPageViewController {
 	
+	// 메뉴 버튼 활성화
+	var isMenuButtonShow = true
+
 	// 이전 보여주는 페이지
 	var focusIndex: Int = -1
     var currentDate = Date()
@@ -32,6 +35,23 @@ class PageController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
 		
+		for _ in 0..<3 {
+            let viewController = VCInstance(name: "DiaryPage")
+			viewController.parentVC = self
+            arrVC.append(viewController)
+        }
+		
+        // Do any additional setup after loading the view.
+    }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		if isMenuButtonShow == true {
+			// 선택한 날짜
+			currentDate = CalendarManager.getSelectedDate()
+		}
+		
 		focusIndex = 1
 		var countDay = -1
 
@@ -47,20 +67,16 @@ class PageController: UIPageViewController {
 			countDay = -2
 		}
 		
-		for _ in 0..<3 {
-            let viewController = VCInstance(name: "DiaryPage")
-            viewController.currentDate = Calendar.current.date(byAdding: DateComponents(month: 0, day: countDay), to: currentDate)!
-			viewController.parentVC = self
-            arrVC.append(viewController)
+		for curentVC in arrVC {
+			curentVC.currentDate = Calendar.current.date(byAdding: DateComponents(month: 0, day: countDay), to: currentDate)!
+			curentVC.isMenuButtonShow = isMenuButtonShow
 			
 			countDay += 1
-        }
+		}
 		
 		let curentVC = arrVC[focusIndex]
-		setViewControllers([curentVC], direction: .forward, animated: true, completion: nil)
-		
-        // Do any additional setup after loading the view.
-    }
+		setViewControllers([curentVC], direction: .forward, animated: false, completion: nil)
+	}
 	
 	// 타임 아웃 되었을때...
 	@objc func UserInteractionClear() {
@@ -222,6 +238,7 @@ extension PageController: UIPageViewControllerDelegate {
 				currentDate = Calendar.current.date(byAdding: DateComponents(month: 0, day: -1), to: currentDate)!
 				let prevVC: DiaryPageViewController = self.arrVC[prevIndex]
 				prevVC.currentDate = currentDate
+				prevVC.isMenuButtonShow = isMenuButtonShow
 			}
 		}
 		// 다음페이지 이동
@@ -235,6 +252,7 @@ extension PageController: UIPageViewControllerDelegate {
 				currentDate = Calendar.current.date(byAdding: DateComponents(month: 0, day: 1), to: currentDate)!
 				let nextVC: DiaryPageViewController = self.arrVC[nextIndex]
 				nextVC.currentDate = currentDate
+				nextVC.isMenuButtonShow = isMenuButtonShow
 			}
 		}
 	}

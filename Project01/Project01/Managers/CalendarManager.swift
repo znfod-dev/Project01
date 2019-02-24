@@ -17,6 +17,29 @@ class CalendarManager {
 	static var todolistCount: Int = 0
 	static var todolistDateText: String = ""
 	
+	// 선택한 날짜
+	static func getSelectedDate() -> Date {
+		if selectedCell == -1 {
+			return Date()
+		}
+		
+		let YYYYMMDD: String = "\(selectedCell)"
+		let year: Int = Int(YYYYMMDD.left(4))!
+		let month: Int = Int(YYYYMMDD.mid(4, amount: 2))!
+		let day: Int = Int(YYYYMMDD.right(2))!
+		
+		// sama73 : 날짜 변환
+		var dateComponents = DateComponents()
+		dateComponents.year = year
+		dateComponents.month = month
+		dateComponents.day = day
+		
+		let calendar = Calendar(identifier: .gregorian)
+		let date: Date = calendar.date(from: dateComponents)!
+
+		return date
+	}
+	
 	// 셀선택
 	static func setSelectedCell(selectedCell: Int) {
 		print("selectedCell=\(selectedCell)")
@@ -42,24 +65,13 @@ class CalendarManager {
 		}
 		
 		// todo list text
-		let YYYYMMDD: String = "\(selectedCell)"
-		let year: Int = Int(YYYYMMDD.left(4))!
-		let month: Int = Int(YYYYMMDD.mid(4, amount: 2))!
-		let day: Int = Int(YYYYMMDD.right(2))!
-		
-		// sama73 : 날짜 변환
-		var dateComponents = DateComponents()
-		dateComponents.year = year
-		dateComponents.month = month
-		dateComponents.day = day
-		
-		let calendar = Calendar(identifier: .gregorian)
-		let date: Date? = calendar.date(from: dateComponents)
+		// 선택한 날짜
+		let date: Date = CalendarManager.getSelectedDate()
 		
 		let formatter = DateFormatter()
 		formatter.locale = Locale(identifier:"ko_KR")
 		formatter.dateFormat = "MM월 dd일 EEEE 일정"
-		CalendarManager.todolistDateText = formatter.string(from: date!)
+		CalendarManager.todolistDateText = formatter.string(from: date)
 
 		print(CalendarManager.todolistDateText)
 	}

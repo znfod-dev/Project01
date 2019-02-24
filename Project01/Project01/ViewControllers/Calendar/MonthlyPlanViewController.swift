@@ -701,6 +701,7 @@ extension MonthlyPlanViewController: UIScrollViewDelegate {
                     // 다음페이지 이동
                     let storyboard = UIStoryboard.init(name: "DiaryPage", bundle: nil)
                     let diaryPage:PageController = storyboard.instantiateInitialViewController() as! PageController
+					diaryPage.isMenuButtonShow = false
                     
                     // sama73 : 날짜 변환
                     var dateComponents = DateComponents()

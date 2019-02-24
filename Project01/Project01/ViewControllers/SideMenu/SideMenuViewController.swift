@@ -67,9 +67,13 @@ class SideMenuViewController: UIViewController {
             UIStoryboard.init(name: "Plan", bundle: nil).instantiateViewController(withIdentifier: "_PlannerViewController")            
         }, with: "1")
 
+		sideMenuController?.cache(viewControllerGenerator: {
+			UIStoryboard.init(name: "DiaryPage", bundle: nil).instantiateViewController(withIdentifier: "Page")
+		}, with: "2")
+
         sideMenuController?.cache(viewControllerGenerator: {
             UIStoryboard.init(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: "Setting")
-        }, with: "2")
+        }, with: "3")
 
         sideMenuController?.delegate = self
         
@@ -170,10 +174,12 @@ class SideMenuViewController: UIViewController {
 		}
 		// 다이어리
 		else if tag == 2 {
+			sideMenuController?.setContentViewController(with: "2", animated: Preferences.shared.enableTransitionAnimation)
+			sideMenuController?.hideMenu()
 		}
 		// 설정
 		else if tag == 3 {
-			sideMenuController?.setContentViewController(with: "2", animated: Preferences.shared.enableTransitionAnimation)
+			sideMenuController?.setContentViewController(with: "3", animated: Preferences.shared.enableTransitionAnimation)
 			sideMenuController?.hideMenu()
 		}
 		// 월간 일정

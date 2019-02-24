@@ -367,6 +367,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
             if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
                 DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: startDate)
+				
+				// 셀선택
+				CalendarManager.setSelectedCell(selectedCell: -1)
             }else {
                 self.okAlert("Warning", "시작날짜를 마지막날짜보다 늦게 설정할 수 없습니다.")
             }
@@ -378,6 +381,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
             if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
                 DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: endDate)
+				
+				// 셀선택
+				CalendarManager.setSelectedCell(selectedCell: -1)
             }else {
                 self.okAlert("Warning", "마지막날짜를 시작날짜보다 일찍 설정할 수 없습니다.")
             }
