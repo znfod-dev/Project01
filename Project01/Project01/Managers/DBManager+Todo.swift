@@ -13,15 +13,17 @@ import RealmSwift
 extension DBManager {
     // Select
     // TodoList 불러오기
-    func selectTodoDB(withoutCheckedBox: Bool = false) -> Array<ModelTodo> {
+    func selectTodoDB(seletedDate: String, withoutCheckedBox: Bool = false) -> Array<ModelTodo> {
         print("selectTodoDB")
         var todoArray = Array<ModelTodo>()
         
         let dbTodoArray: Results<ModelDBTodo>?
+        
         if withoutCheckedBox { // 체크 박스가 체크된 todo 제외할 때
-            dbTodoArray = self.database.objects(ModelDBTodo.self).filter("isSelected = false")
+            dbTodoArray = self.database.objects(ModelDBTodo.self).filter("date = '\(seletedDate)'").filter("isSelected = false")
         } else { // 모든 todo
-            dbTodoArray = self.database.objects(ModelDBTodo.self)
+            print("selectedDate = \(seletedDate)")
+            dbTodoArray = self.database.objects(ModelDBTodo.self).filter("date = '\(seletedDate)'")
         }
         
         for dbTodo in dbTodoArray! {

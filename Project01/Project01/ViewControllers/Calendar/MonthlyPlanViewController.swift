@@ -57,7 +57,7 @@ class MonthlyPlanViewController: UIViewController {
     var todoArray = Array<ModelTodo>() // 전체 TodoList
     var selectedDayTodo = Array<ModelTodo>() // 특정 날짜의 TodoList
     
-    var selectedDay:String? = Date().cmpString() // 선택한 날짜
+    var selectedDate:String? = Date().cmpString() // 선택한 날짜
     
     // 완료된 todo 숨기기
     // true : 체크 todo 숨기기
@@ -217,7 +217,7 @@ class MonthlyPlanViewController: UIViewController {
         
         
         // 콜렉션에 맞는 날짜 전달
-        selectedDay = String(format: "%04d%02d%@", year, month, selectYMD.right(2))
+        selectedDate = String(format: "%04d%02d%@", year, month, selectYMD.right(2))
         self.todoListDateLabel.text = CalendarManager.todolistDateText
         selectedDayTodoList(doReload: true)
     }
@@ -382,22 +382,28 @@ class MonthlyPlanViewController: UIViewController {
     // 날짜에 맞는 TodoList 불러오기
     func selectedDayTodoList(doReload: Bool = false) {
         
+//        if self.isHide { // 체크한 todo를 보여주지 않을 때
+//            self.todoArray = DBManager.sharedInstance.selectTodoDB(withoutCheckedBox: true)
+//        } else { // 체크한 todo를 보여줄 때
+//            self.todoArray = DBManager.sharedInstance.selectTodoDB()
+//        }
+        
         if self.isHide { // 체크한 todo를 보여주지 않을 때
-            self.todoArray = DBManager.sharedInstance.selectTodoDB(withoutCheckedBox: true)
+            self.selectedDayTodo = DBManager.sharedInstance.selectTodoDB(seletedDate: self.selectedDate!, withoutCheckedBox: true)
         } else { // 체크한 todo를 보여줄 때
-            self.todoArray = DBManager.sharedInstance.selectTodoDB()
+            self.selectedDayTodo = DBManager.sharedInstance.selectTodoDB(seletedDate: self.selectedDate!)
         }
         
-        self.selectedDayTodo.removeAll()
-        for todo in self.todoArray {
-            if todo.date == self.selectedDay {
-                if !todo.isDeleted! { // 삭제한 것을 제외한 나머지만 추가
-                    self.selectedDayTodo.append(todo)
-                }
-            }
-        }
+//        self.selectedDayTodo.removeAll()
+//        for todo in self.todoArray {
+//            if todo.date == self.selectedDate {
+//                if !todo.isDeleted! { // 삭제한 것을 제외한 나머지만 추가
+//                    self.selectedDayTodo.append(todo)
+//                }
+//            }
+//        }
         
-        if self.selectedDayTodo.count == 0 { // todo가 없다면
+        if self.selectedDayTodo.isEmpty { // todo가 없다면
             self.isEmptyTodoList(isEmpty: true)
         } else {
             self.isEmptyTodoList(isEmpty: false)
@@ -460,7 +466,7 @@ class MonthlyPlanViewController: UIViewController {
         // 이번달 이동
         goThisMonth()
         
-        self.selectedDay = Date().cmpString()
+        self.selectedDate = Date().cmpString()
         self.selectedDayTodoList(doReload: true)
     }
     
@@ -563,7 +569,7 @@ class MonthlyPlanViewController: UIViewController {
 			// 새로운 Todo 추가
 			let uid = UUID().uuidString
 			let title = message
-			let date = self.selectedDay
+			let date = self.selectedDate
 			
 			let todo = ModelTodo(uid: uid, title: title!, date: date!)
 			self.todoArray.append(todo)

@@ -16,7 +16,7 @@ class ModelDBTodo: BaseObject {
     @objc dynamic var uid: String? // uid
     @objc dynamic var title: String?
     @objc dynamic var isSelected = false
-    @objc dynamic var date:String?
+    @objc dynamic var date: String?
     
     @objc dynamic var isDeleted = false
     
