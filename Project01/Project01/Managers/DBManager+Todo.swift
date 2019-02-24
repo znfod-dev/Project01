@@ -20,10 +20,10 @@ extension DBManager {
         let dbTodoArray: Results<ModelDBTodo>?
         
         if withoutCheckedBox { // 체크 박스가 체크된 todo 제외할 때
-            dbTodoArray = self.database.objects(ModelDBTodo.self).filter("date = '\(seletedDate)'").filter("isSelected = false")
+            dbTodoArray = self.database.objects(ModelDBTodo.self).filter("isDeleted = false").filter("date = '\(seletedDate)'").filter("isSelected = false")
         } else { // 모든 todo
             print("selectedDate = \(seletedDate)")
-            dbTodoArray = self.database.objects(ModelDBTodo.self).filter("date = '\(seletedDate)'")
+            dbTodoArray = self.database.objects(ModelDBTodo.self).filter("isDeleted = false").filter("date = '\(seletedDate)'")
         }
         
         for dbTodo in dbTodoArray! {
@@ -60,7 +60,6 @@ extension DBManager {
         
         // 찾은 객체 삭제
         try! self.database.write {
-//            self.database.delete(todoToDelete)
             todoToDelete.isDeleted = true
             
             completion?()
