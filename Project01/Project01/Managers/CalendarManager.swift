@@ -31,7 +31,7 @@ class CalendarManager {
 			return
 		}
 		
-		let sql = "SELECT * FROM ModelDBTodo WHERE date CONTAINS '\(selectedCell)' AND isDeleted=false;"
+		let sql = "SELECT * FROM ModelDBTodo WHERE date='\(selectedCell)' AND isDeleted=false;"
 		// SQL 결과
 		var dicSQLResults = DBManager.SQLExcute(sql: sql)
 		let resultCode = dicSQLResults["RESULT_CODE"] as! String
