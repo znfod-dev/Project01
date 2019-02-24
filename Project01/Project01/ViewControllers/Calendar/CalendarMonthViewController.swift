@@ -147,8 +147,8 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		self.navigationController?.pushViewController(diaryPage, animated: true)
         
         // 셀선택
-		CalendarManager.selectedCell = cellIndex
-        
+		CalendarManager.setSelectedCell(selectedCell: cellIndex)
+		
         // 콜렉션뷰 전체 리로드
         parentVC?.collectionReloadDataAll()
     }
@@ -323,7 +323,7 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         }
 		else {
 			// 셀선택
-			CalendarManager.selectedCell = cellIndex
+			CalendarManager.setSelectedCell(selectedCell: cellIndex)
 			
 			// 콜렉션뷰 전체 리로드
 			parentVC?.collectionReloadDataAll()
@@ -331,7 +331,7 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
 			// 콜렉션에 맞는 날짜 전달
 			parentVC?.selectedDay = String(format: "%04d%02d%02d", year, month, day)
 			parentVC?.selectedDayTodoList(doReload: true)
-            parentVC?.todoListDateLabel.text = String(format: "%02d월 %02d일 일정", month, day)
+            parentVC?.todoListDateLabel.text = CalendarManager.todolistDateText
 		}
     }
 }

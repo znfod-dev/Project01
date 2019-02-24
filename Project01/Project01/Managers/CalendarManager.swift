@@ -14,6 +14,55 @@ class CalendarManager {
 	
 	// 셀선택
 	static var selectedCell: Int = -1
+	static var todolistCount: Int = 0
+	static var todolistDateText: String = ""
+	
+	// 셀선택
+	static func setSelectedCell(selectedCell: Int) {
+		print("selectedCell=\(selectedCell)")
+		
+		CalendarManager.selectedCell = selectedCell
+		
+		// todo list count
+		CalendarManager.todolistCount = 0
+		CalendarManager.todolistDateText = ""
+		
+		if selectedCell == -1 {
+			return
+		}
+		
+		let sql = "SELECT * FROM ModelDBTodo WHERE date CONTAINS '\(selectedCell)' AND isDeleted=false;"
+		// SQL 결과
+		var dicSQLResults = DBManager.SQLExcute(sql: sql)
+		let resultCode = dicSQLResults["RESULT_CODE"] as! String
+		// 검색 성공
+		if resultCode == "0" {
+			let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
+			CalendarManager.todolistCount = resultData.count
+		}
+		
+		// todo list text
+		let YYYYMMDD: String = "\(selectedCell)"
+		let year: Int = Int(YYYYMMDD.left(4))!
+		let month: Int = Int(YYYYMMDD.mid(4, amount: 2))!
+		let day: Int = Int(YYYYMMDD.right(2))!
+		
+		// sama73 : 날짜 변환
+		var dateComponents = DateComponents()
+		dateComponents.year = year
+		dateComponents.month = month
+		dateComponents.day = day
+		
+		let calendar = Calendar(identifier: .gregorian)
+		let date: Date? = calendar.date(from: dateComponents)
+		
+		let formatter = DateFormatter()
+		formatter.locale = Locale(identifier:"ko_KR")
+		formatter.dateFormat = "MM월 dd일 EEEE 일정"
+		CalendarManager.todolistDateText = formatter.string(from: date!)
+
+		print(CalendarManager.todolistDateText)
+	}
 	
 	// 월간 문자
 	static func getMonthString(monthIndex:Int) -> String {
@@ -246,7 +295,7 @@ class CalendarManager {
 		// SQL 결과
 		dicSQLResults = DBManager.SQLExcute(sql: sql)
 		resultCode = dicSQLResults["RESULT_CODE"] as! String
-		// 검색 실패
+		// 검색 성공
 		if resultCode == "0" {
 			let resultData: Results<Object> = dicSQLResults["RESULT_DATA"] as! Results<Object>
 			

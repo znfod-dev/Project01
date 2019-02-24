@@ -444,7 +444,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYH-BU-Lam">
                                         <rect key="frame" x="0.0" y="351" width="375" height="196"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHR-03-T0a">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHR-03-T0a">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11월 19일 수요일 일정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeC-Na-QyR">
@@ -855,7 +855,7 @@
                                         </constraints>
                                         <state key="normal" image="icon_today.png"/>
                                         <connections>
-                                            <action selector="onTodayClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="9aQ-Pd-ZfW"/>
+                                            <action selector="onYYYYMMClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="IPa-rD-49C"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6OI-83-FLF">
@@ -865,7 +865,7 @@
                                             <color key="titleColor" red="0.21568627450980393" green="0.20784313725490194" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="onYYYYMMClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="0tc-fc-a3v"/>
+                                            <action selector="onTodayClick:" destination="lrI-bH-IEv" eventType="touchUpInside" id="ec4-Lu-BFx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -914,6 +914,7 @@
                         <outlet property="hideSwitch" destination="qZS-7x-mwR" id="GTd-3O-a7d"/>
                         <outlet property="scrollView" destination="DbH-wm-7qL" id="ZKz-Rw-4fT"/>
                         <outlet property="todoListDateLabel" destination="TeC-Na-QyR" id="n3e-YZ-9jB"/>
+                        <outlet property="todoListHeaderHeightConstraint" destination="ZGB-5f-lIP" id="7Mk-jQ-7Ct"/>
                         <outlet property="todoListHeightConstraint" destination="Tql-vn-gRb" id="SGc-TG-QEx"/>
                         <outlet property="todoTableView" destination="tqy-Ua-Sdt" id="gh5-Km-PSt"/>
                         <outlet property="vContent" destination="FxS-RH-b7x" id="38p-Mn-qp5"/>
@@ -968,7 +969,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCc-lf-D6n" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
-                                            <rect key="frame" x="12" y="0.0" width="29" height="29"/>
+                                            <rect key="frame" x="12" y="5" width="29" height="29"/>
                                             <color key="backgroundColor" red="0.52156862745098043" green="0.47058823529411764" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="29" id="HEx-kj-50d"/>
@@ -980,8 +981,8 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2A-nk-qiy" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="2.5" width="5" height="5"/>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2A-nk-qiy" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
+                                            <rect key="frame" x="24" y="7.5" width="5" height="5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="5" id="IMc-Iu-7Yd"/>
@@ -994,7 +995,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6v-t1-gyP">
-                                            <rect key="frame" x="17" y="7.5" width="19.5" height="14"/>
+                                            <rect key="frame" x="17" y="12.5" width="19.5" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="14" id="NZv-Z4-MzC"/>
                                             </constraints>
@@ -1002,14 +1003,14 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(음)01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edy-EV-e9L">
-                                            <rect key="frame" x="7.5" y="30" width="38" height="11"/>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(음)01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edy-EV-e9L">
+                                            <rect key="frame" x="7.5" y="35" width="38" height="11"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lta-1W-DKr" customClass="CustomPageControlView" customModule="Project01" customModuleProvider="target">
-                                            <rect key="frame" x="11.5" y="46" width="30" height="5"/>
+                                            <rect key="frame" x="11.5" y="43" width="30" height="5"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="5" id="9hd-wN-iXh"/>
@@ -1017,7 +1018,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설날" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="1Wq-rh-xPR">
-                                            <rect key="frame" x="2" y="41.5" width="49" height="13.5"/>
+                                            <rect key="frame" x="2" y="38.5" width="49" height="13.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.97647058823529409" green="0.33333333333333331" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1027,15 +1028,15 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="1Wq-rh-xPR" secondAttribute="trailing" constant="2" id="BBp-am-jQU"/>
                                     <constraint firstItem="H6v-t1-gyP" firstAttribute="top" secondItem="n2A-nk-qiy" secondAttribute="bottom" id="Fjo-OZ-g4Q"/>
-                                    <constraint firstAttribute="bottom" secondItem="1Wq-rh-xPR" secondAttribute="bottom" id="LLu-4l-VcM"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Wq-rh-xPR" secondAttribute="bottom" constant="3" id="LLu-4l-VcM"/>
                                     <constraint firstItem="n2A-nk-qiy" firstAttribute="centerX" secondItem="BCc-lf-D6n" secondAttribute="centerX" id="QMO-0A-3cS"/>
                                     <constraint firstItem="edy-EV-e9L" firstAttribute="top" secondItem="BCc-lf-D6n" secondAttribute="bottom" constant="1" id="eNx-DJ-UgS"/>
-                                    <constraint firstAttribute="bottom" secondItem="lta-1W-DKr" secondAttribute="bottom" constant="4" id="gbc-Pa-RQ2"/>
+                                    <constraint firstAttribute="bottom" secondItem="lta-1W-DKr" secondAttribute="bottom" constant="7" id="gbc-Pa-RQ2"/>
                                     <constraint firstItem="edy-EV-e9L" firstAttribute="centerX" secondItem="tNs-gH-LmQ" secondAttribute="centerX" id="mBF-xn-9B7"/>
                                     <constraint firstItem="lta-1W-DKr" firstAttribute="centerX" secondItem="tNs-gH-LmQ" secondAttribute="centerX" id="nOw-2l-0g3"/>
                                     <constraint firstItem="H6v-t1-gyP" firstAttribute="centerY" secondItem="BCc-lf-D6n" secondAttribute="centerY" id="oMr-Ae-jyv"/>
                                     <constraint firstItem="H6v-t1-gyP" firstAttribute="centerX" secondItem="BCc-lf-D6n" secondAttribute="centerX" id="r5c-9G-UMq"/>
-                                    <constraint firstItem="BCc-lf-D6n" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" id="tON-b7-laA"/>
+                                    <constraint firstItem="BCc-lf-D6n" firstAttribute="top" secondItem="tNs-gH-LmQ" secondAttribute="top" constant="5" id="tON-b7-laA"/>
                                     <constraint firstItem="BCc-lf-D6n" firstAttribute="centerX" secondItem="tNs-gH-LmQ" secondAttribute="centerX" id="vgg-ba-Le9"/>
                                     <constraint firstItem="1Wq-rh-xPR" firstAttribute="leading" secondItem="tNs-gH-LmQ" secondAttribute="leading" constant="2" id="w6v-5x-n2v"/>
                                 </constraints>
@@ -1043,7 +1044,6 @@
                                     <outlet property="lbDay" destination="H6v-t1-gyP" id="2d0-no-V9h"/>
                                     <outlet property="lbDayLunar" destination="edy-EV-e9L" id="b8t-K0-ToG"/>
                                     <outlet property="lbHoliday" destination="1Wq-rh-xPR" id="g9e-o2-tdT"/>
-                                    <outlet property="vHolidayCircle" destination="n2A-nk-qiy" id="r2L-Jh-5wN"/>
                                     <outlet property="vPageControl" destination="lta-1W-DKr" id="bWj-bJ-j1o"/>
                                     <outlet property="vPageControlWidthConstraint" destination="ttS-qT-rpd" id="B7p-Ln-3pY"/>
                                     <outlet property="vToDay" destination="BCc-lf-D6n" id="qK3-aF-E9S"/>
@@ -1065,8 +1065,8 @@
         <image name="icon_addButton.png" width="57" height="57"/>
         <image name="icon_back.png" width="19" height="19"/>
         <image name="icon_emptyTotoList.png" width="119" height="72"/>
-        <image name="icon_menu.png" width="36" height="36"/>
-        <image name="icon_today.png" width="36" height="36"/>
+        <image name="icon_menu.png" width="18" height="15"/>
+        <image name="icon_today.png" width="18" height="20"/>
         <image name="img_cloud_sync.png" width="170" height="170"/>
         <image name="img_refresh_sync.png" width="94" height="94"/>
         <image name="menu_background.png" width="393" height="382"/>
