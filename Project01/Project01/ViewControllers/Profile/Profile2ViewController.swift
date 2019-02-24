@@ -10,6 +10,9 @@ import UIKit
 
 class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     
+    // 모달인가?
+    var isModal: Bool = false
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     var imagePicker: UIImagePickerController!
@@ -43,6 +46,24 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         
     }
     
+    // sama73 : 뒤로가기 버큰 액션
+    @IBAction func backBtnClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // sama73 : 닫기 버큰 액션
+    @IBAction func closeBtnClicked(_ sender: Any) {
+        // 사이드 메뉴 모달 오픈
+        if isModal == true {
+            self.view.endEditing(true)
+            self.dismiss(animated: true, completion: nil)
+        }
+            // 최초 실행
+        else {
+            let sideMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuController")
+            UIApplication.shared.keyWindow?.rootViewController = sideMenuController
+        }
+    }
     
     // MARK:- Keyboard
     @objc func keyboardWillShow(notification: Notification) {

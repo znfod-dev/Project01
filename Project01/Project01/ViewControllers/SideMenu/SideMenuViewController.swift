@@ -157,8 +157,9 @@ class SideMenuViewController: UIViewController {
 			// 모달 오픈했는지?
 			isModal = true
 
-			let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
-			// 모달 설정
+			//let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+            let profileVC: Profile2ViewController = storyboard.instantiateViewController(withIdentifier: "Profile2") as! Profile2ViewController
+            // 모달 설정
 			profileVC.isModal = true
 			self.present(profileVC, animated: true, completion: nil)
 		}

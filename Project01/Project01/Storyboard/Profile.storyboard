@@ -331,6 +331,9 @@
                                                                             <constraint firstAttribute="height" constant="36" id="c2w-hh-Asw"/>
                                                                         </constraints>
                                                                         <state key="normal" image="icon_navigation_back.png"/>
+                                                                        <connections>
+                                                                            <action selector="backBtnClicked:" destination="7Q1-Ka-NG6" eventType="touchUpInside" id="MOp-E4-qfR"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Za6-uL-Vth">
                                                                         <rect key="frame" x="161.5" y="18" width="52" height="24"/>
@@ -345,6 +348,9 @@
                                                                             <constraint firstAttribute="width" constant="36" id="Dzk-ik-VcC"/>
                                                                         </constraints>
                                                                         <state key="normal" image="icon_close.png"/>
+                                                                        <connections>
+                                                                            <action selector="closeBtnClicked:" destination="7Q1-Ka-NG6" eventType="touchUpInside" id="D8G-bK-DZP"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
