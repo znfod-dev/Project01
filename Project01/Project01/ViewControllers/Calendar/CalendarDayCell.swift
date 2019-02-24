@@ -100,9 +100,16 @@ class CalendarDayCell: UICollectionViewCell {
 					colorHolidayCircle = 0xF9553C
 					vToDay.borderColor = UIColor(hex: colorHolidayCircle)
 					
+					// 공휴일명이 세팅되어 있으면...
+					if CommonUtil.isEmpty(holidayName as AnyObject) == false {
 					// 공휴일명 세팅
 					lbHoliday.isHidden = false
 					lbHoliday.text = holidayName
+				}
+					// 일요일인 경우...
+					else {
+						vPageControl.isHidden = false
+					}
 				}
 				else {
 					vToDay.borderColor = UIColor(hex: 0x8578DF)
@@ -119,7 +126,7 @@ class CalendarDayCell: UICollectionViewCell {
 			}
 			else {
 				// 이전 음력설정과 변경유무 체크
-				let isLunarCalendar = !CommonUtil.getUserDefaultsBool(forKey: kBool_isLunarCalendar)
+//				let isLunarCalendar = !CommonUtil.getUserDefaultsBool(forKey: kBool_isLunarCalendar)
 //				lbDayLunar.isHidden = isLunarCalendar
 				lbDayLunar.text = String(format: "%02d.%02d", monthLunar, dayLunar)
 			}

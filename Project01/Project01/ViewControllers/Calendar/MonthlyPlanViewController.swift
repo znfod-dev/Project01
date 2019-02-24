@@ -488,14 +488,14 @@ class MonthlyPlanViewController: UIViewController {
             let dateNext = CalendarManager.getYearMonth(year: year, month: month, amount: count)
             startYYYYMM = String(format: "%d%02d", dateNext.year, dateNext.month)
 			
-			var strThisMonth = ""
+			var colorThisMonth = 0x1E1E1E
 			// 이번달
 			if thisMonth.year == dateNext.year && thisMonth.month == dateNext.month {
-				strThisMonth = " (이번달)"
+				colorThisMonth = 0x8578DF
 			}
 			
-            let dateYYYYMM = "\(startYYYYMM.left(4))년 \(startYYYYMM.mid(4, amount: 2))월\(strThisMonth)"
-            arrData += [["DATE_TEXT":dateYYYYMM, "DATE_YEAR":dateNext.year, "DATE_MONTH":dateNext.month, "DATE_COUNT":count]]
+            let dateYYYYMM = "\(startYYYYMM.left(4))년 \(startYYYYMM.mid(4, amount: 2))월"
+			arrData += [["DATE_TEXT":dateYYYYMM, "titleLabelColor":colorThisMonth, "DATE_YEAR":dateNext.year, "DATE_MONTH":dateNext.month, "DATE_COUNT":count]]
             
             count += 1
         } while startYYYYMM != endYYYYMM

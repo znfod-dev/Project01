@@ -145,6 +145,9 @@ extension SelectedPopup: UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell!.textLabel?.text = dicItem?.values.first as? String
             }
+			
+			let titleLabelColor:Int = dicItem?["titleLabelColor"] as? Int ?? 0x000000
+			cell!.textLabel?.textColor = UIColor(hex: titleLabelColor)
         } else {
             cell!.textLabel?.text = item as? String
         }
