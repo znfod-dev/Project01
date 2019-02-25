@@ -47,6 +47,10 @@ class PageController: UIPageViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		// 시작일, 종료일 세팅
+		self.minimumDate = DBManager.sharedInstance.loadMinimumDateFromUD()
+		self.maximumDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+
 		if isMenuButtonShow == true {
 			// 선택한 날짜
 			currentDate = CalendarManager.getSelectedDate()

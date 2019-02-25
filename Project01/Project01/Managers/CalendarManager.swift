@@ -20,7 +20,21 @@ class CalendarManager {
 	// 선택한 날짜
 	static func getSelectedDate() -> Date {
 		if selectedCell == -1 {
-			return Date()
+			// 오늘 날짜
+			let today = Date()
+			
+			// 시작날짜
+			let minDateInterval = CommonUtil.getUserDefaultsDouble(forKey: kDate_MinimumDate)
+			let minDate = Date.init(timeIntervalSince1970: minDateInterval)
+			// 마지막날짜
+			let maxDateInterval = CommonUtil.getUserDefaultsDouble(forKey: kDate_MaximumDate)
+			let maxDate = Date.init(timeIntervalSince1970: maxDateInterval)
+			
+			if minDate < today && maxDate > today {
+				return today
+			}
+			
+			return minDate
 		}
 		
 		let YYYYMMDD: String = "\(selectedCell)"
