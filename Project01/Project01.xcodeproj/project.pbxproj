@@ -141,6 +141,7 @@
 		D927150B2216593400284967 /* menu_planlist@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D92715072216593400284967 /* menu_planlist@3x.png */; };
 		D927150E2216594100284967 /* icon_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D927150C2216594100284967 /* icon_back@3x.png */; };
 		D927150F2216594100284967 /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D927150D2216594100284967 /* icon_back@2x.png */; };
+		D9BBD2972223B5B30090DC83 /* TodoListAddPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BBD2962223B5B30090DC83 /* TodoListAddPopup.swift */; };
 		D9C27BC52223AD6D00575385 /* icon_hiddenTotoList@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9C27BC32223AD6D00575385 /* icon_hiddenTotoList@3x.png */; };
 		D9C27BC62223AD6D00575385 /* icon_hiddenTotoList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9C27BC42223AD6D00575385 /* icon_hiddenTotoList@2x.png */; };
 		D9ED7B06221BD08100414AE6 /* menu_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9ED7B04221BD08000414AE6 /* menu_background@2x.png */; };
@@ -317,6 +318,7 @@
 		D92715072216593400284967 /* menu_planlist@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_planlist@3x.png"; sourceTree = "<group>"; };
 		D927150C2216594100284967 /* icon_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@3x.png"; sourceTree = "<group>"; };
 		D927150D2216594100284967 /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
+		D9BBD2962223B5B30090DC83 /* TodoListAddPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAddPopup.swift; sourceTree = "<group>"; };
 		D9C27BC32223AD6D00575385 /* icon_hiddenTotoList@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_hiddenTotoList@3x.png"; sourceTree = "<group>"; };
 		D9C27BC42223AD6D00575385 /* icon_hiddenTotoList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_hiddenTotoList@2x.png"; sourceTree = "<group>"; };
 		D9ED7B04221BD08000414AE6 /* menu_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_background@2x.png"; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 				D9FED00421FC2C7900689BC9 /* PromptMessagePopup.swift */,
 				D9FEF053221D5A1B00D75CDF /* SelectedPopup.swift */,
 				D9FBE0C921F32B1B00BDA694 /* LoaddingPopup.swift */,
+				D9BBD2962223B5B30090DC83 /* TodoListAddPopup.swift */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -1005,6 +1008,7 @@
 				D914E3CD21FBF5BF00CFBB8E /* Profile+TableViewDataSource.swift in Sources */,
 				D914E3C321FBF5BF00CFBB8E /* BaseViewController.swift in Sources */,
 				D9FB06D521FD7EB5006C4DCA /* CustomPageControlView.swift in Sources */,
+				D9BBD2972223B5B30090DC83 /* TodoListAddPopup.swift in Sources */,
 				D914E3C421FBF5BF00CFBB8E /* DiaryPageViewController.swift in Sources */,
 				60F47A9021F56C2D00E0DCB2 /* ModelPlan.swift in Sources */,
 				D9FED00521FC2C7900689BC9 /* PromptMessagePopup.swift in Sources */,

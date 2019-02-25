@@ -560,12 +560,12 @@ class MonthlyPlanViewController: UIViewController {
 	@IBAction func onAddClick() {
 		// sama73 : Todo 테이터 추가
 		var dicConfig: [String: Any] = [:]
-		dicConfig["TITLE"] = "Todo"
+		dicConfig["TITLE"] = CalendarManager.todolistDateText
 		dicConfig["MESSAGE"] = ""
 		dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
 		
-		let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
-		popup.addActionConfirmClick("추가") { (message) in
+		let popup = TodoListAddPopup.messagePopup(dicConfig: dicConfig)
+		popup.addActionConfirmClick { (message) in
 			if (message?.isEmpty)! { // 메세지 값이 비었다면 리턴처리
 				return
 			}
@@ -586,8 +586,9 @@ class MonthlyPlanViewController: UIViewController {
 			self.setDBReloadData()
 		}
 		
-		popup.addActionCancelClick("취소", handler: {
-		})
+		popup.addActionCancelClick {
+			
+		}
 	}
 
     // 스위치 클릭 했을 때 처리
@@ -865,19 +866,24 @@ extension MonthlyPlanViewController: UITableViewDelegate {
         
         // sama73 : Todo 테이터 수정
         var dicConfig: [String: Any] = [:]
-        dicConfig["TITLE"] = "Todo 수정"
+        dicConfig["TITLE"] = CalendarManager.todolistDateText
         dicConfig["MESSAGE"] = todo.title
         dicConfig["KEYBOARD_TYPE"] = UIKeyboardType.default
         
-        let popup = PromptMessagePopup.messagePopup(dicConfig: dicConfig)
-        popup.addActionConfirmClick("수정") { (message) in
-            todo.title = message
-            DBManager.sharedInstance.updateTodo(todo: todo)
-            self.selectedDayTodoList(doReload: true)
-        }
-        
-        popup.addActionCancelClick("취소", handler: {
-        })
+        let popup = TodoListAddPopup.messagePopup(dicConfig: dicConfig)
+		popup.addActionConfirmClick { (message) in
+			if (message?.isEmpty)! { // 메세지 값이 비었다면 리턴처리
+				return
+			}
+			
+			todo.title = message
+			DBManager.sharedInstance.updateTodo(todo: todo)
+			self.selectedDayTodoList(doReload: true)
+		}
+		
+		popup.addActionCancelClick {
+			
+		}
     }
 	
 	// 스와이프 delete 액션 세팅
