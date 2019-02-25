@@ -30,6 +30,8 @@ class MonthlyPlanViewController: UIViewController {
 	@IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var todoListDateLabel: UILabel! // todoList에서 날짜 라벨
     @IBOutlet weak var emptyTodoListView: UIView! // TodoList가 없을 때 나타나는 뷰
+	@IBOutlet weak var vEmptyMessage: UIView! // TodoList가 없을 때 나타나는 뷰
+	@IBOutlet weak var vHiddenMessage: UIView! // TodoList가 없을 때 나타나는 뷰
 	
     // 월별뷰컨트롤러 배열
     var arrOriginController = [CalendarMonthViewController]()
@@ -419,18 +421,20 @@ class MonthlyPlanViewController: UIViewController {
         if isEmpty { // todo가 없으면
 			// sama73 : todo list 헤더 높이 세팅
 			// todo list 데이터가 있으나 전체 숨김 처리가 된경우.
+			self.emptyTodoListView.isHidden = false // 일정 없음 이미지 띄우기
+			
 			if CalendarManager.todolistCount != 0 {
 				self.todoListHeaderHeightConstraint.constant = 53.0
 				
-				// sama73 : 히든 empty 뷰를 보여준다.
-				self.emptyTodoListView.isHidden = false // 일정 없음 이미지 띄우기
+				self.vHiddenMessage.isHidden = false // 일정 없음 이미지 띄우기
+				self.vEmptyMessage.isHidden = true // 일정 없음 이미지 띄우기
 			}
 			// todo list 데이터가 아예 없을 때...
 			else {
 				self.todoListHeaderHeightConstraint.constant = 0.0
 				
-				// sama73 : 데이터 empty 뷰를 보여준다.
-				self.emptyTodoListView.isHidden = false // 일정 없음 이미지 띄우기
+				self.vHiddenMessage.isHidden = true // 일정 없음 이미지 띄우기
+				self.vEmptyMessage.isHidden = false // 일정 없음 이미지 띄우기
 			}
 			
 //            self.fixedTodoListInfoView.isHidden = true

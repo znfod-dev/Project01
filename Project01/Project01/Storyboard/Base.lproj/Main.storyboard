@@ -448,9 +448,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11월 19일 수요일 일정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeC-Na-QyR">
-                                                        <rect key="frame" x="21" y="23" width="133" height="18"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="21" y="23" width="134.5" height="18"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZS-7x-mwR">
@@ -541,28 +541,52 @@
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="px3-pE-tRp">
                                                 <rect key="frame" x="0.0" y="53" width="375" height="143"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-Nc-tbL">
-                                                        <rect key="frame" x="121" y="17" width="133" height="109"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3NK-WJ-Zqu">
+                                                        <rect key="frame" x="110" y="10.5" width="155" height="114"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_emptyTotoList.png" translatesAutoresizingMaskIntoConstraints="NO" id="0gX-OG-Odb">
-                                                                <rect key="frame" x="7" y="0.0" width="119" height="72"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hiddenTotoList.png" translatesAutoresizingMaskIntoConstraints="NO" id="NbW-0b-Zxw">
+                                                                <rect key="frame" x="0.0" y="0.0" width="155" height="62"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 일정이 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaG-mM-3Ty">
-                                                                <rect key="frame" x="0.0" y="92" width="133" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68s-qy-0mk">
+                                                                <rect key="frame" x="28" y="78" width="99" height="36"/>
+                                                                <string key="text">모든 일정을 완료
+하였습니다.</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="oaG-mM-3Ty" firstAttribute="leading" secondItem="QBu-Nc-tbL" secondAttribute="leading" id="GPa-GI-DdO"/>
-                                                            <constraint firstItem="oaG-mM-3Ty" firstAttribute="top" secondItem="0gX-OG-Odb" secondAttribute="bottom" constant="20" id="P7W-J7-NZA"/>
-                                                            <constraint firstAttribute="bottom" secondItem="oaG-mM-3Ty" secondAttribute="bottom" id="PvH-EW-IZ2"/>
+                                                            <constraint firstItem="NbW-0b-Zxw" firstAttribute="leading" secondItem="3NK-WJ-Zqu" secondAttribute="leading" id="3bH-dp-JGg"/>
+                                                            <constraint firstItem="68s-qy-0mk" firstAttribute="top" secondItem="NbW-0b-Zxw" secondAttribute="bottom" constant="16" id="PmX-Ec-OPI"/>
+                                                            <constraint firstItem="NbW-0b-Zxw" firstAttribute="top" secondItem="3NK-WJ-Zqu" secondAttribute="top" id="iJv-yM-Ruo"/>
+                                                            <constraint firstItem="68s-qy-0mk" firstAttribute="centerX" secondItem="3NK-WJ-Zqu" secondAttribute="centerX" id="iuF-DS-zHW"/>
+                                                            <constraint firstAttribute="bottom" secondItem="68s-qy-0mk" secondAttribute="bottom" id="kpK-lO-cja"/>
+                                                            <constraint firstAttribute="trailing" secondItem="NbW-0b-Zxw" secondAttribute="trailing" id="mvn-3z-flM"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-Nc-tbL">
+                                                        <rect key="frame" x="112.5" y="21.5" width="150" height="100"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_emptyTotoList.png" translatesAutoresizingMaskIntoConstraints="NO" id="0gX-OG-Odb">
+                                                                <rect key="frame" x="24" y="0.0" width="102" height="62"/>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 일정이 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaG-mM-3Ty">
+                                                                <rect key="frame" x="4" y="82" width="142" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="oaG-mM-3Ty" secondAttribute="bottom" id="Ld8-iI-UwS"/>
                                                             <constraint firstItem="0gX-OG-Odb" firstAttribute="top" secondItem="QBu-Nc-tbL" secondAttribute="top" id="UsV-zm-B5u"/>
                                                             <constraint firstItem="0gX-OG-Odb" firstAttribute="centerX" secondItem="QBu-Nc-tbL" secondAttribute="centerX" id="c91-Xc-Bg2"/>
-                                                            <constraint firstAttribute="trailing" secondItem="oaG-mM-3Ty" secondAttribute="trailing" id="kvo-QK-Sga"/>
-                                                            <constraint firstItem="oaG-mM-3Ty" firstAttribute="centerX" secondItem="QBu-Nc-tbL" secondAttribute="centerX" id="sS3-yf-Zks"/>
+                                                            <constraint firstAttribute="width" constant="150" id="irF-yB-RJf"/>
+                                                            <constraint firstItem="oaG-mM-3Ty" firstAttribute="top" secondItem="0gX-OG-Odb" secondAttribute="bottom" constant="20" id="mRF-co-H0b"/>
+                                                            <constraint firstItem="oaG-mM-3Ty" firstAttribute="centerX" secondItem="QBu-Nc-tbL" secondAttribute="centerX" id="w1j-iA-WnG"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -570,6 +594,8 @@
                                                 <constraints>
                                                     <constraint firstItem="QBu-Nc-tbL" firstAttribute="centerY" secondItem="px3-pE-tRp" secondAttribute="centerY" id="66K-kA-DJM"/>
                                                     <constraint firstItem="QBu-Nc-tbL" firstAttribute="centerX" secondItem="px3-pE-tRp" secondAttribute="centerX" id="75E-5T-b8K"/>
+                                                    <constraint firstItem="3NK-WJ-Zqu" firstAttribute="centerX" secondItem="px3-pE-tRp" secondAttribute="centerX" id="FwM-kz-m38"/>
+                                                    <constraint firstItem="3NK-WJ-Zqu" firstAttribute="centerY" secondItem="px3-pE-tRp" secondAttribute="centerY" constant="-4" id="LeZ-to-big"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gko-ki-cT6">
@@ -918,7 +944,9 @@
                         <outlet property="todoListHeightConstraint" destination="Tql-vn-gRb" id="SGc-TG-QEx"/>
                         <outlet property="todoTableView" destination="tqy-Ua-Sdt" id="gh5-Km-PSt"/>
                         <outlet property="vContent" destination="FxS-RH-b7x" id="38p-Mn-qp5"/>
+                        <outlet property="vEmptyMessage" destination="QBu-Nc-tbL" id="Ctw-qC-SAc"/>
                         <outlet property="vHLine" destination="hN5-xI-nPX" id="e2d-I2-FI5"/>
+                        <outlet property="vHiddenMessage" destination="3NK-WJ-Zqu" id="UlP-La-v7D"/>
                         <outlet property="vNavigationBar" destination="EcJ-W0-9Hf" id="iEN-3h-XgZ"/>
                         <outlet property="vShadow" destination="sAM-bZ-WAC" id="D0C-gD-p6h"/>
                         <outlet property="vWeekString" destination="NEv-2g-own" id="bPu-Q8-dWF"/>
@@ -1064,7 +1092,8 @@
     <resources>
         <image name="icon_addButton.png" width="57" height="57"/>
         <image name="icon_back.png" width="19" height="19"/>
-        <image name="icon_emptyTotoList.png" width="119" height="72"/>
+        <image name="icon_emptyTotoList.png" width="102" height="62"/>
+        <image name="icon_hiddenTotoList.png" width="155" height="62"/>
         <image name="icon_menu.png" width="18" height="15"/>
         <image name="icon_today.png" width="18" height="20"/>
         <image name="img_cloud_sync.png" width="170" height="170"/>
