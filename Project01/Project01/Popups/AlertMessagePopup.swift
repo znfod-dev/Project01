@@ -12,6 +12,7 @@ class AlertMessagePopup: BasePopup {
 
     @IBOutlet private weak var lbMessage: UILabel!
     @IBOutlet private weak var btnConfirm: UIButton!
+	@IBOutlet private weak var btnConfirmWidthConstraint: NSLayoutConstraint!
     @IBOutlet private weak var btnCancel: UIButton!
     @IBOutlet private weak var btnCancelWidthConstraint: NSLayoutConstraint!
     private var confirmClick: (() -> Void)?
@@ -25,6 +26,8 @@ class AlertMessagePopup: BasePopup {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		btnConfirm.layer.cornerRadius = 20.0
+		btnCancel.layer.cornerRadius = 20.0
     }
     
 
@@ -49,12 +52,18 @@ class AlertMessagePopup: BasePopup {
     func addActionConfirmClick(_ actionWithTitle: String?, handler ConfirmClick: @escaping () -> Void) {
         
         btnConfirm.setTitle(actionWithTitle, for: .normal)
-        
+		
+		btnConfirm.isHidden = false
         if cancelClick != nil {
-            btnCancelWidthConstraint.constant = vContent.frame.size.width / 2
+			btnCancel.isHidden = false
+			
+			btnConfirmWidthConstraint.constant = 110.0
+			btnCancelWidthConstraint.constant = 110.0
         }
         else {
-            btnCancelWidthConstraint.constant = 0
+			btnCancel.isHidden = true
+			
+            btnConfirmWidthConstraint.constant = 245.0
         }
         
         confirmClick = ConfirmClick
@@ -66,11 +75,17 @@ class AlertMessagePopup: BasePopup {
         }
         
         btnCancel.setTitle(actionWithTitle, for: .normal)
-        
+		
+		btnCancel.isHidden = false
         if confirmClick != nil {
-            btnCancelWidthConstraint.constant = vContent.frame.size.width / 2
+			btnConfirm.isHidden = false
+			
+			btnConfirmWidthConstraint.constant = 110.0
+			btnCancelWidthConstraint.constant = 110.0
         } else {
-            btnCancelWidthConstraint.constant = vContent.frame.size.width
+			btnConfirm.isHidden = true
+			
+            btnCancelWidthConstraint.constant = 245.0
         }
         
         cancelClick = CancelClick

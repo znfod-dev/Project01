@@ -469,7 +469,7 @@ class MonthlyPlanViewController: UIViewController {
     @IBAction func onTodayClick(_ sender: Any) {
         // 이번달 이동
         goThisMonth()
-        
+
         self.selectedDate = Date().cmpString()
         self.selectedDayTodoList(doReload: true)
     }

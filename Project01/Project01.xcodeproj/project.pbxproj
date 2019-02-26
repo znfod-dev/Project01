@@ -533,9 +533,9 @@
 				D9FBE0CF21F32B1B00BDA694 /* BasePopup.swift */,
 				D9FBE0C721F32B1B00BDA694 /* AlertMessagePopup.swift */,
 				D9FED00421FC2C7900689BC9 /* PromptMessagePopup.swift */,
+				D9BBD2962223B5B30090DC83 /* TodoListAddPopup.swift */,
 				D9FEF053221D5A1B00D75CDF /* SelectedPopup.swift */,
 				D9FBE0C921F32B1B00BDA694 /* LoaddingPopup.swift */,
-				D9BBD2962223B5B30090DC83 /* TodoListAddPopup.swift */,
 			);
 			path = Popups;
 			sourceTree = "<group>";

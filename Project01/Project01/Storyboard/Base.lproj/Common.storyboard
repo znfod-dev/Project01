@@ -23,20 +23,20 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="al5-wn-T5F" customClass="RoundLineView" customModule="PlannerDiary">
-                                <rect key="frame" x="30" y="244" width="315" height="179"/>
+                                <rect key="frame" x="25" y="226.5" width="325" height="214.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탑승권이 동시에 두장 발급될 경우 앱 저장이 불가하오니, SMS 혹은 E-MAIL로 전송해주시기 바랍니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amn-Sb-Qko">
-                                        <rect key="frame" x="20" y="40" width="275" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <rect key="frame" x="20" y="40" width="285" height="64.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQu-bK-Y1t">
-                                        <rect key="frame" x="0.0" y="134" width="158" height="45"/>
-                                        <color key="backgroundColor" red="0.38431372549999998" green="0.38823529410000002" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="40" y="144.5" width="110" height="40"/>
+                                        <color key="backgroundColor" red="0.7803921568627451" green="0.77254901960784317" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="RhH-pC-prs"/>
-                                            <constraint firstAttribute="width" constant="158" id="lHr-Ri-Ij4"/>
+                                            <constraint firstAttribute="width" constant="110" id="qiD-yR-Nna"/>
+                                            <constraint firstAttribute="height" constant="40" id="xhd-Qy-Pe2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="취소">
@@ -47,10 +47,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qss-aL-sZC">
-                                        <rect key="frame" x="158" y="134" width="157" height="45"/>
-                                        <color key="backgroundColor" red="0.83921568629999999" green="0.031372549020000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="175" y="144.5" width="110" height="40"/>
+                                        <color key="backgroundColor" red="0.52156862745098043" green="0.47058823529411764" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="qKA-44-yII"/>
+                                            <constraint firstAttribute="width" constant="110" id="MMY-Nw-gLS"/>
+                                            <constraint firstAttribute="height" constant="40" id="uJT-H7-hJ6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="확인">
@@ -63,20 +64,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Qss-aL-sZC" secondAttribute="bottom" id="2aP-Vq-qgd"/>
-                                    <constraint firstAttribute="width" constant="315" id="6Xt-Ux-kAw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qss-aL-sZC" secondAttribute="trailing" constant="40" id="3sO-7W-gnk"/>
+                                    <constraint firstAttribute="bottom" secondItem="DQu-bK-Y1t" secondAttribute="bottom" constant="30" id="5y5-OP-mBr"/>
+                                    <constraint firstAttribute="width" constant="325" id="6Xt-Ux-kAw"/>
+                                    <constraint firstItem="DQu-bK-Y1t" firstAttribute="top" secondItem="Amn-Sb-Qko" secondAttribute="bottom" constant="40" id="6bW-WH-YQT"/>
                                     <constraint firstAttribute="trailing" secondItem="Amn-Sb-Qko" secondAttribute="trailing" constant="20" id="ESr-1S-v9B"/>
                                     <constraint firstItem="Amn-Sb-Qko" firstAttribute="leading" secondItem="al5-wn-T5F" secondAttribute="leading" constant="20" id="L81-vp-0Gd"/>
-                                    <constraint firstAttribute="bottom" secondItem="Amn-Sb-Qko" secondAttribute="bottom" constant="85" id="SP9-iE-npI"/>
+                                    <constraint firstItem="Qss-aL-sZC" firstAttribute="top" secondItem="DQu-bK-Y1t" secondAttribute="top" id="PAc-eb-rYT"/>
+                                    <constraint firstItem="DQu-bK-Y1t" firstAttribute="leading" secondItem="al5-wn-T5F" secondAttribute="leading" constant="40" id="RN7-Xi-xt8"/>
                                     <constraint firstItem="Amn-Sb-Qko" firstAttribute="top" secondItem="al5-wn-T5F" secondAttribute="top" constant="40" id="SyV-2d-z3W"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qss-aL-sZC" secondAttribute="trailing" id="dXK-Ib-iha"/>
-                                    <constraint firstItem="DQu-bK-Y1t" firstAttribute="leading" secondItem="al5-wn-T5F" secondAttribute="leading" id="hUw-oO-Waa"/>
-                                    <constraint firstItem="Qss-aL-sZC" firstAttribute="leading" secondItem="DQu-bK-Y1t" secondAttribute="trailing" id="kD0-hg-8EG"/>
-                                    <constraint firstAttribute="bottom" secondItem="DQu-bK-Y1t" secondAttribute="bottom" id="qTG-5y-4xc"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
+                                        <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -93,8 +93,9 @@
                     </view>
                     <connections>
                         <outlet property="btnCancel" destination="DQu-bK-Y1t" id="eKA-Qb-9ML"/>
-                        <outlet property="btnCancelWidthConstraint" destination="lHr-Ri-Ij4" id="zjH-le-xK7"/>
+                        <outlet property="btnCancelWidthConstraint" destination="qiD-yR-Nna" id="2w8-cw-EdS"/>
                         <outlet property="btnConfirm" destination="Qss-aL-sZC" id="rCL-U9-S1M"/>
+                        <outlet property="btnConfirmWidthConstraint" destination="MMY-Nw-gLS" id="exC-PV-SPm"/>
                         <outlet property="lbMessage" destination="Amn-Sb-Qko" id="4QL-eB-2xb"/>
                         <outlet property="vContent" destination="al5-wn-T5F" id="3gI-Rb-2jC"/>
                         <outlet property="vDimmed" destination="9wX-JV-B16" id="9lo-F9-I1c"/>
@@ -431,7 +432,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="6"/>
+                                                <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
