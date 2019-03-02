@@ -476,84 +476,90 @@ class MonthlyPlanViewController: UIViewController {
     
     // 년월 선택
     @IBAction func onYYYYMMClick(_ sender: Any) {
-		// 오늘 년/월 구하기
-		let thisMonth: (year:Int, month:Int) = CalendarManager.getYearMonth(amount: 0)
+		
+		var startYYYYMM: String = "\(startYYYYMMDD/100)"
+		let endYYYYMM: String = "\(endYYYYMMDD/100)"
+		let minYYYYMM: Int = Int(startYYYYMMDD/100)
+		let maxYYYYMM: Int = Int(endYYYYMMDD/100)
+		let curYYYYMM: Int = curentDate.year * 100 + curentDate.month
 
-        var arrData: [[String: Any]] = []
-        
-        var startYYYYMM: String = "\(startYYYYMMDD/100)"
-        let endYYYYMM: String = "\(endYYYYMMDD/100)"
-        
-        let year: Int = Int(startYYYYMM.left(4))!
-        let month: Int = Int(startYYYYMM.mid(4, amount: 2))!
-        var count = 0
-        
-        repeat {
-            let dateNext = CalendarManager.getYearMonth(year: year, month: month, amount: count)
-            startYYYYMM = String(format: "%d%02d", dateNext.year, dateNext.month)
+		let year: Int = Int(startYYYYMM.left(4))!
+		let month: Int = Int(startYYYYMM.mid(4, amount: 2))!
+		var count = 0
+
+		var arrData: [Int] = []
+
+		repeat {
+			let dateNext = CalendarManager.getYearMonth(year: year, month: month, amount: count)
+			startYYYYMM = String(format: "%d%02d", dateNext.year, dateNext.month)
+
+			arrData.append(dateNext.year * 100 + dateNext.month)
+
+			count += 1
+		} while startYYYYMM != endYYYYMM
+		
+		let popup = YearMonthPopup.yearMonthPopup(curYYYYMM: curYYYYMM, minYYYYMM: minYYYYMM, maxYYYYMM: maxYYYYMM)
+		popup.addActionConfirmClick { (curYYYYMM) in
 			
-			var colorThisMonth = 0x1E1E1E
-			// 이번달
-			if thisMonth.year == dateNext.year && thisMonth.month == dateNext.month {
-				colorThisMonth = 0x8578DF
+			// 기본 3페이지 중간 페이지를 보여준다.
+			var focusIndex: Int = 1
+			var startIndex: Int = -1
+			
+			// 선택한 년/월 인덱스 구하기
+			var selectedCount: Int = -1
+			
+			for i in 0..<arrData.count {
+				let YYYYMM = arrData[i]
+				if YYYYMM == curYYYYMM {
+					selectedCount = i
+					break
+				}
 			}
 			
-            let dateYYYYMM = "\(startYYYYMM.left(4))년 \(startYYYYMM.mid(4, amount: 2))월"
-			arrData += [["DATE_TEXT":dateYYYYMM, "titleLabelColor":colorThisMonth, "DATE_YEAR":dateNext.year, "DATE_MONTH":dateNext.month, "DATE_COUNT":count]]
-            
-            count += 1
-        } while startYYYYMM != endYYYYMM
-        
-        let popup = SelectedPopup.selectedPopup(arrayData: arrData, key: "DATE_TEXT")
-        popup.addActionCellSelected { (item) in
-            if let item: [String: Any] = item as? [String : Any] {
-                // 기본 3페이지 중간 페이지를 보여준다.
-                var focusIndex: Int = 1
-                
-                var startIndex: Int = -1
-                let selectedCount: Int = item["DATE_COUNT"] as! Int
-                
-                if selectedCount == 0 {
-                    focusIndex = 0
-                    startIndex = 0
-                }
-                else if selectedCount == (arrData.count - 1) {
-                    focusIndex = 2
-                    startIndex = selectedCount - 2
-                }
-                else {
-                    startIndex = selectedCount - 1
-                }
-                
-                if startIndex < 0 {
-                    focusIndex = 0
-                    startIndex = 0
-                }
-                
-                // 반환해줄 목록
-                var dicResult = [String: Any]()
-                
-                // 보여줄 년/월일 목록
-                var arrResultMonths = [(year:Int, month:Int)]()
-                
-                for i in startIndex..<arrData.count {
-                    let dicItem = arrData[i]
-                    let year: Int = dicItem["DATE_YEAR"] as! Int
-                    let month: Int = dicItem["DATE_MONTH"] as! Int
-                    
-                    arrResultMonths += [(year, month)]
-                    if arrResultMonths.count == 3 {
-                        break
-                    }
-                }
-                
-                dicResult["focusIndex"] = focusIndex
-                dicResult["arrResultMonths"] = arrResultMonths
-                
-                // 이번달 이동
-                self.goThisMonth(dicResult)
-            }
-        }
+			if selectedCount == 0 {
+				focusIndex = 0
+				startIndex = 0
+			}
+			else if selectedCount == (arrData.count - 1) {
+				focusIndex = 2
+				startIndex = selectedCount - 2
+			}
+			else {
+				startIndex = selectedCount - 1
+			}
+			
+			if startIndex < 0 {
+				focusIndex = 0
+				startIndex = 0
+			}
+			
+			// 반환해줄 목록
+			var dicResult = [String: Any]()
+			
+			// 보여줄 년/월일 목록
+			var arrResultMonths = [(year:Int, month:Int)]()
+			
+			for i in startIndex..<arrData.count {
+				let YYYYMM = arrData[i]
+				let year: Int = YYYYMM / 100
+				let month: Int = YYYYMM % 100
+				
+				arrResultMonths += [(year, month)]
+				if arrResultMonths.count == 3 {
+					break
+				}
+			}
+			
+			dicResult["focusIndex"] = focusIndex
+			dicResult["arrResultMonths"] = arrResultMonths
+			
+			// 이번달 이동
+			self.goThisMonth(dicResult)
+		}
+		
+		popup.addActionCancelClick {
+			
+		}
     }
 	
 	// 추가 버튼

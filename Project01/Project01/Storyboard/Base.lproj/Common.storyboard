@@ -470,5 +470,91 @@
             </objects>
             <point key="canvasLocation" x="2765.5999999999999" y="-1630.4347826086957"/>
         </scene>
+        <!--Year Month Popup-->
+        <scene sceneID="RQc-65-zwS">
+            <objects>
+                <viewController storyboardIdentifier="YearMonthPopup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="54J-mC-gvW" customClass="YearMonthPopup" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fz4-as-Fj8"/>
+                        <viewControllerLayoutGuide type="bottom" id="vna-on-5bl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BdQ-pQ-Gz6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5T-yn-8Wz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQb-nz-SaR">
+                                <rect key="frame" x="0.0" y="407" width="375" height="260"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LH6-Li-lb8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyh-mu-oOz" userLabel="bottom line">
+                                                <rect key="frame" x="0.0" y="43" width="375" height="1"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqj-ae-aQ8">
+                                                <rect key="frame" x="10" y="4" width="44" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <state key="normal" title="취소">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onCancelClick:" destination="54J-mC-gvW" eventType="touchUpInside" id="Y2B-7d-q2z"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKX-na-i3p">
+                                                <rect key="frame" x="321" y="4" width="44" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <state key="normal" title="확인">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onConfirmClick:" destination="54J-mC-gvW" eventType="touchUpInside" id="LZD-f9-4cv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kyh-7g-2VO">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="216"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="54J-mC-gvW" id="ADB-nM-3Vx"/>
+                                            <outlet property="delegate" destination="54J-mC-gvW" id="2QM-HW-0Ma"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="p5T-yn-8Wz" firstAttribute="leading" secondItem="BdQ-pQ-Gz6" secondAttribute="leading" id="8xG-Ly-bFw"/>
+                            <constraint firstAttribute="trailing" secondItem="p5T-yn-8Wz" secondAttribute="trailing" id="RAE-ci-aVw"/>
+                            <constraint firstItem="p5T-yn-8Wz" firstAttribute="height" secondItem="BdQ-pQ-Gz6" secondAttribute="height" id="epd-c6-xMM"/>
+                            <constraint firstItem="p5T-yn-8Wz" firstAttribute="top" secondItem="BdQ-pQ-Gz6" secondAttribute="top" id="rvQ-fa-GcZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mYE-gv-uLn"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnCancel" destination="xqj-ae-aQ8" id="zr4-ER-Khw"/>
+                        <outlet property="btnConfirm" destination="BKX-na-i3p" id="6cw-je-WQ2"/>
+                        <outlet property="pvYearMonth" destination="Kyh-7g-2VO" id="WeD-BO-qmy"/>
+                        <outlet property="vContent" destination="lQb-nz-SaR" id="wiW-i0-6I2"/>
+                        <outlet property="vDimmed" destination="p5T-yn-8Wz" id="VIg-1r-3nA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SWR-9A-AiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4335.1999999999998" y="-1630.4347826086957"/>
+        </scene>
     </scenes>
 </document>

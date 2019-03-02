@@ -142,6 +142,7 @@
 		D927150E2216594100284967 /* icon_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D927150C2216594100284967 /* icon_back@3x.png */; };
 		D927150F2216594100284967 /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D927150D2216594100284967 /* icon_back@2x.png */; };
 		D9BBD2972223B5B30090DC83 /* TodoListAddPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BBD2962223B5B30090DC83 /* TodoListAddPopup.swift */; };
+		D9BBD299222A4C270090DC83 /* YearMonthPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BBD298222A4C270090DC83 /* YearMonthPopup.swift */; };
 		D9C27BC52223AD6D00575385 /* icon_hiddenTotoList@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9C27BC32223AD6D00575385 /* icon_hiddenTotoList@3x.png */; };
 		D9C27BC62223AD6D00575385 /* icon_hiddenTotoList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9C27BC42223AD6D00575385 /* icon_hiddenTotoList@2x.png */; };
 		D9ED7B06221BD08100414AE6 /* menu_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9ED7B04221BD08000414AE6 /* menu_background@2x.png */; };
@@ -319,6 +320,7 @@
 		D927150C2216594100284967 /* icon_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@3x.png"; sourceTree = "<group>"; };
 		D927150D2216594100284967 /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
 		D9BBD2962223B5B30090DC83 /* TodoListAddPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAddPopup.swift; sourceTree = "<group>"; };
+		D9BBD298222A4C270090DC83 /* YearMonthPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthPopup.swift; sourceTree = "<group>"; };
 		D9C27BC32223AD6D00575385 /* icon_hiddenTotoList@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_hiddenTotoList@3x.png"; sourceTree = "<group>"; };
 		D9C27BC42223AD6D00575385 /* icon_hiddenTotoList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_hiddenTotoList@2x.png"; sourceTree = "<group>"; };
 		D9ED7B04221BD08000414AE6 /* menu_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_background@2x.png"; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				D9FED00421FC2C7900689BC9 /* PromptMessagePopup.swift */,
 				D9BBD2962223B5B30090DC83 /* TodoListAddPopup.swift */,
 				D9FEF053221D5A1B00D75CDF /* SelectedPopup.swift */,
+				D9BBD298222A4C270090DC83 /* YearMonthPopup.swift */,
 				D9FBE0C921F32B1B00BDA694 /* LoaddingPopup.swift */,
 			);
 			path = Popups;
@@ -1062,6 +1065,7 @@
 				60F47A9521F5705700E0DCB2 /* PlannerViewController.swift in Sources */,
 				D914E3C821FBF5BF00CFBB8E /* DiaryPageTableCell.swift in Sources */,
 				D914E3BD21FBF5BF00CFBB8E /* ZnTextView.swift in Sources */,
+				D9BBD299222A4C270090DC83 /* YearMonthPopup.swift in Sources */,
 				D914E3B321FBF5BF00CFBB8E /* ModelDBProfile.swift in Sources */,
 				D914E3C721FBF5BF00CFBB8E /* PopupManager.swift in Sources */,
 				D914E3C621FBF5BF00CFBB8E /* PickerView.swift in Sources */,
