@@ -104,17 +104,13 @@ class IntroViewController: UIViewController {
 				// 프로필 화면 보여주기
 				if let storyboard = AppDelegate.sharedNamedStroyBoard("Profile") as? UIStoryboard {
 					
-					let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
-					profileVC.isFirstAppRun = true
+					let profileVC: Profile2ViewController = storyboard.instantiateViewController(withIdentifier: "Profile2") as! Profile2ViewController
 					UIApplication.shared.keyWindow?.rootViewController = profileVC
 				}
 			}
 			else {
 				let sideMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuController")
 				UIApplication.shared.keyWindow?.rootViewController = sideMenuController
-                //let storyboard:UIStoryboard = AppDelegate.sharedNamedStroyBoard("Profile") as! UIStoryboard
-                //let profileVC: Profile2ViewController = storyboard.instantiateViewController(withIdentifier: "Profile2") as! Profile2ViewController
-                //UIApplication.shared.keyWindow?.rootViewController = profileVC
 			}
 		}
 	}

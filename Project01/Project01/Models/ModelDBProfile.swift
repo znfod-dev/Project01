@@ -46,6 +46,9 @@ class ModelDBProfile: BaseObject {
     // 좋아하는 음악 favourite music
     @objc dynamic var favouriteMusic:String? = nil
     
+    // 프로필 사진
+    // @objc dynamic var profileImage: CreamAsset?
+    
     @objc dynamic var isDeleted = false
     
     convenience init(id:String, name:String, surname:String, address:String, phone:String, mobile:String, email:String, workAddress:String, workPhone:String, workEmail:String, favouriteFilm:String, favouriteBook:String, favouriteMusic:String) {

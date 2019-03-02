@@ -41,9 +41,13 @@ class ModelProfile: NSObject {
     // 좋아하는 음악 favourite music
     var favouriteMusic = String()
     
+    // 프로필 사진
+    // var profileImage = UIImage()
+    
     override init() {
         super.init()
     }
+    
     convenience init(id:String, name:String, surname:String, address:String, phone:String, mobile:String, email:String,
                      workAddress:String, workPhone:String, workEmail:String,
                      favouriteFilm:String, favouriteBook:String, favouriteMusic:String) {

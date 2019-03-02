@@ -7,19 +7,39 @@
 //
 
 import UIKit
+import CloudKit
 
 class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     
     // 모달인가?
     var isModal: Bool = false
     
+    @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var editCompleteBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
+    
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    var imagePicker: UIImagePickerController!
-    
     @IBOutlet weak var profileImageBtn: UIButton!
     
+    @IBOutlet weak var editBtn: UIButton!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameDelBtn: UIButton!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var addressDelBtn: UIButton!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var phoneDelBtn: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailDelBtn: UIButton!
+    
+    @IBOutlet weak var startBtn: UIButton!
+    
+    var profile:ModelProfile!
+    
+    var imagePicker: UIImagePickerController!
     var profileImage:UIImage!
+    
+    var editable = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +47,77 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         // sama73 : 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
+       
+        // 최초 실행
+        if isModal == true {
+            startBtn.isHidden = true
+            backBtn.isHidden = true
+            menuBtn.isHidden = false
+        } else {
+            startBtn.isHidden = false
+            backBtn.isHidden = false
+            menuBtn.isHidden = true
+        }
+        editCompleteBtn.isHidden = true
         
         
         // 키보드 show hide 추가
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.profile = DBManager.sharedInstance.selectProfile()
+        self.updateTextField()
+        
+        /*
+         Test
+         */
+        
+    }
+    
+    func updateTextField() {
+        DispatchQueue.main.async {
+         
+            self.nameTextField.text = self.profile.name
+            
+            self.phoneTextField.text = self.profile.phone
+            
+            self.addressTextField.text = self.profile.address
+            
+            self.emailTextField.text = self.profile.email
+            if self.editable == true {
+                self.nameDelBtn.isHidden = false
+                self.nameTextField.isUserInteractionEnabled = true
+                self.phoneDelBtn.isHidden = false
+                self.phoneTextField.isUserInteractionEnabled = true
+                self.addressDelBtn.isHidden = false
+                self.addressTextField.isUserInteractionEnabled = true
+                self.emailDelBtn.isHidden = false
+                self.emailTextField.isUserInteractionEnabled = true
+                
+                self.editBtn.isHidden = true
+            }else {
+                self.nameDelBtn.isHidden = true
+                self.nameTextField.isUserInteractionEnabled = false
+                self.phoneDelBtn.isHidden = true
+                self.phoneTextField.isUserInteractionEnabled = false
+                self.addressDelBtn.isHidden = true
+                self.addressTextField.isUserInteractionEnabled = false
+                self.emailDelBtn.isHidden = true
+                self.emailTextField.isUserInteractionEnabled = false
+                
+                self.editBtn.isHidden = false
+            }
+        }
     }
     
     
-    
+    // MARK:- @IBAction
     @IBAction func profileImageBtnClicked(_ sender: Any) {
         print("profileImageBtnClicked")
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
         
         present(imagePicker, animated: true, completion: nil)
         
@@ -62,6 +139,51 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         else {
             let sideMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuController")
             UIApplication.shared.keyWindow?.rootViewController = sideMenuController
+        }
+    }
+    @IBAction func editCompleteBtnClicked(_ sender: Any) {
+        if self.editable == true {
+            self.editable = false
+        }else {
+            self.editable = true
+        }
+        self.profile.name = self.nameTextField.text!
+        self.profile.address = self.addressTextField.text!
+        self.profile.phone = self.phoneTextField.text!
+        self.profile.email = self.emailTextField.text!
+        
+        self.updateTextField()
+    }
+    @IBAction func startBtnClicked(_ sender: Any) {
+        let sideMenuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenuController")
+        UIApplication.shared.keyWindow?.rootViewController = sideMenuController
+    }
+    @IBAction func editBtnClicked(_ sender: Any) {
+        if self.editable == true {
+            self.editable = false
+        }else {
+            self.editable = true
+        }
+        self.updateTextField()
+    }
+    @IBAction func nameDelBtnClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.nameTextField.text = String()
+        }
+    }
+    @IBAction func addressDelBtnClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.addressTextField.text = String()
+        }
+    }
+    @IBAction func phoneDelBtnClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.phoneTextField.text = String()
+        }
+    }
+    @IBAction func emailDelBtnClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.emailTextField.text = String()
         }
     }
     
@@ -88,15 +210,19 @@ extension Profile2ViewController: UIImagePickerControllerDelegate{
         imagePicker.dismiss(animated: true, completion: nil)
         guard let selectedImage = info[.originalImage] as? UIImage else {
             print("Image not found!")
+            
             return
         }
+        
+        self.setProtocolImage(image: selectedImage)
+        /*
         let storyboard = UIStoryboard.init(name: "Utills", bundle: nil)
         
         let imageEditVC:ImageEditViewController = storyboard.instantiateViewController(withIdentifier: "ImageEdit") as! ImageEditViewController
         imageEditVC.image = selectedImage
         imageEditVC.delegate = self
         self.present(imageEditVC, animated: true, completion: nil)
-        
+        */
         /*
         DispatchQueue.main.async {
             self.profileImageBtn.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -126,14 +252,20 @@ extension Profile2ViewController: UIImagePickerControllerDelegate{
         // 임시 디렉터리 확인
         let tmpDir = NSTemporaryDirectory()
     }
+    
+    
 }
 
 extension Profile2ViewController: ImageEditDelegate {
     func setProtocolImage(image: UIImage) {
         print("Profile2ViewController: ImageEditDelegate")
         self.profileImage = image
+        
+        let newRecord:CKRecord = CKRecord(recordType: "ImageRecord")
+
         DispatchQueue.main.async {
             self.profileImageBtn.setImage(self.profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+            
             
         }
     }
