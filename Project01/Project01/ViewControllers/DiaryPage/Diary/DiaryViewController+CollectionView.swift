@@ -10,29 +10,35 @@ import Foundation
 import UIKit
 
 extension DiaryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let row = indexPath.row
         collectionView.deselectItem(at: indexPath, animated: true)
+        print("row : \(row)")
+        self.selectedMonth = row + 1
+        self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItems = 0
+        let numberOfItems = 12
         return numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let row = indexPath.row
         let cell:DiaryCollectionCell!
-        if row == selectedMonth {
-            cell = tableView.dequeueReusableCell(withIdentifier: "DiarySelecedMonthCell")
+        if row+1 == selectedMonth {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiarySelectedMonthCell", for: indexPath) as? DiaryCollectionCell
         }else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "DiaryMonthCell")
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiaryMonthCell", for: indexPath) as? DiaryCollectionCell
         }
+        cell.monthLabel.text = "\(row+1)월"
+        
         return cell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        let numberOfSection = 0
+        let numberOfSection = 1
         return numberOfSection
     }
     

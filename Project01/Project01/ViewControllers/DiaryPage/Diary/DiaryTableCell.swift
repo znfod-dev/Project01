@@ -10,6 +10,13 @@ import UIKit
 
 class DiaryTableCell: UITableViewCell {
 
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var writeBtn: UIButton!
+    
+    @IBOutlet weak var planBtn: UIButton!
+    @IBOutlet weak var planNameLabel: UILabel!
+    @IBOutlet weak var planContentLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

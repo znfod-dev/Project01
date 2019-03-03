@@ -68,7 +68,7 @@ class SideMenuViewController: UIViewController {
         }, with: "1")
 
 		sideMenuController?.cache(viewControllerGenerator: {
-			UIStoryboard.init(name: "DiaryPage", bundle: nil).instantiateViewController(withIdentifier: "Page")
+			UIStoryboard.init(name: "DiaryPage", bundle: nil).instantiateViewController(withIdentifier: "Diary")
 		}, with: "2")
 
         sideMenuController?.cache(viewControllerGenerator: {

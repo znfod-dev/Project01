@@ -10,4 +10,5 @@ import UIKit
 
 class DiaryCollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var monthLabel: UILabel!
 }

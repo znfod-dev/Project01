@@ -12,16 +12,17 @@ extension DiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRow = 12
+        let numberOfRow = 1
         return numberOfRow
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = UITableViewCell.init()
+        let cell:DiaryTableCell = tableView.dequeueReusableCell(withIdentifier: "DiaryTableCell") as! DiaryTableCell
+        let row = indexPath.row
         
         return cell
     }

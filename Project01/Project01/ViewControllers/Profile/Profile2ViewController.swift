@@ -14,7 +14,8 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     // 모달인가?
     var isModal: Bool = false
     
-    @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var closeBtn: UIButton!
+    
     @IBOutlet weak var editCompleteBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
     
@@ -52,11 +53,11 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         if isModal == true {
             startBtn.isHidden = true
             backBtn.isHidden = true
-            menuBtn.isHidden = false
+            //menuBtn.isHidden = false
         } else {
             startBtn.isHidden = false
             backBtn.isHidden = false
-            menuBtn.isHidden = true
+            closeBtn.isHidden = true
         }
         editCompleteBtn.isHidden = true
         
@@ -71,6 +72,11 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         /*
          Test
          */
+        
+        self.imagePicker =  UIImagePickerController()
+        self.imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        self.imagePicker.sourceType = .photoLibrary
+        self.imagePicker.allowsEditing = true
         
     }
     
@@ -93,7 +99,7 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
                 self.addressTextField.isUserInteractionEnabled = true
                 self.emailDelBtn.isHidden = false
                 self.emailTextField.isUserInteractionEnabled = true
-                
+                self.editCompleteBtn.isHidden = false
                 self.editBtn.isHidden = true
             }else {
                 self.nameDelBtn.isHidden = true
@@ -105,6 +111,7 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
                 self.emailDelBtn.isHidden = true
                 self.emailTextField.isUserInteractionEnabled = false
                 
+                self.editCompleteBtn.isHidden = true
                 self.editBtn.isHidden = false
             }
         }
@@ -114,12 +121,7 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     // MARK:- @IBAction
     @IBAction func profileImageBtnClicked(_ sender: Any) {
         print("profileImageBtnClicked")
-        imagePicker =  UIImagePickerController()
-        imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        
-        present(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
         
     }
     
