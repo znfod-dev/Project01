@@ -35,7 +35,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
-        // Do any additional setup after loading the view.
+        self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
     }
     // PickerView 추가
     func addPickerViews() {
@@ -83,11 +83,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     // MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         // Diary
-        // Font
-        // Profile
         // OpenSource
         //
-        return 4
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,10 +93,12 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         if section == 0 {
             numberOfRow = 5
         }else if section == 1 {
+            /*
             numberOfRow = 2
         }else if section == 2 {
             numberOfRow = 1
         }else if section == 3 {
+             */
             numberOfRow = 1
         }else {
             
@@ -110,10 +110,12 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         if section == 0 {
             titleForHeader = "Diary"
         }else if section == 1 {
+            /*
             titleForHeader = "Font"
         }else if section == 2 {
             titleForHeader = "Profile"
         }else if section == 3 {
+             */
             titleForHeader = "OpenSource"
         }else {
             
@@ -217,6 +219,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
             }
         }else if section == 1 {
+            /*
             if row == 0 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingFontCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
@@ -239,6 +242,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
             }
         }else if section == 3 {
+             */
             if row == 0 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingOpenSourceCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
