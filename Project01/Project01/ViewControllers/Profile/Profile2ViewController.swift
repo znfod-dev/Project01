@@ -38,7 +38,8 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     var profile:ModelProfile!
     
     var imagePicker: UIImagePickerController!
-    var profileImage:UIImage!
+    
+    var profileImage:ModelProfileImage!
     
     var editable = false
     
@@ -67,8 +68,9 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         self.profile = DBManager.sharedInstance.selectProfile()
+        self.profileImage = DBManager.sharedInstance.selectProfileImg()
         self.updateTextField()
-        
+        self.updateProfileImg()
         /*
          Test
          */
@@ -78,6 +80,14 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         self.imagePicker.sourceType = .photoLibrary
         self.imagePicker.allowsEditing = true
         
+    }
+    
+    func updateProfileImg() {
+        if let img = self.profileImage.image {
+            self.profileImageBtn.setImage(self.profileImage.image!.withRenderingMode(.alwaysOriginal), for: .normal)
+        }else {
+            
+        }
     }
     
     func updateTextField() {
@@ -261,13 +271,11 @@ extension Profile2ViewController: UIImagePickerControllerDelegate{
 extension Profile2ViewController: ImageEditDelegate {
     func setProtocolImage(image: UIImage) {
         print("Profile2ViewController: ImageEditDelegate")
-        self.profileImage = image
+        self.profileImage.image = image
         
-        let newRecord:CKRecord = CKRecord(recordType: "ImageRecord")
-
+        DBManager.sharedInstance.updateProfileImage(profileImg: self.profileImage)
         DispatchQueue.main.async {
-            self.profileImageBtn.setImage(self.profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
-            
+            self.updateProfileImg()
             
         }
     }

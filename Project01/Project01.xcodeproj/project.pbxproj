@@ -53,6 +53,8 @@
 		9B4144BE222B67CC008C9BF9 /* DiaryViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4144BD222B67CC008C9BF9 /* DiaryViewController+TableView.swift */; };
 		9B4144C2222B6A4B008C9BF9 /* DiaryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4144C1222B6A4B008C9BF9 /* DiaryTableCell.swift */; };
 		9B4144C4222B6A59008C9BF9 /* DiaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4144C3222B6A59008C9BF9 /* DiaryCollectionCell.swift */; };
+		9B683667222C077E008F27CB /* ModelDBProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B683666222C077E008F27CB /* ModelDBProfileImage.swift */; };
+		9B683669222C078D008F27CB /* ModelProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B683668222C078D008F27CB /* ModelProfileImage.swift */; };
 		9B7C013A2221117800654720 /* Profile2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C01392221117800654720 /* Profile2ViewController.swift */; };
 		9B7C013E22223CF800654720 /* Profile2+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C013D22223CF800654720 /* Profile2+ScrollView.swift */; };
 		9B7C01402222414700654720 /* Profile2+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C013F2222414700654720 /* Profile2+TextField.swift */; };
@@ -252,6 +254,8 @@
 		9B4144BD222B67CC008C9BF9 /* DiaryViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+TableView.swift"; sourceTree = "<group>"; };
 		9B4144C1222B6A4B008C9BF9 /* DiaryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTableCell.swift; sourceTree = "<group>"; };
 		9B4144C3222B6A59008C9BF9 /* DiaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionCell.swift; sourceTree = "<group>"; };
+		9B683666222C077E008F27CB /* ModelDBProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDBProfileImage.swift; sourceTree = "<group>"; };
+		9B683668222C078D008F27CB /* ModelProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProfileImage.swift; sourceTree = "<group>"; };
 		9B7C01392221117800654720 /* Profile2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile2ViewController.swift; sourceTree = "<group>"; };
 		9B7C013D22223CF800654720 /* Profile2+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile2+ScrollView.swift"; sourceTree = "<group>"; };
 		9B7C013F2222414700654720 /* Profile2+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile2+TextField.swift"; sourceTree = "<group>"; };
@@ -581,6 +585,8 @@
 				60F47A8C21F3874600E0DCB2 /* ModelDBTodo.swift */,
 				60F47A8F21F56C2D00E0DCB2 /* ModelPlan.swift */,
 				60F47A9121F56C3400E0DCB2 /* ModelDBPlan.swift */,
+				9B683668222C078D008F27CB /* ModelProfileImage.swift */,
+				9B683666222C077E008F27CB /* ModelDBProfileImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1127,6 +1133,7 @@
 				D9FED00521FC2C7900689BC9 /* PromptMessagePopup.swift in Sources */,
 				D9FBE0DD21F32B1C00BDA694 /* MonthlyPlanViewController.swift in Sources */,
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
+				9B683667222C077E008F27CB /* ModelDBProfileImage.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
 				9B297C17220DAF6E004231E4 /* OpenSourceViewController.swift in Sources */,
@@ -1183,6 +1190,7 @@
 				D914E3C621FBF5BF00CFBB8E /* PickerView.swift in Sources */,
 				D914E3D721FBF5BF00CFBB8E /* FontManager.swift in Sources */,
 				60F47A8B21F3873900E0DCB2 /* ModelTodo.swift in Sources */,
+				9B683669222C078D008F27CB /* ModelProfileImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
