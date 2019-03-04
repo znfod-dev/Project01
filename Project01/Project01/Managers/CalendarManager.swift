@@ -13,6 +13,7 @@ import RealmSwift
 class CalendarManager {
 	
 	// 셀선택
+	static var isChangeSelectedCell: Bool = false
 	static var selectedCell: Int = -1
 	static var todolistCount: Int = 0
 	static var todolistDateText: String = ""

@@ -209,7 +209,11 @@ class MonthlyPlanViewController: UIViewController {
         }
         
         // 셀선택
-        CalendarManager.setSelectedCell(selectedCell: cellIndex)
+		if CalendarManager.isChangeSelectedCell == false {
+			CalendarManager.setSelectedCell(selectedCell: cellIndex)
+		}
+		
+		CalendarManager.isChangeSelectedCell = false
         
         // 콜렉션뷰 전체 리로드
         collectionReloadDataAll()
@@ -357,6 +361,9 @@ class MonthlyPlanViewController: UIViewController {
     func goPrevPageScrollAnimation() {
         let tabIndex: Int = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         if tabIndex == 0 {
+			// 이전, 다음달 날짜 선택
+			CalendarManager.isChangeSelectedCell = false
+
             return
         }
         
@@ -371,6 +378,9 @@ class MonthlyPlanViewController: UIViewController {
     func goNextPageScrollAnimation() {
         let tabIndex: Int = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         if tabIndex == (arrChildController.count - 1) {
+			// 이전, 다음달 날짜 선택
+			CalendarManager.isChangeSelectedCell = false
+
             return
         }
         

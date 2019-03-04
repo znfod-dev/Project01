@@ -17,6 +17,7 @@ class Preferences {
 
 class SideMenuViewController: UIViewController {
 
+	@IBOutlet weak var ivProfile: UIImageView!
 	@IBOutlet weak var ivIcon: UIImageView!
 	var ivIconMask: UIImageView!
 	
@@ -82,26 +83,29 @@ class SideMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-		
+
+		// 프로필 이미지 설정
+		let imgProfile: ModelProfileImage! = DBManager.sharedInstance.selectProfileImg()
+		if let img = imgProfile.image {
+			ivProfile.image = img
+			ivProfile.isHidden = false
+			ivIcon.isHidden = true
+		}
+		else {
+			ivProfile.isHidden = true
+			ivIcon.isHidden = false
+		}
+
 		// 사이드 메뉴 열때...
 		if sideMenuController?.isMenuRevealed == false {
 			if isModal == false {
-				// 아이콘 이미지 회전
-				rotateAnimation()
-				
 				// 프로필 정보 DB체크
 				self.selectDBProfile()
 			}
 		}
 		// 사이드 메뉴 닫을때...
 		else {
-			self.ivIcon.layer.removeAllAnimations()
-			self.ivIconMask.layer.removeAllAnimations()
-			
 			if isModal == true {
-				// 아이콘 이미지 회전
-				rotateAnimation()
-				
 				// 프로필 정보 DB체크
 				self.selectDBProfile()
 			}
@@ -120,27 +124,6 @@ class SideMenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-	// 아이콘 이미지 회전
-	func rotateAnimation(duration: CFTimeInterval = 2.0) {
-		// 아이콘 이미지
-		let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
-		rotateAnimation.fromValue = 0.0
-		rotateAnimation.toValue = CGFloat(.pi * 2.0)
-		rotateAnimation.duration = duration
-		rotateAnimation.repeatCount = Float.greatestFiniteMagnitude;
-		
-		self.ivIcon!.layer.add(rotateAnimation, forKey: nil)
-		
-		// 마스크
-		let rotateAnimation2 = CABasicAnimation(keyPath: "transform.rotation")
-		rotateAnimation2.fromValue = 0.0
-		rotateAnimation2.toValue = -CGFloat(.pi * 2.0)
-		rotateAnimation2.duration = duration
-		rotateAnimation2.repeatCount = Float.greatestFiniteMagnitude;
-		
-		self.ivIconMask!.layer.add(rotateAnimation2, forKey: nil)
-	}
 
 	
     // MARK: - UIButton Action

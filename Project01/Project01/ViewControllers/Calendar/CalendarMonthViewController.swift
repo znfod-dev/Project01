@@ -314,17 +314,26 @@ extension CalendarMonthViewController: UICollectionViewDelegateFlowLayout {
         let cellIndex: Int = item["cellIndex"] as! Int
         let monthDirection: Int = item["monthDirection"] as! Int
 
+		// 셀선택
+		CalendarManager.setSelectedCell(selectedCell: cellIndex)
+
         // 현재달력에서 이전달 선택시 이전달로 스크롤링
         if monthDirection == -1 {
+			// 이전, 다음달 날짜 선택
+			CalendarManager.isChangeSelectedCell = true
+			
             parentVC?.goPrevPageScrollAnimation()
         }
         // 현재달력에서 다음달 선택시 다음달로 스크롤링
         else if monthDirection == 1 {
+			// 이전, 다음달 날짜 선택
+			CalendarManager.isChangeSelectedCell = true
+			
             parentVC?.goNextPageScrollAnimation()
         }
 		else {
 			// 셀선택
-			CalendarManager.setSelectedCell(selectedCell: cellIndex)
+//			CalendarManager.setSelectedCell(selectedCell: cellIndex)
 			
 			// 콜렉션뷰 전체 리로드
 			parentVC?.collectionReloadDataAll()
