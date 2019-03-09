@@ -101,16 +101,17 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
             
             self.emailTextField.text = self.profile.email
             if self.editable == true {
-                self.nameDelBtn.isHidden = false
+                //self.nameDelBtn.isHidden = false
                 self.nameTextField.isUserInteractionEnabled = true
-                self.phoneDelBtn.isHidden = false
+                //self.phoneDelBtn.isHidden = false
                 self.phoneTextField.isUserInteractionEnabled = true
-                self.addressDelBtn.isHidden = false
+                //self.addressDelBtn.isHidden = false
                 self.addressTextField.isUserInteractionEnabled = true
-                self.emailDelBtn.isHidden = false
+                //self.emailDelBtn.isHidden = false
                 self.emailTextField.isUserInteractionEnabled = true
                 self.editCompleteBtn.isHidden = false
                 self.editBtn.isHidden = true
+                self.closeBtn.isHidden = true
             }else {
                 self.nameDelBtn.isHidden = true
                 self.nameTextField.isUserInteractionEnabled = false
@@ -123,6 +124,7 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
                 
                 self.editCompleteBtn.isHidden = true
                 self.editBtn.isHidden = false
+                self.closeBtn.isHidden = false
             }
         }
     }
@@ -220,7 +222,7 @@ extension Profile2ViewController: UIImagePickerControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         imagePicker.dismiss(animated: true, completion: nil)
-        guard let selectedImage = info[.originalImage] as? UIImage else {
+        guard let selectedImage = info[.editedImage] as? UIImage else {
             print("Image not found!")
             
             return

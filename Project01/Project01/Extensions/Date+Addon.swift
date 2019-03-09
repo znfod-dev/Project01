@@ -72,4 +72,61 @@ extension Date {
     func endOfYear() -> Date {
         return Calendar.current.date(byAdding: DateComponents(year: 1, day: -1), to: self.startOfYear())!
     }
+    
+    // 월 비교
+    func compare(month:Date) -> Int{
+        let editMonth1 = self.startOfMonth(date: self)
+        let editMonth2 = self.startOfMonth(date: month)
+        if editMonth1 > editMonth2 {
+            // 자신이 작으면 -1
+            return -1
+        }else if editMonth1 < editMonth2{
+            // 자신이 크면 +1
+            return 1
+        }else {
+            // 동일하면 0 을 반환한다.
+            return 0
+        }
+    }
+    
+    // 해당년도 월별 일자 출력
+    static func dayOfMonths(year:Int) -> Array<Int> {
+        print("\(year)년")
+        var array = Array<Int>()
+        for month in 0..<13 {
+            var comps = DateComponents()
+            comps.year = year
+            comps.month = month
+            comps.day = 1
+            
+            let calendar = Calendar.current
+            let date: Date? = calendar.date(from: comps)
+            
+            var range: Range<Int>? = nil
+            if let date = date {
+                range = calendar.range(of: .day, in: .month, for: date)
+            }
+            let monthDayLength = range!.count
+            print("\(month)월 : \(monthDayLength)일")
+            array.append(monthDayLength)
+        }
+        return array
+    }
+    
+    static func Get(year:Int, month:Int, day:Int) -> Date{
+        
+        var comps = DateComponents()
+        comps.year = year
+        comps.month = month
+        comps.day = day
+        
+        let calendar = Calendar.current
+        let date: Date? = calendar.date(from: comps)
+        return date!
+    }
+    static func GetId(year:Int, month:Int, day:Int) -> String{
+        let dateInteger = ( year * 10000 ) + ( month * 100 ) + day
+        return String("\(dateInteger)")
+    }
+    
 }

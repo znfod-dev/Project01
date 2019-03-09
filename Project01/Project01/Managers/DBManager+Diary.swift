@@ -50,6 +50,22 @@ extension DBManager {
             return diary
         }
     }
+    // 지정된 날짜의 해당 월의 모든 다이어리 리스트 가져오기
+    func selectDiary(selectedDate:Date) -> Array<ModelDiary> {
+        var diaryArray = Array<ModelDiary>()
+        let startDate = Date().startOfMonth(date: selectedDate)
+        let endDate = Date().endOfMonth(date: selectedDate)
+        
+        let list = self.database.objects(ModelDBDiary.self).filter("date BETWEEN {%@, %@}", startDate, endDate)
+        if list.count > 0 {
+            for dbDiary in list {
+                let diary = ModelDiary.init(dbDiary: dbDiary)
+                diaryArray.append(diary)
+            }
+        }
+        return diaryArray
+    }
+    
     func selectTodo(date:Date) -> Array<ModelTodo> {
         var todoList = Array<ModelTodo>()
         let dbTodoList = self.database.objects(ModelDBTodo.self)
@@ -69,4 +85,17 @@ extension DBManager {
         }
     }
     
+    // Exist
+    // 입력한 날짜에 다이어리가 존재하면 true, 아니면 false
+    func existDiary(date:Date) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        let id = dateFormatter.string(from: date)
+        if let dbDiary = self.database.objects(ModelDBDiary.self).filter("id = '\(id)'").first {
+            return true
+        }else {
+            return false
+        }
+        
+    }
 }

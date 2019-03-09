@@ -17,6 +17,8 @@ extension DiaryViewController: UICollectionViewDelegate, UICollectionViewDataSou
         print("row : \(row)")
         self.selectedMonth = row + 1
         self.collectionView.reloadData()
+        
+        self.tableView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -27,12 +29,13 @@ extension DiaryViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let row = indexPath.row
         let cell:DiaryCollectionCell!
-        if row+1 == selectedMonth {
+        
+        if (row+1) == self.selectedMonth {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiarySelectedMonthCell", for: indexPath) as? DiaryCollectionCell
         }else {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiaryMonthCell", for: indexPath) as? DiaryCollectionCell
         }
-        cell.monthLabel.text = "\(row+1)월"
+        cell.monthLabel.text = "\(row+1) 월"
         
         return cell
     }

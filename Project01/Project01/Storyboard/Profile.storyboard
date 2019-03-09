@@ -323,9 +323,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2w-8G-hVe">
-                                                                <rect key="frame" x="0.0" y="7" width="56" height="46"/>
+                                                                <rect key="frame" x="332" y="7" width="43" height="46"/>
                                                                 <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
-                                                                <state key="normal" title="엑스"/>
+                                                                <state key="normal" image="icon_back.png"/>
                                                                 <connections>
                                                                     <action selector="closeBtnClicked:" destination="7Q1-Ka-NG6" eventType="touchUpInside" id="DGH-w8-pxb"/>
                                                                 </connections>
@@ -361,7 +361,7 @@
                                                             <constraint firstItem="Za6-uL-Vth" firstAttribute="centerY" secondItem="Wid-at-Jz9" secondAttribute="centerY" id="5sL-hv-3Hq"/>
                                                             <constraint firstItem="rCW-yC-pa8" firstAttribute="centerY" secondItem="Wid-at-Jz9" secondAttribute="centerY" id="6jb-2F-KdC"/>
                                                             <constraint firstItem="eGy-Lg-KQ8" firstAttribute="centerY" secondItem="Wid-at-Jz9" secondAttribute="centerY" id="H3g-gO-Rym"/>
-                                                            <constraint firstItem="D2w-8G-hVe" firstAttribute="leading" secondItem="Wid-at-Jz9" secondAttribute="leading" id="UZO-cv-biG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="D2w-8G-hVe" secondAttribute="trailing" id="NaW-lA-RrE"/>
                                                             <constraint firstAttribute="trailing" secondItem="eGy-Lg-KQ8" secondAttribute="trailing" id="cVq-wH-Ljq"/>
                                                             <constraint firstAttribute="trailing" secondItem="rCW-yC-pa8" secondAttribute="trailing" id="dAI-Re-YER"/>
                                                             <constraint firstItem="Za6-uL-Vth" firstAttribute="centerX" secondItem="Wid-at-Jz9" secondAttribute="centerX" id="fST-9r-n7m"/>
@@ -421,7 +421,7 @@
                                                         <rect key="frame" x="92" y="0.0" width="258" height="44"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sdK-Jv-vdn">
-                                                                <rect key="frame" x="10" y="0.0" width="32" height="44"/>
+                                                                <rect key="frame" x="10" y="0.0" width="204" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -431,6 +431,9 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue2-7r-fTq">
                                                                 <rect key="frame" x="214" y="0.0" width="44" height="44"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Ue2-7r-fTq" secondAttribute="height" multiplier="1:1" id="q9j-ft-pCo"/>
+                                                                </constraints>
                                                                 <inset key="contentEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
                                                                 <state key="normal" image="text_remove.png"/>
                                                                 <connections>
@@ -444,6 +447,7 @@
                                                             <constraint firstItem="sdK-Jv-vdn" firstAttribute="leading" secondItem="BVb-EL-Wnc" secondAttribute="leading" constant="10" id="Hf2-Jd-TeB"/>
                                                             <constraint firstAttribute="trailing" secondItem="Ue2-7r-fTq" secondAttribute="trailing" id="fq4-gc-77K"/>
                                                             <constraint firstItem="sdK-Jv-vdn" firstAttribute="top" secondItem="BVb-EL-Wnc" secondAttribute="top" id="hCf-Uv-OnY"/>
+                                                            <constraint firstItem="Ue2-7r-fTq" firstAttribute="leading" secondItem="sdK-Jv-vdn" secondAttribute="trailing" id="hpV-1w-OFU"/>
                                                             <constraint firstItem="Ue2-7r-fTq" firstAttribute="centerY" secondItem="BVb-EL-Wnc" secondAttribute="centerY" id="mFF-kh-LoM"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -481,7 +485,7 @@
                                                         <rect key="frame" x="92" y="0.0" width="258" height="44"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6Y-Of-ijG">
-                                                                <rect key="frame" x="10" y="0.0" width="32" height="44"/>
+                                                                <rect key="frame" x="10" y="0.0" width="204" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -491,6 +495,9 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wy3-w7-S8p">
                                                                 <rect key="frame" x="214" y="0.0" width="44" height="44"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Wy3-w7-S8p" secondAttribute="height" multiplier="1:1" id="7O5-Ge-NXB"/>
+                                                                </constraints>
                                                                 <inset key="contentEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
                                                                 <state key="normal" image="text_remove.png"/>
                                                                 <connections>
@@ -502,6 +509,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="Wy3-w7-S8p" secondAttribute="trailing" id="BnQ-ww-Z99"/>
                                                             <constraint firstItem="A6Y-Of-ijG" firstAttribute="leading" secondItem="YeF-St-yAX" secondAttribute="leading" constant="10" id="DP8-rA-hys"/>
+                                                            <constraint firstItem="Wy3-w7-S8p" firstAttribute="leading" secondItem="A6Y-Of-ijG" secondAttribute="trailing" id="Eqk-SW-Caw"/>
                                                             <constraint firstItem="A6Y-Of-ijG" firstAttribute="top" secondItem="YeF-St-yAX" secondAttribute="top" id="Wiw-7F-n0U"/>
                                                             <constraint firstItem="Wy3-w7-S8p" firstAttribute="centerY" secondItem="YeF-St-yAX" secondAttribute="centerY" id="fTx-rS-wDz"/>
                                                             <constraint firstAttribute="bottom" secondItem="A6Y-Of-ijG" secondAttribute="bottom" id="lEs-TC-Ebd"/>
@@ -541,7 +549,7 @@
                                                         <rect key="frame" x="92" y="0.0" width="258" height="44"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="핸드폰" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xm3-Ry-FQv">
-                                                                <rect key="frame" x="10" y="0.0" width="46" height="44"/>
+                                                                <rect key="frame" x="10" y="0.0" width="204" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -551,6 +559,9 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhe-n7-0qZ">
                                                                 <rect key="frame" x="214" y="0.0" width="44" height="44"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Dhe-n7-0qZ" secondAttribute="height" multiplier="1:1" id="vGS-v8-ufV"/>
+                                                                </constraints>
                                                                 <inset key="contentEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
                                                                 <state key="normal" image="text_remove.png"/>
                                                                 <connections>
@@ -564,6 +575,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="xm3-Ry-FQv" secondAttribute="bottom" id="a1z-Jn-no3"/>
                                                             <constraint firstItem="Dhe-n7-0qZ" firstAttribute="centerY" secondItem="Emp-XR-Q97" secondAttribute="centerY" id="heT-2S-Z0A"/>
                                                             <constraint firstItem="xm3-Ry-FQv" firstAttribute="leading" secondItem="Emp-XR-Q97" secondAttribute="leading" constant="10" id="mvc-zJ-ZTe"/>
+                                                            <constraint firstItem="Dhe-n7-0qZ" firstAttribute="leading" secondItem="xm3-Ry-FQv" secondAttribute="trailing" id="qyv-P0-xm4"/>
                                                             <constraint firstAttribute="trailing" secondItem="Dhe-n7-0qZ" secondAttribute="trailing" id="syr-lT-TiN"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -601,7 +613,7 @@
                                                         <rect key="frame" x="92" y="0.0" width="258" height="44"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZyA-Ht-w66">
-                                                                <rect key="frame" x="10" y="0.0" width="32" height="44"/>
+                                                                <rect key="frame" x="10" y="0.0" width="204" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
@@ -611,6 +623,9 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBV-6U-fPP">
                                                                 <rect key="frame" x="214" y="0.0" width="44" height="44"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="mBV-6U-fPP" secondAttribute="height" multiplier="1:1" id="pG5-n8-Wm9"/>
+                                                                </constraints>
                                                                 <inset key="contentEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
                                                                 <state key="normal" image="text_remove.png"/>
                                                                 <connections>
@@ -624,6 +639,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="ZyA-Ht-w66" secondAttribute="bottom" id="Jmg-wQ-hlx"/>
                                                             <constraint firstItem="ZyA-Ht-w66" firstAttribute="top" secondItem="PVa-fU-3ws" secondAttribute="top" id="JsF-ft-qL6"/>
                                                             <constraint firstItem="ZyA-Ht-w66" firstAttribute="leading" secondItem="PVa-fU-3ws" secondAttribute="leading" constant="10" id="hE0-FG-cJ1"/>
+                                                            <constraint firstItem="mBV-6U-fPP" firstAttribute="leading" secondItem="ZyA-Ht-w66" secondAttribute="trailing" id="xpM-6f-987"/>
                                                             <constraint firstItem="mBV-6U-fPP" firstAttribute="centerY" secondItem="PVa-fU-3ws" secondAttribute="centerY" id="zNe-P2-vBm"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -772,7 +788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2U-oc-bWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2352.8000000000002" y="-254.12293853073464"/>
+            <point key="canvasLocation" x="2352.8000000000002" y="-254.18719211822662"/>
         </scene>
     </scenes>
     <resources>

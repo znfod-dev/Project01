@@ -95,19 +95,10 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyW-tF-0am">
                                         <rect key="frame" x="127.5" y="233.5" width="100" height="100"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.png" translatesAutoresizingMaskIntoConstraints="NO" id="Opq-Tw-Syj">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            </imageView>
-                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Opq-Tw-Syj" secondAttribute="bottom" id="03G-L7-TZz"/>
-                                            <constraint firstItem="Opq-Tw-Syj" firstAttribute="top" secondItem="XyW-tF-0am" secondAttribute="top" id="2cC-6W-BPT"/>
-                                            <constraint firstAttribute="trailing" secondItem="Opq-Tw-Syj" secondAttribute="trailing" id="VGV-gA-huy"/>
                                             <constraint firstAttribute="height" constant="100" id="ZiQ-ty-Zk3"/>
                                             <constraint firstAttribute="width" constant="100" id="kcf-qm-yNK"/>
-                                            <constraint firstItem="Opq-Tw-Syj" firstAttribute="leading" secondItem="XyW-tF-0am" secondAttribute="leading" id="m1S-I5-I4x"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -152,6 +143,5 @@
     </scenes>
     <resources>
         <image name="icon_navigation_back.png" width="36" height="36"/>
-        <image name="square.png" width="240" height="240"/>
     </resources>
 </document>
