@@ -197,7 +197,10 @@ class MonthlyPlanViewController: UIViewController {
     
     // 기본 선택 날짜
     func defaultSelectDate(year:Int, month:Int) {
-        
+		
+		// 콜렉션뷰 전체 리로드
+		collectionReloadDataAll()
+
         // 선택한 년/월/01 선택되도록
         var cellIndex: Int = (year * 10000) + (month * 100) + 1
         
@@ -214,14 +217,9 @@ class MonthlyPlanViewController: UIViewController {
 		}
 		
 		CalendarManager.isChangeSelectedCell = false
-        
-        // 콜렉션뷰 전체 리로드
-        collectionReloadDataAll()
-        
-        let selectYMD = "\(cellIndex)"
-        
-        
-        
+		
+        let selectYMD = "\(CalendarManager.selectedCell)"
+		
         // 콜렉션에 맞는 날짜 전달
         selectedDate = String(format: "%04d%02d%@", year, month, selectYMD.right(2))
         self.todoListDateLabel.text = CalendarManager.todolistDateText
