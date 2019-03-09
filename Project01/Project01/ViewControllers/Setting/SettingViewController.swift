@@ -280,6 +280,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
             }
         }else if section == 1 {
+            /*
             if row == 0 {
                 self.showFontPickerView()
             }else if row == 1 {
@@ -294,6 +295,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
             }
         }else if section == 3 {
+             */
             if row == 0 {
                 self.showOpenSourceView()
             }else {
