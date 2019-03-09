@@ -159,7 +159,7 @@
                     <connections>
                         <outlet property="emptyView" destination="eEJ-t0-4xt" id="opt-G4-WFP"/>
                         <outlet property="tableView" destination="NZV-6g-K3w" id="jWY-DY-sbF"/>
-                        <outlet property="topView" destination="LpW-wJ-BVx" id="E4w-Zc-Y6A"/>
+                        <outlet property="vNavigationBar" destination="LpW-wJ-BVx" id="kY8-4m-XCI"/>
                         <segue destination="fzg-R4-6vY" kind="show" identifier="planToDetail" id="cHc-id-07h"/>
                     </connections>
                 </viewController>
@@ -251,7 +251,7 @@
                         <outlet property="endDayLabel" destination="bUN-5U-0qO" id="6A1-eM-t7S"/>
                         <outlet property="planTitleLabel" destination="Oqj-sY-f2o" id="ihg-ug-r5A"/>
                         <outlet property="startDayLabel" destination="vMH-Eo-gdX" id="oyY-RX-xIc"/>
-                        <outlet property="topView" destination="44U-Lv-Hqi" id="Ivg-Vx-YQ7"/>
+                        <outlet property="vNavigationBar" destination="44U-Lv-Hqi" id="ihj-ee-Ncb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cq-jn-aSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,7 +387,7 @@
                         <outlet property="planTextField" destination="Pwz-u2-mxP" id="Ouz-zi-AsO"/>
                         <outlet property="segment" destination="Hn9-iV-wyw" id="ugE-PN-R4F"/>
                         <outlet property="startDayLabel" destination="cOu-bO-y0o" id="c5i-oo-sja"/>
-                        <outlet property="topView" destination="uQ7-L8-aoz" id="Bco-Wv-pvA"/>
+                        <outlet property="vNavigationBar" destination="uQ7-L8-aoz" id="kCo-wm-Yu4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndo-CJ-904" userLabel="First Responder" sceneMemberID="firstResponder"/>

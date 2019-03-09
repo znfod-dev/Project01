@@ -12,8 +12,8 @@ import Hero
 
 class PlannerViewController: UIViewController {
     // MARK:- Outlets
+	@IBOutlet weak var vNavigationBar: UIView!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var topView: UIView!
     @IBOutlet var emptyView: UIView!
     
     
@@ -45,7 +45,11 @@ class PlannerViewController: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true // 내비게이션바 스와이프 기능을 살린채 숨김
 
-        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.5) // 내비게이션 밑줄
+		// 그림자 처리
+		vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+		vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+		vNavigationBar.layer.shadowOpacity = 0.16
+
         self.tableView.separatorStyle = .none // 테이블 뷰 구분선 삭제
         
         // 데이터 받아 오기

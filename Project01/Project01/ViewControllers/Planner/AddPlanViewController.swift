@@ -10,13 +10,11 @@ import UIKit
 
 class AddPlanViewController: UIViewController {
     // MARK:- Outlets
+	@IBOutlet weak var vNavigationBar: UIView!
     @IBOutlet var planTextField: UITextField!
     @IBOutlet var startDayLabel: UILabel!
     @IBOutlet var endDayLabel: UILabel!
     @IBOutlet var segment: UISegmentedControl!
-    @IBOutlet var topView: UIView!
-    
-    
     
     // MARK:- Variables
     var selectedDay: Date? = Date()
@@ -36,6 +34,11 @@ class AddPlanViewController: UIViewController {
 		let scale: CGFloat = DEF_WIDTH_375_SCALE
 		view.transform = view.transform.scaledBy(x: scale, y: scale)
 
+		// 그림자 처리
+		vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+		vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+		vNavigationBar.layer.shadowOpacity = 0.16
+
         self.initSet()
     }
     
@@ -43,7 +46,6 @@ class AddPlanViewController: UIViewController {
     
     // 초기 세팅
     func initSet() {
-        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.5)
         
         // 오늘 날짜로 세팅
         self.startDayLabel.text = self.startDay

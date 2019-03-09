@@ -10,8 +10,8 @@ import UIKit
 
 class DetailPlanViewController: UIViewController {
     // MARK:- Actions
+	@IBOutlet weak var vNavigationBar: UIView!
     @IBOutlet var planTitleLabel: UILabel!
-    @IBOutlet var topView: UIView!
     @IBOutlet var startDayLabel: UILabel!
     @IBOutlet var endDayLabel: UILabel!
     
@@ -30,9 +30,11 @@ class DetailPlanViewController: UIViewController {
 		let scale: CGFloat = DEF_WIDTH_375_SCALE
 		view.transform = view.transform.scaledBy(x: scale, y: scale)
 
-        
-        self.topView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 0.5)
-        
+		// 그림자 처리
+		vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+		vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+		vNavigationBar.layer.shadowOpacity = 0.16
+
         self.planTitleLabel.text = plan.planTitle
         self.startDayLabel.text = plan.startDay!
         self.endDayLabel.text = plan.endDay!
