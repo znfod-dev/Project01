@@ -85,7 +85,7 @@ class SideMenuViewController: UIViewController {
         super.viewWillAppear(animated)
 
 		// 프로필 이미지 설정
-		let imgProfile: ModelProfileImage! = DBManager.sharedInstance.selectProfileImg()
+		let imgProfile: ModelProfileImage! = DBManager.shared.selectProfileImg()
 		if let img = imgProfile.image {
 			ivProfile.image = img
 			ivProfile.isHidden = false

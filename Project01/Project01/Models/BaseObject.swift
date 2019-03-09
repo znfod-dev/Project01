@@ -40,7 +40,7 @@ class BaseObject: Object {
             
             let newItem = createObject(dicFields)
             // isPrimaryKey는 프라이머리키 설정 했는지 유무
-            DBManager.sharedInstance.insertSQL(objs: newItem, isPrimaryKey: self.isPrimaryKey())
+            DBManager.shared.insertSQL(objs: newItem, isPrimaryKey: self.isPrimaryKey())
         }
         else if command == "UPDATE" {
             // 테이블 명에 따라서 추가하는 클래스 정보를 다르게 세팅해준다.
@@ -49,12 +49,12 @@ class BaseObject: Object {
             
             // 검색후 업데이트해준다.
             if condition != nil {
-                let objects = DBManager.sharedInstance.selectSQL(type: self, condition: condition ?? "")?.first
+                let objects = DBManager.shared.selectSQL(type: self, condition: condition ?? "")?.first
                 if objects != nil {
                     let newObject = copyObject(object: objects!, dicFields: dicFields)
                     
                     // isPrimaryKey는 프라이머리키 설정 했는지 유무
-                    DBManager.sharedInstance.updateSQL(objs: newObject, isPrimaryKey: self.isPrimaryKey())
+                    DBManager.shared.updateSQL(objs: newObject, isPrimaryKey: self.isPrimaryKey())
                 }
                 else {
                     RESULT_CODE = "2"
@@ -67,9 +67,9 @@ class BaseObject: Object {
             // 검색후 삭제해준다.
             if condition != nil {
                 // 조건식 검색해서 존재할 경우
-                let objects = DBManager.sharedInstance.selectSQL(type: self, condition: condition ?? "")?.first
+                let objects = DBManager.shared.selectSQL(type: self, condition: condition ?? "")?.first
                 if objects != nil {
-                    DBManager.sharedInstance.deleteSQL(objs: objects!)
+                    DBManager.shared.deleteSQL(objs: objects!)
                 }
                 else {
                     RESULT_CODE = "2"
@@ -81,11 +81,11 @@ class BaseObject: Object {
             let condition: String? = dicTableData["WHERE"] as? String
             // 검색 조건이 없을 경우 전체 검색
             if condition == nil {
-                return (RESULT_CODE, DBManager.sharedInstance.selectSQL(type: self))
+                return (RESULT_CODE, DBManager.shared.selectSQL(type: self))
             }
                 // 검색 조건이 있을 경우 조건 검색
             else {
-                return (RESULT_CODE, DBManager.sharedInstance.selectSQL(type: self, condition: condition ?? ""))
+                return (RESULT_CODE, DBManager.shared.selectSQL(type: self, condition: condition ?? ""))
             }
         }
         

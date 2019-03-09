@@ -23,8 +23,8 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
 
     var currentDate = Date()
     var diary = ModelDiary()
-    var minimumDate = DBManager.sharedInstance.loadMinimumDateFromUD()
-    var maximumDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+    var minimumDate = DBManager.shared.loadMinimumDateFromUD()
+    var maximumDate = DBManager.shared.loadMaximumDateFromUD()
     
     var activeView:UIView!
     
@@ -89,7 +89,7 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
         if self.diary.diary == "" {
             self.diary.diary = " "
         }
-        DBManager.sharedInstance.updateDiary(diary: self.diary)
+        DBManager.shared.updateDiary(diary: self.diary)
         self.tableView.reloadData()
     }
     
@@ -176,7 +176,7 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
     
     // 다이어리 가져오기
     func loadDiary() {
-        self.diary = DBManager.sharedInstance.selectDiary(date: currentDate)
+        self.diary = DBManager.shared.selectDiary(date: currentDate)
         self.tableView.reloadData()
     }
     

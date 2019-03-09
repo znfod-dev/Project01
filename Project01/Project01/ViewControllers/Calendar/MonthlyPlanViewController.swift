@@ -139,8 +139,8 @@ class MonthlyPlanViewController: UIViewController {
         }
         
         // 시작 날짜, 마지막 날짜 변경 사항이 있으면 갱신해준다.
-        let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
-        let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+        let startDate = DBManager.shared.loadMinimumDateFromUD()
+        let endDate = DBManager.shared.loadMaximumDateFromUD()
         
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier:"ko_KR")
@@ -399,9 +399,9 @@ class MonthlyPlanViewController: UIViewController {
 //        }
         
         if self.isHide { // 체크한 todo를 보여주지 않을 때
-            self.selectedDayTodo = DBManager.sharedInstance.selectTodoDB(seletedDate: self.selectedDate!, withoutCheckedBox: true)
+            self.selectedDayTodo = DBManager.shared.selectTodoDB(seletedDate: self.selectedDate!, withoutCheckedBox: true)
         } else { // 체크한 todo를 보여줄 때
-            self.selectedDayTodo = DBManager.sharedInstance.selectTodoDB(seletedDate: self.selectedDate!)
+            self.selectedDayTodo = DBManager.shared.selectTodoDB(seletedDate: self.selectedDate!)
         }
         
 //        self.selectedDayTodo.removeAll()
@@ -592,7 +592,7 @@ class MonthlyPlanViewController: UIViewController {
 			let todo = ModelTodo(uid: uid, title: title!, date: date!)
 			self.todoArray.append(todo)
 			
-			DBManager.sharedInstance.addTodoDB(todo: todo)
+			DBManager.shared.addTodoDB(todo: todo)
 			
 			self.selectedDayTodoList(doReload: true)
 			
@@ -891,7 +891,7 @@ extension MonthlyPlanViewController: UITableViewDelegate {
 			}
 			
 			todo.title = message
-			DBManager.sharedInstance.updateTodo(todo: todo)
+			DBManager.shared.updateTodo(todo: todo)
 			self.selectedDayTodoList(doReload: true)
 		}
 		
@@ -911,7 +911,7 @@ extension MonthlyPlanViewController: UITableViewDelegate {
 			let indexRow = indexPath.row / 2 // 공백 셀 때문에 실질적으로 0,2,4... 셀이 데이터 셀이다
 			let todo = self.selectedDayTodo[indexRow]
 			
-			DBManager.sharedInstance.deleteTodoDB(todo: todo) {
+			DBManager.shared.deleteTodoDB(todo: todo) {
 				self.selectedDayTodo.remove(at: indexRow)
 			}
 			
@@ -942,7 +942,7 @@ extension MonthlyPlanViewController: BEMCheckBoxDelegate {
             todo.isSelected = false
         }
         
-        DBManager.sharedInstance.updateTodo(todo: todo)
+        DBManager.shared.updateTodo(todo: todo)
     }
     
     func animationDidStop(for checkBox: BEMCheckBox) {

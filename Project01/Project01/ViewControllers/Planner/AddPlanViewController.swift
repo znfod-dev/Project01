@@ -137,7 +137,7 @@ class AddPlanViewController: UIViewController {
         plan.startDay = self.startDayLabel.text
         plan.endDay = self.endDayLabel.text
         
-        DBManager.sharedInstance.addPlanDB(plan: plan)
+        DBManager.shared.addPlanDB(plan: plan)
         
         delegate?.isModi = true
         self.navigationController?.popViewController(animated: true)

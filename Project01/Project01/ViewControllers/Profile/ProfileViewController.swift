@@ -57,7 +57,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
             btnClose.isHidden = true
         }
         
-        self.profile = DBManager.sharedInstance.selectProfile()
+        self.profile = DBManager.shared.selectProfile()
         
         self.setTableSetting()
         
@@ -135,7 +135,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         }else {
             
         }
-        DBManager.sharedInstance.updateProfile(profile: self.profile)
+        DBManager.shared.updateProfile(profile: self.profile)
     }
     
     // MARK:- UITextFieldDelegate
@@ -159,7 +159,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         }else {
             
         }
-        DBManager.sharedInstance.updateProfile(profile: self.profile)
+        DBManager.shared.updateProfile(profile: self.profile)
         
     }
     
@@ -183,7 +183,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         }else {
             
         }
-        DBManager.sharedInstance.updateProfile(profile: self.profile)
+        DBManager.shared.updateProfile(profile: self.profile)
         
         return true
         

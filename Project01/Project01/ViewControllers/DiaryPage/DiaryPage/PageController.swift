@@ -17,8 +17,8 @@ class PageController: UIPageViewController {
 	var focusIndex: Int = -1
     var currentDate = Date()
     
-    var minimumDate = DBManager.sharedInstance.loadMinimumDateFromUD()
-    var maximumDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+    var minimumDate = DBManager.shared.loadMinimumDateFromUD()
+    var maximumDate = DBManager.shared.loadMaximumDateFromUD()
     
     lazy var arrVC: [DiaryPageViewController] = Array<DiaryPageViewController>()
     
@@ -48,8 +48,8 @@ class PageController: UIPageViewController {
 		super.viewWillAppear(animated)
 		
 		// 시작일, 종료일 세팅
-		self.minimumDate = DBManager.sharedInstance.loadMinimumDateFromUD()
-		self.maximumDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+		self.minimumDate = DBManager.shared.loadMinimumDateFromUD()
+		self.maximumDate = DBManager.shared.loadMaximumDateFromUD()
 
 		if isMenuButtonShow == true {
 			// 선택한 날짜

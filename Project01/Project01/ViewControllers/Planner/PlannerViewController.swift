@@ -49,7 +49,7 @@ class PlannerViewController: UIViewController {
         self.tableView.separatorStyle = .none // 테이블 뷰 구분선 삭제
         
         // 데이터 받아 오기
-        self.planArray = DBManager.sharedInstance.selectPlanDB()
+        self.planArray = DBManager.shared.selectPlanDB()
     }
     
     
@@ -61,7 +61,7 @@ class PlannerViewController: UIViewController {
         if self.isModi! { // 수정이 되었다면 테이블 뷰 리로드
             self.isModi = false // 수정 값을 다시 false
             
-            self.planArray = DBManager.sharedInstance.selectPlanDB()
+            self.planArray = DBManager.shared.selectPlanDB()
             self.tableView.reloadData()
         }
     }
@@ -108,7 +108,7 @@ extension PlannerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             let plan = self.planArray[indexPath.row]
-            DBManager.sharedInstance.deletePlanDB(plan: plan) {
+            DBManager.shared.deletePlanDB(plan: plan) {
                 self.planArray.remove(at: indexPath.row)
             }
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)

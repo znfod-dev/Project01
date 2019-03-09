@@ -41,7 +41,7 @@ extension Profile2ViewController: UITextFieldDelegate {
         }else {
             
         }
-        DBManager.sharedInstance.updateProfile(profile: self.profile)
+        DBManager.shared.updateProfile(profile: self.profile)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let tag = textField.tag

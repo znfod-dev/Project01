@@ -86,17 +86,17 @@ class IntroViewController: UIViewController {
 				var day = DateComponents(day: -180)
 				if let d180 = calendar.date(byAdding: day, to: now)
 				{
-					DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: Date().startOfMonth(date: d180))
+					DBManager.shared.saveMinimumDateInUD(minimumDate: Date().startOfMonth(date: d180))
 					print("Date().startOfMonth(date: d180) : \(Date().startOfMonth(date: d180))")
-					let min = DBManager.sharedInstance.loadMinimumDateFromUD()
+					let min = DBManager.shared.loadMinimumDateFromUD()
 					print("min : \(min.description(with: Locale.current))")
 				}
 				day = DateComponents(day: 180)
 				if let d180 = calendar.date(byAdding: day, to: now)
 				{
-					DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: Date().endOfMonth(date: d180))
+					DBManager.shared.saveMaximumDateInUD(maximumDate: Date().endOfMonth(date: d180))
 					print("Date().endOfMonth(date: d180) : \(Date().endOfMonth(date: d180))")
-					let max = DBManager.sharedInstance.loadMaximumDateFromUD()
+					let max = DBManager.shared.loadMaximumDateFromUD()
 					print("max : \(max.description(with: Locale.current))")
 				}
 				CommonUtil.setUserDefaultsBool(true, forKey: kBool_isFirstAppRun)

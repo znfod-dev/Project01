@@ -603,66 +603,8 @@
                                                     <outlet property="planNameLabel" destination="1mq-ir-dNH" id="k5E-S8-2PM"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiaryAddTableCell" rowHeight="70" id="m7O-6B-LJp" customClass="DiaryTableCell" customModule="Project01" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="269" width="375" height="70"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m7O-6B-LJp" id="npP-4o-PUz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFD-8I-Uxw">
-                                                            <rect key="frame" x="21" y="9" width="333" height="52"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1월 19일 화요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bea-py-ppP">
-                                                                    <rect key="frame" x="17" y="16.333333333333336" width="102" height="19.333333333333336"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHi-wU-GLL">
-                                                                    <rect key="frame" x="249" y="10" width="72" height="32"/>
-                                                                    <color key="backgroundColor" red="0.52156862749999999" green="0.47058823529999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
-                                                                    <state key="normal" title="생성">
-                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </state>
-                                                                    <connections>
-                                                                        <action selector="createDiaryBtnClicked:" destination="wTw-bb-aLs" eventType="touchUpInside" id="Rbh-Ra-3Pz"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstItem="Bea-py-ppP" firstAttribute="centerY" secondItem="bFD-8I-Uxw" secondAttribute="centerY" id="1NI-QM-7VT"/>
-                                                                <constraint firstItem="fHi-wU-GLL" firstAttribute="centerY" secondItem="bFD-8I-Uxw" secondAttribute="centerY" id="AJ7-p9-VA5"/>
-                                                                <constraint firstItem="fHi-wU-GLL" firstAttribute="centerY" secondItem="bFD-8I-Uxw" secondAttribute="centerY" id="KDz-iE-tqI"/>
-                                                                <constraint firstAttribute="trailing" secondItem="fHi-wU-GLL" secondAttribute="trailing" constant="12" id="X4p-tC-Lrr"/>
-                                                                <constraint firstItem="Bea-py-ppP" firstAttribute="leading" secondItem="bFD-8I-Uxw" secondAttribute="leading" constant="17" id="yJY-Bl-LDy"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="10"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="bFD-8I-Uxw" firstAttribute="leading" secondItem="npP-4o-PUz" secondAttribute="leading" constant="21" id="AWs-4C-US7"/>
-                                                        <constraint firstItem="bFD-8I-Uxw" firstAttribute="top" secondItem="npP-4o-PUz" secondAttribute="top" constant="9" id="iZm-mm-4vO"/>
-                                                        <constraint firstAttribute="trailing" secondItem="bFD-8I-Uxw" secondAttribute="trailing" constant="21" id="jak-md-Tig"/>
-                                                        <constraint firstAttribute="bottom" secondItem="bFD-8I-Uxw" secondAttribute="bottom" constant="9" id="wuT-4L-VxO"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <outlet property="createBtn" destination="fHi-wU-GLL" id="wPp-pa-KK0"/>
-                                                    <outlet property="dateLabel" destination="Bea-py-ppP" id="ekI-4a-bAE"/>
-                                                </connections>
-                                            </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiaryEditTableCell" rowHeight="301" id="Phy-FK-K5a" customClass="DiaryTableCell" customModule="Project01" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="339" width="375" height="301"/>
+                                                <rect key="frame" x="0.0" y="269" width="375" height="301"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Phy-FK-K5a" id="H7f-oo-5MF">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="301"/>

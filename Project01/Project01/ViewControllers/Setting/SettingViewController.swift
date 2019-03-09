@@ -151,7 +151,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         if section == 0 {
             if row == 0 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingStartDateCell") as! SettingTableCell
-                let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
+                let startDate = DBManager.shared.loadMinimumDateFromUD()
                 
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier:"ko_KR")
@@ -161,7 +161,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell.startDateLabel.attributedText = FontManager.shared.getTextWithFont(text: minimumDate)
             }else if row == 1 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingLastDateCell") as! SettingTableCell
-                let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+                let endDate = DBManager.shared.loadMaximumDateFromUD()
                 
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier:"ko_KR")
@@ -171,7 +171,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell.lastDateLabel.attributedText = FontManager.shared.getTextWithFont(text: maximumDate)
             }else if row == 2 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingAlarmCell") as! SettingTableCell
-                let alarmTime = DBManager.sharedInstance.loadAlarmTimeFromUD()
+                let alarmTime = DBManager.shared.loadAlarmTimeFromUD()
                 
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier:"ko_KR")
@@ -182,7 +182,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell.alarmLabel.attributedText = FontManager.shared.getTextWithFont(text: time)
             }else if row == 3 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingLunarCell") as! SettingTableCell
-                let lunarOnOff = DBManager.sharedInstance.loadLunarCalendarFromUD()
+                let lunarOnOff = DBManager.shared.loadLunarCalendarFromUD()
                 
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.lunarSwitch.isOn = lunarOnOff
@@ -195,7 +195,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingPagingCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 
-                let pagingNumber = DBManager.sharedInstance.loadPagingNumberFromUD()
+                let pagingNumber = DBManager.shared.loadPagingNumberFromUD()
                
                 if pagingNumber == 1 {
                     cell.pagingBtn.titleLabel?.text = "페이징1"
@@ -213,7 +213,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                     cell.pagingBtn.titleLabel?.text = "페이징1"
                     cell.pagingBtn.tag = 1
                     
-                    DBManager.sharedInstance.savePagingNumberInUD(value: 1)
+                    DBManager.shared.savePagingNumberInUD(value: 1)
                 }
             }else {
                 
@@ -263,17 +263,17 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         if section == 0 {
             if row == 0 {
-                let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
+                let startDate = DBManager.shared.loadMinimumDateFromUD()
                 self.monthPickerView.submitBtn.tag = 0
                 self.monthPickerView.tag = 0
                 self.showMonthPickerView(date: startDate)
             }else if row == 1 {
-                let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+                let endDate = DBManager.shared.loadMaximumDateFromUD()
                 self.monthPickerView.submitBtn.tag = 1
                 self.monthPickerView.tag = 1
                 self.showMonthPickerView(date: endDate)
             }else if row == 2 {
-                let alarmTime = DBManager.sharedInstance.loadAlarmTimeFromUD()
+                let alarmTime = DBManager.shared.loadAlarmTimeFromUD()
                 self.timePickerView.submitBtn.tag = 0
                 self.showTimePickerView(time: alarmTime)
             }else {
@@ -351,11 +351,11 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         // type == 0 시작일
         if type == 0 {
             let startDate = self.datePickerView.datePicker.date
-            DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: startDate)
+            DBManager.shared.saveMinimumDateInUD(minimumDate: startDate)
         // type == 1 종료일
         }else if type == 1 {
             let endDate = self.datePickerView.datePicker.date
-            DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: endDate)
+            DBManager.shared.saveMaximumDateInUD(maximumDate: endDate)
         }
         self.datePickerView.dismissDatePickerView()
         self.tableView.reloadData()
@@ -370,9 +370,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             print("\(self.monthPickerView.date)")
             let startDate = self.monthPickerView.date
             // 시작날 - 마지막날
-            let endDate = DBManager.sharedInstance.loadMaximumDateFromUD()
+            let endDate = DBManager.shared.loadMaximumDateFromUD()
             if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
-                DBManager.sharedInstance.saveMinimumDateInUD(minimumDate: startDate)
+                DBManager.shared.saveMinimumDateInUD(minimumDate: startDate)
 				
 				// 셀선택
 				CalendarManager.setSelectedCell(selectedCell: -1)
@@ -384,9 +384,9 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
             print("\(self.monthPickerView.date)")
             let endDate = self.monthPickerView.date
             // 시작날 - 마지막날
-            let startDate = DBManager.sharedInstance.loadMinimumDateFromUD()
+            let startDate = DBManager.shared.loadMinimumDateFromUD()
             if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
-                DBManager.sharedInstance.saveMaximumDateInUD(maximumDate: endDate)
+                DBManager.shared.saveMaximumDateInUD(maximumDate: endDate)
 				
 				// 셀선택
 				CalendarManager.setSelectedCell(selectedCell: -1)
@@ -403,7 +403,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         let type = view.tag
         if type == 0 {
             let alarmTime = self.timePickerView.timePicker.date
-            DBManager.sharedInstance.saveAlarmTimeInUD(time: alarmTime)
+            DBManager.shared.saveAlarmTimeInUD(time: alarmTime)
         }
         
         self.timePickerView.dismissTimePickerView()
@@ -432,11 +432,11 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         let tag = (sender as! UIButton).tag
         print("tag : \(tag)")
         if tag == 1 {
-            DBManager.sharedInstance.savePagingNumberInUD(value: 2)
+            DBManager.shared.savePagingNumberInUD(value: 2)
         }else if tag == 2 {
-            DBManager.sharedInstance.savePagingNumberInUD(value: 3)
+            DBManager.shared.savePagingNumberInUD(value: 3)
         }else if tag == 3 {
-            DBManager.sharedInstance.savePagingNumberInUD(value: 1)
+            DBManager.shared.savePagingNumberInUD(value: 1)
         }
         self.tableView.reloadRows(at: [IndexPath.init(row: 5, section: 0)], with: .automatic)
     }
@@ -444,7 +444,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     @IBAction func lunarValueChanged(_ sender: Any) {
         let lunaSwitch:UISwitch = sender as! UISwitch
         let lunarOnoff = lunaSwitch.isOn
-        DBManager.sharedInstance.saveLunarCalendarInUD(value: lunarOnoff)
+        DBManager.shared.saveLunarCalendarInUD(value: lunarOnoff)
     }
     
 }

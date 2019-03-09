@@ -28,28 +28,7 @@ extension DiaryViewController: UITableViewDelegate, UITableViewDataSource {
         let section = indexPath.section
         let row = indexPath.row
         if section == 0 {
-                //cell = tableView.dequeueReusableCell(withIdentifier: "DiaryEditTableCell") as? DiaryTableCell
-              
-                //cell = tableView.dequeueReusableCell(withIdentifier: "DiaryTableCell") as? DiaryTableCell
-            let id = Date.GetId(year: selectedYear, month: selectedMonth, day: row+1)
-            
-            for diary in self.diaryArray {
-                if diary.id == id {
-                    let edit = self.editedArray[row]
-                    if edit == true {
-                        cell = tableView.dequeueReusableCell(withIdentifier: "DiaryEditTableCell") as? DiaryTableCell
-                    }else {
-                        cell = tableView.dequeueReusableCell(withIdentifier: "DiaryTableCell") as? DiaryTableCell
-                        cell.editBtn.tag = row
-                    }
-                    cell.dateLabel.text = "\(self.selectedMonth)월 \(row+1)일"
-                    return cell
-                }
-            }
-            
-            cell = tableView.dequeueReusableCell(withIdentifier: "DiaryAddTableCell") as? DiaryTableCell
-            cell.createBtn.tag = row
-            cell.dateLabel.text = "\(self.selectedMonth)월 \(row+1)일"
+            cell = tableView.dequeueReusableCell(withIdentifier: "DiaryTableCell") as? DiaryTableCell
         }
         return cell
     }
@@ -58,19 +37,7 @@ extension DiaryViewController: UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
         var heightForRow:CGFloat = 0
         if section == 0 {
-            let id = Date.GetId(year: selectedYear, month: selectedMonth, day: row+1)
-            for diary in self.diaryArray {
-                if diary.id == id {
-                    let edit = self.editedArray[row]
-                    if edit == true {
-                        heightForRow = 250
-                    }else {
-                        heightForRow = 200
-                    }
-                    return heightForRow
-                }
-            }
-            heightForRow = 70
+            heightForRow = 250
         }
         return heightForRow
     }

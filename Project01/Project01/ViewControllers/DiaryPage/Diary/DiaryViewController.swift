@@ -92,9 +92,9 @@ class DiaryViewController: UIViewController {
         let components = calendar.dateComponents(unitFlags, from: date)
         let month = components.month
         
-        self.diaryArray = DBManager.sharedInstance.selectDiary(selectedDate: date)
+        self.diaryArray = DBManager.shared.selectDiary(selectedDate: date)
         self.editedArray.removeAll()
-        for i in 0..<self.dayOfMonthList[month!] {
+        for _ in 0..<self.dayOfMonthList[month!] {
             self.editedArray.append(false)
         }
         self.tableView.reloadData()
@@ -125,7 +125,7 @@ class DiaryViewController: UIViewController {
         let id = Date.GetId(year: selectedYear, month: selectedMonth, day: tag+1)
         let diary = ModelDiary.init()
         diary.id = id
-        DBManager.sharedInstance.insertDiary(diary: diary)
+        DBManager.shared.insertDiary(diary: diary)
         let date = Date.Get(year: selectedYear, month: selectedMonth, day: tag+1)
         self.setData(date: date)
     }

@@ -67,8 +67,8 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        self.profile = DBManager.sharedInstance.selectProfile()
-        self.profileImage = DBManager.sharedInstance.selectProfileImg()
+        self.profile = DBManager.shared.selectProfile()
+        self.profileImage = DBManager.shared.selectProfileImg()
         self.updateTextField()
         self.updateProfileImg()
         /*
@@ -275,7 +275,7 @@ extension Profile2ViewController: ImageEditDelegate {
         print("Profile2ViewController: ImageEditDelegate")
         self.profileImage.image = image
         
-        DBManager.sharedInstance.updateProfileImage(profileImg: self.profileImage)
+        DBManager.shared.updateProfileImage(profileImg: self.profileImage)
         DispatchQueue.main.async {
             self.updateProfileImg()
             

@@ -29,7 +29,7 @@ import RealmSwift
 
 class DBManager: NSObject {
     
-    static let sharedInstance = DBManager()
+    static let shared = DBManager()
     
     var database: Realm!
     

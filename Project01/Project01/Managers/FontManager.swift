@@ -25,7 +25,7 @@ class FontManager: NSObject {
     
     override init() {
         super.init()
-        let loadedFont = DBManager.sharedInstance.loadFontFromUD()
+        let loadedFont = DBManager.shared.loadFontFromUD()
         self.fontType = FontType(rawValue: loadedFont.fontName)
         self.fontSize = loadedFont.pointSize
         
@@ -47,7 +47,7 @@ class FontManager: NSObject {
         self.fontType = fontType
         self.updateTextAttributes()
         
-        DBManager.sharedInstance.saveFontInUD(font: UIFont(name: fontType.ttf(), size: self.fontSize)!)
+        DBManager.shared.saveFontInUD(font: UIFont(name: fontType.ttf(), size: self.fontSize)!)
     }
     func getFontType() -> FontType {
         return self.fontType
@@ -88,7 +88,7 @@ class FontManager: NSObject {
     func setFontSize(size:CGFloat) {
         self.fontSize = size
         self.updateTextAttributes()
-        DBManager.sharedInstance.saveFontInUD(font: UIFont(name: fontType.ttf(), size: self.fontSize)!)
+        DBManager.shared.saveFontInUD(font: UIFont(name: fontType.ttf(), size: self.fontSize)!)
     }
     func getFontSize() -> CGFloat {
         return self.fontSize
