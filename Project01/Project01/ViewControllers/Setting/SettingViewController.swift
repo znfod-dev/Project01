@@ -9,10 +9,10 @@
 import UIKit
 
 class SettingViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    @IBOutlet weak var backBarBtn: UIBarButtonItem!
+	
+	@IBOutlet weak var vNavigationBar: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
+	
     var fontPickerView:PickerView!
     
     var fontArray = FontType.allCases
@@ -34,8 +34,13 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         // sama73 : 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
-        
-        self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
+		
+		// 그림자 처리
+		vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+		vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+		vNavigationBar.layer.shadowOpacity = 0.16
+
+		self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
     }
     // PickerView 추가
     func addPickerViews() {
@@ -127,20 +132,20 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var heightForRow:CGFloat = 44.0
+		
         let fontSize = FontManager.shared.getFontSize()
         if fontSize == 14 {
-            heightForRow = 36
-        }else if fontSize == 16 {
-            heightForRow = 38
-        }else if fontSize == 18 {
-            heightForRow = 40
-        }else if fontSize == 20 {
-            heightForRow = 42
-        }else if fontSize == 22 {
             heightForRow = 44
-        }else {
-            
+        }else if fontSize == 16 {
+            heightForRow = 46
+        }else if fontSize == 18 {
+            heightForRow = 48
+        }else if fontSize == 20 {
+            heightForRow = 50
+        }else if fontSize == 22 {
+            heightForRow = 52
         }
+
         return heightForRow
     }
     
@@ -186,10 +191,16 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.lunarSwitch.isOn = lunarOnOff
+				// 스위치 크기 줄이기
+				let scale2: CGFloat = 0.75
+				cell.lunarSwitch.transform = CGAffineTransform(scaleX: scale2, y: scale2)
             }else if row == 4 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingiCloudCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
-            
+				
+				// 스위치 크기 줄이기
+				let scale2: CGFloat = 0.75
+				cell.iCloudSwitch.transform = CGAffineTransform(scaleX: scale2, y: scale2)
             }else if row == 5 {
                 print("SettingPagingCell")
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingPagingCell") as! SettingTableCell
