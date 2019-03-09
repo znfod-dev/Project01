@@ -28,8 +28,10 @@ class YearMonthPopup: BasePopup {
 		self.isNotDimmedTouch = true;
 
         super.viewDidLoad()
-
+		
         // Do any additional setup after loading the view.
+		pvYearMonth.showsSelectionIndicator = true
+		
 		let minYear = Int(minYYYYMM / 100)
 		let maxYear = Int(maxYYYYMM / 100)
 		
