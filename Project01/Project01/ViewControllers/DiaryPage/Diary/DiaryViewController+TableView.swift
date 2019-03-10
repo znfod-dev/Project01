@@ -18,7 +18,7 @@ extension DiaryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 0
         if section == 0 {
-            numberOfRow = self.dayOfMonthList[selectedMonth];
+            numberOfRow = self.diaryList.count;
         }
         return numberOfRow
     }
@@ -28,7 +28,13 @@ extension DiaryViewController: UITableViewDelegate, UITableViewDataSource {
         let section = indexPath.section
         let row = indexPath.row
         if section == 0 {
+            let diary = self.diaryList[row]
+            let month = Int(diary.id)!%10000/100
+            let day = Int(diary.id)!%100
             cell = tableView.dequeueReusableCell(withIdentifier: "DiaryTableCell") as? DiaryTableCell
+            cell.todoViewHeight.constant = 90
+            cell.dateLabel.text = "\(month)월 \(day)일"
+            cell.diaryLabel.text = diary.diary
         }
         return cell
     }
@@ -37,7 +43,7 @@ extension DiaryViewController: UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
         var heightForRow:CGFloat = 0
         if section == 0 {
-            heightForRow = 250
+            heightForRow = UITableView.automaticDimension
         }
         return heightForRow
     }

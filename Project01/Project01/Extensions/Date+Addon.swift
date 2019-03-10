@@ -128,5 +128,62 @@ extension Date {
         let dateInteger = ( year * 10000 ) + ( month * 100 ) + day
         return String("\(dateInteger)")
     }
+    // Id
+    func GetId() -> String{
+        let calendar = Calendar.current
+        let unitFlags = Set<Calendar.Component>([.day, .month, .year])
+        let components = calendar.dateComponents(unitFlags, from: self)
+        let year = components.year!
+        let month = components.month!
+        let day = components.day!
+        let id = "\(( year * 10000 ) + ( month * 100 ) + day)"
+        return id
+    }
+    
+    
+    // Date to Year
+    func getYear() -> Int {
+        let calendar = Calendar.current
+        let unitFlags = Set<Calendar.Component>([.day, .month, .year])
+        let components = calendar.dateComponents(unitFlags, from: self)
+        let year = components.year!
+        return year
+    }
+    
+    // Date to Month
+    func getMonth() -> Int {
+        let calendar = Calendar.current
+        let unitFlags = Set<Calendar.Component>([.day, .month, .year])
+        let components = calendar.dateComponents(unitFlags, from: self)
+        let month = components.month!
+        return month
+    }
+    
+    // Date to Month
+    func getDay() -> Int {
+        let calendar = Calendar.current
+        let unitFlags = Set<Calendar.Component>([.day, .month, .year])
+        let components = calendar.dateComponents(unitFlags, from: self)
+        let day = components.day!
+        return day
+    }
+    
+    func dateToString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일"
+        let day = formatter.string(from: self)
+        return day
+    }
+    
+    // change Date Format
+    func changeDateFormat() -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd hh:mm aa"
+        let str = formatter.string(from: self)
+        formatter.dateFormat = "yyyy-MM-dd hh:mm aa"
+        let date = formatter.date(from: str)
+        
+        return date!
+    }
     
 }

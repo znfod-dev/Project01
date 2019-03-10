@@ -13,11 +13,15 @@ class DiaryTableCell: UITableViewCell {
     @IBOutlet weak var editBtn: UIButton!
     
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var planBtn: UIButton!
-    @IBOutlet weak var planNameLabel: UILabel!
-    @IBOutlet weak var planContentLabel: UILabel!
     
-    @IBOutlet weak var createBtn: UIButton!
+    @IBOutlet weak var todoView: UIView!
+    @IBOutlet weak var todoViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var todoBtn: UIButton!
+    @IBOutlet weak var todoNamaLabel: UILabel!
+    
+    @IBOutlet weak var diaryLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

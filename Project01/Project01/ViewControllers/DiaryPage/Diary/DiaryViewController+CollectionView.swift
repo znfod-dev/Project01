@@ -12,13 +12,12 @@ import UIKit
 extension DiaryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let row = indexPath.row
         collectionView.deselectItem(at: indexPath, animated: true)
-        print("row : \(row)")
+        let row = indexPath.row
         self.selectedMonth = row + 1
         self.collectionView.reloadData()
+        self.loadDiary()
         
-        self.tableView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

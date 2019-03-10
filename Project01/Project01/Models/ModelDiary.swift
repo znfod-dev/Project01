@@ -31,6 +31,14 @@ class ModelDiary: NSObject {
         self.diary = diary
     }
     
+    convenience init(id:String, date:Date, diary:String) {
+        self.init()
+        self.id = id
+        self.date = date
+        self.todoList = DBManager.shared.selectTodo(date: date)
+        self.diary = diary
+    }
+    
     convenience init(dbDiary:ModelDBDiary) {
         let id = dbDiary.id
         let date = dbDiary.date
