@@ -43,17 +43,19 @@ class YearMonthPopup: BasePopup {
     
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		
-	}
-	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
+
 		// 년도 선택 인덱스
 		let idxYear = yearIndex(year: Int(curYYYYMM / 100))
 		let idxMonth = (curYYYYMM % 100) - 1
 		pvYearMonth.selectRow(idxYear, inComponent: 0, animated: false)
 		pvYearMonth.selectRow(idxMonth, inComponent: 1, animated: false)
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		// 화면 갱신
+		pvYearMonth.reloadAllComponents()
 	}
 	
     /*
@@ -168,13 +170,48 @@ extension YearMonthPopup: UIPickerViewDataSource {
 extension YearMonthPopup: UIPickerViewDelegate {
 	
 	// The data to return fopr the row and component (column) that's being passed in
-	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//		let color = (row == pickerView.selectedRow(inComponent: component)) ? UIColor.green : UIColor.black
+//
+//		if component == 0 {
+//			let label = "\(arrYearMonth[component][row])년"
+//			return NSAttributedString(string: label, attributes: [NSForegroundColorAttributeName: color])
+////			return "\(arrYearMonth[component][row])년"
+//		}
+//		else {
+//			let label = "\(arrYearMonth[component][row])월"
+//			return NSAttributedString(string: label, attributes: [NSForegroundColorAttributeName: color])
+////			return "\(arrYearMonth[component][row])월"
+//		}
+//	}
+	
+	func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+		
+		var title = ""
+		// 년
 		if component == 0 {
-			return "\(arrYearMonth[component][row])년"
+			title = "\(arrYearMonth[component][row])년"
 		}
+		// 월
 		else {
-			return "\(arrYearMonth[component][row])월"
+			title = "\(arrYearMonth[component][row])월"
 		}
+
+		let label = view as? UILabel ?? UILabel()
+
+		if pickerView.selectedRow(inComponent: component) == row {
+			label.frame = CGRect(x: 0, y: 0, width: 100, height: 36)
+			label.textColor = UIColor.black
+			label.text = title
+			label.textAlignment = .center
+		} else {
+			label.frame = CGRect(x: 0, y: 0, width: 100, height: 36)
+			label.textColor = UIColor.gray
+			label.text = title
+			label.textAlignment = .center
+		}
+		
+		return label
 	}
 	
 	// Capture the picker view selection
@@ -197,5 +234,7 @@ extension YearMonthPopup: UIPickerViewDelegate {
 			pickerView.selectRow(idxYear, inComponent: 0, animated: true)
 			pickerView.selectRow(idxMonth, inComponent: 1, animated: true)
 		}
+		
+		pickerView.reloadAllComponents()
 	}
 }
