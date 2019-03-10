@@ -564,10 +564,6 @@ class MonthlyPlanViewController: UIViewController {
 			// 이번달 이동
 			self.goThisMonth(dicResult)
 		}
-		
-		popup.addActionCancelClick {
-			
-		}
     }
 	
 	// 추가 버튼

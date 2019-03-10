@@ -10,7 +10,9 @@ import UIKit
 
 class OpenSourceViewController: UIViewController {
 
-	@IBOutlet weak var vContent: UIView?
+	@IBOutlet weak var vNavigationBar: UIView!
+	@IBOutlet weak var vContent: UIView!
+	
 	var webviewVC: BaseWebViewController?
 
 	override func viewDidLoad() {
@@ -20,6 +22,11 @@ class OpenSourceViewController: UIViewController {
 		// 375화면 기준으로 스케일 적용
 		let scale: CGFloat = DEF_WIDTH_375_SCALE
 		view.transform = view.transform.scaledBy(x: scale, y: scale)
+		
+		// 그림자 처리
+		vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+		vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+		vNavigationBar.layer.shadowOpacity = 0.16
 
 		let storyboard: UIStoryboard? = AppDelegate.sharedNamedStroyBoard("Common") as? UIStoryboard
 		webviewVC = storyboard?.instantiateViewController(withIdentifier: "BaseWebViewController") as? BaseWebViewController

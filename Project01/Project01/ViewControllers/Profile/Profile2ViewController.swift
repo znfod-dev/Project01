@@ -13,7 +13,9 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     
     // 모달인가?
     var isModal: Bool = false
-    
+	
+	@IBOutlet weak var vProfileShadow: UIView!
+	
     @IBOutlet weak var closeBtn: UIButton!
     
     @IBOutlet weak var editCompleteBtn: UIButton!
@@ -47,13 +49,14 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         
         // sama73 : 375화면 기준으로 스케일 적용
-        let scale: CGFloat = DEF_WIDTH_375_SCALE
-        view.transform = view.transform.scaledBy(x: scale, y: scale)
+		let scale: CGFloat = DEF_WIDTH_375_SCALE
+		view.transform = view.transform.scaledBy(x: scale, y: scale)
        
         // 최초 실행
         if isModal == true {
             startBtn.isHidden = true
             backBtn.isHidden = true
+			closeBtn.isHidden = false
             //menuBtn.isHidden = false
         } else {
             startBtn.isHidden = false
@@ -61,7 +64,11 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
             closeBtn.isHidden = true
         }
         editCompleteBtn.isHidden = true
-        
+		
+		// 그림자 처리
+		vProfileShadow.layer.shadowColor = UIColor(hex: 0x000000).cgColor
+		vProfileShadow.layer.shadowOffset = CGSize(width: 0, height: 3)
+		vProfileShadow.layer.shadowOpacity = 0.16
         
         // 키보드 show hide 추가
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -84,7 +91,7 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     
     func updateProfileImg() {
         if let img = self.profileImage.image {
-            self.profileImageBtn.setImage(self.profileImage.image!.withRenderingMode(.alwaysOriginal), for: .normal)
+            self.profileImageBtn.setImage(img.withRenderingMode(.alwaysOriginal), for: .normal)
         }else {
             
         }
@@ -112,7 +119,7 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
                 self.editCompleteBtn.isHidden = false
                 self.editBtn.isHidden = true
                 self.closeBtn.isHidden = true
-            }else {
+            } else {
                 self.nameDelBtn.isHidden = true
                 self.nameTextField.isUserInteractionEnabled = false
                 self.phoneDelBtn.isHidden = true
@@ -124,7 +131,10 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
                 
                 self.editCompleteBtn.isHidden = true
                 self.editBtn.isHidden = false
-                self.closeBtn.isHidden = false
+				// 최초 실행
+				if self.isModal == true {
+                	self.closeBtn.isHidden = false
+				}
             }
         }
     }

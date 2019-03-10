@@ -460,8 +460,8 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZS-7x-mwR">
                                                         <rect key="frame" x="305" y="16.5" width="51" height="31"/>
-                                                        <color key="onTintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <color key="thumbTintColor" red="0.52104455230000002" green="0.45827448370000001" blue="0.88590478900000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="onTintColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="thumbTintColor" red="0.52156862745098043" green="0.45882352941176469" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="switchClick:" destination="lrI-bH-IEv" eventType="valueChanged" id="wzm-yu-mVX"/>
                                                         </connections>

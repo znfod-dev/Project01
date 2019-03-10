@@ -9,18 +9,18 @@
 import UIKit
 
 class SettingViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    @IBOutlet weak var backBarBtn: UIBarButtonItem!
+	
+	@IBOutlet weak var vNavigationBar: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
+	
     var fontPickerView:PickerView!
     
     var fontArray = FontType.allCases
     var fontSizeArray = [14,16,18]
     var pickerViewArray = 0
     
-    var datePickerView:DatePickerView!
-    var monthPickerView:MonthPickerView!
+//    var datePickerView:DatePickerView!
+//    var monthPickerView:MonthPickerView!
     var timePickerView:TimePickerView!
     var fontSizePickerView:PickerView!
     
@@ -34,8 +34,13 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         // sama73 : 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
-        
-        self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
+		
+		// 그림자 처리
+		vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+		vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+		vNavigationBar.layer.shadowOpacity = 0.16
+
+		self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
     }
     // PickerView 추가
     func addPickerViews() {
@@ -45,12 +50,12 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.datePickerView.submitBtn.addGestureRecognizer(dateSubmit)
         self.view.addSubview(self.datePickerView)
         */
-        self.monthPickerView = MonthPickerView.initWithNib(frame: self.view.frame)
-        let monthSubmit = UITapGestureRecognizer(target: self, action: #selector(handleMonthSubmit(_:)))
-        self.monthPickerView.submitBtn.addGestureRecognizer(monthSubmit)
-      
-        self.view.addSubview(self.monthPickerView)
-        
+//        self.monthPickerView = MonthPickerView.initWithNib(frame: self.view.frame)
+//        let monthSubmit = UITapGestureRecognizer(target: self, action: #selector(handleMonthSubmit(_:)))
+//        self.monthPickerView.submitBtn.addGestureRecognizer(monthSubmit)
+//
+//        self.view.addSubview(self.monthPickerView)
+		
         self.timePickerView = TimePickerView.initWithNib(frame: self.view.frame)
         let timeSubmit = UITapGestureRecognizer(target: self, action: #selector(handleTimeSubmit(_:)))
         self.timePickerView.submitBtn.addGestureRecognizer(timeSubmit)
@@ -127,20 +132,20 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var heightForRow:CGFloat = 44.0
+		
         let fontSize = FontManager.shared.getFontSize()
         if fontSize == 14 {
-            heightForRow = 36
-        }else if fontSize == 16 {
-            heightForRow = 38
-        }else if fontSize == 18 {
-            heightForRow = 40
-        }else if fontSize == 20 {
-            heightForRow = 42
-        }else if fontSize == 22 {
             heightForRow = 44
-        }else {
-            
+        }else if fontSize == 16 {
+            heightForRow = 46
+        }else if fontSize == 18 {
+            heightForRow = 48
+        }else if fontSize == 20 {
+            heightForRow = 50
+        }else if fontSize == 22 {
+            heightForRow = 52
         }
+
         return heightForRow
     }
     
@@ -186,10 +191,16 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.lunarSwitch.isOn = lunarOnOff
+				// 스위치 크기 줄이기
+				let scale2: CGFloat = 0.75
+				cell.lunarSwitch.transform = CGAffineTransform(scaleX: scale2, y: scale2)
             }else if row == 4 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingiCloudCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
-            
+				
+				// 스위치 크기 줄이기
+				let scale2: CGFloat = 0.75
+				cell.iCloudSwitch.transform = CGAffineTransform(scaleX: scale2, y: scale2)
             }else if row == 5 {
                 print("SettingPagingCell")
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingPagingCell") as! SettingTableCell
@@ -263,21 +274,82 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         if section == 0 {
             if row == 0 {
-                let startDate = DBManager.shared.loadMinimumDateFromUD()
-                self.monthPickerView.submitBtn.tag = 0
-                self.monthPickerView.tag = 0
-                self.showMonthPickerView(date: startDate)
-            }else if row == 1 {
-                let endDate = DBManager.shared.loadMaximumDateFromUD()
-                self.monthPickerView.submitBtn.tag = 1
-                self.monthPickerView.tag = 1
-                self.showMonthPickerView(date: endDate)
-            }else if row == 2 {
+//                let startDate = DBManager.shared.loadMinimumDateFromUD()
+//                self.monthPickerView.submitBtn.tag = 0
+//                self.monthPickerView.tag = 0
+//                self.showMonthPickerView(date: startDate)
+
+				// 시작 날짜, 마지막 날짜 변경 사항이 있으면 갱신해준다.
+				let startDate = DBManager.shared.loadMinimumDateFromUD()
+				let endDate = DBManager.shared.loadMaximumDateFromUD()
+				
+				let formatter = DateFormatter()
+				formatter.locale = Locale(identifier:"ko_KR")
+				formatter.dateFormat = "yyyyMMdd"
+				let startDate2 = formatter.string(from: startDate)
+				let endDate2 = formatter.string(from: endDate)
+			
+				let startYYYYMMDD: Int = Int(startDate2)!
+				let endYYYYMMDD: Int = Int(endDate2)!
+				let minYYYYMM: Int = 201001
+				let maxYYYYMM: Int = Int(endYYYYMMDD/100)
+				let curYYYYMM: Int = Int(startYYYYMMDD/100)
+				let popup = YearMonthPopup.yearMonthPopup(curYYYYMM: curYYYYMM, minYYYYMM: minYYYYMM, maxYYYYMM: maxYYYYMM)
+				popup.addActionConfirmClick { (curYYYYMM) in
+					
+					let YYYYMMDD = "\(curYYYYMM)01"
+					let formatter = DateFormatter()
+					formatter.dateFormat = "yyyyMMdd"
+
+					let startDate = formatter.date(from: YYYYMMDD)
+					DBManager.shared.saveMinimumDateInUD(minimumDate: startDate!)
+					
+					// 셀선택
+					CalendarManager.setSelectedCell(selectedCell: -1)
+					
+					self.tableView.reloadData()
+				}
+
+            } else if row == 1 {
+//                let endDate = DBManager.shared.loadMaximumDateFromUD()
+//                self.monthPickerView.submitBtn.tag = 1
+//                self.monthPickerView.tag = 1
+//                self.showMonthPickerView(date: endDate)
+	
+				// 시작 날짜, 마지막 날짜 변경 사항이 있으면 갱신해준다.
+				let startDate = DBManager.shared.loadMinimumDateFromUD()
+				let endDate = DBManager.shared.loadMaximumDateFromUD()
+				
+				let formatter = DateFormatter()
+				formatter.locale = Locale(identifier:"ko_KR")
+				formatter.dateFormat = "yyyyMMdd"
+				let startDate2 = formatter.string(from: startDate)
+				let endDate2 = formatter.string(from: endDate)
+				
+				let startYYYYMMDD: Int = Int(startDate2)!
+				let endYYYYMMDD: Int = Int(endDate2)!
+				let minYYYYMM: Int = Int(startYYYYMMDD/100)
+				let maxYYYYMM: Int = 203012
+				let curYYYYMM: Int = Int(endYYYYMMDD/100)
+				let popup = YearMonthPopup.yearMonthPopup(curYYYYMM: curYYYYMM, minYYYYMM: minYYYYMM, maxYYYYMM: maxYYYYMM)
+				popup.addActionConfirmClick { (curYYYYMM) in
+					let YYYYMMDD = "\(curYYYYMM)01"
+					let formatter = DateFormatter()
+					formatter.dateFormat = "yyyyMMdd"
+					
+					let endDate = formatter.date(from: YYYYMMDD)
+					DBManager.shared.saveMaximumDateInUD(maximumDate: endDate!)
+					
+					// 셀선택
+					CalendarManager.setSelectedCell(selectedCell: -1)
+					
+					self.tableView.reloadData()
+				}
+
+            } else if row == 2 {
                 let alarmTime = DBManager.shared.loadAlarmTimeFromUD()
                 self.timePickerView.submitBtn.tag = 0
                 self.showTimePickerView(time: alarmTime)
-            }else {
-                
             }
         }else if section == 1 {
             /*
@@ -307,14 +379,14 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     // MARK: - Show Hide Picker
-    func showDatePickerView(date:Date) {
-        
-        self.datePickerView.showDatePickerView(date: date)
-    }
-    func showMonthPickerView(date:Date) {
-        
-        self.monthPickerView.showMonthPickerView(date: date)
-    }
+//    func showDatePickerView(date:Date) {
+//        
+//        self.datePickerView.showDatePickerView(date: date)
+//    }
+//    func showMonthPickerView(date:Date) {
+//        
+//        self.monthPickerView.showMonthPickerView(date: date)
+//    }
     func showTimePickerView(time:Date) {
         self.timePickerView.showTimePickerView(time: time)
     }
@@ -344,60 +416,60 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     // MARK: - HandleDate
-    @objc func handleDateSubmit(_ recognizer : UITapGestureRecognizer) {
-        let view = recognizer.view!
-        let type = view.tag
-        print("type : \(type)")
-        // type == 0 시작일
-        if type == 0 {
-            let startDate = self.datePickerView.datePicker.date
-            DBManager.shared.saveMinimumDateInUD(minimumDate: startDate)
-        // type == 1 종료일
-        }else if type == 1 {
-            let endDate = self.datePickerView.datePicker.date
-            DBManager.shared.saveMaximumDateInUD(maximumDate: endDate)
-        }
-        self.datePickerView.dismissDatePickerView()
-        self.tableView.reloadData()
-        
-    }
-    @objc func handleMonthSubmit(_ recognizer : UITapGestureRecognizer) {
-        let view = recognizer.view!
-        let type = view.tag
-        print("type : \(type)")
-        // type == 0 시작일
-        if type == 0 {
-            print("\(self.monthPickerView.date)")
-            let startDate = self.monthPickerView.date
-            // 시작날 - 마지막날
-            let endDate = DBManager.shared.loadMaximumDateFromUD()
-            if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
-                DBManager.shared.saveMinimumDateInUD(minimumDate: startDate)
-				
-				// 셀선택
-				CalendarManager.setSelectedCell(selectedCell: -1)
-            }else {
-                self.okAlert("Warning", "시작날짜를 마지막날짜보다 늦게 설정할 수 없습니다.")
-            }
-            // type == 1 종료일
-        }else if type == 1 {
-            print("\(self.monthPickerView.date)")
-            let endDate = self.monthPickerView.date
-            // 시작날 - 마지막날
-            let startDate = DBManager.shared.loadMinimumDateFromUD()
-            if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
-                DBManager.shared.saveMaximumDateInUD(maximumDate: endDate)
-				
-				// 셀선택
-				CalendarManager.setSelectedCell(selectedCell: -1)
-            }else {
-                self.okAlert("Warning", "마지막날짜를 시작날짜보다 일찍 설정할 수 없습니다.")
-            }
-        }
-        self.monthPickerView.dismissMonthPickerView()
-        self.tableView.reloadData()
-        
-    }
+//    @objc func handleDateSubmit(_ recognizer : UITapGestureRecognizer) {
+//        let view = recognizer.view!
+//        let type = view.tag
+//        print("type : \(type)")
+//        // type == 0 시작일
+//        if type == 0 {
+//            let startDate = self.datePickerView.datePicker.date
+//            DBManager.shared.saveMinimumDateInUD(minimumDate: startDate)
+//        // type == 1 종료일
+//        }else if type == 1 {
+//            let endDate = self.datePickerView.datePicker.date
+//            DBManager.shared.saveMaximumDateInUD(maximumDate: endDate)
+//        }
+//        self.datePickerView.dismissDatePickerView()
+//        self.tableView.reloadData()
+//
+//    }
+//    @objc func handleMonthSubmit(_ recognizer : UITapGestureRecognizer) {
+//        let view = recognizer.view!
+//        let type = view.tag
+//        print("type : \(type)")
+//        // type == 0 시작일
+//        if type == 0 {
+//            print("\(self.monthPickerView.date)")
+//            let startDate = self.monthPickerView.date
+//            // 시작날 - 마지막날
+//            let endDate = DBManager.shared.loadMaximumDateFromUD()
+//            if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
+//                DBManager.shared.saveMinimumDateInUD(minimumDate: startDate)
+//
+//				// 셀선택
+//				CalendarManager.setSelectedCell(selectedCell: -1)
+//            }else {
+//                self.okAlert("Warning", "시작날짜를 마지막날짜보다 늦게 설정할 수 없습니다.")
+//            }
+//            // type == 1 종료일
+//        }else if type == 1 {
+//            print("\(self.monthPickerView.date)")
+//            let endDate = self.monthPickerView.date
+//            // 시작날 - 마지막날
+//            let startDate = DBManager.shared.loadMinimumDateFromUD()
+//            if startDate.timeIntervalSince1970 < endDate.timeIntervalSince1970 {
+//                DBManager.shared.saveMaximumDateInUD(maximumDate: endDate)
+//
+//				// 셀선택
+//				CalendarManager.setSelectedCell(selectedCell: -1)
+//            }else {
+//                self.okAlert("Warning", "마지막날짜를 시작날짜보다 일찍 설정할 수 없습니다.")
+//            }
+//        }
+//        self.monthPickerView.dismissMonthPickerView()
+//        self.tableView.reloadData()
+//
+//    }
     @objc func handleTimeSubmit(_ recognizer : UITapGestureRecognizer) {
         let view = recognizer.view!
         let type = view.tag
