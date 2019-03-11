@@ -67,9 +67,9 @@
 		9B7C01402222414700654720 /* Profile2+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C013F2222414700654720 /* Profile2+TextField.swift */; };
 		9B7C0142222262BB00654720 /* ImageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7C0141222262BB00654720 /* ImageEditViewController.swift */; };
 		9B7C0146222266AB00654720 /* Utills.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B7C0145222266AB00654720 /* Utills.storyboard */; };
-		9BAD27C12234087C00C05A15 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD27C02234087C00C05A15 /* TodoListView.swift */; };
-		9BAD27C32234088900C05A15 /* TodoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD27C22234088900C05A15 /* TodoListView.xib */; };
 		9BAD27C72234A8A600C05A15 /* DiaryViewController+Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD27C62234A8A600C05A15 /* DiaryViewController+Picker.swift */; };
+		9BAD27C92235F8EB00C05A15 /* DiaryTotoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD27C82235F8EB00C05A15 /* DiaryTotoTableCell.swift */; };
+		9BAD27CB22361E6900C05A15 /* DiaryViewController+TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD27CA22361E6900C05A15 /* DiaryViewController+TextView.swift */; };
 		9BB2B6482222C664009E3637 /* ImageEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB2B6472222C664009E3637 /* ImageEditDelegate.swift */; };
 		9BB2B6A8222A33BF009E3637 /* icon_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB2B6A0222A33BD009E3637 /* icon_camera@2x.png */; };
 		9BB2B6A9222A33BF009E3637 /* profile_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB2B6A1222A33BD009E3637 /* profile_menu@2x.png */; };
@@ -278,9 +278,9 @@
 		9B7C013F2222414700654720 /* Profile2+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile2+TextField.swift"; sourceTree = "<group>"; };
 		9B7C0141222262BB00654720 /* ImageEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditViewController.swift; sourceTree = "<group>"; };
 		9B7C0145222266AB00654720 /* Utills.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Utills.storyboard; sourceTree = "<group>"; };
-		9BAD27C02234087C00C05A15 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
-		9BAD27C22234088900C05A15 /* TodoListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoListView.xib; sourceTree = "<group>"; };
 		9BAD27C62234A8A600C05A15 /* DiaryViewController+Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+Picker.swift"; sourceTree = "<group>"; };
+		9BAD27C82235F8EB00C05A15 /* DiaryTotoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTotoTableCell.swift; sourceTree = "<group>"; };
+		9BAD27CA22361E6900C05A15 /* DiaryViewController+TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+TextView.swift"; sourceTree = "<group>"; };
 		9BB2B6472222C664009E3637 /* ImageEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditDelegate.swift; sourceTree = "<group>"; };
 		9BB2B6A0222A33BD009E3637 /* icon_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera@2x.png"; sourceTree = "<group>"; };
 		9BB2B6A1222A33BD009E3637 /* profile_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_menu@2x.png"; sourceTree = "<group>"; };
@@ -516,9 +516,11 @@
 				9B4144BB222B67BB008C9BF9 /* DiaryViewController+CollectionView.swift */,
 				9B4144BD222B67CC008C9BF9 /* DiaryViewController+TableView.swift */,
 				9BAD27C62234A8A600C05A15 /* DiaryViewController+Picker.swift */,
+				9BAD27CA22361E6900C05A15 /* DiaryViewController+TextView.swift */,
 				9B4144C1222B6A4B008C9BF9 /* DiaryTableCell.swift */,
 				9B4144C3222B6A59008C9BF9 /* DiaryCollectionCell.swift */,
 				9B01AB852233DF6B002AE3B5 /* DiaryAddViewController.swift */,
+				9BAD27C82235F8EB00C05A15 /* DiaryTotoTableCell.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -572,8 +574,6 @@
 				D914E3AC21FBF5BE00CFBB8E /* TimePickerView.swift */,
 				D914E3AD21FBF5BF00CFBB8E /* TimePickerView.xib */,
 				D914E39121FBF5BD00CFBB8E /* ZnTextView.swift */,
-				9BAD27C02234087C00C05A15 /* TodoListView.swift */,
-				9BAD27C22234088900C05A15 /* TodoListView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -986,7 +986,6 @@
 				9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */,
 				D914E3C921FBF5BF00CFBB8E /* DiaryPage.storyboard in Resources */,
 				D9ED7B0A221BEE9200414AE6 /* menu_check@3x.png in Resources */,
-				9BAD27C32234088900C05A15 /* TodoListView.xib in Resources */,
 				9B4144AB222AB6B5008C9BF9 /* icon_search@2x.png in Resources */,
 				9BB2B6B6222A3560009E3637 /* profile_img_bg@3x.png in Resources */,
 				D9030AED220EA390008D5A9E /* icon_menu@3x.png in Resources */,
@@ -1041,7 +1040,6 @@
 				D9030AF4220EA390008D5A9E /* icon_setting@3x.png in Resources */,
 				D9030AFB220EA390008D5A9E /* img_refresh_sync@2x.png in Resources */,
 				9B01AB832233D1A3002AE3B5 /* icon_clock@3x.png in Resources */,
-				9BB2B6A7222A33BF009E3637 /* profile_background@3x.png in Resources */,
 				6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */,
 				D9030B0C220EA390008D5A9E /* icon_close@2x.png in Resources */,
 				D9030AE5220EA390008D5A9E /* icon_save@2x.png in Resources */,
@@ -1149,10 +1147,10 @@
 				9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */,
 				D914E3D621FBF5BF00CFBB8E /* ModelDiary.swift in Sources */,
 				D914E3B221FBF5BF00CFBB8E /* Profile+TableViewDelegate.swift in Sources */,
-				9BAD27C12234087C00C05A15 /* TodoListView.swift in Sources */,
 				609A3FE7220D6C7500A58605 /* IntroViewController.swift in Sources */,
 				D914E3C121FBF5BF00CFBB8E /* SettingViewController.swift in Sources */,
 				60F47A9921F5707800E0DCB2 /* DatePickViewController.swift in Sources */,
+				9BAD27C92235F8EB00C05A15 /* DiaryTotoTableCell.swift in Sources */,
 				9B4144BA222B6623008C9BF9 /* DiaryViewController.swift in Sources */,
 				D9030A93220EA319008D5A9E /* BaseWebViewController.swift in Sources */,
 				9BAD27C72234A8A600C05A15 /* DiaryViewController+Picker.swift in Sources */,
@@ -1183,6 +1181,7 @@
 				609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */,
 				9B7C013A2221117800654720 /* Profile2ViewController.swift in Sources */,
 				D9FEF054221D5A1C00D75CDF /* SelectedPopup.swift in Sources */,
+				9BAD27CB22361E6900C05A15 /* DiaryViewController+TextView.swift in Sources */,
 				D9FBE0DE21F32B1C00BDA694 /* UIColor+hexString.swift in Sources */,
 				D914E3C221FBF5BF00CFBB8E /* ModelProfile.swift in Sources */,
 				60F47A9F21F57FA200E0DCB2 /* Date+Addon.swift in Sources */,

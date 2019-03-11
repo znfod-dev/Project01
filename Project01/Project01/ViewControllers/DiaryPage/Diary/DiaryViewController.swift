@@ -77,10 +77,12 @@ class DiaryViewController: UIViewController {
     func loadDiary() {
         let date = Date.Get(year: self.selectedYear, month: self.selectedMonth, day: 1)
         self.diaryList = DBManager.shared.selectDiaryList(date: date)
+        
         self.diaryEditList.removeAll()
         for diary in self.diaryList {
             print("\(diary.id)")
             self.diaryEditList.append(false)
+            print("\(diary.todoList.count)")
         }
         self.tableView.reloadData()
         
@@ -117,8 +119,19 @@ class DiaryViewController: UIViewController {
     }
     @IBAction func editBtnClicked(_ sender: UIButton) {
         let tag = sender.tag
+        print("editBtnClicked : \(tag)")
+        let edited = self.diaryEditList[tag]
+        if edited == true {
+            self.diaryEditList[tag] = false
+            let cell:DiaryTableCell = tableView.cellForRow(at: IndexPath(row: tag, section: 0)) as! DiaryTableCell
+            let diary = diaryList[tag]
+            diary.diary = cell.diaryTextView.text
+            DBManager.shared.updateDiary(diary: diary)
+            
+        }else {
+            self.diaryEditList[tag] = true
+        }
         let indexPath = IndexPath.init(row: tag, section: 0)
-        self.diaryEditList[tag] = true
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
         
     }

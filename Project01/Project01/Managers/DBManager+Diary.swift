@@ -60,7 +60,14 @@ extension DBManager {
         if list.count > 0 {
             for dbDiary in list {
                 let diary = ModelDiary.init(dbDiary: dbDiary)
+                print("diary : \(diary.id)")
+                let todoList = self.database.objects(ModelDBTodo.self).filter("date = '\(diary.id)'")
+                for dbTodo in todoList {
+                    print("todo : \(dbTodo.date)")
+                    diary.todoList.append(ModelTodo.init(dbTodo: dbTodo))
+                }
                 diaryList.append(diary)
+                print("diary Finish : \(diary.id)")
             }
         }
         return diaryList
