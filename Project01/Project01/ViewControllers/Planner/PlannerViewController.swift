@@ -83,12 +83,11 @@ class PlannerViewController: UIViewController {
     @IBAction func addButtonClick(_ sender: Any) {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlan_ViewController") as! AddPlan_ViewController
         
-        addVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+//        addVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+
         self.addChild(addVC)
         self.view.addSubview(addVC.view)
     }
-    
-    
     
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
