@@ -24,6 +24,13 @@
 		609A3FE7220D6C7500A58605 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FE6220D6C7300A58605 /* IntroViewController.swift */; };
 		609A3FFA22103FC300A58605 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FF822103FC100A58605 /* MonthPickerView.swift */; };
 		609A3FFB22103FC300A58605 /* MonthPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609A3FF922103FC300A58605 /* MonthPickerView.xib */; };
+		60B3E4922237ACC2008B9DDF /* AddPlan_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E4912237ACC2008B9DDF /* AddPlan_ViewController.swift */; };
+		60B3E49F2237C71D008B9DDF /* icon_calendar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E4992237C71A008B9DDF /* icon_calendar@3x.png */; };
+		60B3E4A02237C71D008B9DDF /* icon_memo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49A2237C71A008B9DDF /* icon_memo@2x.png */; };
+		60B3E4A12237C71D008B9DDF /* icon_calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49B2237C71B008B9DDF /* icon_calendar@2x.png */; };
+		60B3E4A22237C71D008B9DDF /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49C2237C71B008B9DDF /* icon_calendar.png */; };
+		60B3E4A32237C71D008B9DDF /* icon_memo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49D2237C71C008B9DDF /* icon_memo@3x.png */; };
+		60B3E4A42237C71D008B9DDF /* icon_memo.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49E2237C71C008B9DDF /* icon_memo.png */; };
 		60F47A8B21F3873900E0DCB2 /* ModelTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */; };
 		60F47A8D21F3874600E0DCB2 /* ModelDBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* ModelDBTodo.swift */; };
 		60F47A9021F56C2D00E0DCB2 /* ModelPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8F21F56C2D00E0DCB2 /* ModelPlan.swift */; };
@@ -236,6 +243,13 @@
 		609A3FE6220D6C7300A58605 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		609A3FF822103FC100A58605 /* MonthPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		609A3FF922103FC300A58605 /* MonthPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthPickerView.xib; sourceTree = "<group>"; };
+		60B3E4912237ACC2008B9DDF /* AddPlan_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlan_ViewController.swift; sourceTree = "<group>"; };
+		60B3E4992237C71A008B9DDF /* icon_calendar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar@3x.png"; sourceTree = "<group>"; };
+		60B3E49A2237C71A008B9DDF /* icon_memo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_memo@2x.png"; sourceTree = "<group>"; };
+		60B3E49B2237C71B008B9DDF /* icon_calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar@2x.png"; sourceTree = "<group>"; };
+		60B3E49C2237C71B008B9DDF /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
+		60B3E49D2237C71C008B9DDF /* icon_memo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_memo@3x.png"; sourceTree = "<group>"; };
+		60B3E49E2237C71C008B9DDF /* icon_memo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_memo.png; sourceTree = "<group>"; };
 		60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTodo.swift; sourceTree = "<group>"; };
 		60F47A8C21F3874600E0DCB2 /* ModelDBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDBTodo.swift; sourceTree = "<group>"; };
 		60F47A8F21F56C2D00E0DCB2 /* ModelPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPlan.swift; sourceTree = "<group>"; };
@@ -462,6 +476,7 @@
 				6042713A21F6B57F001F0E40 /* DetailPlanViewController.swift */,
 				60F47A9621F5706500E0DCB2 /* AddPlanViewController.swift */,
 				60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */,
+				60B3E4912237ACC2008B9DDF /* AddPlan_ViewController.swift */,
 			);
 			path = Planner;
 			sourceTree = "<group>";
@@ -731,6 +746,12 @@
 		D9030AA9220EA38F008D5A9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				60B3E49C2237C71B008B9DDF /* icon_calendar.png */,
+				60B3E49B2237C71B008B9DDF /* icon_calendar@2x.png */,
+				60B3E4992237C71A008B9DDF /* icon_calendar@3x.png */,
+				60B3E49E2237C71C008B9DDF /* icon_memo.png */,
+				60B3E49A2237C71A008B9DDF /* icon_memo@2x.png */,
+				60B3E49D2237C71C008B9DDF /* icon_memo@3x.png */,
 				6020FBA922364A1C00D4C234 /* icon_delete_plan@2x.png */,
 				6020FBAA22364A1C00D4C234 /* icon_delete_plan@3x.png */,
 				9B01AB802233D1A3002AE3B5 /* icon_clock@2x.png */,
@@ -985,6 +1006,7 @@
 				9B4144A7222A56E5008C9BF9 /* profile_image_icon@2x.png in Resources */,
 				D9030AF5220EA390008D5A9E /* icon_notdata@2x.png in Resources */,
 				D9030B0D220EA390008D5A9E /* NanumBarunpenB.ttf in Resources */,
+				60B3E4A22237C71D008B9DDF /* icon_calendar.png in Resources */,
 				D9030AFA220EA390008D5A9E /* icon_remove@3x.png in Resources */,
 				D9030AF7220EA390008D5A9E /* icon_delete@3x.png in Resources */,
 				609A3FFB22103FC300A58605 /* MonthPickerView.xib in Resources */,
@@ -1016,6 +1038,7 @@
 				9BB2B6AB222A33BF009E3637 /* profile_menu@3x.png in Resources */,
 				D9030B11220EA390008D5A9E /* NanumBrush.ttf in Resources */,
 				6020FBAB22364A1D00D4C234 /* icon_delete_plan@2x.png in Resources */,
+				60B3E4A02237C71D008B9DDF /* icon_memo@2x.png in Resources */,
 				9B4144AF222AB955008C9BF9 /* box_bg@3x.png in Resources */,
 				D927150E2216594100284967 /* icon_back@3x.png in Resources */,
 				9B4144B8222AD325008C9BF9 /* icon_write@2x.png in Resources */,
@@ -1026,6 +1049,7 @@
 				D9030AF3220EA390008D5A9E /* icon_navigation_next@3x.png in Resources */,
 				9BB2B6B5222A3560009E3637 /* profile_img_bg@2x.png in Resources */,
 				6046A780221EE7CC00D46681 /* icon_emptyTotoList@2x.png in Resources */,
+				60B3E4A32237C71D008B9DDF /* icon_memo@3x.png in Resources */,
 				D9030AE4220EA390008D5A9E /* icon_loading@3x.png in Resources */,
 				D9030B12220EA390008D5A9E /* NanumBarunGothic.ttf in Resources */,
 				D9FBE0E821F32B4600BDA694 /* Common.storyboard in Resources */,
@@ -1049,6 +1073,7 @@
 				D9030AFB220EA390008D5A9E /* img_refresh_sync@2x.png in Resources */,
 				9B01AB832233D1A3002AE3B5 /* icon_clock@3x.png in Resources */,
 				6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */,
+				60B3E4A42237C71D008B9DDF /* icon_memo.png in Resources */,
 				D9030B0C220EA390008D5A9E /* icon_close@2x.png in Resources */,
 				D9030AE5220EA390008D5A9E /* icon_save@2x.png in Resources */,
 				9B26623621EA3E49007CF0B3 /* Assets.xcassets in Resources */,
@@ -1068,10 +1093,12 @@
 				D9ED7B07221BD08100414AE6 /* menu_background@3x.png in Resources */,
 				9B4144AC222AB6B5008C9BF9 /* icon_search@3x.png in Resources */,
 				D9FD087E221E8984008AC233 /* menu_icon_mask@3x.png in Resources */,
+				60B3E4A12237C71D008B9DDF /* icon_calendar@2x.png in Resources */,
 				D9030B03220EA390008D5A9E /* menu_calendar@2x.png in Resources */,
 				9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */,
 				9BB2B6AC222A33BF009E3637 /* text_remove@3x.png in Resources */,
 				9B4144B3222AD272008C9BF9 /* icon_radio_btn@2x.png in Resources */,
+				60B3E49F2237C71D008B9DDF /* icon_calendar@3x.png in Resources */,
 				D9FD087F221E8984008AC233 /* menu_icon_mask@2x.png in Resources */,
 				D9030AF0220EA390008D5A9E /* icon_menu@2x.png in Resources */,
 				D9030AEE220EA390008D5A9E /* icon_today@2x.png in Resources */,
@@ -1205,6 +1232,7 @@
 				D9FBE0E221F32B1C00BDA694 /* DBManager.swift in Sources */,
 				D9FBE0E121F32B1C00BDA694 /* SiceMenuCell.swift in Sources */,
 				D914E3D521FBF5BF00CFBB8E /* DiaryPage+TableViewDataSource.swift in Sources */,
+				60B3E4922237ACC2008B9DDF /* AddPlan_ViewController.swift in Sources */,
 				D914E3AE21FBF5BF00CFBB8E /* UITextView+DoneAccessory.swift in Sources */,
 				D9FBE0E321F32B1C00BDA694 /* RoundLineButton.swift in Sources */,
 				9B4144BE222B67CC008C9BF9 /* DiaryViewController+TableView.swift in Sources */,

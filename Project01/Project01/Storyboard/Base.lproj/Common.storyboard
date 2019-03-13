@@ -20,7 +20,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wX-JV-B16">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.04842057079076767" green="0.045077105859915416" blue="0.044838286936283112" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="al5-wn-T5F" customClass="RoundLineView" customModule="PlannerDiary">
                                 <rect key="frame" x="25" y="226.5" width="325" height="214.5"/>

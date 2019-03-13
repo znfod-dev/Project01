@@ -77,16 +77,27 @@ class PlannerViewController: UIViewController {
     @IBAction func menuBtnClick(_ sender: Any) {
         sideMenuController?.revealMenu()
     }
+
     
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addPlanVC = segue.destination as? AddPlanViewController { // 추가 버튼을 눌렀을 때
-            addPlanVC.delegate = self
-        } else if let detailPlanVC = segue.destination as? DetailPlanViewController { // 디테일 화면으로 넘어갈 때
-            detailPlanVC.plan = self.plan
-        }
+    @IBAction func addButtonClick(_ sender: Any) {
+        let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlan_ViewController") as! AddPlan_ViewController
+        
+        addVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.addChild(addVC)
+        self.view.addSubview(addVC.view)
     }
+    
+    
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let addPlanVC = segue.destination as? AddPlanViewController { // 추가 버튼을 눌렀을 때
+//            addPlanVC.delegate = self
+//        } else if let detailPlanVC = segue.destination as? DetailPlanViewController { // 디테일 화면으로 넘어갈 때
+//            detailPlanVC.plan = self.plan
+//        }
+//    }
 }
 
 
