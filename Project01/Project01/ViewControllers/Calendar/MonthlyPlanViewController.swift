@@ -830,17 +830,6 @@ extension MonthlyPlanViewController: UITableViewDataSource {
             return 10
         }
     }
-    
-    
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.row % 2 == 0 { // todoCell 삭제 가능하게 함
-            return true
-        } else { // 공백 셀 삭제 못하게 함
-            return false
-        }
-    }
-    
 /*
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteButton = UITableViewRowAction(style: .normal, title: "Delete") { action, index in

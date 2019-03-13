@@ -402,7 +402,7 @@
                                                     <action selector="searchCancelBtnClicked:" destination="wTw-bb-aLs" eventType="touchUpInside" id="PjE-VH-xN0"/>
                                                 </connections>
                                             </button>
-                                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="검색" translatesAutoresizingMaskIntoConstraints="NO" id="IwB-ew-2Rq">
+                                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="검색" translatesAutoresizingMaskIntoConstraints="NO" id="IwB-ew-2Rq">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
