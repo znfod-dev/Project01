@@ -12,14 +12,15 @@ extension DBManager {
     
     // Insert
     func insertDiary(diary:ModelDiary) {
-        print("insertDiary")
+        print("insertDiary???")
         let dbDiary = ModelDBDiary.init(diary: diary)
         try! self.database.write {
-            self.database.add(dbDiary)
+            self.database.add(dbDiary, update: true)
         }
+        print("insertDiary Finish")
     }
     func insertTodo(todo:ModelTodo) {
-        print("insertDiary")
+        print("insertTodo")
         let dbTodo = ModelDBTodo.init(todo: todo)
         try! self.database.write {
             self.database.add(dbTodo)
@@ -52,6 +53,7 @@ extension DBManager {
     }
     // 지정된 날짜의 해당 월의 모든 다이어리 리스트 가져오기
     func selectDiaryList(date:Date) -> Array<ModelDiary> {
+        print("selectDiaryList")
         var diaryList = Array<ModelDiary>()
         let startDate = Date().startOfMonth(date: date)
         let endDate = Date().endOfMonth(date: date)
@@ -115,4 +117,24 @@ extension DBManager {
         }
         
     }
+    
+    // Delete
+    func deleteDiary(diary:ModelDiary, completion: (()->Void)? = nil) {
+        // DB에서 uid를 가지고 객체 찾기
+        guard let diaryToDelete = self.database.object(ofType: ModelDBDiary.self, forPrimaryKey: diary.id) else {
+            print("deleteDiary Fail")
+            return
+        }
+        
+        // 찾은 객체 삭제
+        try! self.database.write {
+            print("diaryToDelete : \(diaryToDelete)")
+            diaryToDelete.isDeleted = true
+            self.database.delete(diaryToDelete)
+            
+            completion?()
+        }
+    }
+    
+    
 }

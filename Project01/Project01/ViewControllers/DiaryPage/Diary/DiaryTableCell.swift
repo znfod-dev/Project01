@@ -39,20 +39,21 @@ class DiaryTableCell: UITableViewCell, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("DiaryTableCell numberOfRowsInSection : \(self.todoList.count)")
         return self.todoList.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("DiaryTableCell cellForRowAt")
+        let row = indexPath.row
         let cell:DiaryTotoTableCell = tableView.dequeueReusableCell(withIdentifier: "DiaryTodo") as! DiaryTotoTableCell
+        let todo:ModelTodo = self.todoList[row]
+        cell.todoLabel.text = todo.title
+        cell.todoBtn.tag = row
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print("DiaryTableCell heightForRowAt")
         return 40
         
     }
