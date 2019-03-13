@@ -33,6 +33,7 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
         
         self.datePicker.maximumDate = maxDate
         self.datePicker.minimumDate = minDate
+        self.datePickerView.isHidden = true
         
         
         if let temp = self.selectedDate {
@@ -112,25 +113,32 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
     func dismissDatePickerView() {
         print("dismissDatePickerView")
         
-        UIView.animate(withDuration: 0.5, animations: {
-            self.datePickerView.frame.origin.y += self.datePickerView.frame.height
-        }) { success in
-            
+        if self.datePickerView.isHidden == false {
+        
+            UIView.animate(withDuration: 0.5, animations: {
+                self.datePickerView.frame.origin.y += self.datePickerView.frame.height
+            }) { success in
+                self.datePickerView.isHidden = true
+                
+            }
         }
     }
     func showDatePickerView() {
         print("showDatePickerView")
         self.datePicker.date = Date()
-        UIView.animate(withDuration: 0.5, animations: {
-            self.datePickerView.frame.origin.y -= self.datePickerView.frame.height
-        }) { success in
-            
+        if self.datePickerView.isHidden == true {
+         
+            self.datePickerView.isHidden = false
+            UIView.animate(withDuration: 0.5, animations: {
+                self.datePickerView.frame.origin.y -= self.datePickerView.frame.height
+            }) { success in
+            }
         }
     }
     
     // MARK: - UITextViewDelegate
     func textViewDidBeginEditing(_ textView: UITextView) {
-        // textView를 열면 DatePicker를 열어준다.
+        // textView를 열면 DatePicker를 닫아준다.
         dismissDatePickerView()
         
     }

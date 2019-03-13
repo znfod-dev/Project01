@@ -543,20 +543,20 @@
                                             <outlet property="delegate" destination="wTw-bb-aLs" id="dga-aU-6r0"/>
                                         </connections>
                                     </collectionView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="241" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q8G-gf-kk1">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="241" estimatedRowHeight="-1" sectionHeaderHeight="9" sectionFooterHeight="9" translatesAutoresizingMaskIntoConstraints="NO" id="Q8G-gf-kk1">
                                         <rect key="frame" x="0.0" y="135" width="375" height="573"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiaryTableCell" id="fy0-Uv-duX" customClass="DiaryTableCell" customModule="Project01" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="241"/>
+                                                <rect key="frame" x="0.0" y="9" width="375" height="241"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fy0-Uv-duX" id="CYb-YT-e9b">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rha-53-Rl9">
-                                                            <rect key="frame" x="21" y="9" width="333" height="223"/>
+                                                            <rect key="frame" x="21" y="0.0" width="333" height="241"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0c-x1-wQJ" userLabel="TitleView">
                                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="42"/>
@@ -608,21 +608,28 @@
                                                                                                 </constraints>
                                                                                                 <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="5" maxY="0.0"/>
                                                                                                 <state key="normal" title="테스트 일정" image="icon_radio_btn.png"/>
+                                                                                                <connections>
+                                                                                                    <action selector="todoBtnClicked:" destination="wTw-bb-aLs" eventType="touchUpInside" id="gG7-kz-9Uz"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="테스트 일정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmA-lP-Oca">
-                                                                                                <rect key="frame" x="63" y="26.666666666666671" width="65" height="17"/>
+                                                                                                <rect key="frame" x="58" y="20.666666666666668" width="65" height="17.000000000000004"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <nil key="textColor"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
                                                                                         <constraints>
+                                                                                            <constraint firstItem="zmA-lP-Oca" firstAttribute="centerY" secondItem="Adq-cV-h83" secondAttribute="centerY" constant="3" id="8GL-fo-kYS"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="Adq-cV-h83" secondAttribute="bottom" id="Igx-uN-hj4"/>
-                                                                                            <constraint firstItem="zmA-lP-Oca" firstAttribute="leading" secondItem="Adq-cV-h83" secondAttribute="trailing" constant="11" id="dyL-i2-6yV"/>
-                                                                                            <constraint firstAttribute="bottom" secondItem="zmA-lP-Oca" secondAttribute="bottom" id="i4C-vW-rrN"/>
+                                                                                            <constraint firstItem="zmA-lP-Oca" firstAttribute="leading" secondItem="Adq-cV-h83" secondAttribute="trailing" constant="6" id="dyL-i2-6yV"/>
                                                                                             <constraint firstItem="Adq-cV-h83" firstAttribute="leading" secondItem="Zpw-Bz-CnU" secondAttribute="leading" constant="17" id="rNS-na-lc5"/>
                                                                                         </constraints>
                                                                                     </tableViewCellContentView>
+                                                                                    <connections>
+                                                                                        <outlet property="todoBtn" destination="Adq-cV-h83" id="erD-6e-pBL"/>
+                                                                                        <outlet property="todoLabel" destination="zmA-lP-Oca" id="bHf-e7-DLU"/>
+                                                                                    </connections>
                                                                                 </tableViewCell>
                                                                             </prototypes>
                                                                             <connections>
@@ -641,7 +648,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxB-eC-3xt" userLabel="DiaryView">
-                                                                    <rect key="frame" x="0.0" y="82" width="333" height="141"/>
+                                                                    <rect key="frame" x="0.0" y="82" width="333" height="159"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다이어리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8h-f6-2g7">
                                                                             <rect key="frame" x="16.999999999999996" y="20" width="55.666666666666657" height="20"/>
@@ -653,7 +660,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="테스트 입력글입니다. 테스트 입력글입니다. 테스트 입력글입니다. 테스트 입력글입니다." lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llz-y3-RBO">
-                                                                            <rect key="frame" x="22" y="45" width="289" height="86"/>
+                                                                            <rect key="frame" x="22" y="45" width="289" height="104"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <color key="textColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -694,8 +701,8 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="Rha-53-Rl9" firstAttribute="leading" secondItem="CYb-YT-e9b" secondAttribute="leading" constant="21" id="6ec-sc-LA9"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Rha-53-Rl9" secondAttribute="bottom" constant="9" id="KGP-8A-ibt"/>
-                                                        <constraint firstItem="Rha-53-Rl9" firstAttribute="top" secondItem="CYb-YT-e9b" secondAttribute="top" constant="9" id="SAC-Bc-BsL"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Rha-53-Rl9" secondAttribute="bottom" id="KGP-8A-ibt"/>
+                                                        <constraint firstItem="Rha-53-Rl9" firstAttribute="top" secondItem="CYb-YT-e9b" secondAttribute="top" id="SAC-Bc-BsL"/>
                                                         <constraint firstAttribute="trailing" secondItem="Rha-53-Rl9" secondAttribute="trailing" constant="21" id="tcQ-6r-IvF"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -709,14 +716,14 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiaryEditTableCell" rowHeight="301" id="Phy-FK-K5a" customClass="DiaryTableCell" customModule="Project01" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="269" width="375" height="301"/>
+                                                <rect key="frame" x="0.0" y="250" width="375" height="301"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Phy-FK-K5a" id="H7f-oo-5MF">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="301"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3N-BD-sLr">
-                                                            <rect key="frame" x="21" y="9" width="333" height="283"/>
+                                                            <rect key="frame" x="21" y="0.0" width="333" height="301"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzR-ac-oLb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="42"/>
@@ -770,21 +777,28 @@
                                                                                                 </constraints>
                                                                                                 <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="5" maxY="0.0"/>
                                                                                                 <state key="normal" title="테스트 일정" image="icon_radio_btn.png"/>
+                                                                                                <connections>
+                                                                                                    <action selector="todoBtnClicked:" destination="wTw-bb-aLs" eventType="touchUpInside" id="Fi2-A7-X2c"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="테스트 일정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahy-Fi-TgG">
-                                                                                                <rect key="frame" x="63" y="26.666666666666671" width="65" height="17"/>
+                                                                                                <rect key="frame" x="58" y="20.666666666666668" width="65" height="17.000000000000004"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <nil key="textColor"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
                                                                                         <constraints>
-                                                                                            <constraint firstItem="Ahy-Fi-TgG" firstAttribute="leading" secondItem="U2N-Lm-Omx" secondAttribute="trailing" constant="11" id="Epw-jw-XPF"/>
+                                                                                            <constraint firstItem="Ahy-Fi-TgG" firstAttribute="leading" secondItem="U2N-Lm-Omx" secondAttribute="trailing" constant="6" id="Epw-jw-XPF"/>
                                                                                             <constraint firstItem="U2N-Lm-Omx" firstAttribute="leading" secondItem="a7b-PQ-qjV" secondAttribute="leading" constant="17" id="axp-ZK-J24"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="U2N-Lm-Omx" secondAttribute="bottom" id="cJM-iE-KLN"/>
-                                                                                            <constraint firstAttribute="bottom" secondItem="Ahy-Fi-TgG" secondAttribute="bottom" id="ce3-Qf-0SI"/>
+                                                                                            <constraint firstItem="Ahy-Fi-TgG" firstAttribute="centerY" secondItem="U2N-Lm-Omx" secondAttribute="centerY" constant="3" id="u5A-pG-lrU"/>
                                                                                         </constraints>
                                                                                     </tableViewCellContentView>
+                                                                                    <connections>
+                                                                                        <outlet property="todoBtn" destination="U2N-Lm-Omx" id="un2-uv-IaV"/>
+                                                                                        <outlet property="todoLabel" destination="Ahy-Fi-TgG" id="PWT-n8-NJG"/>
+                                                                                    </connections>
                                                                                 </tableViewCell>
                                                                             </prototypes>
                                                                             <connections>
@@ -803,7 +817,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPN-Pi-fAD">
-                                                                    <rect key="frame" x="0.0" y="82" width="333" height="201"/>
+                                                                    <rect key="frame" x="0.0" y="82" width="333" height="219"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다이어리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pde-yp-Rz2">
                                                                             <rect key="frame" x="16.999999999999996" y="20" width="55.666666666666657" height="20"/>
@@ -815,7 +829,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="내용이 있습니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7fw-6p-Roe">
-                                                                            <rect key="frame" x="22" y="50" width="289" height="141"/>
+                                                                            <rect key="frame" x="22" y="50" width="289" height="159"/>
                                                                             <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="115" id="iHu-zo-IT2"/>
@@ -868,8 +882,8 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="M3N-BD-sLr" firstAttribute="leading" secondItem="H7f-oo-5MF" secondAttribute="leading" constant="21" id="6uS-HL-Zgj"/>
-                                                        <constraint firstItem="M3N-BD-sLr" firstAttribute="top" secondItem="H7f-oo-5MF" secondAttribute="top" constant="9" id="BYO-GA-KRS"/>
-                                                        <constraint firstAttribute="bottom" secondItem="M3N-BD-sLr" secondAttribute="bottom" constant="9" id="Zpp-Yp-pbW"/>
+                                                        <constraint firstItem="M3N-BD-sLr" firstAttribute="top" secondItem="H7f-oo-5MF" secondAttribute="top" id="BYO-GA-KRS"/>
+                                                        <constraint firstAttribute="bottom" secondItem="M3N-BD-sLr" secondAttribute="bottom" id="Zpp-Yp-pbW"/>
                                                         <constraint firstAttribute="trailing" secondItem="M3N-BD-sLr" secondAttribute="trailing" constant="21" id="pVn-kQ-0H9"/>
                                                     </constraints>
                                                 </tableViewCellContentView>

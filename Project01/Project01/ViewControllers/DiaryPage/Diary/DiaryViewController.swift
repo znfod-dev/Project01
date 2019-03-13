@@ -34,6 +34,8 @@ class DiaryViewController: UIViewController {
     
     // 년도 list
     var yearList = Array<Int>()
+    // 월 list
+    var monthList = Array<Int>()
     // 월간 일자
     var dayOfMonthList = Array<Int>()
     
@@ -53,13 +55,7 @@ class DiaryViewController: UIViewController {
     
     func firstInit() {
         
-        // 이번달 기록해놓기
-        let calendar = Calendar.current
-        let unitFlags = Set<Calendar.Component>([.day, .month, .year])
-        let components = calendar.dateComponents(unitFlags, from: Date())
-        
-        self.selectedYear = components.year!
-        self.selectedMonth = components.month!
+        self.setDateData()
         
         self.yearPickerView = PickerView.initWithNib(frame: self.view.frame)
         self.yearPickerView.pickerView.delegate = self
@@ -70,34 +66,56 @@ class DiaryViewController: UIViewController {
         
         self.view.addSubview(self.yearPickerView)
         
-        self.setMinMaxYear()
+        self.yearPickerView.pickerView.reloadAllComponents()
+        
+        DispatchQueue.main.async {
+            self.yearLabel.text = String(self.selectedYear)
+        }
+        
         self.loadDiary()
     }
     // load diary
     func loadDiary() {
+        print("loadDiary")
+        self.diaryList.removeAll()
         let date = Date.Get(year: self.selectedYear, month: self.selectedMonth, day: 1)
         self.diaryList = DBManager.shared.selectDiaryList(date: date)
         
         self.diaryEditList.removeAll()
         for diary in self.diaryList {
-            print("\(diary.id)")
             self.diaryEditList.append(false)
-            print("\(diary.todoList.count)")
         }
         self.tableView.reloadData()
         
     }
     // 최대 최소 년도 설정
-    func setMinMaxYear() {
+    func setDateData() {
+        // 최소 일
+        let minDate = DBManager.shared.loadMinimumDateFromUD()
+        // 최대 일
+        let maxDate = DBManager.shared.loadMaximumDateFromUD()
         // 최소 년도
-        let minYear = DBManager.shared.loadMinimumDateFromUD().getYear()
+        let minYear = minDate.getYear()
         // 최대 년도
-        let maxYear = DBManager.shared.loadMaximumDateFromUD().getYear()
+        let maxYear = maxDate.getYear()
         // 년도 리스트
         for year in minYear ..< maxYear+1 {
             yearList.append(year)
         }
-        self.yearPickerView.pickerView.reloadAllComponents()
+        
+        let calendar = Calendar.current
+        let unitFlags = Set<Calendar.Component>([.day, .month, .year])
+        let components = calendar.dateComponents(unitFlags, from: Date())
+        
+        self.selectedYear = components.year!
+        self.selectedMonth = components.month!
+        
+        // 최대
+        
+        // 최소
+        
+        // 
+        
     }
     
     
@@ -123,7 +141,7 @@ class DiaryViewController: UIViewController {
         let edited = self.diaryEditList[tag]
         if edited == true {
             self.diaryEditList[tag] = false
-            let cell:DiaryTableCell = tableView.cellForRow(at: IndexPath(row: tag, section: 0)) as! DiaryTableCell
+            let cell:DiaryTableCell = tableView.cellForRow(at: IndexPath(row: 0, section: tag)) as! DiaryTableCell
             let diary = diaryList[tag]
             diary.diary = cell.diaryTextView.text
             DBManager.shared.updateDiary(diary: diary)
@@ -131,7 +149,7 @@ class DiaryViewController: UIViewController {
         }else {
             self.diaryEditList[tag] = true
         }
-        let indexPath = IndexPath.init(row: tag, section: 0)
+        let indexPath = IndexPath.init(row: 0, section: tag)
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
         
     }
@@ -144,6 +162,9 @@ class DiaryViewController: UIViewController {
         alert.modalPresentationStyle = .overCurrentContext
         
         self.present(alert, animated: false, completion: nil)
+        
+    }
+    @IBAction func todoBtnClicked(_ sender: Any) {
         
     }
     
