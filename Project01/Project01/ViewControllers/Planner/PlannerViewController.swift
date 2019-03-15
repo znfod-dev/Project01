@@ -59,20 +59,6 @@ class PlannerViewController: UIViewController {
     
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        print(self.isModi!)
-        if self.isModi! { // 수정이 되었다면 테이블 뷰 리로드
-            self.isModi = false // 수정 값을 다시 false
-            
-            self.planArray = DBManager.shared.selectPlanDB()
-            self.tableView.reloadData()
-        }
-    }
-    
-    
-    
     // MARK:- Actions
     @IBAction func menuBtnClick(_ sender: Any) {
         sideMenuController?.revealMenu()
@@ -160,7 +146,14 @@ extension PlannerViewController: UITableViewDelegate {
         let indexRow = indexPath.row / 2
         
         self.plan = self.planArray[indexRow]
-        self.performSegue(withIdentifier: "planToDetail", sender: self)
+//        self.performSegue(withIdentifier: "planToDetail", sender: self)
+        
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlan_ViewController") as! DetailPlan_ViewController
+        
+        detailVC.plan = self.plan
+        
+        self.addChild(detailVC)
+        self.view.addSubview(detailVC.view)
     }
     
     // 스와이프 delete 액션 세팅

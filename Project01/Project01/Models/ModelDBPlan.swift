@@ -15,32 +15,32 @@ class ModelDBPlan: Object {
     @objc dynamic var uid: String? // uid
     
     @objc dynamic var date: Date? // 계획 추가한 시간
-    // 0 ~ 4 순서대로 일, 주, 월, 년, 직접 입력
-    @objc dynamic var planType: Int = 0
+    
     @objc dynamic var planTitle: String? // 계획명
+    @objc dynamic var planMemo: String? // 계획명
     @objc dynamic var startDay: String? // 계획 시작일
     @objc dynamic var endDay: String? // 계획 종료일
     
     @objc dynamic var isDeleted = false
     
-    convenience init(planType: Int, planTitle: String, startDay: String, endDay: String) {
+    convenience init(planTitle: String, planMemo: String, startDay: String, endDay: String) {
         self.init()
         
         self.uid = UUID().uuidString
         self.date = Date()
-        self.planType = planType
         self.planTitle = planTitle
+        self.planMemo = planMemo
         self.startDay = startDay
         self.endDay = endDay
     }
     
     convenience init(plan: ModelPlan) {
-        let planType = plan.planType
         let planTitle = plan.planTitle
+        let planMemo = plan.planMemo
         let startDay = plan.startDay
         let endDay = plan.endDay
         
-        self.init(planType: planType!, planTitle: planTitle!, startDay: startDay!, endDay: endDay!)
+        self.init(planTitle: planTitle!, planMemo: planMemo!, startDay: startDay!, endDay: endDay!)
     }
     
     override static func primaryKey() -> String? {

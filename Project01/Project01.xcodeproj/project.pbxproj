@@ -32,6 +32,7 @@
 		60B3E4A32237C71D008B9DDF /* icon_memo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49D2237C71C008B9DDF /* icon_memo@3x.png */; };
 		60B3E4A42237C71D008B9DDF /* icon_memo.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49E2237C71C008B9DDF /* icon_memo.png */; };
 		60B3E4C42239310D008B9DDF /* OkAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E4C32239310C008B9DDF /* OkAlertViewController.swift */; };
+		60B3E4C6223A1D49008B9DDF /* DetailPlan_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E4C5223A1D49008B9DDF /* DetailPlan_ViewController.swift */; };
 		60F47A8B21F3873900E0DCB2 /* ModelTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */; };
 		60F47A8D21F3874600E0DCB2 /* ModelDBTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8C21F3874600E0DCB2 /* ModelDBTodo.swift */; };
 		60F47A9021F56C2D00E0DCB2 /* ModelPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8F21F56C2D00E0DCB2 /* ModelPlan.swift */; };
@@ -252,6 +253,7 @@
 		60B3E49D2237C71C008B9DDF /* icon_memo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_memo@3x.png"; sourceTree = "<group>"; };
 		60B3E49E2237C71C008B9DDF /* icon_memo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_memo.png; sourceTree = "<group>"; };
 		60B3E4C32239310C008B9DDF /* OkAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkAlertViewController.swift; sourceTree = "<group>"; };
+		60B3E4C5223A1D49008B9DDF /* DetailPlan_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlan_ViewController.swift; sourceTree = "<group>"; };
 		60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTodo.swift; sourceTree = "<group>"; };
 		60F47A8C21F3874600E0DCB2 /* ModelDBTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDBTodo.swift; sourceTree = "<group>"; };
 		60F47A8F21F56C2D00E0DCB2 /* ModelPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPlan.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				60F47A9821F5707800E0DCB2 /* DatePickViewController.swift */,
 				60B3E4912237ACC2008B9DDF /* AddPlan_ViewController.swift */,
 				60B3E4C32239310C008B9DDF /* OkAlertViewController.swift */,
+				60B3E4C5223A1D49008B9DDF /* DetailPlan_ViewController.swift */,
 			);
 			path = Planner;
 			sourceTree = "<group>";
@@ -1202,6 +1205,7 @@
 				9EC46C5C21F6F91A00765274 /* ModelHoliday.swift in Sources */,
 				9B4144BC222B67BB008C9BF9 /* DiaryViewController+CollectionView.swift in Sources */,
 				D914E3CD21FBF5BF00CFBB8E /* Profile+TableViewDataSource.swift in Sources */,
+				60B3E4C6223A1D49008B9DDF /* DetailPlan_ViewController.swift in Sources */,
 				D914E3C321FBF5BF00CFBB8E /* BaseViewController.swift in Sources */,
 				D9FB06D521FD7EB5006C4DCA /* CustomPageControlView.swift in Sources */,
 				D9BBD2972223B5B30090DC83 /* TodoListAddPopup.swift in Sources */,

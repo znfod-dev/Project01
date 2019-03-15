@@ -18,7 +18,7 @@ extension Date {
     
     func string() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "yyyy.MM.dd"
         let day = formatter.string(from: self)
         return day
     }

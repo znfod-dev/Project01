@@ -28,18 +28,30 @@ class AddPlan_ViewController: UIViewController {
     
     
     
+    // MARK:- Variables
+    var plan: ModelPlan?
+    var isModify = false
+    
+    
+    
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setUI()
+    }
+    
+    
+    
+    func setUI() {
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
+        
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
         self.planTextField.becomeFirstResponder()
         self.planTextField.delegate = self
         self.memoTextView.delegate = self
-        
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
         // Keyboard Observer 추가
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -53,9 +65,13 @@ class AddPlan_ViewController: UIViewController {
         self.startDatePicker.addTarget(self, action: #selector(changeDate(_:)), for: .valueChanged)
         self.endDatePicker.addTarget(self, action: #selector(changeDate(_:)), for: .valueChanged)
         
-        // 초기 날짜 세팅, 기본적으로는 오늘
-        self.startDateLabel.text = Date().string()
-        self.endDateLabel.text = Date().string()
+        // 초기 날짜 세팅, 수정이면 기존 계획 날짜 그렇지 않으면 오늘
+        self.startDateLabel.text = self.plan?.startDay ?? Date().string()
+        self.endDateLabel.text = self.plan?.endDay ?? Date().string()
+        
+        // 계획 타이틀, 메모 세팅
+        self.planTextField.text = self.plan?.planTitle ?? ""
+        self.memoTextView.text = self.plan?.planMemo ?? ""
     }
     
     
@@ -84,7 +100,18 @@ class AddPlan_ViewController: UIViewController {
     }
     
     
+    
+    // 예외처리 시 알림 띄우기
+    func presentOkAlert(message: String) {
+        let alertVC = self.storyboard?.instantiateViewController(withIdentifier: "OkAlertViewController") as! OkAlertViewController
+        
+        self.parent?.addChild(alertVC)
+        self.parent?.view.addSubview(alertVC.view)
+        alertVC.setTitle(message: message)
+    }
+    
 
+    
     // datePicker값이 변할 떄
     @objc func changeDate(_ datePicker: UIDatePicker) {
         if datePicker.tag == 0 { // startDatePicker일 경우
@@ -164,26 +191,38 @@ class AddPlan_ViewController: UIViewController {
     @IBAction func okButtonClick(_ sender: Any) {
         // 예외 상황 체크
         guard !((self.planTextField.text?.isEmpty)!) else { // 계획이 비어있다면
-            let alertVC = self.storyboard?.instantiateViewController(withIdentifier: "OkAlertViewController") as! OkAlertViewController
-            
-            self.parent?.addChild(alertVC)
-            self.parent?.view.addSubview(alertVC.view)
-            alertVC.setTitle(title: "계획을 입력해주세요.")
-            
+            let message = "계획을 입력해주세요."
+            self.presentOkAlert(message: message)
             return
         }
         
         guard self.startDateLabel.text! <= self.endDateLabel.text! else { // 시작일이 더 크다면
-            let alertVC = self.storyboard?.instantiateViewController(withIdentifier: "OkAlertViewController") as! OkAlertViewController
-            
-            self.parent?.addChild(alertVC)
-            self.parent?.view.addSubview(alertVC.view)
-            alertVC.setTitle(title: "잘못된 일정입니다.")
-            
+            let message = "잘못된 일정입니다."
+            self.presentOkAlert(message: message)
             return
         }
         
+        let plan = ModelPlan()
+        plan.planTitle = self.planTextField.text
+        plan.planMemo = self.memoTextView.text
+        plan.startDay = self.startDateLabel.text
+        plan.endDay = self.endDateLabel.text
         
+
+        let parent = self.parent as! PlannerViewController
+        
+        if isModify { // 수정할 떄
+            let detailVC = self.children.first as! DetailPlan_ViewController
+            
+            detailVC.titleLabel.text = plan.planTitle
+            detailVC.dateLabel.text = "\(plan.startDay!) ~ \(plan.endDay!)"
+            detailVC.memoTextView.text = plan.planMemo
+        } else { // 추가할 때
+            DBManager.shared.addPlanDB(plan: plan)
+
+            parent.planArray = DBManager.shared.selectPlanDB()
+            parent.tableView.reloadData()
+        }
         
         dismissAlert()
     }

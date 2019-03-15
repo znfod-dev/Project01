@@ -25,8 +25,8 @@ class OkAlertViewController: UIViewController {
     
     
     
-    func setTitle(title: String) {
-        self.alertMessageLabel.text = title
+    func setTitle(message: String) {
+        self.alertMessageLabel.text = message
     }
 
     
