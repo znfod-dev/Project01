@@ -59,34 +59,30 @@ class PlannerViewController: UIViewController {
     
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        print(self.isModi!)
-        if self.isModi! { // 수정이 되었다면 테이블 뷰 리로드
-            self.isModi = false // 수정 값을 다시 false
-            
-            self.planArray = DBManager.shared.selectPlanDB()
-            self.tableView.reloadData()
-        }
-    }
-    
-    
-    
     // MARK:- Actions
     @IBAction func menuBtnClick(_ sender: Any) {
         sideMenuController?.revealMenu()
     }
+
     
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addPlanVC = segue.destination as? AddPlanViewController { // 추가 버튼을 눌렀을 때
-            addPlanVC.delegate = self
-        } else if let detailPlanVC = segue.destination as? DetailPlanViewController { // 디테일 화면으로 넘어갈 때
-            detailPlanVC.plan = self.plan
-        }
+    @IBAction func addButtonClick(_ sender: Any) {
+        let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlan_ViewController") as! AddPlan_ViewController
+        
+//        addVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+
+        self.addChild(addVC)
+        self.view.addSubview(addVC.view)
     }
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let addPlanVC = segue.destination as? AddPlanViewController { // 추가 버튼을 눌렀을 때
+//            addPlanVC.delegate = self
+//        } else if let detailPlanVC = segue.destination as? DetailPlanViewController { // 디테일 화면으로 넘어갈 때
+//            detailPlanVC.plan = self.plan
+//        }
+//    }
 }
 
 
@@ -150,7 +146,14 @@ extension PlannerViewController: UITableViewDelegate {
         let indexRow = indexPath.row / 2
         
         self.plan = self.planArray[indexRow]
-        self.performSegue(withIdentifier: "planToDetail", sender: self)
+//        self.performSegue(withIdentifier: "planToDetail", sender: self)
+        
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlan_ViewController") as! DetailPlan_ViewController
+        
+        detailVC.plan = self.plan
+        
+        self.addChild(detailVC)
+        self.view.addSubview(detailVC.view)
     }
     
     // 스와이프 delete 액션 세팅

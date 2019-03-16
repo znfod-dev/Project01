@@ -134,7 +134,7 @@ class AddPlanViewController: UIViewController {
         }
         
         let plan = ModelPlan()
-        plan.planType = self.segment.selectedSegmentIndex
+//        plan.planType = self.segment.selectedSegmentIndex
         plan.planTitle = planTextField.text
         plan.startDay = self.startDayLabel.text
         plan.endDay = self.endDayLabel.text
