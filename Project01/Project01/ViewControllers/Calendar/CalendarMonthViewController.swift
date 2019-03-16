@@ -137,7 +137,7 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		diaryPage.isMenuButtonShow = false
 		*/
         //let diary:DiaryViewController = UIStoryboard.init(name: "DiaryPage", bundle: nil).instantiateViewController(withIdentifier: "Diary") as! DiaryViewController
-        let diary:DiaryViewController = DiaryViewController().GetController(storyboard: "DiaryPage") as! DiaryViewController
+        let diary:DiaryViewController = DiaryViewController.GetController(storyboard: "DiaryPage", identifier: "Diary") as! DiaryViewController
         
         
 		// sama73 : 날짜 변환
