@@ -69,5 +69,18 @@ extension DBManager {
         }
     }
     
+    // Delete
+    func deleteProfileIniCloud() {
+        
+    }
+    
+    func deleteProfileImageIniCloud() -> Bool{
+        if let dbProfileImg = self.database.objects(ModelDBProfileImage.self).first {
+            
+            return true
+        }else {
+            return false
+        }
+    }
     
 }

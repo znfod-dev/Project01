@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
         application.registerForRemoteNotifications()
-
+        DBManager.init()
         return true
     }
 
@@ -36,10 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        self.pushiCloudData()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        self.pulliCloudData()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -80,12 +82,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - iCloud 연동
     func accessiCloudData() {
+        print("accessiCloudData")
         // Realm과 아이클라우드와 연동
         self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
                                                SyncObject<ModelDBProfile>(),
                                                SyncObject<ModelDBTodo>(),
                                                SyncObject<ModelDBPlan>(),
-                                               SyncObject<ModelDBProfileImage>()],
+                                               SyncObject<ModelDBProfileImage>(),
+                                               SyncObject<ModelDBTest>(),
+                                               ],
                                      callback: {
                                         print("클라우드 로드 완료")
                                         
@@ -93,5 +98,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                         NotificationCenter.default.post(name: Notification.Name("CloudLoadComplete"), object: nil)
         })
     }
+    
+    // MARK: - iCloud Push
+    func pushiCloudData() {
+        print("pushiCloudData")
+        if self.syncEngine != nil {
+            self.syncEngine?.pushAll()
+        }else {
+            
+        }
+    }
+    
+    // MARK: - iCloud Pull
+    func pulliCloudData() {
+        print("pulliCloudData")
+        if self.syncEngine != nil {
+            self.syncEngine?.pull()
+        }else {
+            
+        }
+    }
+    
 }
 

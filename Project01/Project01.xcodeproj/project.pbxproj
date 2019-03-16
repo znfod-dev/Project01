@@ -72,6 +72,7 @@
 		9BAD27C72234A8A600C05A15 /* DiaryViewController+Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD27C62234A8A600C05A15 /* DiaryViewController+Picker.swift */; };
 		9BAD27C92235F8EB00C05A15 /* DiaryTotoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD27C82235F8EB00C05A15 /* DiaryTotoTableCell.swift */; };
 		9BAD27CB22361E6900C05A15 /* DiaryViewController+TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD27CA22361E6900C05A15 /* DiaryViewController+TextView.swift */; };
+		9BAD27D122392C1100C05A15 /* UIViewController+Addon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD27D022392C1100C05A15 /* UIViewController+Addon.swift */; };
 		9BB2B6482222C664009E3637 /* ImageEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB2B6472222C664009E3637 /* ImageEditDelegate.swift */; };
 		9BB2B6A8222A33BF009E3637 /* icon_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB2B6A0222A33BD009E3637 /* icon_camera@2x.png */; };
 		9BB2B6A9222A33BF009E3637 /* profile_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB2B6A1222A33BD009E3637 /* profile_menu@2x.png */; };
@@ -81,6 +82,8 @@
 		9BB2B6AE222A33BF009E3637 /* text_remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB2B6A6222A33BF009E3637 /* text_remove@2x.png */; };
 		9BB2B6B5222A3560009E3637 /* profile_img_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB2B6B3222A355F009E3637 /* profile_img_bg@2x.png */; };
 		9BB2B6B6222A3560009E3637 /* profile_img_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB2B6B4222A355F009E3637 /* profile_img_bg@3x.png */; };
+		9BD15E1F223B4DEA005D1019 /* ModelDBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD15E1E223B4DEA005D1019 /* ModelDBTest.swift */; };
+		9BD15E25223BD5CD005D1019 /* DiaryViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD15E24223BD5CD005D1019 /* DiaryViewController+SearchBar.swift */; };
 		9E75D8862202BBF90042263A /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E75D8852202BBF90042263A /* BaseObject.swift */; };
 		9E954C9321F848E1006356BF /* CalendarLunar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E954C9221F848E1006356BF /* CalendarLunar.swift */; };
 		9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */; };
@@ -285,6 +288,7 @@
 		9BAD27C62234A8A600C05A15 /* DiaryViewController+Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+Picker.swift"; sourceTree = "<group>"; };
 		9BAD27C82235F8EB00C05A15 /* DiaryTotoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTotoTableCell.swift; sourceTree = "<group>"; };
 		9BAD27CA22361E6900C05A15 /* DiaryViewController+TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+TextView.swift"; sourceTree = "<group>"; };
+		9BAD27D022392C1100C05A15 /* UIViewController+Addon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Addon.swift"; sourceTree = "<group>"; };
 		9BB2B6472222C664009E3637 /* ImageEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditDelegate.swift; sourceTree = "<group>"; };
 		9BB2B6A0222A33BD009E3637 /* icon_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera@2x.png"; sourceTree = "<group>"; };
 		9BB2B6A1222A33BD009E3637 /* profile_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_menu@2x.png"; sourceTree = "<group>"; };
@@ -294,6 +298,8 @@
 		9BB2B6A6222A33BF009E3637 /* text_remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text_remove@2x.png"; sourceTree = "<group>"; };
 		9BB2B6B3222A355F009E3637 /* profile_img_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_img_bg@2x.png"; sourceTree = "<group>"; };
 		9BB2B6B4222A355F009E3637 /* profile_img_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_img_bg@3x.png"; sourceTree = "<group>"; };
+		9BD15E1E223B4DEA005D1019 /* ModelDBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDBTest.swift; sourceTree = "<group>"; };
+		9BD15E24223BD5CD005D1019 /* DiaryViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		9DB15EA79718A43B263395EF /* Pods_Project01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E75D8852202BBF90042263A /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		9E954C9221F848E1006356BF /* CalendarLunar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLunar.swift; sourceTree = "<group>"; };
@@ -521,6 +527,7 @@
 				9B4144BD222B67CC008C9BF9 /* DiaryViewController+TableView.swift */,
 				9BAD27C62234A8A600C05A15 /* DiaryViewController+Picker.swift */,
 				9BAD27CA22361E6900C05A15 /* DiaryViewController+TextView.swift */,
+				9BD15E24223BD5CD005D1019 /* DiaryViewController+SearchBar.swift */,
 				9B4144C1222B6A4B008C9BF9 /* DiaryTableCell.swift */,
 				9B4144C3222B6A59008C9BF9 /* DiaryCollectionCell.swift */,
 				9B01AB852233DF6B002AE3B5 /* DiaryAddViewController.swift */,
@@ -615,6 +622,7 @@
 				60F47A9121F56C3400E0DCB2 /* ModelDBPlan.swift */,
 				9B683668222C078D008F27CB /* ModelProfileImage.swift */,
 				9B683666222C077E008F27CB /* ModelDBProfileImage.swift */,
+				9BD15E1E223B4DEA005D1019 /* ModelDBTest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -659,6 +667,7 @@
 				D9FBE0CD21F32B1B00BDA694 /* UIColor+hexString.swift */,
 				60F47A9E21F57FA200E0DCB2 /* Date+Addon.swift */,
 				6042713F21FFF23C001F0E40 /* CALayer+Border.swift */,
+				9BAD27D022392C1100C05A15 /* UIViewController+Addon.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1185,10 +1194,12 @@
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
 				9B297C17220DAF6E004231E4 /* OpenSourceViewController.swift in Sources */,
 				60427142220005A6001F0E40 /* DBManager+Plan.swift in Sources */,
+				9BAD27D122392C1100C05A15 /* UIViewController+Addon.swift in Sources */,
 				60F47A9221F56C3400E0DCB2 /* ModelDBPlan.swift in Sources */,
 				609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */,
 				9B7C013A2221117800654720 /* Profile2ViewController.swift in Sources */,
 				D9FEF054221D5A1C00D75CDF /* SelectedPopup.swift in Sources */,
+				9BD15E25223BD5CD005D1019 /* DiaryViewController+SearchBar.swift in Sources */,
 				9BAD27CB22361E6900C05A15 /* DiaryViewController+TextView.swift in Sources */,
 				D9FBE0DE21F32B1C00BDA694 /* UIColor+hexString.swift in Sources */,
 				D914E3C221FBF5BF00CFBB8E /* ModelProfile.swift in Sources */,
@@ -1215,6 +1226,7 @@
 				9E954C9321F848E1006356BF /* CalendarLunar.swift in Sources */,
 				609A3FFA22103FC300A58605 /* MonthPickerView.swift in Sources */,
 				D914E3D421FBF5BF00CFBB8E /* DBManager+Diary.swift in Sources */,
+				9BD15E1F223B4DEA005D1019 /* ModelDBTest.swift in Sources */,
 				60427144220005B6001F0E40 /* DBManager+Todo.swift in Sources */,
 				D914E3D321FBF5BF00CFBB8E /* DBManager+Profile.swift in Sources */,
 				60F47A8D21F3874600E0DCB2 /* ModelDBTodo.swift in Sources */,

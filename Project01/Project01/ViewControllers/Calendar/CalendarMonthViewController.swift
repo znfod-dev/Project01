@@ -131,10 +131,15 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
         let cellIndex: Int = item["cellIndex"] as! Int
         
         // 다음페이지 이동
+        /*
 		let storyboard = UIStoryboard.init(name: "DiaryPage", bundle: nil)
 		let diaryPage:PageController = storyboard.instantiateInitialViewController() as! PageController
 		diaryPage.isMenuButtonShow = false
-		
+		*/
+        //let diary:DiaryViewController = UIStoryboard.init(name: "DiaryPage", bundle: nil).instantiateViewController(withIdentifier: "Diary") as! DiaryViewController
+        let diary:DiaryViewController = DiaryViewController().GetController(storyboard: "DiaryPage") as! DiaryViewController
+        
+        
 		// sama73 : 날짜 변환
 		var dateComponents = DateComponents()
 		dateComponents.year = year
@@ -143,9 +148,10 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		
 		let calendar = Calendar(identifier: .gregorian)
 		let date: Date? = calendar.date(from: dateComponents)
-		diaryPage.currentDate = date!
-        print("self.navigationController?.pushViewController(diaryPage, animated: true)")
-		self.navigationController?.pushViewController(diaryPage, animated: true)
+		//diaryPage.currentDate = date!
+        //print("self.navigationController?.pushViewController(diaryPage, animated: true)")
+		//self.navigationController?.pushViewController(diaryPage, animated: true)
+        self.navigationController?.pushViewController(diary, animated: true)
         
         // 셀선택
 		CalendarManager.setSelectedCell(selectedCell: cellIndex)

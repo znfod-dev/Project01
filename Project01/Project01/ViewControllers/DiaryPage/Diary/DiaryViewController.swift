@@ -29,6 +29,12 @@ class DiaryViewController: UIViewController {
     // 모달인가?
     var isModal: Bool = false
     
+    // calendar에서 왔는가
+    var isFromCalendar = false
+    
+    // search Mode
+    var isSearchMode = false
+    
     var selectedYear = 0
     var selectedMonth = 0
     
@@ -41,6 +47,10 @@ class DiaryViewController: UIViewController {
     
     var diaryList = Array<ModelDiary>()
     var diaryEditList = Array<Bool>()
+    
+    // 검색모드에서 검색된 DiaryList
+    var searchedDiaryList = Array<ModelDiary>()
+    var searchedDiaryEditList = Array<Bool>()
     
     
     override func viewDidLoad() {
@@ -86,8 +96,9 @@ class DiaryViewController: UIViewController {
             self.diaryEditList.append(false)
         }
         self.tableView.reloadData()
-        
     }
+    
+    
     // 최대 최소 년도 설정
     func setDateData() {
         // 최소 일

@@ -405,6 +405,9 @@
                                             <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="검색" translatesAutoresizingMaskIntoConstraints="NO" id="IwB-ew-2Rq">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="wTw-bb-aLs" id="8vZ-QJ-35T"/>
+                                                </connections>
                                             </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

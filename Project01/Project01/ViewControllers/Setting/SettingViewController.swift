@@ -513,10 +513,29 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadRows(at: [IndexPath.init(row: 5, section: 0)], with: .automatic)
     }
     
-    @IBAction func lunarValueChanged(_ sender: Any) {
-        let lunaSwitch:UISwitch = sender as! UISwitch
-        let lunarOnoff = lunaSwitch.isOn
+    @IBAction func lunarValueChanged(_ sender: UISwitch) {
+        let lunarOnoff = sender.isOn
         DBManager.shared.saveLunarCalendarInUD(value: lunarOnoff)
     }
     
+    @IBAction func icloudValueChanged(_ sender: UISwitch) {
+        print("icloudValueChanged")
+        let icloudOnOff = sender.isOn
+        if icloudOnOff == true {
+            print("icloudOnOff == true")
+                //[SyncObject<ModelDBDiary>(),
+                  //                                     SyncObject<ModelDBProfile>(),
+                    //                                   SyncObject<ModelDBTodo>(),
+                      //                                 SyncObject<ModelDBPlan>(),
+                        //                               SyncObject<ModelDBProfileImage>()
+            
+            
+        }else {
+            print("icloudOnOff == false")
+            // DBManager.shared.deleteAllDiary()
+            // AppDelegate.sharedAppDelegate()?.syncEngine?.pushAll()
+            // AppDelegate.sharedAppDelegate()?.accessiCloudData()
+            
+        }
+    }
 }
