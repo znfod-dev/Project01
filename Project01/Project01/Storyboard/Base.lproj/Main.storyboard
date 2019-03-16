@@ -377,12 +377,16 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-lK-Uvm">
                                 <rect key="frame" x="130.5" y="276.5" width="114" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aoo-lK-Uvm" secondAttribute="height" multiplier="1:1" id="eLr-1a-jcs"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uvI-Eu-4fY" firstAttribute="centerY" secondItem="5xR-3J-zqg" secondAttribute="centerY" id="Jaf-pX-zUf"/>
                             <constraint firstItem="aoo-lK-Uvm" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="M4R-H9-MZI"/>
+                            <constraint firstItem="aoo-lK-Uvm" firstAttribute="width" secondItem="5xR-3J-zqg" secondAttribute="width" multiplier="114:375" id="Q6m-63-1W0"/>
                             <constraint firstItem="aoo-lK-Uvm" firstAttribute="centerY" secondItem="5xR-3J-zqg" secondAttribute="centerY" id="djb-EB-mDY"/>
                             <constraint firstItem="uvI-Eu-4fY" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="fII-nq-b66"/>
                             <constraint firstItem="uvI-Eu-4fY" firstAttribute="width" secondItem="5xR-3J-zqg" secondAttribute="width" id="rSn-3M-4fb"/>
