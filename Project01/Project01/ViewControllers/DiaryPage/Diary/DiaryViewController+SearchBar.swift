@@ -23,6 +23,6 @@ extension DiaryViewController: UISearchBarDelegate {
         self.isSearchMode = true
         self.searchedDiaryList.removeAll()
         self.searchedDiaryEditList.removeAll()
-        self.searchedDiaryList = DBManager.shared.selectDiaryList(date: <#T##Date#>)
+        //self.searchedDiaryList = DBManager.shared.selectDiaryList(date: <#T##Date#>)
     }
 }

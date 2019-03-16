@@ -76,9 +76,11 @@ extension DBManager {
         }
         return diaryList
     }
+    /*
     func selectDiaryList(date:Date, diary:String) -> Array<ModelDiary> {
         
     }
+ */
     
     
     // 날짜에 다이어리 존재 여부 확인
