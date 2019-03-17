@@ -372,34 +372,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloud Load..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6D-SK-fwX">
-                                <rect key="frame" x="95.5" y="418.5" width="184" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" red="0.37254901960784315" green="0.40784313725490196" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_cloud_sync.png" translatesAutoresizingMaskIntoConstraints="NO" id="cbR-5s-kyK">
-                                <rect key="frame" x="102.5" y="248.5" width="170" height="170"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="uvI-Eu-4fY">
+                                <rect key="frame" x="0.0" y="-114.5" width="375" height="896"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_refresh_sync.png" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-bC-OTK">
-                                <rect key="frame" x="140.5" y="312.5" width="94" height="94"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-lK-Uvm">
+                                <rect key="frame" x="130.5" y="276.5" width="114" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aoo-lK-Uvm" secondAttribute="height" multiplier="1:1" id="eLr-1a-jcs"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="w9h-bC-OTK" firstAttribute="top" secondItem="cbR-5s-kyK" secondAttribute="top" constant="64" id="3iP-HU-edW"/>
-                            <constraint firstItem="cbR-5s-kyK" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="OJc-EZ-b1Y"/>
-                            <constraint firstItem="w9h-bC-OTK" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="gf5-69-FnD"/>
-                            <constraint firstItem="r6D-SK-fwX" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="kvT-0v-n0a"/>
-                            <constraint firstItem="r6D-SK-fwX" firstAttribute="top" secondItem="cbR-5s-kyK" secondAttribute="bottom" id="poh-P9-AoY"/>
-                            <constraint firstItem="cbR-5s-kyK" firstAttribute="centerY" secondItem="5xR-3J-zqg" secondAttribute="centerY" id="xaS-wk-FnC"/>
+                            <constraint firstItem="uvI-Eu-4fY" firstAttribute="centerY" secondItem="5xR-3J-zqg" secondAttribute="centerY" id="Jaf-pX-zUf"/>
+                            <constraint firstItem="aoo-lK-Uvm" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="M4R-H9-MZI"/>
+                            <constraint firstItem="aoo-lK-Uvm" firstAttribute="width" secondItem="5xR-3J-zqg" secondAttribute="width" multiplier="114:375" id="Q6m-63-1W0"/>
+                            <constraint firstItem="aoo-lK-Uvm" firstAttribute="centerY" secondItem="5xR-3J-zqg" secondAttribute="centerY" id="djb-EB-mDY"/>
+                            <constraint firstItem="uvI-Eu-4fY" firstAttribute="centerX" secondItem="5xR-3J-zqg" secondAttribute="centerX" id="fII-nq-b66"/>
+                            <constraint firstItem="uvI-Eu-4fY" firstAttribute="width" secondItem="5xR-3J-zqg" secondAttribute="width" id="rSn-3M-4fb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bnb-KK-CFe"/>
                     </view>
-                    <connections>
-                        <outlet property="ivCloud" destination="cbR-5s-kyK" id="mzO-1E-mGA"/>
-                        <outlet property="ivRefresh" destination="w9h-bC-OTK" id="o6I-Hm-tY9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIE-6u-qmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1098,14 +1091,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_launch.png" width="414" height="896"/>
         <image name="icon_addButton.png" width="57" height="57"/>
         <image name="icon_back.png" width="19" height="19"/>
         <image name="icon_emptyTotoList.png" width="102" height="62"/>
         <image name="icon_hiddenTotoList.png" width="155" height="62"/>
+        <image name="icon_launch.png" width="114" height="114"/>
         <image name="icon_menu.png" width="22" height="18"/>
         <image name="icon_today.png" width="22" height="24"/>
-        <image name="img_cloud_sync.png" width="170" height="170"/>
-        <image name="img_refresh_sync.png" width="94" height="94"/>
         <image name="menu_background.png" width="393" height="382"/>
         <image name="menu_calendar.png" width="35" height="32"/>
         <image name="menu_diary.png" width="31" height="37"/>
