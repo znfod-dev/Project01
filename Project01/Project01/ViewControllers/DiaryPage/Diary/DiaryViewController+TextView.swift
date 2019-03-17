@@ -15,12 +15,15 @@ extension DiaryViewController: UITextViewDelegate {
         let estimatedHeight = newSize.height > 16 ? newSize.height : 16
         print("estimatedHeight : \(estimatedHeight)")
         if estimatedHeight > 115 {
+            
             textView.frame = CGRect.init(x: 22, y: 50, width: textView.frame.width, height: estimatedHeight)
             
             UIView.setAnimationsEnabled(false)
             tableView?.beginUpdates()
             tableView?.endUpdates()
             UIView.setAnimationsEnabled(true)
+        }else {
+            
         }
     }
     

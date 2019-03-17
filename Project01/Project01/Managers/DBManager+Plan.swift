@@ -26,8 +26,6 @@ extension DBManager {
         return planArray
     }
     
-    
-    
     // Insert
     // 계획 추가
     func addPlanDB(plan: ModelPlan) {

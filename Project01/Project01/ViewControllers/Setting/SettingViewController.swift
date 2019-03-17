@@ -96,7 +96,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 0
         if section == 0 {
-            numberOfRow = 5
+            numberOfRow = 3
         }else if section == 1 {
             /*
             numberOfRow = 2
@@ -175,6 +175,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.lastDateLabel.attributedText = FontManager.shared.getTextWithFont(text: maximumDate)
             }else if row == 2 {
+                /*
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingAlarmCell") as! SettingTableCell
                 let alarmTime = DBManager.shared.loadAlarmTimeFromUD()
                 
@@ -195,6 +196,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
 				let scale2: CGFloat = 0.75
 				cell.lunarSwitch.transform = CGAffineTransform(scaleX: scale2, y: scale2)
             }else if row == 4 {
+                 */
                 cell = tableView.dequeueReusableCell(withIdentifier: "SettingiCloudCell") as! SettingTableCell
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
 				
