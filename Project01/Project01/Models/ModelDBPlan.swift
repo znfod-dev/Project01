@@ -23,10 +23,10 @@ class ModelDBPlan: Object {
     
     @objc dynamic var isDeleted = false
     
-    convenience init(planTitle: String, planMemo: String, startDay: String, endDay: String) {
+    convenience init(uid: String, planTitle: String, planMemo: String, startDay: String, endDay: String) {
         self.init()
         
-        self.uid = UUID().uuidString
+        self.uid = uid
         self.date = Date()
         self.planTitle = planTitle
         self.planMemo = planMemo
@@ -35,12 +35,13 @@ class ModelDBPlan: Object {
     }
     
     convenience init(plan: ModelPlan) {
+        let uid = plan.uid
         let planTitle = plan.planTitle
         let planMemo = plan.planMemo
         let startDay = plan.startDay
         let endDay = plan.endDay
         
-        self.init(planTitle: planTitle!, planMemo: planMemo!, startDay: startDay!, endDay: endDay!)
+        self.init(uid: uid!, planTitle: planTitle!, planMemo: planMemo!, startDay: startDay!, endDay: endDay!)
     }
     
     override static func primaryKey() -> String? {

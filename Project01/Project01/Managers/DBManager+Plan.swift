@@ -53,10 +53,22 @@ extension DBManager {
         
         // 찾은 객체 삭제
         try! self.database.write {
-//            self.database.delete(planToDelete)
             planToDelete.isDeleted = true
-            
             completion?()
+        }
+    }
+    
+    
+    
+    // Update
+    // Todo 체크 정보 업데이트
+    func updatePlan(plan: ModelPlan) {
+        let dbPlan = ModelDBPlan.init(plan: plan)
+        
+        try! self.database.write {
+            database.add(dbPlan, update: true)
+            
+            print("DB : updatePlanDB")
         }
     }
 }

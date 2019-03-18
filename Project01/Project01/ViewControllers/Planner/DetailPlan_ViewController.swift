@@ -28,10 +28,13 @@ class DetailPlan_ViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
+        print(plan.uid)
         self.titleLabel.text = plan.planTitle
         self.dateLabel.text = "\(plan.startDay!) ~ \(plan.endDay!)"
         self.memoTextView.text = plan.planMemo
     }
+    
+    
     
     // MARK:- Actions
     @IBAction func okButtonClick(_ sender: Any) {
@@ -44,8 +47,8 @@ class DetailPlan_ViewController: UIViewController {
     @IBAction func modiButtonClick(_ sender: Any) {
         let addPlanVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlan_ViewController") as! AddPlan_ViewController
         
-        addPlanVC.plan = self.plan
-        addPlanVC.isModify = true
+        addPlanVC.modiPlan = self.plan
+//        addPlanVC.isModify = true
         
         parent?.addChild(addPlanVC)
         parent?.view.addSubview(addPlanVC.view)

@@ -29,8 +29,8 @@ class AddPlan_ViewController: UIViewController {
     
     
     // MARK:- Variables
-    var plan: ModelPlan?
-    var isModify = false
+    var modiPlan: ModelPlan?
+//    var isModify = false
     
     
     
@@ -66,12 +66,12 @@ class AddPlan_ViewController: UIViewController {
         self.endDatePicker.addTarget(self, action: #selector(changeDate(_:)), for: .valueChanged)
         
         // 초기 날짜 세팅, 수정이면 기존 계획 날짜 그렇지 않으면 오늘
-        self.startDateLabel.text = self.plan?.startDay ?? Date().string()
-        self.endDateLabel.text = self.plan?.endDay ?? Date().string()
+        self.startDateLabel.text = self.modiPlan?.startDay ?? Date().string()
+        self.endDateLabel.text = self.modiPlan?.endDay ?? Date().string()
         
         // 계획 타이틀, 메모 세팅
-        self.planTextField.text = self.plan?.planTitle ?? ""
-        self.memoTextView.text = self.plan?.planMemo ?? ""
+        self.planTextField.text = self.modiPlan?.planTitle ?? ""
+        self.memoTextView.text = self.modiPlan?.planMemo ?? ""
     }
     
     
@@ -188,6 +188,7 @@ class AddPlan_ViewController: UIViewController {
     
     
     // MARK:- Actions
+    // 완료 버튼 눌렀을 시
     @IBAction func okButtonClick(_ sender: Any) {
         // 예외 상황 체크
         guard !((self.planTextField.text?.isEmpty)!) else { // 계획이 비어있다면
@@ -202,27 +203,41 @@ class AddPlan_ViewController: UIViewController {
             return
         }
         
-        let plan = ModelPlan()
-        plan.planTitle = self.planTextField.text
-        plan.planMemo = self.memoTextView.text
-        plan.startDay = self.startDateLabel.text
-        plan.endDay = self.endDateLabel.text
-        
-
         let parent = self.parent as! PlannerViewController
         
-        if isModify { // 수정할 떄
-            let detailVC = self.children.first as! DetailPlan_ViewController
+        if let modiPlan = self.modiPlan { // 수정할 때
+            // 받아온 plan 바뀐값으로 저장
+            modiPlan.planTitle = self.planTextField.text
+            modiPlan.planMemo = self.memoTextView.text
+            modiPlan.startDay = self.startDateLabel.text
+            modiPlan.endDay = self.endDateLabel.text
             
-            detailVC.titleLabel.text = plan.planTitle
-            detailVC.dateLabel.text = "\(plan.startDay!) ~ \(plan.endDay!)"
-            detailVC.memoTextView.text = plan.planMemo
+            // 상세 페이지 변경
+            let detailVC = parent.children.first as! DetailPlan_ViewController
+            
+            detailVC.titleLabel.text = modiPlan.planTitle
+            detailVC.dateLabel.text = "\(modiPlan.startDay!) ~ \(modiPlan.endDay!)"
+            detailVC.memoTextView.text = modiPlan.planMemo
+            
+            // DB 업데이트
+            DBManager.shared.updatePlan(plan: modiPlan)
         } else { // 추가할 때
+            // 플랜을 새로 만들어 저장
+            let plan = ModelPlan()
+            
+            plan.uid = UUID().uuidString
+            plan.planTitle = self.planTextField.text
+            plan.planMemo = self.memoTextView.text
+            plan.startDay = self.startDateLabel.text
+            plan.endDay = self.endDateLabel.text
+        
+            // DB에 추가
             DBManager.shared.addPlanDB(plan: plan)
-
-            parent.planArray = DBManager.shared.selectPlanDB()
-            parent.tableView.reloadData()
         }
+        
+        // planList 다시 불러와서 뿌려주기
+        parent.planArray = DBManager.shared.selectPlanDB()
+        parent.tableView.reloadData()
         
         dismissAlert()
     }
