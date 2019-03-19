@@ -41,8 +41,8 @@ class PlannerViewController: UIViewController {
         super.viewDidLoad()
         
         // sama73 : 375화면 기준으로 스케일 적용
-        let scale: CGFloat = DEF_WIDTH_375_SCALE
-        view.transform = view.transform.scaledBy(x: scale, y: scale)
+//        let scale: CGFloat = DEF_WIDTH_375_SCALE
+//        view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         self.navigationController?.navigationBar.isHidden = true // 내비게이션바 스와이프 기능을 살린채 숨김
         
@@ -67,22 +67,11 @@ class PlannerViewController: UIViewController {
     
     
     @IBAction func addButtonClick(_ sender: Any) {
-        let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlan_ViewController") as! AddPlan_ViewController
+        let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
         
-//        addVC.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-
         self.addChild(addVC)
         self.view.addSubview(addVC.view)
     }
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let addPlanVC = segue.destination as? AddPlanViewController { // 추가 버튼을 눌렀을 때
-//            addPlanVC.delegate = self
-//        } else if let detailPlanVC = segue.destination as? DetailPlanViewController { // 디테일 화면으로 넘어갈 때
-//            detailPlanVC.plan = self.plan
-//        }
-//    }
 }
 
 
@@ -112,6 +101,7 @@ extension PlannerViewController: UITableViewDataSource {
         
         cell.titleLabel.text = plan.planTitle
         cell.dateLabel.text = "\(plan.startDay!) - \(plan.endDay!)"
+        cell.colorView.backgroundColor = UIColor(hexString: plan.viewColor!)
         
         return cell
     }
@@ -125,19 +115,6 @@ extension PlannerViewController: UITableViewDataSource {
             return 16.5
         }
     }
-    
-    
-    
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == UITableViewCell.EditingStyle.delete {
-//            let plan = self.planArray[indexPath.row]
-//            DBManager.shared.deletePlanDB(plan: plan) {
-//                self.planArray.remove(at: indexPath.row)
-//            }
-//            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-//        }
-//    }
 }
 
 
@@ -146,9 +123,8 @@ extension PlannerViewController: UITableViewDelegate {
         let indexRow = indexPath.row / 2
         
         self.plan = self.planArray[indexRow]
-//        self.performSegue(withIdentifier: "planToDetail", sender: self)
         
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlan_ViewController") as! DetailPlan_ViewController
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanViewController") as! DetailPlanViewController
         
         detailVC.plan = self.plan
         

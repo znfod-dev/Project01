@@ -17,7 +17,7 @@ extension DBManager {
         print("selectPlanDB")
         var planArray = Array<ModelPlan>()
         
-        let dbPlanArray = self.database.objects(ModelDBPlan.self).filter("isDeleted = false")
+        let dbPlanArray = self.database.objects(ModelDBPlan.self).filter("isDeleted = false").sorted(byKeyPath: "date", ascending: true)        
         for dbPlan in dbPlanArray {
             let plan = ModelPlan.init(dbPlan: dbPlan)
             planArray.append(plan)

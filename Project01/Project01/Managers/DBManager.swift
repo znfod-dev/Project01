@@ -40,9 +40,10 @@ class DBManager: NSObject {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 7,
+            schemaVersion: 8,
             migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion < 7 {
+                if oldSchemaVersion < 8 {
+                    print("oldSchemaVersion")
                     // Apply any necessary migration logic here.
                 }
         })

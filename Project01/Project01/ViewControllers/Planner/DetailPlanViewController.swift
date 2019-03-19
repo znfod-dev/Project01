@@ -1,49 +1,59 @@
 //
-//  DetailPlanViewController.swift
+//  DetailPlan_ViewController.swift
 //  Project01
 //
-//  Created by Byunsangjin on 22/01/2019.
+//  Created by Byunsangjin on 14/03/2019.
 //  Copyright © 2019 Znfod. All rights reserved.
 //
 
 import UIKit
 
 class DetailPlanViewController: UIViewController {
-    // MARK:- Actions
-	@IBOutlet weak var vNavigationBar: UIView!
-    @IBOutlet var planTitleLabel: UILabel!
-    @IBOutlet var startDayLabel: UILabel!
-    @IBOutlet var endDayLabel: UILabel!
+    // MARK:- Outlets
+    @IBOutlet var detailView: UIView!
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    
+    @IBOutlet var memoTextView: UITextView!
+    
+    @IBOutlet var okButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
     
     
-    
-    // MARK:- Variables
-    var plan = ModelPlan()
-    
+    // MARK:- Constants
+    var plan: ModelPlan = ModelPlan()
     
     
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		// sama73 : 375화면 기준으로 스케일 적용
-		let scale: CGFloat = DEF_WIDTH_375_SCALE
-		view.transform = view.transform.scaledBy(x: scale, y: scale)
-
-		// 그림자 처리
-		vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
-		vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
-		vNavigationBar.layer.shadowOpacity = 0.16
-
-        self.planTitleLabel.text = plan.planTitle
-        self.startDayLabel.text = plan.startDay!
-        self.endDayLabel.text = plan.endDay!
+        
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        
+        self.titleLabel.text = plan.planTitle
+        self.dateLabel.text = "\(plan.startDay!) ~ \(plan.endDay!)"
+        self.memoTextView.text = plan.planMemo
     }
     
     
     
     // MARK:- Actions
-    @IBAction func backBtnClick(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func okButtonClick(_ sender: Any) {
+        self.removeFromParent()
+        self.view.removeFromSuperview()
     }
+    
+    
+    
+    @IBAction func modiButtonClick(_ sender: Any) {
+        let addPlanVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
+        
+        addPlanVC.modiPlan = self.plan
+//        addPlanVC.isModify = true
+        
+        parent?.addChild(addPlanVC)
+        parent?.view.addSubview(addPlanVC.view)
+    }
+    
 }

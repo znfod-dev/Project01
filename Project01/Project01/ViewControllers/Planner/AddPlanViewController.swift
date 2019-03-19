@@ -1,155 +1,339 @@
 //
-//  AddPlanViewController.swift
+//  AddPlan_ViewController.swift
 //  Project01
 //
-//  Created by Byunsangjin on 21/01/2019.
+//  Created by Byunsangjin on 12/03/2019.
 //  Copyright © 2019 Znfod. All rights reserved.
 //
 
 import UIKit
 
 class AddPlanViewController: UIViewController {
+    
     // MARK:- Outlets
-	@IBOutlet weak var vNavigationBar: UIView!
+    @IBOutlet var alertView: UIView!
+    
+    @IBOutlet var startDateLabel: UILabel!
+    @IBOutlet var endDateLabel: UILabel!
+    
+    @IBOutlet var startDateConstraint: NSLayoutConstraint!
+    @IBOutlet var endDateConstraint: NSLayoutConstraint!
+    @IBOutlet var alertBottomConstraint: NSLayoutConstraint! // 알림 하단 Constraint
+    
+    @IBOutlet var startDatePicker: UIDatePicker!
+    @IBOutlet var endDatePicker: UIDatePicker!
+    
     @IBOutlet var planTextField: UITextField!
-    @IBOutlet var startDayLabel: UILabel!
-    @IBOutlet var endDayLabel: UILabel!
-    @IBOutlet var segment: UISegmentedControl!
+    @IBOutlet var memoTextView: UITextView!
+    
+    //colorView
+    @IBOutlet var oneView: UIView!
+    @IBOutlet var twoView: UIView!
+    @IBOutlet var threeView: UIView!
+    @IBOutlet var fourView: UIView!
+    @IBOutlet var fiveView: UIView!
+    
+    
     
     // MARK:- Variables
-    var selectedDay: Date? = Date()
-    
-    var startDay: String? = Date().string()
-    var endDay: String? = Date().string()
-    
-    var delegate: PlannerViewController? // 데이터 값을 넘기기위한 델리게이트
+    var modiPlan: ModelPlan?
+    var seletedColor: String = ViewColor.one.toString()
     
     
     
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		// sama73 : 375화면 기준으로 스케일 적용
-		let scale: CGFloat = DEF_WIDTH_375_SCALE
-		view.transform = view.transform.scaledBy(x: scale, y: scale)
-
-		// 그림자 처리
-		vNavigationBar.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
-		vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
-		vNavigationBar.layer.shadowOpacity = 0.16
-
-        self.initSet()
+        
+        self.setUI()
+        
+        self.planTextField.becomeFirstResponder()
+        self.planTextField.delegate = self
+        self.memoTextView.delegate = self
+        
+        self.colorViewSetGesture()
+        
+        self.alertView.roundCorners([.topLeft, .topRight], radius: 20)
     }
     
     
     
-    // 초기 세팅
-    func initSet() {
+    func setUI() {
+//        let scale: CGFloat = DEF_WIDTH_375_SCALE
+//        view.transform = view.transform.scaledBy(x: scale, y: scale)
         
-        // 오늘 날짜로 세팅
-        self.startDayLabel.text = self.startDay
-        self.endDayLabel.text = self.endDay
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
-        // 날짜 라벨에 탭 버튼 추가
-        self.startDayLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(startDayTap)))
-        self.endDayLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endDayTap)))
+        // Keyboard Observer 추가
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        // TapGesture추가
+        self.startDateLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(startDateClick)))
+        self.endDateLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endDateClick)))
+        
+        // datePicker의 값이 변할때 label값 변경
+        self.startDatePicker.addTarget(self, action: #selector(changeDate(_:)), for: .valueChanged)
+        self.endDatePicker.addTarget(self, action: #selector(changeDate(_:)), for: .valueChanged)
+        
+        // 초기 날짜 세팅, 수정이면 기존 계획 날짜 그렇지 않으면 오늘
+        self.startDateLabel.text = self.modiPlan?.startDay ?? Date().string()
+        self.endDateLabel.text = self.modiPlan?.endDay ?? Date().string()
+        
+        // 계획 타이틀, 메모 세팅
+        self.planTextField.text = self.modiPlan?.planTitle ?? ""
+        self.memoTextView.text = self.modiPlan?.planMemo ?? ""
+        
+        // 초기 colorView 선택
+        self.oneView.layer.borderWidth = 2
+        self.oneView.layer.borderColor = UIColor.black.cgColor
+        
+        
     }
     
     
     
-    // 달력 알럿을 띄워주는 메소드 (직접입력 제외)
-    func presentCalendar(startDayClicked: Bool = false) {
-        let storyboard = UIStoryboard.init(name: "Plan", bundle: nil)
-        let datePickVC = storyboard.instantiateViewController(withIdentifier: "DatePickViewController") as! DatePickViewController
+    // startDatePicker 숨기기
+    func startDatePickerHide() {
+        self.startDateLabel.tag = 0
+        self.startDatePicker.isHidden = true
+        self.startDateConstraint.constant = 10
+    }
+    
+    
+    
+    // endDatePicker 숨기기
+    func endDatePickerHide() {
+        self.endDateLabel.tag = 0
+        self.endDatePicker.isHidden = true
+        self.endDateConstraint.constant = 10
+    }
+    
+    
+    
+    func dismissAlert() { // 알림 종료
+        self.removeFromParent()
+        self.view.removeFromSuperview()
+    }
+    
+    
+    
+    // 예외처리 시 알림 띄우기
+    func presentOkAlert(message: String) {
+        let alertVC = self.storyboard?.instantiateViewController(withIdentifier: "OkAlertViewController") as! OkAlertViewController
         
-        datePickVC.startDayClicked = startDayClicked // 시작일 선택인지 아닌지 판단하는 변수
-        
-        datePickVC.startDay = self.startDay
-        datePickVC.endDay = self.endDay
-        datePickVC.selectedDay = self.selectedDay
-        
-        self.addVCAlert(viewController: datePickVC, okTitle: "변경", cancelTitle: "취소") {
-            self.startDay = datePickVC.startDay
-            self.endDay = datePickVC.endDay
-            self.selectedDay = datePickVC.selectedDay
+        self.parent?.addChild(alertVC)
+        self.parent?.view.addSubview(alertVC.view)
+        alertVC.setTitle(message: message)
+    }
+    
+
+    
+    // Border 초기화
+    func initBorderWidth() {
+        self.oneView.layer.borderWidth = 0
+        self.twoView.layer.borderWidth = 0
+        self.threeView.layer.borderWidth = 0
+        self.fourView.layer.borderWidth = 0
+        self.fiveView.layer.borderWidth = 0
+    }
+    
+    
+    
+    // 색 선택 뷰 제스쳐 설정
+    func colorViewSetGesture() {
+        self.oneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectViewColor(tapGesture:))))
+        self.twoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectViewColor(tapGesture:))))
+        self.threeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectViewColor(tapGesture:))))
+        self.fourView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectViewColor(tapGesture:))))
+        self.fiveView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectViewColor(tapGesture:))))
+    }
+    
+    
+    
+    // datePicker값이 변할 떄
+    @objc func changeDate(_ datePicker: UIDatePicker) {
+        if datePicker.tag == 0 { // startDatePicker일 경우
+            self.startDateLabel.text = datePicker.date.string()
             
-            self.startDayLabel.text = self.startDay
-            self.endDayLabel.text = self.endDay
-            self.dayConvert(index: self.segment)
+            self.endDatePicker.minimumDate = datePicker.date
+        } else { // endDatePicker일 경우
+            self.endDateLabel.text = datePicker.date.string()
         }
     }
     
     
     
-    // 세그먼트에 따라 종료일을 다르게 해주는 메소드
-    func dayConvert(index sender: UISegmentedControl ) {
-        switch sender.selectedSegmentIndex {
-        case 0: // 일
-            self.endDayLabel.text = self.startDayLabel.text
-        case 1: // 주
-            self.endDayLabel.text = self.selectedDay?.endOfWeek()?.string()
-        case 2: // 월
-            self.endDayLabel.text = self.selectedDay?.endOfMonth().string()
-        case 3: // 년
-            self.endDayLabel.text = self.selectedDay?.endOfYear().string()
-        default: // 직접 설정
-            if self.startDay! > self.endDay! {
-                self.endDayLabel.text = self.startDayLabel.text
-            }
+    // 키보드 나옴
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            
+            self.alertBottomConstraint.constant = keyboardHeight - 150
         }
     }
     
     
     
-    // 시작일 라벨을 탭했을 때 동작하는 메소드
-    @objc func startDayTap() {
-        self.presentCalendar(startDayClicked: true)
+    // 키보드 숨김
+    @objc func keyboardWillHide(_ notification: Notification) {
+        
     }
     
     
     
-    // 종료일 라벨을 탭했을 때 동작하는 메소드
-    @objc func endDayTap() {
-        self.segment.selectedSegmentIndex = 4 // 직접 입력 탭으로 변경
-        self.presentCalendar()
+    // startDate를 클릭했을 때
+    @objc func startDateClick() {
+        self.alertView.endEditing(true)
+        
+        if self.startDateLabel.tag == 0 { // 피커가 숨겨져 있을 때
+            self.alertView.frame.size.height = 550
+            
+            self.startDateLabel.tag = 1
+            self.startDatePicker.isHidden = false
+            self.startDateConstraint.constant = 170
+            
+            endDatePickerHide()
+        } else { // 피커가 나와있을 떄
+            self.alertView.frame.size.height = 400
+            
+            self.startDatePickerHide()
+        }
+    }
+    
+    
+    
+    // endDate를 클릭했을 때
+    @objc func endDateClick() {
+        self.alertView.endEditing(true)
+        
+        if self.endDateLabel.tag == 0 { // 피커가 숨겨져 있을 때
+            self.alertView.frame.size.height = 550
+            
+            self.endDateLabel.tag = 1
+            self.endDatePicker.isHidden = false
+            self.endDateConstraint.constant = 170
+            
+            self.startDatePickerHide()
+        } else { // 피커가 나와있을 떄
+            self.alertView.frame.size.height = 400
+            
+            self.endDatePickerHide()
+        }
+    }
+    
+    
+    
+    @objc func selectViewColor(tapGesture: UITapGestureRecognizer) {
+        let tag = tapGesture.view!.tag
+        
+        self.seletedColor = (ViewColor(rawValue: tag)?.toString())!
+        
+        self.initBorderWidth()
+        
+        // 선택한 뷰 보더 설정
+        tapGesture.view?.layer.borderWidth = 2
+        tapGesture.view?.layer.borderColor = UIColor.black.cgColor
     }
     
     
     
     // MARK:- Actions
-    // segment를 눌렀을 때
-    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
-        self.startDayLabel.text = self.startDay
-        self.dayConvert(index: sender)
-    }
-    
-    
-    
-    // 저장 버튼 클릭시
-    @IBAction func saveBtnPressed() {
-        guard !(planTextField.text?.isEmpty)! else { // 계획이 텍스트필드가 비어있다면
-            self.okAlert("계획을 입력해 주세요", nil)
+    // 완료 버튼 눌렀을 시
+    @IBAction func okButtonClick(_ sender: Any) {
+        // 예외 상황 체크
+        guard !((self.planTextField.text?.isEmpty)!) else { // 계획이 비어있다면
+            let message = "계획을 입력해주세요."
+            self.presentOkAlert(message: message)
             return
         }
         
-        let plan = ModelPlan()
-//        plan.planType = self.segment.selectedSegmentIndex
-        plan.planTitle = planTextField.text
-        plan.startDay = self.startDayLabel.text
-        plan.endDay = self.endDayLabel.text
+        guard self.startDateLabel.text! <= self.endDateLabel.text! else { // 시작일이 더 크다면
+            let message = "잘못된 일정입니다."
+            self.presentOkAlert(message: message)
+            return
+        }
         
-        DBManager.shared.addPlanDB(plan: plan)
+        let parent = self.parent as! PlannerViewController
         
-        delegate?.isModi = true
-        self.navigationController?.popViewController(animated: true)
-//        self.dismiss(animated: true, completion: nil)
+        if let modiPlan = self.modiPlan { // 수정할 때
+            // 받아온 plan 바뀐값으로 저장
+            modiPlan.planTitle = self.planTextField.text
+            modiPlan.planMemo = self.memoTextView.text
+            modiPlan.startDay = self.startDateLabel.text
+            modiPlan.endDay = self.endDateLabel.text
+            modiPlan.viewColor = self.seletedColor
+            
+            // 상세 페이지 변경
+            let detailVC = parent.children.first as! DetailPlanViewController
+            
+            detailVC.titleLabel.text = modiPlan.planTitle
+            detailVC.dateLabel.text = "\(modiPlan.startDay!) ~ \(modiPlan.endDay!)"
+            detailVC.memoTextView.text = modiPlan.planMemo
+            
+            // DB 업데이트
+            DBManager.shared.updatePlan(plan: modiPlan)
+        } else { // 추가할 때
+            // 플랜을 새로 만들어 저장
+            let plan = ModelPlan()
+            
+            plan.uid = UUID().uuidString
+            plan.planTitle = self.planTextField.text
+            plan.planMemo = self.memoTextView.text
+            plan.startDay = self.startDateLabel.text
+            plan.endDay = self.endDateLabel.text
+            plan.viewColor = self.seletedColor
+        
+            // DB에 추가
+            DBManager.shared.addPlanDB(plan: plan)
+        }
+        
+        // planList 다시 불러와서 뿌려주기
+        parent.planArray = DBManager.shared.selectPlanDB()
+        parent.tableView.reloadData()
+        
+        dismissAlert()
     }
     
     
     
-    @IBAction func backBtnClick(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-//        self.dismiss(animated: true, completion: nil)
+    // 취소 버튼 클릭
+    @IBAction func cancelButtonClick(_ sender: Any) {
+        dismissAlert()
+    }
+}
+
+
+
+extension AddPlanViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.startDatePickerHide()
+        self.endDatePickerHide()
+    }
+}
+
+
+
+extension AddPlanViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.startDatePickerHide()
+        self.endDatePickerHide()
+    }
+}
+
+
+extension UIView {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        if #available(iOS 11.0, *) {
+            clipsToBounds = true
+            layer.cornerRadius = radius
+            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
+        } else {
+            let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            layer.mask = mask
+        }
     }
 }
