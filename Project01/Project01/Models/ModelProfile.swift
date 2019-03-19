@@ -41,6 +41,8 @@ class ModelProfile: NSObject {
     // 좋아하는 음악 favourite music
     var favouriteMusic = String()
     
+    var helloworld = String()
+    
     // 프로필 사진
     // var profileImage = UIImage()
     
@@ -65,6 +67,7 @@ class ModelProfile: NSObject {
         self.favouriteFilm = favouriteFilm
         self.favouriteBook = favouriteBook
         self.favouriteMusic = favouriteMusic
+        self.helloworld = "helloworld"
     }
     convenience init(dbProfile:ModelDBProfile) {
         let id = dbProfile.id

@@ -160,7 +160,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier:"ko_KR")
-                formatter.dateFormat = "yyyy-MM"
+                formatter.dateFormat = "yyyy"
                 let minimumDate = formatter.string(from: startDate)
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.startDateLabel.attributedText = FontManager.shared.getTextWithFont(text: minimumDate)
@@ -170,7 +170,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
                 
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier:"ko_KR")
-                formatter.dateFormat = "yyyy-MM"
+                formatter.dateFormat = "yyyy"
                 let maximumDate = formatter.string(from: endDate)
                 cell.titleLabel.attributedText = FontManager.shared.getTextWithFont(text: cell.titleLabel.text!)
                 cell.lastDateLabel.attributedText = FontManager.shared.getTextWithFont(text: maximumDate)
@@ -293,24 +293,25 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
 			
 				let startYYYYMMDD: Int = Int(startDate2)!
 				let endYYYYMMDD: Int = Int(endDate2)!
-				let minYYYYMM: Int = 201001
-				let maxYYYYMM: Int = Int(endYYYYMMDD/100)
-				let curYYYYMM: Int = Int(startYYYYMMDD/100)
-				let popup = YearMonthPopup.yearMonthPopup(curYYYYMM: curYYYYMM, minYYYYMM: minYYYYMM, maxYYYYMM: maxYYYYMM)
-				popup.addActionConfirmClick { (curYYYYMM) in
-					
-					let YYYYMMDD = "\(curYYYYMM)01"
-					let formatter = DateFormatter()
-					formatter.dateFormat = "yyyyMMdd"
-
-					let startDate = formatter.date(from: YYYYMMDD)
-					DBManager.shared.saveMinimumDateInUD(minimumDate: startDate!)
-					
-					// 셀선택
-					CalendarManager.setSelectedCell(selectedCell: -1)
-					
-					self.tableView.reloadData()
-				}
+				let minYYYY: Int = 2010
+				let maxYYYY: Int = Int(endYYYYMMDD/10000)
+				let curYYYY: Int = Int(startYYYYMMDD/10000)
+                
+                let popup = YearPopup.yearPopup(curYYYY: curYYYY, minYYYY: minYYYY, maxYYYY: maxYYYY)
+                popup.addActionConfirmClick { (curYYYY) in
+                    
+                    let YYYYMMDD = "\(curYYYY)0101"
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyyMMdd"
+                    
+                    let startDate = formatter.date(from: YYYYMMDD)
+                    DBManager.shared.saveMinimumDateInUD(minimumDate: startDate!)
+                    
+                    // 셀선택
+                    CalendarManager.setSelectedCell(selectedCell: -1)
+                    
+                    self.tableView.reloadData()
+                }
 
             } else if row == 1 {
 //                let endDate = DBManager.shared.loadMaximumDateFromUD()
@@ -328,16 +329,16 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
 				let startDate2 = formatter.string(from: startDate)
 				let endDate2 = formatter.string(from: endDate)
 				
-				let startYYYYMMDD: Int = Int(startDate2)!
-				let endYYYYMMDD: Int = Int(endDate2)!
-				let minYYYYMM: Int = Int(startYYYYMMDD/100)
-				let maxYYYYMM: Int = 203012
-				let curYYYYMM: Int = Int(endYYYYMMDD/100)
-				let popup = YearMonthPopup.yearMonthPopup(curYYYYMM: curYYYYMM, minYYYYMM: minYYYYMM, maxYYYYMM: maxYYYYMM)
-				popup.addActionConfirmClick { (curYYYYMM) in
-					let YYYYMMDD = "\(curYYYYMM)01"
-					let formatter = DateFormatter()
-					formatter.dateFormat = "yyyyMMdd"
+                let startYYYYMMDD: Int = Int(startDate2)!
+                let endYYYYMMDD: Int = Int(endDate2)!
+                let minYYYY: Int = Int(startYYYYMMDD/10000)
+                let maxYYYY: Int = 2030
+                let curYYYY: Int = Int(endYYYYMMDD/10000)
+                let popup = YearPopup.yearPopup(curYYYY: curYYYY, minYYYY: minYYYY, maxYYYY: maxYYYY)
+                popup.addActionConfirmClick { (curYYYY) in
+                    let YYYYMMDD = "\(curYYYY)1231"
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyyMMdd"
 					
 					let endDate = formatter.date(from: YYYYMMDD)
 					DBManager.shared.saveMaximumDateInUD(maximumDate: endDate!)

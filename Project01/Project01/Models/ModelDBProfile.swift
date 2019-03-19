@@ -46,6 +46,9 @@ class ModelDBProfile: BaseObject {
     // 좋아하는 음악 favourite music
     @objc dynamic var favouriteMusic:String? = nil
     
+    // 좋아하는 음악 helloworld
+    @objc dynamic var helloworld:String? = nil
+    
     // 프로필 사진
     // @objc dynamic var profileImage: CreamAsset?
     
@@ -66,6 +69,7 @@ class ModelDBProfile: BaseObject {
         self.favouriteFilm = favouriteFilm
         self.favouriteBook = favouriteBook
         self.favouriteMusic = favouriteMusic
+        self.helloworld = "helloworld"
     }
     convenience init(profile:ModelProfile) {
         let id = profile.id
@@ -183,6 +187,9 @@ extension ModelDBProfile: NSCopying {
         }
         else if field == "favouriteMusic" {
             self.favouriteMusic = value
+        }
+        else if field == "helloworld" {
+            self.helloworld = value
         }
     }
 }

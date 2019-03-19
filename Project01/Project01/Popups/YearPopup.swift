@@ -23,7 +23,7 @@ class YearPopup: BasePopup {
     var arrYear: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // 딤드뷰 클릭시 팝업 닫아 주는 기능 막기
         self.isNotDimmedTouch = true;
         
@@ -45,7 +45,7 @@ class YearPopup: BasePopup {
         super.viewWillAppear(animated)
         
         // 년도 선택 인덱스
-        let idxYear = yearIndex(year: Int(curYYYY)
+        let idxYear = yearIndex(year: Int(curYYYY))
         pvYear.selectRow(idxYear, inComponent: 0, animated: false)
     }
     
@@ -54,6 +54,21 @@ class YearPopup: BasePopup {
         
         // 화면 갱신
         pvYear.reloadAllComponents()
+    }
+    
+    // 년도 선택 인덱스
+    func yearIndex(year: Int) -> Int {
+        
+        let strYear = "\(year)"
+        
+        for i in 0..<arrYear.count {
+            let curYear = arrYear[i]
+            if strYear == curYear {
+                return i
+            }
+        }
+        
+        return 0
     }
     
     func addActionConfirmClick(handler ConfirmClick: @escaping (_ curYYYYMM: Int) -> Void) {
@@ -80,13 +95,11 @@ class YearPopup: BasePopup {
     func callbackWithConfirm() {
         
         if let confirmAction = confirmClick {
-            let idxYear = pvYearMonth.selectedRow(inComponent: 0)
-            let idxMonth = pvYearMonth.selectedRow(inComponent: 1)
-            let year = arrYearMonth[0][idxYear]
-            let month = arrYearMonth[1][idxMonth]
-            let curYYYYMM = "\(year)\(month)"
+            let idxYear = pvYear.selectedRow(inComponent: 0)
+            let year = arrYear[idxYear]
+            let curYYYY = "\(year)"
             
-            confirmAction(Int(curYYYYMM)!)
+            confirmAction(Int(curYYYY)!)
         }
         
         removeFromParentVC()
@@ -122,5 +135,62 @@ class YearPopup: BasePopup {
         BasePopup.addChildVC(yearVC)
         
         return yearVC!
+    }
+}
+
+extension YearPopup: UIPickerViewDataSource {
+    
+    // Number of columns of data
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrYear.count
+    }
+    
+}
+
+extension YearPopup: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        let title = "\(arrYear[row])년"
+        
+        let label = view as? UILabel ?? UILabel()
+        
+        if pickerView.selectedRow(inComponent: component) == row {
+            label.frame = CGRect(x: 0, y: 0, width: 100, height: 36)
+            label.textColor = UIColor.black
+            label.text = title
+            label.textAlignment = .center
+        } else {
+            label.frame = CGRect(x: 0, y: 0, width: 100, height: 36)
+            label.textColor = UIColor.gray
+            label.text = title
+            label.textAlignment = .center
+        }
+        
+        return label
+    }
+    
+    // Capture the picker view selection
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        let strYear = arrYear[row]
+        let curYYYY = Int(String(format: "%@", strYear))
+        if curYYYY! < minYYYY {
+            // 년도 선택 인덱스
+            let idxYear = yearIndex(year: Int(minYYYY))
+            pickerView.selectRow(idxYear, inComponent: 0, animated: true)
+        }
+        else if curYYYY! > maxYYYY {
+            // 년도 선택 인덱스
+            let idxYear = yearIndex(year: Int(maxYYYY))
+            pickerView.selectRow(idxYear, inComponent: 0, animated: true)
+        }
+        
+        pickerView.reloadAllComponents()
     }
 }
