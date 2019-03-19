@@ -18,6 +18,7 @@
 		6063C2A2221E77D100260419 /* icon_addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C29F221E77CF00260419 /* icon_addButton.png */; };
 		6063C2A3221E77D100260419 /* icon_addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A0221E77D000260419 /* icon_addButton@2x.png */; };
 		6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A1221E77D100260419 /* icon_addButton@3x.png */; };
+		606C7D3E224118CF00547436 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606C7D3D224118CF00547436 /* UIView+Border.swift */; };
 		609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */; };
 		609A3FE5220B1FC200A58605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609A3FE4220B1FC200A58605 /* CloudKit.framework */; };
 		609A3FE7220D6C7500A58605 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FE6220D6C7300A58605 /* IntroViewController.swift */; };
@@ -242,6 +243,7 @@
 		6063C29F221E77CF00260419 /* icon_addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addButton.png; sourceTree = "<group>"; };
 		6063C2A0221E77D000260419 /* icon_addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@2x.png"; sourceTree = "<group>"; };
 		6063C2A1221E77D100260419 /* icon_addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@3x.png"; sourceTree = "<group>"; };
+		606C7D3D224118CF00547436 /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+DoneAccessory.swift"; sourceTree = "<group>"; };
 		609A3FE1220B1C6900A58605 /* Project01.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Project01.entitlements; sourceTree = "<group>"; };
 		609A3FE4220B1FC200A58605 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -688,6 +690,7 @@
 				60F47A9E21F57FA200E0DCB2 /* Date+Addon.swift */,
 				6042713F21FFF23C001F0E40 /* CALayer+Border.swift */,
 				9BAD27D022392C1100C05A15 /* UIViewController+Addon.swift */,
+				606C7D3D224118CF00547436 /* UIView+Border.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1230,6 +1233,7 @@
 				D9FBE0D621F32B1C00BDA694 /* String+Substring.swift in Sources */,
 				9B683667222C077E008F27CB /* ModelDBProfileImage.swift in Sources */,
 				D9FBE0D521F32B1C00BDA694 /* SideMenuViewController.swift in Sources */,
+				606C7D3E224118CF00547436 /* UIView+Border.swift in Sources */,
 				D9FBE0DC21F32B1C00BDA694 /* CalendarDayCell.swift in Sources */,
 				9B297C17220DAF6E004231E4 /* OpenSourceViewController.swift in Sources */,
 				60427142220005A6001F0E40 /* DBManager+Plan.swift in Sources */,
