@@ -1138,10 +1138,17 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edl-Vl-cda" userLabel="DatePickerView">
-                                <rect key="frame" x="0.0" y="812" width="375" height="256"/>
+                                <rect key="frame" x="0.0" y="812" width="375" height="257"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xI0-j9-Lc0" userLabel="TopLine">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="aPp-WL-b9W"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxn-3d-gyz">
-                                        <rect key="frame" x="305" y="0.0" width="70" height="40"/>
+                                        <rect key="frame" x="305" y="1" width="70" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="EnP-Yx-NqC"/>
                                             <constraint firstAttribute="width" constant="70" id="dFK-dv-131"/>
@@ -1154,7 +1161,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okn-1V-Q7o">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
+                                        <rect key="frame" x="0.0" y="1" width="70" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Qkt-gd-Y28"/>
                                             <constraint firstAttribute="width" constant="70" id="Xla-wI-xKX"/>
@@ -1167,7 +1174,7 @@
                                         </connections>
                                     </button>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WKo-dD-LhS" userLabel="DatePicker">
-                                        <rect key="frame" x="0.0" y="40" width="375" height="216"/>
+                                        <rect key="frame" x="0.0" y="41" width="375" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="573825408.25251901">
                                             <!--2019-03-09 11:56:48 +0000-->
                                         </date>
@@ -1177,18 +1184,22 @@
                                         <date key="maximumDate" timeIntervalSinceReferenceDate="946638000">
                                             <!--2030-12-31 11:00:00 +0000-->
                                         </date>
+                                        <locale key="locale" localeIdentifier="ko_KR"/>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WKo-dD-LhS" secondAttribute="trailing" id="0D3-uX-Ch0"/>
+                                    <constraint firstItem="xI0-j9-Lc0" firstAttribute="leading" secondItem="edl-Vl-cda" secondAttribute="leading" id="1Hd-4G-C2V"/>
                                     <constraint firstAttribute="bottom" secondItem="WKo-dD-LhS" secondAttribute="bottom" id="GhZ-Pg-6aQ"/>
-                                    <constraint firstItem="Okn-1V-Q7o" firstAttribute="top" secondItem="edl-Vl-cda" secondAttribute="top" id="JYa-cM-bDZ"/>
-                                    <constraint firstItem="Sxn-3d-gyz" firstAttribute="top" secondItem="edl-Vl-cda" secondAttribute="top" id="bet-Ay-ZpI"/>
+                                    <constraint firstAttribute="trailing" secondItem="xI0-j9-Lc0" secondAttribute="trailing" id="IRw-Fy-MnL"/>
                                     <constraint firstItem="WKo-dD-LhS" firstAttribute="leading" secondItem="edl-Vl-cda" secondAttribute="leading" id="efh-lC-IXC"/>
                                     <constraint firstAttribute="trailing" secondItem="Sxn-3d-gyz" secondAttribute="trailing" id="kZv-OK-GT3"/>
                                     <constraint firstItem="WKo-dD-LhS" firstAttribute="top" secondItem="Sxn-3d-gyz" secondAttribute="bottom" id="kyB-UD-U0q"/>
+                                    <constraint firstItem="xI0-j9-Lc0" firstAttribute="top" secondItem="edl-Vl-cda" secondAttribute="top" id="mur-ex-dG5"/>
+                                    <constraint firstItem="Sxn-3d-gyz" firstAttribute="top" secondItem="xI0-j9-Lc0" secondAttribute="bottom" id="orX-p6-9dw"/>
                                     <constraint firstItem="Okn-1V-Q7o" firstAttribute="leading" secondItem="edl-Vl-cda" secondAttribute="leading" id="vAO-Zg-O5Y"/>
+                                    <constraint firstItem="Okn-1V-Q7o" firstAttribute="top" secondItem="xI0-j9-Lc0" secondAttribute="bottom" id="xnE-fa-gMb"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -238,4 +238,25 @@ enum Profile: Int {
     }
 }
 
-
+enum ViewColor: Int {
+    case one = 0
+    case two = 1
+    case three = 2
+    case four = 3
+    case five = 4
+    
+    func toString() -> String {
+        switch self {
+        case .one:
+            return "CE78DF"
+        case .two:
+            return "A178DF"
+        case .three:
+            return "7589E1"
+        case .four:
+            return "75A7E1"
+        case .five:
+            return "75D3E1"
+        }
+    }
+}

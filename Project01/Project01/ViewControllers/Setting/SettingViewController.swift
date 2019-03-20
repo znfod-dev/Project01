@@ -145,7 +145,6 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
         }else if fontSize == 22 {
             heightForRow = 52
         }
-
         return heightForRow
     }
     

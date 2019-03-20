@@ -43,6 +43,7 @@ class DBManager: NSObject {
             schemaVersion: 8,
             migrationBlock: { migration, oldSchemaVersion in
                 if oldSchemaVersion < 8 {
+                    print("oldSchemaVersion")
                     // Apply any necessary migration logic here.
                 }
         })

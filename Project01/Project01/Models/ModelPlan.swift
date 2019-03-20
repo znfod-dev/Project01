@@ -15,10 +15,11 @@ class ModelPlan {
     var startDay: String? = ""
     var endDay: String? = ""
     var planMemo: String? = ""
+    var viewColor: String? = ""
     
     var isDeleted = false
     
-    convenience init(uid: String, date: Date, planTitle: String, planMemo: String, startDay: String, endDay: String, isDeleted: Bool) {
+    convenience init(uid: String, date: Date, planTitle: String, planMemo: String, startDay: String, endDay: String, viewColor: String, isDeleted: Bool) {
         self.init()
         
         self.uid = uid
@@ -27,6 +28,8 @@ class ModelPlan {
         self.planMemo = planMemo
         self.startDay = startDay
         self.endDay = endDay
+        self.viewColor = viewColor
+        
         self.isDeleted = isDeleted
     }
     
@@ -37,8 +40,9 @@ class ModelPlan {
         let memo = dbPlan.planMemo!
         let startDay = dbPlan.startDay!
         let endDay = dbPlan.endDay!
+        let viewColor = dbPlan.viewColor!
         let isDeleted = dbPlan.isDeleted
         
-        self.init(uid: uid!, date: date!, planTitle: planTitle, planMemo: memo, startDay: startDay, endDay: endDay, isDeleted: isDeleted)
+        self.init(uid: uid!, date: date!, planTitle: planTitle, planMemo: memo, startDay: startDay, endDay: endDay, viewColor: viewColor, isDeleted: isDeleted)
     }
 }

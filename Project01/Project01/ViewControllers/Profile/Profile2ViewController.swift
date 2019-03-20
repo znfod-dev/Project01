@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import WebKit
 
 class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -52,19 +53,21 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
 		let scale: CGFloat = DEF_WIDTH_375_SCALE
 		view.transform = view.transform.scaledBy(x: scale, y: scale)
        
-        // 최초 실행
-        if isModal == true {
-            startBtn.isHidden = true
-            backBtn.isHidden = true
-			closeBtn.isHidden = false
-            //menuBtn.isHidden = false
-        } else {
+        if isModal == false {
+            // 최초 실행
             startBtn.isHidden = false
             backBtn.isHidden = false
             closeBtn.isHidden = true
+            editable = true
+        } else {
+            startBtn.isHidden = true
+            backBtn.isHidden = true
+            closeBtn.isHidden = false
+            //menuBtn.isHidden = false
         }
         editCompleteBtn.isHidden = true
 		
+        
 		// 그림자 처리
 		vProfileShadow.layer.shadowColor = UIColor(hex: 0x000000).cgColor
 		vProfileShadow.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -98,6 +101,7 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func updateTextField() {
+        print("updateTextField")
         DispatchQueue.main.async {
          
             self.nameTextField.text = self.profile.name
@@ -107,34 +111,34 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
             self.addressTextField.text = self.profile.address
             
             self.emailTextField.text = self.profile.email
+            self.nameDelBtn.isHidden = true
+            self.phoneDelBtn.isHidden = true
+            self.addressDelBtn.isHidden = true
+            self.emailDelBtn.isHidden = true
             if self.editable == true {
-                //self.nameDelBtn.isHidden = false
+                print(" self.editable == true ")
                 self.nameTextField.isUserInteractionEnabled = true
-                //self.phoneDelBtn.isHidden = false
                 self.phoneTextField.isUserInteractionEnabled = true
-                //self.addressDelBtn.isHidden = false
                 self.addressTextField.isUserInteractionEnabled = true
-                //self.emailDelBtn.isHidden = false
                 self.emailTextField.isUserInteractionEnabled = true
                 self.editCompleteBtn.isHidden = false
                 self.editBtn.isHidden = true
                 self.closeBtn.isHidden = true
+                if self.isModal == false {
+                    self.editCompleteBtn.isHidden = true
+                }
             } else {
-                self.nameDelBtn.isHidden = true
+                print(" self.editable == false ")
                 self.nameTextField.isUserInteractionEnabled = false
-                self.phoneDelBtn.isHidden = true
                 self.phoneTextField.isUserInteractionEnabled = false
-                self.addressDelBtn.isHidden = true
                 self.addressTextField.isUserInteractionEnabled = false
-                self.emailDelBtn.isHidden = true
                 self.emailTextField.isUserInteractionEnabled = false
                 
                 self.editCompleteBtn.isHidden = true
                 self.editBtn.isHidden = false
-				// 최초 실행
-				if self.isModal == true {
-                	self.closeBtn.isHidden = false
-				}
+                if self.isModal == true {
+                    self.closeBtn.isHidden = false
+                }
             }
         }
     }
