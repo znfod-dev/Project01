@@ -55,31 +55,43 @@ class DiaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         // 데이터 받아 오기
         self.searchView.isHidden = true
-        
         self.firstInit()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        
+        self.setDateData()
     }
     
     // MARK:- 첫 시작 setDatabase
     
     func firstInit() {
-        
-        self.setDateData()
+        print("firstInit")
         
         self.yearPickerView = PickerView.initWithNib(frame: self.view.frame)
         self.yearPickerView.pickerView.delegate = self
         self.yearPickerView.pickerView.dataSource = self
+        
         
         let yearSubmit = UITapGestureRecognizer(target: self, action: #selector(handleYearSubmit))
         self.yearPickerView.submitBtn.addGestureRecognizer(yearSubmit)
         
         self.view.addSubview(self.yearPickerView)
         
-        self.yearPickerView.pickerView.reloadAllComponents()
+        let calendar = Calendar.current
+        let unitFlags = Set<Calendar.Component>([.day, .month, .year])
+        let components = calendar.dateComponents(unitFlags, from: Date())
         
+        self.selectedYear = components.year!
+        self.selectedMonth = components.month!
+        
+        self.setDateData()
         DispatchQueue.main.async {
-            self.yearLabel.text = String(self.selectedYear)
+            self.yearLabel.text = String("\(self.selectedYear) 년")
         }
         
         self.loadDiary()
@@ -92,7 +104,7 @@ class DiaryViewController: UIViewController {
         self.diaryList = DBManager.shared.selectDiaryList(date: date)
         
         self.diaryEditList.removeAll()
-        for diary in self.diaryList {
+        for _ in self.diaryList {
             self.diaryEditList.append(false)
         }
         self.tableView.reloadData()
@@ -101,6 +113,8 @@ class DiaryViewController: UIViewController {
     
     // 최대 최소 년도 설정
     func setDateData() {
+        print("setDateData")
+        
         // 최소 일
         let minDate = DBManager.shared.loadMinimumDateFromUD()
         // 최대 일
@@ -109,23 +123,32 @@ class DiaryViewController: UIViewController {
         let minYear = minDate.getYear()
         // 최대 년도
         let maxYear = maxDate.getYear()
-        // 년도 리스트
-        for year in minYear ..< maxYear+1 {
-            yearList.append(year)
+        if yearList.count > 0 {
+            
+            let yearListMin = yearList[0]
+            let yearListMax = yearList.last
+            if (yearListMax != maxYear) || (minYear != yearListMin) {
+                yearList.removeAll()
+                // 년도 리스트
+                for year in minYear ..< maxYear+1 {
+                    yearList.append(year)
+                }
+            }
+        }else {
+            // 년도 리스트
+            for year in minYear ..< maxYear+1 {
+                yearList.append(year)
+            }
+        }
+        if self.selectedYear > maxYear || self.selectedYear < minYear {
+            self.selectedYear = minYear
+            DispatchQueue.main.async {
+                self.yearLabel.text = String("\(self.selectedYear) 년")
+            }
         }
         
-        let calendar = Calendar.current
-        let unitFlags = Set<Calendar.Component>([.day, .month, .year])
-        let components = calendar.dateComponents(unitFlags, from: Date())
+        self.yearPickerView.pickerView.reloadAllComponents()
         
-        self.selectedYear = components.year!
-        self.selectedMonth = components.month!
-        
-        // 최대
-        
-        // 최소
-        
-        // 
         
     }
     

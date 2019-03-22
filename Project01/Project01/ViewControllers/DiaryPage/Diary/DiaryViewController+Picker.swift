@@ -22,6 +22,9 @@ extension DiaryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return title
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        self.selectedYear = self.yearList[row]
+        DispatchQueue.main.async {
+            self.yearLabel.text = String("\(self.selectedYear) 년")
+        }
     }
 }

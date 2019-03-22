@@ -149,9 +149,18 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         print("textViewDidChange")
+        let size = self.diaryTextView.bounds.size
+        let newSize = self.diaryTextView.sizeThatFits(CGSize(width: size.width, height: 150))
+        let estimatedHeight = newSize.height > 16 ? newSize.height : 16
+        print("estimatedHeight : \(estimatedHeight)")
+        
         let height = self.diaryTextView.frame.height
         if height > 150 {
-            self.diaryTextView.isScrollEnabled = true
+            if estimatedHeight < 150 {
+                self.diaryTextView.isScrollEnabled = false
+            }else {
+                self.diaryTextView.isScrollEnabled = true
+            }
         }else {
             self.diaryTextView.isScrollEnabled = false
         }
