@@ -41,8 +41,8 @@ class PlannerViewController: UIViewController {
         super.viewDidLoad()
         
         // sama73 : 375화면 기준으로 스케일 적용
-//        let scale: CGFloat = DEF_WIDTH_375_SCALE
-//        view.transform = view.transform.scaledBy(x: scale, y: scale)
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         self.navigationController?.navigationBar.isHidden = true // 내비게이션바 스와이프 기능을 살린채 숨김
         
@@ -68,6 +68,8 @@ class PlannerViewController: UIViewController {
     
     @IBAction func addButtonClick(_ sender: Any) {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
+        
+        addVC.view.frame = self.view.bounds
         
         self.addChild(addVC)
         self.view.addSubview(addVC.view)
@@ -125,9 +127,9 @@ extension PlannerViewController: UITableViewDelegate {
         self.plan = self.planArray[indexRow]
         
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanViewController") as! DetailPlanViewController
-        
         detailVC.plan = self.plan
         
+        detailVC.view.frame = self.view.bounds
         self.addChild(detailVC)
         self.view.addSubview(detailVC.view)
     }

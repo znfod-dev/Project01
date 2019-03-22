@@ -59,8 +59,8 @@ class AddPlanViewController: UIViewController {
     
     
     func setUI() {
-//        let scale: CGFloat = DEF_WIDTH_375_SCALE
-//        view.transform = view.transform.scaledBy(x: scale, y: scale)
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
@@ -85,8 +85,8 @@ class AddPlanViewController: UIViewController {
         self.memoTextView.text = self.modiPlan?.planMemo ?? ""
         
         // 초기 colorView 선택
-        self.oneView.layer.borderWidth = 2
-        self.oneView.layer.borderColor = UIColor.black.cgColor
+        self.oneView.layer.borderWidth = 3
+        self.oneView.layer.borderColor = UIColor(hexString: "6A6A6A").cgColor
         
         
     }
@@ -121,6 +121,8 @@ class AddPlanViewController: UIViewController {
     // 예외처리 시 알림 띄우기
     func presentOkAlert(message: String) {
         let alertVC = self.storyboard?.instantiateViewController(withIdentifier: "OkAlertViewController") as! OkAlertViewController
+        
+        alertVC.view.frame = (parent?.view.bounds)!
         
         self.parent?.addChild(alertVC)
         self.parent?.view.addSubview(alertVC.view)
@@ -233,8 +235,8 @@ class AddPlanViewController: UIViewController {
         self.initBorderWidth()
         
         // 선택한 뷰 보더 설정
-        tapGesture.view?.layer.borderWidth = 2
-        tapGesture.view?.layer.borderColor = UIColor.black.cgColor
+        tapGesture.view?.layer.borderWidth = 3
+        tapGesture.view?.layer.borderColor = UIColor(hexString: "6A6A6A").cgColor
     }
     
     
@@ -271,6 +273,11 @@ class AddPlanViewController: UIViewController {
             detailVC.titleLabel.text = modiPlan.planTitle
             detailVC.dateLabel.text = "\(modiPlan.startDay!) ~ \(modiPlan.endDay!)"
             detailVC.memoTextView.text = modiPlan.planMemo
+            
+            detailVC.startDay = modiPlan.startDay!
+            detailVC.endDay = modiPlan.endDay!
+            
+            detailVC.setStickBar() 
             
             // DB 업데이트
             DBManager.shared.updatePlan(plan: modiPlan)

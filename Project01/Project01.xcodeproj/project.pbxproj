@@ -19,6 +19,9 @@
 		6063C2A3221E77D100260419 /* icon_addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A0221E77D000260419 /* icon_addButton@2x.png */; };
 		6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A1221E77D100260419 /* icon_addButton@3x.png */; };
 		606C7D3E224118CF00547436 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606C7D3D224118CF00547436 /* UIView+Border.swift */; };
+		606C7D422243491400547436 /* stickbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D3F2243491200547436 /* stickbar.png */; };
+		606C7D432243491400547436 /* stickbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D402243491300547436 /* stickbar@2x.png */; };
+		606C7D442243491400547436 /* stickbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D412243491300547436 /* stickbar@3x.png */; };
 		609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */; };
 		609A3FE5220B1FC200A58605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609A3FE4220B1FC200A58605 /* CloudKit.framework */; };
 		609A3FE7220D6C7500A58605 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FE6220D6C7300A58605 /* IntroViewController.swift */; };
@@ -244,6 +247,9 @@
 		6063C2A0221E77D000260419 /* icon_addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@2x.png"; sourceTree = "<group>"; };
 		6063C2A1221E77D100260419 /* icon_addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@3x.png"; sourceTree = "<group>"; };
 		606C7D3D224118CF00547436 /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
+		606C7D3F2243491200547436 /* stickbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickbar.png; sourceTree = "<group>"; };
+		606C7D402243491300547436 /* stickbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stickbar@2x.png"; sourceTree = "<group>"; };
+		606C7D412243491300547436 /* stickbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stickbar@3x.png"; sourceTree = "<group>"; };
 		609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+DoneAccessory.swift"; sourceTree = "<group>"; };
 		609A3FE1220B1C6900A58605 /* Project01.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Project01.entitlements; sourceTree = "<group>"; };
 		609A3FE4220B1FC200A58605 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -763,6 +769,9 @@
 		D9030AA9220EA38F008D5A9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				606C7D3F2243491200547436 /* stickbar.png */,
+				606C7D402243491300547436 /* stickbar@2x.png */,
+				606C7D412243491300547436 /* stickbar@3x.png */,
 				60B3E49C2237C71B008B9DDF /* icon_calendar.png */,
 				60B3E49B2237C71B008B9DDF /* icon_calendar@2x.png */,
 				60B3E4992237C71A008B9DDF /* icon_calendar@3x.png */,
@@ -1066,6 +1075,7 @@
 				9B4144AF222AB955008C9BF9 /* box_bg@3x.png in Resources */,
 				D927150E2216594100284967 /* icon_back@3x.png in Resources */,
 				9B4144B8222AD325008C9BF9 /* icon_write@2x.png in Resources */,
+				606C7D442243491400547436 /* stickbar@3x.png in Resources */,
 				9B4144B0222AB955008C9BF9 /* box_bg@2x.png in Resources */,
 				9B01AB812233D1A3002AE3B5 /* icon_dropdown@2x.png in Resources */,
 				D9BBD2A122339BF90090DC83 /* icon_white_close@3x.png in Resources */,
@@ -1079,6 +1089,7 @@
 				D9FBE0E821F32B4600BDA694 /* Common.storyboard in Resources */,
 				9BB2B6A8222A33BF009E3637 /* icon_camera@2x.png in Resources */,
 				D9ED7B0F221BF04F00414AE6 /* menu_profile@2x.png in Resources */,
+				606C7D432243491400547436 /* stickbar@2x.png in Resources */,
 				D9030AF9220EA390008D5A9E /* icon_remove@2x.png in Resources */,
 				D9030B14220EA390008D5A9E /* NanumBarunGothicBold.ttf in Resources */,
 				D9030B13220EA390008D5A9E /* NanumBarunGothicUltraLight.ttf in Resources */,
@@ -1122,6 +1133,7 @@
 				D9030B03220EA390008D5A9E /* menu_calendar@2x.png in Resources */,
 				9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */,
 				9BB2B6AC222A33BF009E3637 /* text_remove@3x.png in Resources */,
+				606C7D422243491400547436 /* stickbar.png in Resources */,
 				9B4144B3222AD272008C9BF9 /* icon_radio_btn@2x.png in Resources */,
 				60B3E49F2237C71D008B9DDF /* icon_calendar@3x.png in Resources */,
 				D9FD087F221E8984008AC233 /* menu_icon_mask@2x.png in Resources */,

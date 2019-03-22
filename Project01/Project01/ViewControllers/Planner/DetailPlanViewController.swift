@@ -20,20 +20,59 @@ class DetailPlanViewController: UIViewController {
     @IBOutlet var okButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
     
+    @IBOutlet var stickBar: UIView!
+    @IBOutlet var hideStickWidth: NSLayoutConstraint!
+    
+    @IBOutlet var dDayLabel: UILabel!
+    
+    
+    
     
     // MARK:- Constants
+    let stickWidth:Float = 249
+    
+    
+    
+    // MARK:- Variables
     var plan: ModelPlan = ModelPlan()
+    var startDay: String?
+    var endDay: String?
+    var totalDate: Float?
+    var remainDate: Float?
+    
+    
     
     
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
+        
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
+        self.startDay = plan.startDay!
+        self.endDay = plan.endDay!
+        
         self.titleLabel.text = plan.planTitle
-        self.dateLabel.text = "\(plan.startDay!) ~ \(plan.endDay!)"
+        self.dateLabel.text = "\(startDay!) ~ \(endDay!)"
         self.memoTextView.text = plan.planMemo
+        
+        self.setStickBar()
+    }
+    
+    
+    
+    func setStickBar() {
+        self.totalDate = Float(Date().dateGap(startDay: startDay!, endDay: endDay!))
+        self.remainDate = Float(Date().dateGap(startDay: Date().string(), endDay: endDay!))
+        
+        if Int(self.remainDate!) > 0 { // 아직 도달 못함
+            self.dDayLabel.text = "D-\(Int(remainDate!))"
+            hideStickWidth.constant = CGFloat(self.stickWidth * (remainDate! / totalDate!))
+            print(hideStickWidth.constant)
+        }
     }
     
     
@@ -50,8 +89,8 @@ class DetailPlanViewController: UIViewController {
         let addPlanVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
         
         addPlanVC.modiPlan = self.plan
-//        addPlanVC.isModify = true
         
+        addPlanVC.view.frame = (parent?.view.bounds)!
         parent?.addChild(addPlanVC)
         parent?.view.addSubview(addPlanVC.view)
     }
