@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.8.1)
-  - AnimatedCollectionViewLayout (0.5.0)
   - BEMCheckBox (1.4.1)
   - DynamicBlurView (3.0.1)
   - FSCalendar (2.8.0)
@@ -14,27 +13,28 @@ PODS:
   - Realm/Headers (3.13.1)
   - RealmSwift (3.13.1):
     - Realm (= 3.13.1)
-  - RevealingSplashView (0.6.0)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
   - SideMenuSwift (1.0.0)
-  - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - AnimatedCollectionViewLayout
   - BEMCheckBox
   - FSCalendar
   - Hero
   - IceCream
   - PopupDialog (~> 0.9)
   - RealmSwift
-  - RevealingSplashView
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
   - SideMenuSwift
-  - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - AnimatedCollectionViewLayout
     - BEMCheckBox
     - DynamicBlurView
     - FSCalendar
@@ -43,13 +43,13 @@ SPEC REPOS:
     - PopupDialog
     - Realm
     - RealmSwift
-    - RevealingSplashView
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
     - SideMenuSwift
-    - TextFieldEffects
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  AnimatedCollectionViewLayout: 8b660a623d85001f76f00f0d2302a7b043c72bda
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
@@ -58,10 +58,11 @@ SPEC CHECKSUMS:
   PopupDialog: f4bb461bf70ff422be0b56656566424ee9273080
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
-  RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SideMenuSwift: f8567754feb36ade13ffd613f608829f4b86d4b3
-  TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 14ce9b9c2af725f3cb434269a6304b8b66817ba9
+PODFILE CHECKSUM: eb5f99509076d4a3d215a20fa7fb63f688735239
 
 COCOAPODS: 1.5.3

@@ -9,6 +9,8 @@
 import UIKit
 import SideMenuSwift
 import Hero
+import RxSwift
+import RxCocoa
 
 class PlannerViewController: UIViewController {
     // MARK:- Outlets
@@ -17,6 +19,8 @@ class PlannerViewController: UIViewController {
     @IBOutlet var emptyView: UIView!
     @IBOutlet var addButton: UIView!
     @IBOutlet var searchView: UIView!
+    
+    @IBOutlet var searchBar: UISearchBar!
     
     
     
@@ -31,10 +35,11 @@ class PlannerViewController: UIViewController {
         }
     }
     
+    var filterPlanArray = Array<ModelPlan>()
     var isModi: Bool? = false
     var plan = ModelPlan() // detailVC로 넘겨줄 plan
     
-    
+    var disposeBag = DisposeBag()
     
     
     // MARK:- Methods
@@ -44,7 +49,15 @@ class PlannerViewController: UIViewController {
         
         // 데이터 받아 오기
         self.planArray = DBManager.shared.selectPlanDB()
+        self.filterPlanArray = self.planArray
     }
+    
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.disposeBag = DisposeBag()
+    }
+    
     
     
     
@@ -65,6 +78,24 @@ class PlannerViewController: UIViewController {
         addButton.layer.shadowOpacity = 0.2
         
         self.tableView.separatorStyle = .none // 테이블 뷰 구분선 삭제
+        
+        searchBar.rx.text
+            .orEmpty
+            .map { str in
+                if str.count == 0 { // 공백이라면 ...
+                    self.filterPlanArray = self.planArray
+                } else {
+                    self.filterPlanArray.removeAll()
+                    for plan in self.planArray {
+                        if (plan.planTitle?.contains(str))! || (plan.planMemo?.contains(str))! {
+                            self.filterPlanArray.append(plan)
+                        }
+                    }
+                }
+            }
+            .subscribe(onNext: {
+                self.tableView.reloadData()
+        }).disposed(by: disposeBag)
     }
     
     
@@ -105,7 +136,8 @@ class PlannerViewController: UIViewController {
 
 extension PlannerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.planArray.count * 2
+//        return self.planArray.count * 2
+        return self.filterPlanArray.count * 2
     }
     
     
@@ -119,7 +151,8 @@ extension PlannerViewController: UITableViewDataSource {
         let indexRow = indexPath.row / 2 // 0, 2, 4 ... 데이터를 표시할 셀
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanCell") as! PlanCell
-        let plan = planArray[indexRow]
+//        let plan = planArray[indexRow]
+        let plan = filterPlanArray[indexRow]
         
         cell.selectionStyle = .none
         
@@ -160,10 +193,12 @@ extension PlannerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexRow = indexPath.row / 2
         
-        self.plan = self.planArray[indexRow]
+        self.plan = self.filterPlanArray[indexRow]
         
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPlanViewController") as! DetailPlanViewController
         detailVC.plan = self.plan
+        
+        self.view.endEditing(true)
         
         detailVC.view.frame = self.view.bounds
         self.addChild(detailVC)

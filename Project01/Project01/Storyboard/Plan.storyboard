@@ -273,6 +273,7 @@
                     <connections>
                         <outlet property="addButton" destination="htB-1y-CKz" id="6r1-BF-H0Z"/>
                         <outlet property="emptyView" destination="eEJ-t0-4xt" id="opt-G4-WFP"/>
+                        <outlet property="searchBar" destination="Q6B-H2-U1t" id="8sP-oW-GAN"/>
                         <outlet property="searchView" destination="lhY-X1-Bxv" id="dfS-qJ-Fcb"/>
                         <outlet property="tableView" destination="NZV-6g-K3w" id="jWY-DY-sbF"/>
                         <outlet property="vNavigationBar" destination="LpW-wJ-BVx" id="kY8-4m-XCI"/>

@@ -14,5 +14,7 @@ target 'Project01' do
     pod 'FSCalendar'
     pod 'Hero'
     pod 'IceCream'
+    pod 'RxSwift',    '~> 4.0'
+    pod 'RxCocoa',    '~> 4.0'
 
 end
