@@ -913,6 +913,16 @@ extension MonthlyPlanViewController: UITableViewDelegate {
 		
 		return action
 	}
+    
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.row % 2 == 0 { // 짝수번째 셀은 delete 허용
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 

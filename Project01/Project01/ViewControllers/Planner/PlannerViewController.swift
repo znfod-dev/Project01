@@ -16,6 +16,7 @@ class PlannerViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var emptyView: UIView!
     @IBOutlet var addButton: UIView!
+    @IBOutlet var searchView: UIView!
     
     
     
@@ -39,8 +40,16 @@ class PlannerViewController: UIViewController {
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
         
-        // sama73 : 375화면 기준으로 스케일 적용
+        // 데이터 받아 오기
+        self.planArray = DBManager.shared.selectPlanDB()
+    }
+    
+    
+    
+    func setUI() {
+        // 375화면 기준으로 스케일 적용
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
@@ -51,11 +60,13 @@ class PlannerViewController: UIViewController {
         vNavigationBar.layer.shadowOffset = CGSize(width: 0, height: 7)
         vNavigationBar.layer.shadowOpacity = 0.16
         
-        self.tableView.separatorStyle = .none // 테이블 뷰 구분선 삭제
+        addButton.layer.shadowColor = UIColor(hex: 0x8578DF).cgColor
+        addButton.layer.shadowOffset = CGSize(width: 0, height: 8)
+        addButton.layer.shadowOpacity = 0.2
         
-        // 데이터 받아 오기
-        self.planArray = DBManager.shared.selectPlanDB()
+        self.tableView.separatorStyle = .none // 테이블 뷰 구분선 삭제
     }
+    
     
     
     
@@ -73,6 +84,21 @@ class PlannerViewController: UIViewController {
         
         self.addChild(addVC)
         self.view.addSubview(addVC.view)
+    }
+    
+    
+    
+    // 검색 버튼 클릭
+    @IBAction func searchBtnClick(_ sender: Any) {
+        self.searchView.isHidden = false
+    }
+    
+    
+    
+    // 취소 버튼 클릭
+    @IBAction func cancelBtnClick(_ sender: Any) {
+        self.searchView.isHidden = true
+        self.view.endEditing(true)
     }
 }
 
@@ -117,6 +143,16 @@ extension PlannerViewController: UITableViewDataSource {
             return 16.5
         }
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.row % 2 == 0 { // 짝수번째 셀은 delete 허용
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 
@@ -134,11 +170,15 @@ extension PlannerViewController: UITableViewDelegate {
         self.view.addSubview(detailVC.view)
     }
     
+    
+    
     // 스와이프 delete 액션 세팅
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = deleteAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [delete])
     }
+    
+    
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
