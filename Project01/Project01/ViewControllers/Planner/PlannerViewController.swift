@@ -239,10 +239,22 @@ extension PlannerViewController: UITableViewDelegate {
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
             let indexRow = indexPath.row / 2 // 공백 셀 때문에 실질적으로 0,2,4... 셀이 데이터 셀이다
-            let plan = self.planArray[indexRow]
+//            let plan = self.planArray[indexRow]
+            let plan = self.filterPlanArray[indexRow]
             
             DBManager.shared.deletePlanDB(plan: plan) {
-                self.planArray.remove(at: indexRow)
+//                self.planArray.remove(at: indexRow)
+                self.filterPlanArray.remove(at: indexRow)
+                
+                // planArray에서 해당 셀 삭제
+                var count = 0
+                for _plan in self.planArray {
+                    if(plan.uid == _plan.uid) {
+                        self.planArray.remove(at: count)
+                        break
+                    }
+                    count += 1
+                }
             }
             
             // 테이블뷰 갱신
