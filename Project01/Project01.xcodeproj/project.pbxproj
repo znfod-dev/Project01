@@ -16,7 +16,6 @@
 		6063C2A3221E77D100260419 /* icon_addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A0221E77D000260419 /* icon_addButton@2x.png */; };
 		6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A1221E77D100260419 /* icon_addButton@3x.png */; };
 		606C7D3E224118CF00547436 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606C7D3D224118CF00547436 /* UIView+Border.swift */; };
-		606C7D422243491400547436 /* stickbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D3F2243491200547436 /* stickbar.png */; };
 		606C7D432243491400547436 /* stickbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D402243491300547436 /* stickbar@2x.png */; };
 		606C7D442243491400547436 /* stickbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D412243491300547436 /* stickbar@3x.png */; };
 		609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */; };
@@ -208,7 +207,6 @@
 		6063C2A0221E77D000260419 /* icon_addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@2x.png"; sourceTree = "<group>"; };
 		6063C2A1221E77D100260419 /* icon_addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@3x.png"; sourceTree = "<group>"; };
 		606C7D3D224118CF00547436 /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
-		606C7D3F2243491200547436 /* stickbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickbar.png; sourceTree = "<group>"; };
 		606C7D402243491300547436 /* stickbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stickbar@2x.png"; sourceTree = "<group>"; };
 		606C7D412243491300547436 /* stickbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stickbar@3x.png"; sourceTree = "<group>"; };
 		609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+DoneAccessory.swift"; sourceTree = "<group>"; };
@@ -698,7 +696,6 @@
 		D9030AA9220EA38F008D5A9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				606C7D3F2243491200547436 /* stickbar.png */,
 				606C7D402243491300547436 /* stickbar@2x.png */,
 				606C7D412243491300547436 /* stickbar@3x.png */,
 				60B3E49B2237C71B008B9DDF /* icon_calendar@2x.png */,
@@ -988,7 +985,6 @@
 				D9030B03220EA390008D5A9E /* menu_calendar@2x.png in Resources */,
 				9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */,
 				9BB2B6AC222A33BF009E3637 /* text_remove@3x.png in Resources */,
-				606C7D422243491400547436 /* stickbar.png in Resources */,
 				9B4144B3222AD272008C9BF9 /* icon_radio_btn@2x.png in Resources */,
 				60B3E49F2237C71D008B9DDF /* icon_calendar@3x.png in Resources */,
 				D9FD087F221E8984008AC233 /* menu_icon_mask@2x.png in Resources */,
