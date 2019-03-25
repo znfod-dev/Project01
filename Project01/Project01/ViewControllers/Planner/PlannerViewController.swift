@@ -100,6 +100,26 @@ class PlannerViewController: UIViewController {
     
     
     
+    // searchBar를 숨긴다
+    func hideSearchBar() {
+        self.searchView.isHidden = true
+        self.view.endEditing(true)
+        
+        // 전체 데이터 세팅
+        allPlanSet()
+    }
+    
+    
+    
+    // 전체 데이터 세팅
+    func allPlanSet() {
+        searchBar.text = ""
+        self.filterPlanArray = self.planArray
+        self.tableView.reloadData()
+    }
+    
+    
+    
     
     // MARK:- Actions
     @IBAction func menuBtnClick(_ sender: Any) {
@@ -109,6 +129,8 @@ class PlannerViewController: UIViewController {
     
     
     @IBAction func addButtonClick(_ sender: Any) {
+        self.hideSearchBar()
+        
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPlanViewController") as! AddPlanViewController
         
         addVC.view.frame = self.view.bounds
@@ -128,8 +150,7 @@ class PlannerViewController: UIViewController {
     
     // 취소 버튼 클릭
     @IBAction func cancelBtnClick(_ sender: Any) {
-        self.searchView.isHidden = true
-        self.view.endEditing(true)
+        self.hideSearchBar()
     }
 }
 

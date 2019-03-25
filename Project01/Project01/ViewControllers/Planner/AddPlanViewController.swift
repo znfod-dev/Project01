@@ -331,7 +331,7 @@ class AddPlanViewController: UIViewController {
         
         // planList 다시 불러와서 뿌려주기
         parent.planArray = DBManager.shared.selectPlanDB()
-        parent.tableView.reloadData()
+        parent.allPlanSet()
         
         dismissAlert()
     }
