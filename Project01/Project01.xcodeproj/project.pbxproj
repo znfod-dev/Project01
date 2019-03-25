@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60289F052248A14100F7548D /* icon_calendar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60289EFF2248A14000F7548D /* icon_calendar@3x.png */; };
+		60289F062248A14100F7548D /* icon_memo.png in Resources */ = {isa = PBXBuildFile; fileRef = 60289F002248A14000F7548D /* icon_memo.png */; };
+		60289F072248A14100F7548D /* icon_calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60289F012248A14000F7548D /* icon_calendar@2x.png */; };
+		60289F082248A14100F7548D /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 60289F022248A14000F7548D /* icon_calendar.png */; };
+		60289F092248A14100F7548D /* icon_memo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60289F032248A14100F7548D /* icon_memo@3x.png */; };
+		60289F0A2248A14100F7548D /* icon_memo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60289F042248A14100F7548D /* icon_memo@2x.png */; };
 		6042713E21FD52E0001F0E40 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6042713D21FD52E0001F0E40 /* Plan.storyboard */; };
 		6042714021FFF23C001F0E40 /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042713F21FFF23C001F0E40 /* CALayer+Border.swift */; };
 		60427142220005A6001F0E40 /* DBManager+Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60427141220005A6001F0E40 /* DBManager+Plan.swift */; };
@@ -16,7 +22,6 @@
 		6063C2A3221E77D100260419 /* icon_addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A0221E77D000260419 /* icon_addButton@2x.png */; };
 		6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6063C2A1221E77D100260419 /* icon_addButton@3x.png */; };
 		606C7D3E224118CF00547436 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606C7D3D224118CF00547436 /* UIView+Border.swift */; };
-		606C7D422243491400547436 /* stickbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D3F2243491200547436 /* stickbar.png */; };
 		606C7D432243491400547436 /* stickbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D402243491300547436 /* stickbar@2x.png */; };
 		606C7D442243491400547436 /* stickbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D412243491300547436 /* stickbar@3x.png */; };
 		609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */; };
@@ -25,10 +30,6 @@
 		609A3FFA22103FC300A58605 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FF822103FC100A58605 /* MonthPickerView.swift */; };
 		609A3FFB22103FC300A58605 /* MonthPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609A3FF922103FC300A58605 /* MonthPickerView.xib */; };
 		60B3E4922237ACC2008B9DDF /* AddPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E4912237ACC2008B9DDF /* AddPlanViewController.swift */; };
-		60B3E49F2237C71D008B9DDF /* icon_calendar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E4992237C71A008B9DDF /* icon_calendar@3x.png */; };
-		60B3E4A02237C71D008B9DDF /* icon_memo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49A2237C71A008B9DDF /* icon_memo@2x.png */; };
-		60B3E4A12237C71D008B9DDF /* icon_calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49B2237C71B008B9DDF /* icon_calendar@2x.png */; };
-		60B3E4A32237C71D008B9DDF /* icon_memo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3E49D2237C71C008B9DDF /* icon_memo@3x.png */; };
 		60B3E4C42239310D008B9DDF /* OkAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E4C32239310C008B9DDF /* OkAlertViewController.swift */; };
 		60B3E4C6223A1D49008B9DDF /* DetailPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3E4C5223A1D49008B9DDF /* DetailPlanViewController.swift */; };
 		60F47A8B21F3873900E0DCB2 /* ModelTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */; };
@@ -199,6 +200,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60289EFF2248A14000F7548D /* icon_calendar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar@3x.png"; sourceTree = "<group>"; };
+		60289F002248A14000F7548D /* icon_memo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_memo.png; sourceTree = "<group>"; };
+		60289F012248A14000F7548D /* icon_calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar@2x.png"; sourceTree = "<group>"; };
+		60289F022248A14000F7548D /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
+		60289F032248A14100F7548D /* icon_memo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_memo@3x.png"; sourceTree = "<group>"; };
+		60289F042248A14100F7548D /* icon_memo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_memo@2x.png"; sourceTree = "<group>"; };
 		6042713D21FD52E0001F0E40 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
 		6042713F21FFF23C001F0E40 /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
 		60427141220005A6001F0E40 /* DBManager+Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBManager+Plan.swift"; sourceTree = "<group>"; };
@@ -208,7 +215,6 @@
 		6063C2A0221E77D000260419 /* icon_addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@2x.png"; sourceTree = "<group>"; };
 		6063C2A1221E77D100260419 /* icon_addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addButton@3x.png"; sourceTree = "<group>"; };
 		606C7D3D224118CF00547436 /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
-		606C7D3F2243491200547436 /* stickbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickbar.png; sourceTree = "<group>"; };
 		606C7D402243491300547436 /* stickbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stickbar@2x.png"; sourceTree = "<group>"; };
 		606C7D412243491300547436 /* stickbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stickbar@3x.png"; sourceTree = "<group>"; };
 		609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+DoneAccessory.swift"; sourceTree = "<group>"; };
@@ -218,10 +224,6 @@
 		609A3FF822103FC100A58605 /* MonthPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		609A3FF922103FC300A58605 /* MonthPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthPickerView.xib; sourceTree = "<group>"; };
 		60B3E4912237ACC2008B9DDF /* AddPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanViewController.swift; sourceTree = "<group>"; };
-		60B3E4992237C71A008B9DDF /* icon_calendar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar@3x.png"; sourceTree = "<group>"; };
-		60B3E49A2237C71A008B9DDF /* icon_memo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_memo@2x.png"; sourceTree = "<group>"; };
-		60B3E49B2237C71B008B9DDF /* icon_calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar@2x.png"; sourceTree = "<group>"; };
-		60B3E49D2237C71C008B9DDF /* icon_memo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_memo@3x.png"; sourceTree = "<group>"; };
 		60B3E4C32239310C008B9DDF /* OkAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkAlertViewController.swift; sourceTree = "<group>"; };
 		60B3E4C5223A1D49008B9DDF /* DetailPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlanViewController.swift; sourceTree = "<group>"; };
 		60F47A8A21F3873900E0DCB2 /* ModelTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTodo.swift; sourceTree = "<group>"; };
@@ -698,13 +700,14 @@
 		D9030AA9220EA38F008D5A9E /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				606C7D3F2243491200547436 /* stickbar.png */,
+				60289F022248A14000F7548D /* icon_calendar.png */,
+				60289F012248A14000F7548D /* icon_calendar@2x.png */,
+				60289EFF2248A14000F7548D /* icon_calendar@3x.png */,
+				60289F002248A14000F7548D /* icon_memo.png */,
+				60289F042248A14100F7548D /* icon_memo@2x.png */,
+				60289F032248A14100F7548D /* icon_memo@3x.png */,
 				606C7D402243491300547436 /* stickbar@2x.png */,
 				606C7D412243491300547436 /* stickbar@3x.png */,
-				60B3E49B2237C71B008B9DDF /* icon_calendar@2x.png */,
-				60B3E4992237C71A008B9DDF /* icon_calendar@3x.png */,
-				60B3E49A2237C71A008B9DDF /* icon_memo@2x.png */,
-				60B3E49D2237C71C008B9DDF /* icon_memo@3x.png */,
 				9B01AB802233D1A3002AE3B5 /* icon_clock@2x.png */,
 				9B01AB7F2233D1A3002AE3B5 /* icon_clock@3x.png */,
 				9B01AB7D2233D1A2002AE3B5 /* icon_dropdown@2x.png */,
@@ -914,11 +917,13 @@
 				9B4144B7222AD325008C9BF9 /* icon_write@3x.png in Resources */,
 				D9BBD2A7223CE4AA0090DC83 /* icon_launch@2x.png in Resources */,
 				D9030AF8220EA390008D5A9E /* icon_navigation_back@2x.png in Resources */,
+				60289F072248A14100F7548D /* icon_calendar@2x.png in Resources */,
 				9B4144A7222A56E5008C9BF9 /* profile_image_icon@2x.png in Resources */,
 				D9030AF5220EA390008D5A9E /* icon_notdata@2x.png in Resources */,
 				D9030B0D220EA390008D5A9E /* NanumBarunpenB.ttf in Resources */,
 				D9BBD2A6223CE4AA0090DC83 /* bg_launch@2x.png in Resources */,
 				609A3FFB22103FC300A58605 /* MonthPickerView.xib in Resources */,
+				60289F0A2248A14100F7548D /* icon_memo@2x.png in Resources */,
 				9B01AB842233D1A3002AE3B5 /* icon_clock@2x.png in Resources */,
 				D9030B04220EA390008D5A9E /* menu_calendar@3x.png in Resources */,
 				9B26623921EA3E49007CF0B3 /* LaunchScreen.storyboard in Resources */,
@@ -940,14 +945,13 @@
 				9B4144A8222A56E5008C9BF9 /* profile_image_icon@3x.png in Resources */,
 				D9BBD2A022339BF90090DC83 /* icon_white_close@2x.png in Resources */,
 				D9030B11220EA390008D5A9E /* NanumBrush.ttf in Resources */,
-				60B3E4A02237C71D008B9DDF /* icon_memo@2x.png in Resources */,
 				D927150E2216594100284967 /* icon_back@3x.png in Resources */,
+				60289F082248A14100F7548D /* icon_calendar.png in Resources */,
 				9B4144B8222AD325008C9BF9 /* icon_write@2x.png in Resources */,
 				606C7D442243491400547436 /* stickbar@3x.png in Resources */,
 				9B01AB812233D1A3002AE3B5 /* icon_dropdown@2x.png in Resources */,
 				D9BBD2A122339BF90090DC83 /* icon_white_close@3x.png in Resources */,
 				6046A780221EE7CC00D46681 /* icon_emptyTotoList@2x.png in Resources */,
-				60B3E4A32237C71D008B9DDF /* icon_memo@3x.png in Resources */,
 				D9030AE4220EA390008D5A9E /* icon_loading@3x.png in Resources */,
 				D9030B12220EA390008D5A9E /* NanumBarunGothic.ttf in Resources */,
 				D9FBE0E821F32B4600BDA694 /* Common.storyboard in Resources */,
@@ -955,6 +959,7 @@
 				D9ED7B0F221BF04F00414AE6 /* menu_profile@2x.png in Resources */,
 				606C7D432243491400547436 /* stickbar@2x.png in Resources */,
 				D9030B14220EA390008D5A9E /* NanumBarunGothicBold.ttf in Resources */,
+				60289F092248A14100F7548D /* icon_memo@3x.png in Resources */,
 				D9030B13220EA390008D5A9E /* NanumBarunGothicUltraLight.ttf in Resources */,
 				D9ED7B0E221BF04F00414AE6 /* menu_profile@3x.png in Resources */,
 				D914E3CC21FBF5BF00CFBB8E /* Setting.storyboard in Resources */,
@@ -965,6 +970,7 @@
 				D9030AEF220EA390008D5A9E /* icon_today@3x.png in Resources */,
 				D9030B06220EA390008D5A9E /* menu_setting@2x.png in Resources */,
 				9B01AB832233D1A3002AE3B5 /* icon_clock@3x.png in Resources */,
+				60289F052248A14100F7548D /* icon_calendar@3x.png in Resources */,
 				6063C2A4221E77D100260419 /* icon_addButton@3x.png in Resources */,
 				D9BBD2A8223CE4AA0090DC83 /* icon_launch@3x.png in Resources */,
 				D9030B0C220EA390008D5A9E /* icon_close@2x.png in Resources */,
@@ -984,13 +990,11 @@
 				D9ED7B07221BD08100414AE6 /* menu_background@3x.png in Resources */,
 				9B4144AC222AB6B5008C9BF9 /* icon_search@3x.png in Resources */,
 				D9FD087E221E8984008AC233 /* menu_icon_mask@3x.png in Resources */,
-				60B3E4A12237C71D008B9DDF /* icon_calendar@2x.png in Resources */,
 				D9030B03220EA390008D5A9E /* menu_calendar@2x.png in Resources */,
 				9B26623421EA3E48007CF0B3 /* Main.storyboard in Resources */,
 				9BB2B6AC222A33BF009E3637 /* text_remove@3x.png in Resources */,
-				606C7D422243491400547436 /* stickbar.png in Resources */,
+				60289F062248A14100F7548D /* icon_memo.png in Resources */,
 				9B4144B3222AD272008C9BF9 /* icon_radio_btn@2x.png in Resources */,
-				60B3E49F2237C71D008B9DDF /* icon_calendar@3x.png in Resources */,
 				D9FD087F221E8984008AC233 /* menu_icon_mask@2x.png in Resources */,
 				D9030AF0220EA390008D5A9E /* icon_menu@2x.png in Resources */,
 				D9030AEE220EA390008D5A9E /* icon_today@2x.png in Resources */,
@@ -1326,7 +1330,7 @@
 				CODE_SIGN_ENTITLEMENTS = Project01/Project01.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BAEBSW672H;
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1349,7 +1353,7 @@
 				CODE_SIGN_ENTITLEMENTS = Project01/Project01.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BAEBSW672H;
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
