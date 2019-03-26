@@ -9,7 +9,7 @@
 import UIKit
 
 class DiaryAddViewController: UIViewController, UITextViewDelegate {
-
+    
     @IBOutlet weak var alertView: UIView!
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -23,8 +23,13 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
     
     var submitClick: (() -> Void)?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 375화면 기준으로 스케일 적용
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         // 최소 일
         let minDate = DBManager.shared.loadMinimumDateFromUD()
@@ -33,7 +38,6 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
         
         self.datePicker.maximumDate = maxDate
         self.datePicker.minimumDate = minDate
-        self.datePickerView.isHidden = true
         
         
         if let temp = self.selectedDate {
@@ -42,13 +46,25 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
             self.dateLabel.text = "날짜 선택"
         }
         
+        //let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        
+        //gestureRecognizer.cancelsTouchesInView = false
+        
+        //view.addGestureRecognizer(gestureRecognizer)
+        
     }
-
+    /*
+     @objc func dismissKeyboard() {
+     self.view.endEditing(true)
+     
+     }
+     */
+    
     // MARK: - @IBAction
     
     @IBAction func submitBtnClicked(_ sender: Any) {
+        print("submitBtnClicked")
         self.view.endEditing(true)
-        
         
         if let _ = self.selectedDate {
             let id = self.selectedDate.GetId()
@@ -69,10 +85,8 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
             }
             self.dismiss(animated: false, completion: nil)
         }else {
-            showDatePickerView()
+            self.dateErrorLabel.isHidden = false
         }
-        
-        
     }
     
     @IBAction func cancelBtnClicked(_ sender: Any) {
@@ -100,7 +114,7 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
             self.selectedDate = date
             
             dismissDatePickerView()
-         }
+        }
     }
     
     @IBAction func pickerCancelBtnClicked(_ sender: Any) {
@@ -112,38 +126,51 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
     // MARK: - DatePicker
     func dismissDatePickerView() {
         print("dismissDatePickerView")
-        
         if self.datePickerView.isHidden == false {
-        
-            UIView.animate(withDuration: 0.5, animations: {
-                self.datePickerView.frame.origin.y += self.datePickerView.frame.height
-            }) { success in
-                self.datePickerView.isHidden = true
-                
+            self.view.isUserInteractionEnabled = false
+            self.datePickerView.isHidden = true
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.2, animations: {
+                    
+                    print("animate")
+                    self.datePickerView.frame.origin.y += self.datePickerView.frame.height
+                }, completion: { success in
+                    print("completion")
+                    self.view.isUserInteractionEnabled = true
+                })
             }
         }
     }
     func showDatePickerView() {
         print("showDatePickerView")
-        self.datePicker.date = Date()
         if self.datePickerView.isHidden == true {
-         
+            self.datePicker.date = Date()
+            self.view.isUserInteractionEnabled = false
             self.datePickerView.isHidden = false
-            UIView.animate(withDuration: 0.5, animations: {
-                self.datePickerView.frame.origin.y -= self.datePickerView.frame.height
-            }) { success in
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.2, animations: {
+                    
+                    print("animate")
+                    self.datePickerView.frame.origin.y -= self.datePickerView.frame.height
+                }, completion: { success in
+                    print("completion")
+                    self.view.isUserInteractionEnabled = true
+                })
+                
             }
         }
     }
     
     // MARK: - UITextViewDelegate
     func textViewDidBeginEditing(_ textView: UITextView) {
+        print("textViewDidBeginEditing")
         // textView를 열면 DatePicker를 닫아준다.
         dismissDatePickerView()
         
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        print("textViewDidEndEditing")
         
     }
     
@@ -165,6 +192,8 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
             self.diaryTextView.isScrollEnabled = false
         }
     }
-    
+    @objc func touchGesture(_ touch: UIGestureRecognizer) {
+        print("touchGesture")
+    }
     
 }

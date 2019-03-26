@@ -13,16 +13,33 @@ extension DiaryViewController: UISearchBarDelegate {
         
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.isSearchMode = false
+        self.loadSearchDiary()
         
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
     }
     
     func loadSearchDiary() {
         self.isSearchMode = true
         self.searchedDiaryList.removeAll()
         self.searchedDiaryEditList.removeAll()
-        //self.searchedDiaryList = DBManager.shared.selectDiaryList(date: <#T##Date#>)
+        
+        let searchText = self.searchBar.text
+        if searchText != "" {
+            let date = Date.Get(year: self.selectedYear, month: self.selectedMonth, day: 1)
+            self.searchedDiaryList = DBManager.shared.selectDiaryList(date: date, diary: searchText!)
+            for _ in self.searchedDiaryList {
+                self.searchedDiaryEditList.append(false)
+            }
+        }else {
+            let date = Date.Get(year: self.selectedYear, month: self.selectedMonth, day: 1)
+            self.searchedDiaryList = DBManager.shared.selectDiaryList(date: date)
+            
+            for _ in self.searchedDiaryList {
+                self.searchedDiaryEditList.append(false)
+            }
+        }
+        self.tableView.reloadData()
     }
 }

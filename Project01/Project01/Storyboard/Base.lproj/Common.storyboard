@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,15 +15,15 @@
             <objects>
                 <viewController storyboardIdentifier="AlertMessagePopup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gZS-Lq-PRc" customClass="AlertMessagePopup" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X6M-56-3mK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wX-JV-B16">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" red="0.04842057079076767" green="0.045077105859915416" blue="0.044838286936283112" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="al5-wn-T5F" customClass="RoundLineView" customModule="PlannerDiary">
-                                <rect key="frame" x="44.666666666666657" y="260.66666666666669" width="325" height="214.66666666666669"/>
+                                <rect key="frame" x="25" y="298.66666666666669" width="325" height="214.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탑승권이 동시에 두장 발급될 경우 앱 저장이 불가하오니, SMS 혹은 E-MAIL로 전송해주시기 바랍니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amn-Sb-Qko">
                                         <rect key="frame" x="20" y="40.000000000000007" width="285" height="64.666666666666686"/>
@@ -114,15 +114,15 @@
                         <viewControllerLayoutGuide type="bottom" id="q4r-A4-4YO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="I2J-im-PLh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dod-mS-l7w">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmB-44-Bel">
-                                <rect key="frame" x="175" y="336" width="64" height="64"/>
+                                <rect key="frame" x="155.66666666666666" y="374" width="64" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="FJn-Ti-u8f"/>
@@ -154,18 +154,18 @@
             <objects>
                 <viewController storyboardIdentifier="PromptMessagePopup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8g8-Ja-5Qi" customClass="PromptMessagePopup" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nGd-um-lkd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8a-Bb-UhJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fm8-I5-xpN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grd-nv-ST0" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
-                                        <rect key="frame" x="49.666666666666657" y="245.33333333333337" width="315" height="176.66666666666663"/>
+                                        <rect key="frame" x="30" y="245.33333333333337" width="315" height="176.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이틀" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY2-GM-HhG">
                                                 <rect key="frame" x="20" y="29.999999999999972" width="275" height="21.666666666666671"/>
@@ -275,7 +275,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lol-dA-1TT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dwh-yi-5VA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Atc-Pd-wfa"/>
@@ -294,11 +294,11 @@
                         <viewControllerLayoutGuide type="bottom" id="jBR-Pt-rTB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wB4-ft-Gc4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivV-oc-Q62">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-ho-71U">
@@ -334,27 +334,27 @@
             <objects>
                 <viewController storyboardIdentifier="TodoListAddPopup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="id0-gH-CPq" customClass="TodoListAddPopup" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FJb-8x-1FR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7F-Fy-UBo">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUg-af-UOa">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5e-uG-v3I" customClass="RoundLineView" customModule="Project01" customModuleProvider="target">
-                                        <rect key="frame" x="44.666666666666657" y="178.66666666666663" width="325" height="310"/>
+                                        <rect key="frame" x="25" y="178.66666666666663" width="325" height="310"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02월 25일 월요일 일정" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubg-Ce-ybJ">
-                                                <rect key="frame" x="20.000000000000014" y="30" width="200.33333333333337" height="26.333333333333329"/>
+                                                <rect key="frame" x="20" y="30" width="200.33333333333334" height="26.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6A-sO-sSK">
-                                                <rect key="frame" x="20.000000000000007" y="84.333333333333343" width="31.333333333333336" height="21.666666666666671"/>
+                                                <rect key="frame" x="20" y="84.333333333333343" width="31.333333333333329" height="21.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -479,21 +479,21 @@
                         <viewControllerLayoutGuide type="bottom" id="vna-on-5bl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BdQ-pQ-Gz6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5T-yn-8Wz">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQb-nz-SaR">
-                                <rect key="frame" x="0.0" y="476" width="414" height="260"/>
+                                <rect key="frame" x="0.0" y="552" width="375" height="260"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LH6-Li-lb8">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyh-mu-oOz" userLabel="bottom line">
-                                                <rect key="frame" x="0.0" y="43" width="414" height="1"/>
+                                                <rect key="frame" x="0.0" y="43" width="375" height="1"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="jZg-91-Y94"/>
@@ -514,7 +514,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKX-na-i3p">
-                                                <rect key="frame" x="360" y="4" width="44" height="36"/>
+                                                <rect key="frame" x="321" y="4" width="44" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="121-Js-fKw"/>
                                                     <constraint firstAttribute="height" constant="36" id="aZT-2B-EeL"/>
@@ -541,7 +541,7 @@
                                         </constraints>
                                     </view>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kyh-7g-2VO">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                        <rect key="frame" x="0.0" y="44" width="375" height="216"/>
                                         <connections>
                                             <outlet property="dataSource" destination="54J-mC-gvW" id="ADB-nM-3Vx"/>
                                             <outlet property="delegate" destination="54J-mC-gvW" id="2QM-HW-0Ma"/>
@@ -589,21 +589,21 @@
             <objects>
                 <viewController storyboardIdentifier="YearPopup" id="HBd-C5-prp" customClass="YearPopup" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xen-IQ-H9T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEP-Yu-SKE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZa-rN-RCa">
-                                <rect key="frame" x="0.0" y="476" width="414" height="260"/>
+                                <rect key="frame" x="0.0" y="552" width="375" height="260"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Vc-Ug-joR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lm4-mT-rAl" userLabel="bottom line">
-                                                <rect key="frame" x="0.0" y="43" width="414" height="1"/>
+                                                <rect key="frame" x="0.0" y="43" width="375" height="1"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="YBE-8e-XLZ"/>
@@ -624,7 +624,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tj0-Tc-cwE">
-                                                <rect key="frame" x="360" y="4" width="44" height="36"/>
+                                                <rect key="frame" x="321" y="4" width="44" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="F3t-51-r0e"/>
                                                     <constraint firstAttribute="height" constant="36" id="rmL-eB-6nI"/>
@@ -651,7 +651,7 @@
                                         </constraints>
                                     </view>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jf0-lP-QeP">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                        <rect key="frame" x="0.0" y="44" width="375" height="216"/>
                                         <connections>
                                             <outlet property="dataSource" destination="HBd-C5-prp" id="YDU-uq-hGv"/>
                                             <outlet property="delegate" destination="HBd-C5-prp" id="NNt-oq-doO"/>

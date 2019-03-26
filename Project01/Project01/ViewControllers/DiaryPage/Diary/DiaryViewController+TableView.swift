@@ -21,15 +21,30 @@ extension DiaryViewController: UITableViewDelegate, UITableViewDataSource {
         
         return numberOfRow
     }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        var numberOfSection = self.diaryList.count;
+        // Section = 1 DiaryCell
+        if isSearchMode == true {
+            numberOfSection = self.searchedDiaryList.count;
+        }
+        return numberOfSection
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:DiaryTableCell!
         let section = indexPath.section
-        let diary = self.diaryList[section]
+        var diary = self.diaryList[section]
+        if isSearchMode == true {
+            diary = self.searchedDiaryList[section]
+        }
         
         let month = Int(diary.id)!%10000/100
         let day = Int(diary.id)!%100
-        let edited = self.diaryEditList[section]
+        var edited = self.diaryEditList[section]
+        if isSearchMode == true {
+            edited = self.searchedDiaryEditList[section]
+        }
         if edited == true {
             cell = tableView.dequeueReusableCell(withIdentifier: "DiaryEditTableCell") as? DiaryTableCell
             cell.todoList = diary.todoList
@@ -59,21 +74,23 @@ extension DiaryViewController: UITableViewDelegate, UITableViewDataSource {
         return heightForRow
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        let numberOfSection = self.diaryList.count;
-        // Section = 1 DiaryCell
-        return numberOfSection
-    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             print("Delete tapped")
             
             let section = indexPath.section
-            let diary = self.diaryList[section]
+            var diary = self.diaryList[section]
+            if self.isSearchMode == true {
+                diary = self.searchedDiaryList[section]
+            }
             DBManager.shared.deleteDiary(diary: diary, completion: {
                 print("delete complete")
-                self.loadDiary()
+                if self.isSearchMode == false {
+                    self.loadDiary()
+                }else {
+                    self.loadSearchDiary()
+                }
             })
             
             success(true)
