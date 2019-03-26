@@ -260,3 +260,13 @@ enum ViewColor: Int {
         }
     }
 }
+
+
+
+enum AddConstant: CGFloat {
+    case keyboardHeight = 185
+    case alertViewHeightWithPicker = 550
+    case alertViewHeightWithoutPicker = 400
+    case dateConstantWithPicker = 10
+    case dateConstantWithoutPicker = 170
+}

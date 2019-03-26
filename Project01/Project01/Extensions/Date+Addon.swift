@@ -16,6 +16,19 @@ extension Date {
         return day
     }
     
+    func dateGap(startDay: String, endDay: String) -> Int {
+        let dateFomatter = DateFormatter()
+        dateFomatter.dateFormat = "yyyy.MM.dd"
+        
+        let startDay = dateFomatter.date(from: startDay)
+        let endDay = dateFomatter.date(from: endDay)
+        
+        let interval = endDay?.timeIntervalSince(startDay!)
+        let days = Int(interval! / 86400)
+        
+        return days
+    }
+    
     func string() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"

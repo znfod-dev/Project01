@@ -1,6 +1,0 @@
-framework module Pods_PlannerDiary {
-  umbrella header "Pods-PlannerDiary-umbrella.h"
-
-  export *
-  module * { export * }
-}

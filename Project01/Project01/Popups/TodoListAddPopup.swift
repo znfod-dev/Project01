@@ -19,7 +19,6 @@ class TodoListAddPopup: BasePopup {
 	private var cancelClick: (() -> Void)?
 
     override func viewDidLoad() {
-		
 		// 딤드뷰 클릭시 팝업 닫아 주는 기능 막기
 		self.isNotDimmedTouch = true;
 

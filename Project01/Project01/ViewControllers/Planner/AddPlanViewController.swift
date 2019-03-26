@@ -19,6 +19,7 @@ class AddPlanViewController: UIViewController {
     @IBOutlet var startDateConstraint: NSLayoutConstraint!
     @IBOutlet var endDateConstraint: NSLayoutConstraint!
     @IBOutlet var alertBottomConstraint: NSLayoutConstraint! // 알림 하단 Constraint
+    @IBOutlet var alertViewHeight: NSLayoutConstraint!
     
     @IBOutlet var startDatePicker: UIDatePicker!
     @IBOutlet var endDatePicker: UIDatePicker!
@@ -35,9 +36,15 @@ class AddPlanViewController: UIViewController {
     
     
     
+    // MARK:- Constants
+    let keyboardHeight:CGFloat = 185
+    
+    
+    
     // MARK:- Variables
     var modiPlan: ModelPlan?
-    var seletedColor: String = ViewColor.one.toString()
+    var selectedColor: String?
+    var selectedView: UIView?
     
     
     
@@ -47,7 +54,7 @@ class AddPlanViewController: UIViewController {
         
         self.setUI()
         
-        self.planTextField.becomeFirstResponder()
+//        self.planTextField.becomeFirstResponder()
         self.planTextField.delegate = self
         self.memoTextView.delegate = self
         
@@ -59,8 +66,8 @@ class AddPlanViewController: UIViewController {
     
     
     func setUI() {
-//        let scale: CGFloat = DEF_WIDTH_375_SCALE
-//        view.transform = view.transform.scaledBy(x: scale, y: scale)
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
@@ -85,10 +92,31 @@ class AddPlanViewController: UIViewController {
         self.memoTextView.text = self.modiPlan?.planMemo ?? ""
         
         // 초기 colorView 선택
-        self.oneView.layer.borderWidth = 2
-        self.oneView.layer.borderColor = UIColor.black.cgColor
+        self.selectedColor = self.modiPlan?.viewColor ?? ViewColor.one.toString()
+        initViewBorder()
+    }
+    
+    
+    
+    // 컬러 뷰 초기화
+    func initViewBorder() {
+        switch self.selectedColor {
+        case "CE78DF":
+            self.selectedView = oneView
+        case "A178DF":
+            self.selectedView = twoView
+        case "7589E1":
+            self.selectedView = threeView
+        case "75A7E1":
+            self.selectedView = fourView
+        case "75D3E1":
+            self.selectedView = fiveView
+        default :
+            print("잘못 된 값입니다.")
+        }
         
-        
+        self.selectedView?.layer.borderWidth = 3
+        self.selectedView?.layer.borderColor = UIColor(hexString: "6A6A6A").cgColor
     }
     
     
@@ -97,7 +125,7 @@ class AddPlanViewController: UIViewController {
     func startDatePickerHide() {
         self.startDateLabel.tag = 0
         self.startDatePicker.isHidden = true
-        self.startDateConstraint.constant = 10
+        self.startDateConstraint.constant = AddConstant.dateConstantWithPicker.rawValue
     }
     
     
@@ -106,7 +134,7 @@ class AddPlanViewController: UIViewController {
     func endDatePickerHide() {
         self.endDateLabel.tag = 0
         self.endDatePicker.isHidden = true
-        self.endDateConstraint.constant = 10
+        self.endDateConstraint.constant = AddConstant.dateConstantWithPicker.rawValue
     }
     
     
@@ -122,12 +150,14 @@ class AddPlanViewController: UIViewController {
     func presentOkAlert(message: String) {
         let alertVC = self.storyboard?.instantiateViewController(withIdentifier: "OkAlertViewController") as! OkAlertViewController
         
+        alertVC.view.frame = (parent?.view.bounds)!
+        
         self.parent?.addChild(alertVC)
         self.parent?.view.addSubview(alertVC.view)
         alertVC.setTitle(message: message)
     }
     
-
+    
     
     // Border 초기화
     func initBorderWidth() {
@@ -166,19 +196,21 @@ class AddPlanViewController: UIViewController {
     
     // 키보드 나옴
     @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            
-            self.alertBottomConstraint.constant = keyboardHeight - 150
-        }
+//        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+//            let keyboardRectangle = keyboardFrame.cgRectValue
+//            let keyboardHeight = keyboardRectangle.height
+//
+//            self.alertBottomConstraint.constant = keyboardHeight
+//        }
+        self.alertBottomConstraint.constant = self.keyboardHeight
+        self.alertViewHeight.constant = AddConstant.alertViewHeightWithoutPicker.rawValue
     }
     
     
     
     // 키보드 숨김
     @objc func keyboardWillHide(_ notification: Notification) {
-        
+        self.alertBottomConstraint.constant = 0
     }
     
     
@@ -188,15 +220,16 @@ class AddPlanViewController: UIViewController {
         self.alertView.endEditing(true)
         
         if self.startDateLabel.tag == 0 { // 피커가 숨겨져 있을 때
-            self.alertView.frame.size.height = 550
+//            self.alertView.frame.size.height = 550
+            self.alertViewHeight.constant = AddConstant.alertViewHeightWithPicker.rawValue
             
             self.startDateLabel.tag = 1
             self.startDatePicker.isHidden = false
-            self.startDateConstraint.constant = 170
+            self.startDateConstraint.constant = AddConstant.dateConstantWithoutPicker.rawValue
             
             endDatePickerHide()
         } else { // 피커가 나와있을 떄
-            self.alertView.frame.size.height = 400
+            self.alertViewHeight.constant = AddConstant.alertViewHeightWithoutPicker.rawValue
             
             self.startDatePickerHide()
         }
@@ -209,15 +242,15 @@ class AddPlanViewController: UIViewController {
         self.alertView.endEditing(true)
         
         if self.endDateLabel.tag == 0 { // 피커가 숨겨져 있을 때
-            self.alertView.frame.size.height = 550
+            self.alertViewHeight.constant = AddConstant.alertViewHeightWithPicker.rawValue
             
             self.endDateLabel.tag = 1
             self.endDatePicker.isHidden = false
-            self.endDateConstraint.constant = 170
+            self.endDateConstraint.constant = AddConstant.dateConstantWithoutPicker.rawValue
             
             self.startDatePickerHide()
         } else { // 피커가 나와있을 떄
-            self.alertView.frame.size.height = 400
+            self.alertViewHeight.constant = AddConstant.alertViewHeightWithoutPicker.rawValue
             
             self.endDatePickerHide()
         }
@@ -228,13 +261,15 @@ class AddPlanViewController: UIViewController {
     @objc func selectViewColor(tapGesture: UITapGestureRecognizer) {
         let tag = tapGesture.view!.tag
         
-        self.seletedColor = (ViewColor(rawValue: tag)?.toString())!
+        self.selectedColor = (ViewColor(rawValue: tag)?.toString())!
         
         self.initBorderWidth()
         
         // 선택한 뷰 보더 설정
-        tapGesture.view?.layer.borderWidth = 2
-        tapGesture.view?.layer.borderColor = UIColor.black.cgColor
+        tapGesture.view?.layer.borderWidth = 3
+        tapGesture.view?.layer.borderColor = UIColor(hexString: "6A6A6A").cgColor
+        
+        self.selectedView = tapGesture.view
     }
     
     
@@ -263,7 +298,7 @@ class AddPlanViewController: UIViewController {
             modiPlan.planMemo = self.memoTextView.text
             modiPlan.startDay = self.startDateLabel.text
             modiPlan.endDay = self.endDateLabel.text
-            modiPlan.viewColor = self.seletedColor
+            modiPlan.viewColor = self.selectedColor
             
             // 상세 페이지 변경
             let detailVC = parent.children.first as! DetailPlanViewController
@@ -271,6 +306,11 @@ class AddPlanViewController: UIViewController {
             detailVC.titleLabel.text = modiPlan.planTitle
             detailVC.dateLabel.text = "\(modiPlan.startDay!) ~ \(modiPlan.endDay!)"
             detailVC.memoTextView.text = modiPlan.planMemo
+            
+            detailVC.startDay = modiPlan.startDay!
+            detailVC.endDay = modiPlan.endDay!
+            
+            detailVC.setStickBar() 
             
             // DB 업데이트
             DBManager.shared.updatePlan(plan: modiPlan)
@@ -283,15 +323,15 @@ class AddPlanViewController: UIViewController {
             plan.planMemo = self.memoTextView.text
             plan.startDay = self.startDateLabel.text
             plan.endDay = self.endDateLabel.text
-            plan.viewColor = self.seletedColor
-        
+            plan.viewColor = self.selectedColor
+            
             // DB에 추가
             DBManager.shared.addPlanDB(plan: plan)
         }
         
         // planList 다시 불러와서 뿌려주기
         parent.planArray = DBManager.shared.selectPlanDB()
-        parent.tableView.reloadData()
+        parent.allPlanSet()
         
         dismissAlert()
     }
@@ -323,17 +363,4 @@ extension AddPlanViewController: UITextViewDelegate {
 }
 
 
-extension UIView {
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        if #available(iOS 11.0, *) {
-            clipsToBounds = true
-            layer.cornerRadius = radius
-            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
-        } else {
-            let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-            let mask = CAShapeLayer()
-            mask.path = path.cgPath
-            layer.mask = mask
-        }
-    }
-}
+

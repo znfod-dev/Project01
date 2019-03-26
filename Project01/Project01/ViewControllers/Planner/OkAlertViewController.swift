@@ -19,6 +19,9 @@ class OkAlertViewController: UIViewController {
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let scale: CGFloat = DEF_WIDTH_375_SCALE
+        view.transform = view.transform.scaledBy(x: scale, y: scale)
 
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
     }
