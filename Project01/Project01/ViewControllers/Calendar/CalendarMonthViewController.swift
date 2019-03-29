@@ -137,8 +137,8 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		diaryPage.isMenuButtonShow = false
 		*/
         //let diary:DiaryViewController = UIStoryboard.init(name: "DiaryPage", bundle: nil).instantiateViewController(withIdentifier: "Diary") as! DiaryViewController
-        let diary:DiaryViewController = DiaryViewController.GetController(storyboard: "DiaryPage", identifier: "Diary") as! DiaryViewController
-        
+        //let diary:DiaryViewController = DiaryViewController.GetController(storyboard: "DiaryPage", identifier: "Diary") as! DiaryViewController
+        let diaryDate:DiaryDateViewController = DiaryDateViewController.GetController(storyboard: "DiaryPage", identifier: "DiaryDate") as! DiaryDateViewController
         
 		// sama73 : 날짜 변환
 		var dateComponents = DateComponents()
@@ -151,7 +151,17 @@ class CalendarMonthViewController: UICollectionViewController, UIGestureRecogniz
 		//diaryPage.currentDate = date!
         //print("self.navigationController?.pushViewController(diaryPage, animated: true)")
 		//self.navigationController?.pushViewController(diaryPage, animated: true)
-        self.navigationController?.pushViewController(diary, animated: true)
+        //self.navigationController?.pushViewController(diary, animated: true)
+        
+        
+        if let diary = DBManager.shared.selectDiary(date: date!) {
+            print("diary nil 아님")
+            diaryDate.diary = diary
+        }
+        
+        diaryDate.date = date!
+        diaryDate.modalPresentationStyle = .overCurrentContext
+        self.present(diaryDate, animated: false, completion: nil)
         
         // 셀선택
 		CalendarManager.setSelectedCell(selectedCell: cellIndex)

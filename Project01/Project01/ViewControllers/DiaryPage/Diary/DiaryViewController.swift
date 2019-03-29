@@ -60,11 +60,15 @@ class DiaryViewController: UIViewController {
         self.searchView.isHidden = true
         self.firstInit()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         
         self.setDateData()
+        
     }
     
     // MARK:- 첫 시작 setDatabase
@@ -100,10 +104,10 @@ class DiaryViewController: UIViewController {
     func loadDiary() {
         print("loadDiary")
         self.diaryList.removeAll()
+        self.diaryEditList.removeAll()
         let date = Date.Get(year: self.selectedYear, month: self.selectedMonth, day: 1)
         self.diaryList = DBManager.shared.selectDiaryList(date: date)
         
-        self.diaryEditList.removeAll()
         for _ in self.diaryList {
             self.diaryEditList.append(false)
         }
@@ -167,6 +171,11 @@ class DiaryViewController: UIViewController {
         
     }
     @IBAction func searchCancelBtnClicked(_ sender: Any) {
+        self.view.endEditing(true)
+        self.isSearchMode = false
+        self.searchedDiaryList.removeAll()
+        self.searchedDiaryEditList.removeAll()
+        self.tableView.reloadData()
         self.searchView.isHidden = true
     }
     @IBAction func editBtnClicked(_ sender: UIButton) {
@@ -208,5 +217,23 @@ class DiaryViewController: UIViewController {
         self.selectedYear = yearList[row]
         self.loadDiary()
         self.yearPickerView.dismissPickerView()
+    }
+    
+    // MARK:- Keyboard
+    @objc func keyboardWillShow(notification: Notification) {
+        if let kbSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            print("notification: Keyboard will show")
+            let contentInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: kbSize.height, right: 0)
+            self.tableView.contentInset = contentInsets
+            self.tableView.scrollIndicatorInsets = contentInsets
+            var aRect:CGRect = self.view.frame
+            aRect.size.height -= kbSize.height
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
     }
 }

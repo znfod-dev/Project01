@@ -30,7 +30,7 @@ extension DBManager {
     }
     
     // Select
-    func selectDiary(date:Date) -> ModelDiary {
+    func selectDiary(date:Date) -> ModelDiary! {
         print("selectDiary")
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
@@ -41,16 +41,11 @@ extension DBManager {
             for dbTodo in dbTodoList {
                 diary.todoList.append(ModelTodo.init(dbTodo: dbTodo))
             }
+            print("return diary")
             return diary
         }else {
-            let diary = ModelDiary.init()
-            diary.id = id
-            self.insertDiary(diary: diary)
-            let dbTodoList = self.database.objects(ModelDBTodo.self).filter("date = '\(id)' AND isDeleted = false")
-            for dbTodo in dbTodoList {
-                diary.todoList.append(ModelTodo.init(dbTodo: dbTodo))
-            }
-            return diary
+            print("return nil")
+            return nil
         }
     }
     // 지정된 날짜의 해당 월의 모든 다이어리 리스트 가져오기
@@ -76,11 +71,30 @@ extension DBManager {
         }
         return diaryList
     }
-    /*
+    // 검색어
     func selectDiaryList(date:Date, diary:String) -> Array<ModelDiary> {
+        print("selectDiaryList")
+        var diaryList = Array<ModelDiary>()
+        let startDate = Date().startOfMonth(date: date)
+        let endDate = Date().endOfMonth(date: date)
         
+        let list = self.database.objects(ModelDBDiary.self).filter("date BETWEEN {%@, %@} AND diary contains %@ AND isDeleted = false", startDate, endDate, diary).sorted(byKeyPath: "id", ascending: true)
+        if list.count > 0 {
+            for dbDiary in list {
+                let diary = ModelDiary.init(dbDiary: dbDiary)
+                print("diary : \(diary.id)")
+                let todoList = self.database.objects(ModelDBTodo.self).filter("date = '\(diary.id)' AND isDeleted = false")
+                for dbTodo in todoList {
+                    print("todo : \(dbTodo.date)")
+                    diary.todoList.append(ModelTodo.init(dbTodo: dbTodo))
+                }
+                diaryList.append(diary)
+                print("diary Finish : \(diary.id)")
+            }
+        }
+        return diaryList
     }
- */
+ 
     
     
     // 날짜에 다이어리 존재 여부 확인

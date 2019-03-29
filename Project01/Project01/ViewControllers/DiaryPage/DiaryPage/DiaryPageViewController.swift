@@ -176,8 +176,8 @@ class DiaryPageViewController: BaseViewController, UITableViewDelegate, UITableV
     
     // 다이어리 가져오기
     func loadDiary() {
-        self.diary = DBManager.shared.selectDiary(date: currentDate)
-        self.tableView.reloadData()
+        //self.diary = DBManager.shared.selectDiary(date: currentDate)
+        //self.tableView.reloadData()
     }
     
     

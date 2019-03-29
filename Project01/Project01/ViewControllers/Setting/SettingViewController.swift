@@ -96,7 +96,7 @@ class SettingViewController: BaseViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 0
         if section == 0 {
-            numberOfRow = 3
+            numberOfRow = 2
         }else if section == 1 {
             /*
             numberOfRow = 2
