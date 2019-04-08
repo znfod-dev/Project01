@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,9 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAR-g9-ZSK">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAR-g9-ZSK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6z-nn-rQs">
@@ -79,6 +78,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="kAR-g9-ZSK" secondAttribute="trailing" id="22M-UY-tGH"/>
+                <constraint firstAttribute="bottom" secondItem="kAR-g9-ZSK" secondAttribute="bottom" id="CTi-5a-gg2"/>
+                <constraint firstItem="kAR-g9-ZSK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GaZ-Ny-NTR"/>
+                <constraint firstItem="kAR-g9-ZSK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="OpO-U5-0VV"/>
                 <constraint firstAttribute="bottom" secondItem="x6z-nn-rQs" secondAttribute="bottom" id="TyD-o9-Axz"/>
                 <constraint firstItem="x6z-nn-rQs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hKz-KW-aRu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="x6z-nn-rQs" secondAttribute="trailing" id="kXL-uK-m1B"/>
@@ -90,7 +93,7 @@
                 <outlet property="datePicker" destination="cPo-Mo-oEs" id="wxe-q6-Qyc"/>
                 <outlet property="submitBtn" destination="nGE-rp-jM6" id="Mn2-sN-heq"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="151.63043478260872"/>
+            <point key="canvasLocation" x="136.80000000000001" y="151.47783251231527"/>
         </view>
     </objects>
 </document>

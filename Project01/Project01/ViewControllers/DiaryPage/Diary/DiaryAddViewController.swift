@@ -10,6 +10,7 @@ import UIKit
 
 class DiaryAddViewController: UIViewController, UITextViewDelegate {
     
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var alertView: UIView!
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -21,8 +22,12 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var datePickerView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var isDatePickerShow = false
+    
     var submitClick: (() -> Void)?
     
+    var datePickerHideY:CGFloat = 0
+    var datePickerShowY:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,19 +51,18 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
             self.dateLabel.text = "날짜 선택"
         }
         
-        //let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         
-        //gestureRecognizer.cancelsTouchesInView = false
+        self.backView.addGestureRecognizer(gestureRecognizer)
         
-        //view.addGestureRecognizer(gestureRecognizer)
         
     }
-    /*
-     @objc func dismissKeyboard() {
-     self.view.endEditing(true)
-     
-     }
-     */
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear")
+        self.datePickerHideY = self.datePickerView.frame.origin.y
+        self.datePickerShowY = self.datePickerView.frame.origin.y - self.datePickerView.frame.height
+    }
     
     // MARK: - @IBAction
     
@@ -101,6 +105,7 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func pickerSubmitBtnClicked(_ sender: Any) {
         self.view.endEditing(true)
+        print("pickerSubmitBtnClicked")
         let id = datePicker.date.GetId()
         let exist = DBManager.shared.selectDiary(id: id)
         if exist == true {
@@ -113,29 +118,28 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
             self.dateLabel.text = dateString
             self.selectedDate = date
             
-            dismissDatePickerView()
+            self.dismissDatePickerView()
         }
     }
     
     @IBAction func pickerCancelBtnClicked(_ sender: Any) {
         self.view.endEditing(true)
-        dismissDatePickerView()
+        print("pickerCancelBtnClicked")
+        self.dismissDatePickerView()
         
     }
     
     // MARK: - DatePicker
     func dismissDatePickerView() {
         print("dismissDatePickerView")
-        if self.datePickerView.isHidden == false {
+        if self.isDatePickerShow == true {
             self.view.isUserInteractionEnabled = false
-            self.datePickerView.isHidden = true
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.2, animations: {
-                    
-                    print("animate")
-                    self.datePickerView.frame.origin.y += self.datePickerView.frame.height
+                    self.datePickerView.frame.origin.y = self.datePickerHideY
                 }, completion: { success in
                     print("completion")
+                    self.isDatePickerShow = false
                     self.view.isUserInteractionEnabled = true
                 })
             }
@@ -143,15 +147,13 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
     }
     func showDatePickerView() {
         print("showDatePickerView")
-        if self.datePickerView.isHidden == true {
+        if self.isDatePickerShow == false {
             self.datePicker.date = Date()
             self.view.isUserInteractionEnabled = false
-            self.datePickerView.isHidden = false
+            self.isDatePickerShow = true
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.2, animations: {
-                    
-                    print("animate")
-                    self.datePickerView.frame.origin.y -= self.datePickerView.frame.height
+                    self.datePickerView.frame.origin.y = self.datePickerShowY
                 }, completion: { success in
                     print("completion")
                     self.view.isUserInteractionEnabled = true
@@ -192,8 +194,10 @@ class DiaryAddViewController: UIViewController, UITextViewDelegate {
             self.diaryTextView.isScrollEnabled = false
         }
     }
-    @objc func touchGesture(_ touch: UIGestureRecognizer) {
-        print("touchGesture")
+    @objc func dismissKeyboard() {
+        print("dismissKeyboard")
+        self.view.endEditing(true)
+        
     }
     
 }

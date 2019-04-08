@@ -15,6 +15,7 @@ class DiaryDateViewController: UIViewController, UITextViewDelegate {
     
     var editMode = false
     
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     
@@ -40,10 +41,13 @@ class DiaryDateViewController: UIViewController, UITextViewDelegate {
         let scale: CGFloat = DEF_WIDTH_375_SCALE
         view.transform = view.transform.scaledBy(x: scale, y: scale)
         
+        // 그림자 처리
+        self.view.layer.shadowColor = UIColor(hex: 0xAAAAAA).cgColor
+        self.view.layer.shadowOffset = CGSize(width: 0, height: 7)
+        self.view.layer.shadowOpacity = 0.16
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        gestureRecognizer.cancelsTouchesInView = false
-        view.addGestureRecognizer(gestureRecognizer)
+        self.backView.addGestureRecognizer(gestureRecognizer)
     }
     
     func updateView() {
@@ -59,8 +63,9 @@ class DiaryDateViewController: UIViewController, UITextViewDelegate {
                     self.submitBtn.isHidden = false
                     self.cancelBtn.isHidden = false
                     
-                    self.textView.isUserInteractionEnabled = true
+                    self.textView.isEditable = true
                     self.textView.backgroundColor = UIColor.init(red: 243, green: 243, blue: 243)
+                    self.updateTextViewSize()
                 }else {
                     print("비수정모드")
                     // 비 수정모드
@@ -68,8 +73,11 @@ class DiaryDateViewController: UIViewController, UITextViewDelegate {
                     self.editBtn.isHidden = false
                     self.submitBtn.isHidden = true
                     self.cancelBtn.isHidden = true
-                    self.textView.isUserInteractionEnabled = false
+                    
+                    self.textView.isEditable = false
                     self.textView.backgroundColor = UIColor.clear
+                    
+                    self.updateTextViewSize()
                 }
                 self.textView.text = temp.diary
             }else {
@@ -103,10 +111,7 @@ class DiaryDateViewController: UIViewController, UITextViewDelegate {
         }else {
             // 다이어리가 없을때
             print("diary가 없을때")
-            if let _ = diaryText {
-                
-            }else {
-                self.dismiss(animated: true, completion: nil)
+            if diaryText == ""{
                 return
             }
             print("diary 생성")
@@ -120,12 +125,25 @@ class DiaryDateViewController: UIViewController, UITextViewDelegate {
         print("diary 넣기")
         DBManager.shared.insertDiary(diary: self.diary)
         
+        self.editMode = !self.editMode
+        self.updateView()
         
-        self.dismiss(animated: false, completion: nil)
     }
     @IBAction func cancelBtnClicked(_ sender: Any) {
         print("cancelBtnClicked")
-        self.dismiss(animated: false, completion: nil)
+        if let _ = self.diary {
+            // 다이어리가 있을때
+            
+            self.editMode = !self.editMode
+            if let diary = DBManager.shared.selectDiary(date: self.date!) {
+                print("diary nil 아님")
+                self.diary = diary
+            }
+            self.updateView()
+            
+        }else {
+            self.dismiss(animated: false, completion: nil)
+        }
     }
     
     // MARK:- Keyboard
@@ -152,7 +170,8 @@ class DiaryDateViewController: UIViewController, UITextViewDelegate {
             if self.editMode == false {
                 self.dismiss(animated: false, completion: nil)
             }
-            
+        }else {
+            self.dismiss(animated: false, completion: nil)
         }
     }
     // MARK: - UITextViewDelegate
@@ -167,8 +186,12 @@ class DiaryDateViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         print("textViewDidChange")
+        self.updateTextViewSize()
+    }
+    
+    func updateTextViewSize() {
         let size = self.textView.bounds.size
-        let newSize = self.textView.sizeThatFits(CGSize(width: size.width, height: 150))
+        let newSize = self.textView.sizeThatFits(CGSize(width: size.width, height: size.height))
         let estimatedHeight = newSize.height > 16 ? newSize.height : 16
         print("estimatedHeight : \(estimatedHeight)")
         

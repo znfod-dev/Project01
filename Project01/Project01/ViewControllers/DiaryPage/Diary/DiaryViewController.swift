@@ -52,6 +52,8 @@ class DiaryViewController: UIViewController {
     var searchedDiaryList = Array<ModelDiary>()
     var searchedDiaryEditList = Array<Bool>()
     
+    var yearPickerHideY:CGFloat = 0
+    var yearPickerShowY:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +72,13 @@ class DiaryViewController: UIViewController {
         self.setDateData()
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.yearPickerHideY = self.yearPickerView.frame.origin.y
+        self.yearPickerShowY = self.yearPickerView.frame.origin.y - self.yearPickerView.frame.height
+    }
+    
     
     // MARK:- 첫 시작 setDatabase
     
@@ -92,7 +101,7 @@ class DiaryViewController: UIViewController {
         
         self.selectedYear = components.year!
         self.selectedMonth = components.month!
-        
+        print("self.selectedYear : \(self.selectedYear)")
         self.setDateData()
         DispatchQueue.main.async {
             self.yearLabel.text = String("\(self.selectedYear) 년")
@@ -221,17 +230,17 @@ class DiaryViewController: UIViewController {
     
     // MARK:- Keyboard
     @objc func keyboardWillShow(notification: Notification) {
+        print("keyboardWillShow")
         if let kbSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             print("notification: Keyboard will show")
             let contentInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: kbSize.height, right: 0)
             self.tableView.contentInset = contentInsets
             self.tableView.scrollIndicatorInsets = contentInsets
-            var aRect:CGRect = self.view.frame
-            aRect.size.height -= kbSize.height
         }
     }
     
     @objc func keyboardWillHide(notification: Notification) {
+        print("keyboardWillHide")
         let contentInsets = UIEdgeInsets.zero
         self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets

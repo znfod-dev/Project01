@@ -67,7 +67,6 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
         }
         editCompleteBtn.isHidden = true
 		
-        
 		// 그림자 처리
 		vProfileShadow.layer.shadowColor = UIColor(hex: 0x000000).cgColor
 		vProfileShadow.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -241,8 +240,14 @@ extension Profile2ViewController: UIImagePickerControllerDelegate{
             
             return
         }
+        self.profileImage.image = selectedImage
         
-        self.setProtocolImage(image: selectedImage)
+        DBManager.shared.updateProfileImage(profileImg: self.profileImage)
+        DispatchQueue.main.async {
+            self.updateProfileImg()
+            
+        }
+        //self.setProtocolImage(image: selectedImage)
         /*
         let storyboard = UIStoryboard.init(name: "Utills", bundle: nil)
         
@@ -268,7 +273,7 @@ extension Profile2ViewController: UIImagePickerControllerDelegate{
         let filemgr = FileManager.default
         // *객체 참조체를 얻으면 파일과 디렉터리에 대한 작업 수행 가능
         
-        
+        /*
         // 현재 작업 디렉터리 확인
         let currentFilepath = filemgr.currentDirectoryPath
         
@@ -279,11 +284,12 @@ extension Profile2ViewController: UIImagePickerControllerDelegate{
         
         // 임시 디렉터리 확인
         let tmpDir = NSTemporaryDirectory()
+         */
     }
     
     
 }
-
+/*
 extension Profile2ViewController: ImageEditDelegate {
     func setProtocolImage(image: UIImage) {
         print("Profile2ViewController: ImageEditDelegate")
@@ -296,5 +302,5 @@ extension Profile2ViewController: ImageEditDelegate {
         }
     }
 }
-
+*/
 

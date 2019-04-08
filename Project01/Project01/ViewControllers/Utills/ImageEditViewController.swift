@@ -174,8 +174,8 @@ class ImageEditViewController: UIViewController {
     }
     @objc func pinchGesture(_ gesture: UIPinchGestureRecognizer){
         print("Being Scaled : \(gesture.scale)")
-        let updateWidth = self.cropView.frame.width * gesture.scale
-        let updateHeight = self.cropView.frame.height * gesture.scale
+        //let updateWidth = self.cropView.frame.width * gesture.scale
+        //let updateHeight = self.cropView.frame.height * gesture.scale
       
         self.cropView.transform = self.cropView.transform.scaledBy(x: gesture.scale, y: gesture.scale)
         
