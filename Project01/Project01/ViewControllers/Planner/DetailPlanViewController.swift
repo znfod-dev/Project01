@@ -70,7 +70,10 @@ class DetailPlanViewController: UIViewController {
         
         if Int(self.remainDate!) > 0 { // 아직 도달 못함
             self.dDayLabel.text = "D-\(Int(remainDate!))"
-            hideStickWidth.constant = CGFloat(self.stickWidth * (remainDate! / totalDate!))
+            let progressRatio = (remainDate! / totalDate!) <= 1 ? (remainDate! / totalDate!) : 1
+            
+            hideStickWidth.constant = CGFloat(self.stickWidth * progressRatio)
+            print(CGFloat(self.stickWidth * (remainDate! / totalDate!)))
             print(hideStickWidth.constant)
         }
     }
