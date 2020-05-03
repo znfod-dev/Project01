@@ -84,6 +84,7 @@
 		9BD15E1F223B4DEA005D1019 /* ModelDBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD15E1E223B4DEA005D1019 /* ModelDBTest.swift */; };
 		9BD15E25223BD5CD005D1019 /* DiaryViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD15E24223BD5CD005D1019 /* DiaryViewController+SearchBar.swift */; };
 		9BD15E27223E002D005D1019 /* YearPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD15E26223E002D005D1019 /* YearPopup.swift */; };
+		9BF17DC4229908D300A1300B /* Truncater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF17DC3229908D300A1300B /* Truncater.swift */; };
 		9E75D8862202BBF90042263A /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E75D8852202BBF90042263A /* BaseObject.swift */; };
 		9E954C9321F848E1006356BF /* CalendarLunar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E954C9221F848E1006356BF /* CalendarLunar.swift */; };
 		9EC46C5B21F6F91A00765274 /* ModelDBHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC46C5921F6F91A00765274 /* ModelDBHoliday.swift */; };
@@ -280,6 +281,7 @@
 		9BD15E1E223B4DEA005D1019 /* ModelDBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDBTest.swift; sourceTree = "<group>"; };
 		9BD15E24223BD5CD005D1019 /* DiaryViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		9BD15E26223E002D005D1019 /* YearPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPopup.swift; sourceTree = "<group>"; };
+		9BF17DC3229908D300A1300B /* Truncater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truncater.swift; sourceTree = "<group>"; };
 		9DB15EA79718A43B263395EF /* Pods_Project01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E75D8852202BBF90042263A /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		9E954C9221F848E1006356BF /* CalendarLunar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLunar.swift; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 				9EC46C5F21F6F9F400765274 /* AlamofireHelper.swift */,
 				9EC46C5D21F6F98000765274 /* URLs.swift */,
 				D9FBE0D421F32B1B00BDA694 /* CommonUtil.swift */,
+				9BF17DC3229908D300A1300B /* Truncater.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1021,42 +1024,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-Project01/Pods-Project01-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
-				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
-				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
-				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
-				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Project01/Pods-Project01-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Project01/Pods-Project01-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Project01/Pods-Project01-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Project01/Pods-Project01-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F55A8A5E4B643B03D8D2DD33 /* [CP] Check Pods Manifest.lock */ = {
@@ -1162,6 +1138,7 @@
 				9BD15E1F223B4DEA005D1019 /* ModelDBTest.swift in Sources */,
 				60427144220005B6001F0E40 /* DBManager+Todo.swift in Sources */,
 				D914E3D321FBF5BF00CFBB8E /* DBManager+Profile.swift in Sources */,
+				9BF17DC4229908D300A1300B /* Truncater.swift in Sources */,
 				60F47A8D21F3874600E0DCB2 /* ModelDBTodo.swift in Sources */,
 				9B7C0142222262BB00654720 /* ImageEditViewController.swift in Sources */,
 				9B0666192211306D0057D99B /* PageController.swift in Sources */,
@@ -1342,14 +1319,14 @@
 				CODE_SIGN_ENTITLEMENTS = Project01/Project01.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BAEBSW672H;
+				DEVELOPMENT_TEAM = U5NGQCJT39;
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.znfod.planner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.znfod.temp01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -1365,14 +1342,14 @@
 				CODE_SIGN_ENTITLEMENTS = Project01/Project01.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BAEBSW672H;
+				DEVELOPMENT_TEAM = U5NGQCJT39;
 				INFOPLIST_FILE = Project01/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.znfod.planner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.znfod.temp01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

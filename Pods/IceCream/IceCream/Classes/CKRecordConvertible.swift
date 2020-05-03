@@ -11,22 +11,34 @@ import RealmSwift
 
 public protocol CKRecordConvertible {
     static var recordType: String { get }
-    static var customZoneID: CKRecordZone.ID { get }
+    static var zoneID: CKRecordZone.ID { get }
+    static var databaseScope: CKDatabase.Scope { get }
     
     var recordID: CKRecord.ID { get }
     var record: CKRecord { get }
-    
+
     var isDeleted: Bool { get }
 }
 
 extension CKRecordConvertible where Self: Object {
     
+    public static var databaseScope: CKDatabase.Scope {
+        return .private
+    }
+    
     public static var recordType: String {
         return className()
     }
     
-    public static var customZoneID: CKRecordZone.ID {
-        return CKRecordZone.ID(zoneName: "\(recordType)sZone", ownerName: CKCurrentUserDefaultName)
+    public static var zoneID: CKRecordZone.ID {
+        switch Self.databaseScope {
+        case .private:
+            return CKRecordZone.ID(zoneName: "\(recordType)sZone", ownerName: CKCurrentUserDefaultName)
+        case .public:
+            return CKRecordZone.default().zoneID
+        default:
+            fatalError("Shared Database is not supported now")
+        }
     }
     
     /// recordName : this is the unique identifier for the record, used to locate records on the database. We can create our own ID or leave it to CloudKit to generate a random UUID.
@@ -40,13 +52,27 @@ extension CKRecordConvertible where Self: Object {
             fatalError("You should set a primary key on your Realm object")
         }
         
-        if let primaryValueString = self[primaryKeyProperty.name] as? String {
-            return CKRecord.ID(recordName: primaryValueString, zoneID: Self.customZoneID)
-        } else if let primaryValueInt = self[primaryKeyProperty.name] as? Int {
-            return CKRecord.ID(recordName: "\(primaryValueInt)", zoneID: Self.customZoneID)
-        } else {
-            fatalError("Primary key should be String or Int")
+        switch primaryKeyProperty.type {
+        case .string:
+            if let primaryValueString = self[primaryKeyProperty.name] as? String {
+                // For more: https://developer.apple.com/documentation/cloudkit/ckrecord/id/1500975-init
+                assert(primaryValueString.allSatisfy({ $0.isASCII }), "Primary value for CKRecord name must contain only ASCII characters")
+                assert(primaryValueString.count <= 255, "Primary value for CKRecord name must not exceed 255 characters")
+                assert(!primaryValueString.starts(with: "_"), "Primary value for CKRecord name must not start with an underscore")
+                return CKRecord.ID(recordName: primaryValueString, zoneID: Self.zoneID)
+            } else {
+                assertionFailure("\(primaryKeyProperty.name)'s value should be String type")
+            }
+        case .int:
+            if let primaryValueInt = self[primaryKeyProperty.name] as? Int {
+                return CKRecord.ID(recordName: "\(primaryValueInt)", zoneID: Self.zoneID)
+            } else {
+                assertionFailure("\(primaryKeyProperty.name)'s value should be Int type")
+            }
+        default:
+            assertionFailure("Primary key should be String or Int")
         }
+        fatalError("Should have a reasonable recordID")
     }
     
     // Simultaneously init CKRecord with zoneID and recordID, thanks to this guy: https://stackoverflow.com/questions/45429133/how-to-initialize-ckrecord-with-both-zoneid-and-recordid
@@ -121,5 +147,3 @@ extension CKRecordConvertible where Self: Object {
     }
     
 }
-
-

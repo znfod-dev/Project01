@@ -1,23 +1,25 @@
 # ![](https://github.com/kukushi/SideMenu/blob/develop/Images/Logo.png?raw=true)
 
 [![Version](https://img.shields.io/cocoapods/v/SideMenuSwift.svg?style=flat-square)](http://cocoapods.org/pods/SideMenuSwift)
-![Swift4](https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat")
+![Swift5](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat%22)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/SideMenuSwift.svg?style=flat-square)](http://cocoapods.org/pods/SideMenuSwift)
 [![Platform](https://img.shields.io/cocoapods/p/SideMenuSwift.svg?style=flat-square)](http://cocoapods.org/pods/SideMenuSwift)
 
 ## Overview
 
-*SideMenu* is an easy-to-use side menu container controller written in Swift 4.
+*SideMenu* is an easy-to-use side menu container controller written in Swift 5.
 
 Besides all the features a *Side Menu* should have, it supports:
 
-- Four kinds of status bar behaviors
+- Four kinds of status bar behaviors (iOS 12 and earlier)
 - Three different menu position
 - Both storyboard and programmatically
 - Caching the content view controller and lazy initialization
 - Rubber band effect while panning
 - Custom transition animation
+- RTL supports
+- [API References](https://kukushi.github.io/SideMenu)
 
 ## Preview
 
@@ -34,6 +36,11 @@ Menu Position / Status Menu Behavior
 We call the left/right view controller as the **menu** view controller, the central view controller as **content** view controller.
 
 ## Installation
+
+For Swift 5, please use 2.0.0 or later version.
+
+> For Swift 4.0, please using 0.5.1 or earlier version.
+> For Swift 4.2, please using 1.x
 
 ### CocoaPods
 
@@ -122,7 +129,7 @@ SideMenuController.preferences.basic.enablePanGesture = true
 SideMenuController.preferences.basic.supportedOrientations = .portrait
 SideMenuController.preferences.basic.shouldRespectLanguageDirection = true
 
-// See a lot more options in `SideMenuPreferences.swift`.
+// See a lot more options on `Preferences.swift`.
 ```
 
 ### Caching the Content
@@ -153,7 +160,7 @@ sideMenuController?.cache(viewControllerGenerator: { self.storyboard?.instantiat
 
 ## Requirements
 
-- Xcode 9
+- Xcode 10 or later
 - iOS 9.0 or later
 
 ## License

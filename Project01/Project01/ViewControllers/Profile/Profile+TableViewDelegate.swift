@@ -14,6 +14,7 @@ extension ProfileViewController {
         var heightForRow:CGFloat = FontManager.shared.getLineHeight()
         let section = indexPath.section
         let row = indexPath.row
+        
         if section == Profile.name.section() {
             
         }else if section == Profile.surname.section() {
