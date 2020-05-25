@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import IceCream
 import CloudKit
 import Foundation
 
@@ -99,14 +98,4 @@ extension ModelDBTodo: NSCopying {
 			self.isSelected = Bool(value) ?? true
 		}
 	}
-}
-
-
-
-extension ModelDBTodo: CKRecordConvertible {
-    
-}
-
-extension ModelDBTodo: CKRecordRecoverable {
-    // Leave it blank, too.
 }

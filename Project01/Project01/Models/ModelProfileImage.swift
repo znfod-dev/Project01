@@ -10,23 +10,16 @@ import UIKit
 
 class ModelProfileImage: NSObject {
     var uid: String?
-    var image: UIImage?
     
-    convenience init(uid: String, image: UIImage!) {
+    convenience init(uid: String) {
         self.init()
         
         self.uid = uid
-        self.image = image
     }
     
     convenience init(profileImage: ModelDBProfileImage) {
         let uid = profileImage.uid
-        var image:UIImage!
-        if let data = profileImage.image?.storedData() {
-            image = UIImage(data: data)
-        }else {
-            image = nil
-        }
-        self.init(uid: uid, image: image)
+        
+        self.init(uid: uid)
     }
 }

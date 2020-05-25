@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import IceCream
 import CloudKit
 
 extension DBManager {
@@ -17,7 +16,7 @@ extension DBManager {
         print("insertDiary???")
         let dbDiary = ModelDBDiary.init(diary: diary)
         try! self.database.write {
-            self.database.add(dbDiary, update: true)
+            self.database.add(dbDiary, update: .modified)
         }
         print("insertDiary Finish")
     }
@@ -123,7 +122,7 @@ extension DBManager {
         print("updateDiary")
         let dbDiary = ModelDBDiary.init(diary: diary)
         try! self.database.write {
-            self.database.add(dbDiary, update: true)
+            self.database.add(dbDiary, update: .modified)
         }
     }
     

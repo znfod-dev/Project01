@@ -7,20 +7,16 @@
 //
 
 import UIKit
-import IceCream
 import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var syncEngine: SyncEngine? // 아이클라우드 연동을 위한 싱크엔진 객체
     
     let deviceWidth = UIScreen.main.bounds.size.width
     let deviceHeight = UIScreen.main.bounds.size.height
     
-    
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
         application.registerForRemoteNotifications()
@@ -35,12 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        self.pushiCloudData()
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        self.pulliCloudData()
+    
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -57,9 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dict = userInfo as! [String: NSObject]
         let notification = CKNotification(fromRemoteNotificationDictionary: dict)
         
-        if (notification.subscriptionID == IceCreamConstant.cloudKitSubscriptionID) {
-            NotificationCenter.default.post(name: Notifications.cloudKitDataDidChangeRemotely.name, object: nil, userInfo: userInfo)
-        }
         completionHandler(.newData)
         
     }
@@ -79,44 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return UIStoryboard(name: storyBoardName ?? "", bundle: Bundle.main)
 	}
     
-    // MARK: - iCloud 연동
-    func accessiCloudData() {
-        print("accessiCloudData")
-        // Realm과 아이클라우드와 연동
-        self.syncEngine = SyncEngine(objects: [SyncObject<ModelDBDiary>(),
-                                               SyncObject<ModelDBProfile>(),
-                                               SyncObject<ModelDBTodo>(),
-                                               SyncObject<ModelDBPlan>(),
-                                               SyncObject<ModelDBProfileImage>(),
-                                               SyncObject<ModelDBTest>(),
-                                               ],
-                                     callback: {
-                                        print("클라우드 로드 완료")
-                                        
-                                        // Notification 통지 쓰기 (통지를 보내고 싶은 곳에 쓴다. 예를 들어 어떤 버튼을 눌렀을 때의 처리 중등)
-                                        NotificationCenter.default.post(name: Notification.Name("CloudLoadComplete"), object: nil)
-        })
-    }
-    
-    // MARK: - iCloud Push
-    func pushiCloudData() {
-        print("pushiCloudData")
-        if self.syncEngine != nil {
-            self.syncEngine?.pushAll()
-        }else {
-            
-        }
-    }
-    
-    // MARK: - iCloud Pull
-    func pulliCloudData() {
-        print("pulliCloudData")
-        if self.syncEngine != nil {
-            self.syncEngine?.pull()
-        }else {
-            
-        }
-    }
     
 }
 

@@ -42,7 +42,7 @@ extension DBManager {
         let dbTodo = ModelDBTodo.init(todo: todo)
         
         try! self.database.write {
-            database.add(dbTodo, update: true)
+            database.add(dbTodo, update: .modified)
             
             print("DB : addTodo")
         }
@@ -74,7 +74,7 @@ extension DBManager {
         let dbTodo = ModelDBTodo.init(todo: todo)
         
         try! self.database.write {
-            database.add(dbTodo, update: true)
+            database.add(dbTodo, update: .modified)
             
             print("DB : updateTodoDB")
         }

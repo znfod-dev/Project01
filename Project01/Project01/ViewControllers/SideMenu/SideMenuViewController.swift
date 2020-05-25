@@ -86,15 +86,10 @@ class SideMenuViewController: UIViewController {
 
 		// 프로필 이미지 설정
 		let imgProfile: ModelProfileImage! = DBManager.shared.selectProfileImg()
-		if let img = imgProfile.image {
-			ivProfile.image = img
-			ivProfile.isHidden = false
-			ivIcon.isHidden = true
-		}
-		else {
+		
 			ivProfile.isHidden = true
 			ivIcon.isHidden = false
-		}
+		
 
 		// 사이드 메뉴 열때...
 		if sideMenuController?.isMenuRevealed == false {

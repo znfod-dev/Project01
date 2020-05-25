@@ -9,7 +9,7 @@
 import UIKit
 
 class Truncater {
-    
+    /*
     class func replaceElipsis(forLabel label:UILabel, withString replacement:String) -> Bool {
         return replaceElipsis(forLabel: label, withString: replacement, andMaximumWidth:0)
     }
@@ -31,12 +31,13 @@ class Truncater {
         let labelSize = label.text!.size(withAttributes: [NSAttributedString.Key.font: label.font]) //.size(attributes: [NSFontAttributeName: label.font]) for swift 3
         
         if(labelSize.width > useWidth){
-            
+            /*
             let original = label.text!;
             let truncateWidth = useWidth;
             let font = label.font;
             let subLength = label.text!.characters.count
             
+            var temp = label.text[..<label.text?.index(<#T##i: String.Index##String.Index#>, offsetBy: -1)]
             var temp = label.text!.substringToIndex(label.text!.endIndex.advancedBy(-1)) //label.text!.substring(to: label.text!.index(label.text!.endIndex, offsetBy: -1)) for swift 3
             temp = temp.substringToIndex(temp.startIndex.advancedBy(getTruncatedStringPoint(subLength, original:original, truncatedWidth:truncateWidth, font:font, length:subLength)))
             temp = String.localizedStringWithFormat("%@%@", temp, replacement)
@@ -54,6 +55,7 @@ class Truncater {
             
             label.text = temp;
             label.frame = origSize;
+             */
             return true;
         }
         else {
@@ -85,5 +87,6 @@ class Truncater {
             return splitPoint
         }
     }
+     */
 }
 

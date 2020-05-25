@@ -58,7 +58,7 @@ class DBManager: NSObject {
         try? database!.write ({
             if isPrimaryKey == true {
                 // 프라이머리키 설정되어 있을때...
-                database?.add(objs, update: true)
+                database.add(objs, update: .modified)
             }
             else {
                 database?.add(objs)
@@ -71,7 +71,7 @@ class DBManager: NSObject {
         try? database!.write ({
             if isPrimaryKey == true {
                 // 프라이머리키 설정되어 있을때...
-                database?.add(objs, update: true)
+                database.add(objs, update: .modified)
             }
             else {
                 database?.add(objs)

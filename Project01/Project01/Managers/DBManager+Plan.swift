@@ -64,7 +64,7 @@ extension DBManager {
         let dbPlan = ModelDBPlan.init(plan: plan)
         
         try! self.database.write {
-            database.add(dbPlan, update: true)
+            database.add(dbPlan, update: .modified)
             
             print("DB : updatePlanDB")
         }

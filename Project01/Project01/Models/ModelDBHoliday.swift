@@ -9,7 +9,6 @@
 
 import UIKit
 import RealmSwift
-import IceCream
 import CloudKit
 
 class ModelDBHoliday: BaseObject {
@@ -93,14 +92,4 @@ extension ModelDBHoliday: NSCopying {
 			self.name = value
 		}
 	}
-}
-
-
-
-extension ModelDBHoliday: CKRecordConvertible {
-    // Yep, leave it blank!
-}
-
-extension ModelDBHoliday: CKRecordRecoverable {
-    // Leave it blank, too.
 }

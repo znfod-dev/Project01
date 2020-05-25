@@ -59,13 +59,13 @@ extension DBManager {
         let dbProfile = ModelDBProfile.init(profile: profile)
         print("dbProfile : \(dbProfile)")
         try! self.database.write {
-            self.database.add(dbProfile, update: true)
+            self.database.add(dbProfile, update: .modified)
         }
     }
     func updateProfileImage(profileImg:ModelProfileImage) {
         let dbProfileImg = ModelDBProfileImage.init(profileImage: profileImg)
         try! self.database.write {
-            self.database.add(dbProfileImg, update: true)
+            self.database.add(dbProfileImg, update: .modified)
         }
     }
     

@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import IceCream
 import CloudKit
 
 class ModelDBProfile: BaseObject {
@@ -50,7 +49,7 @@ class ModelDBProfile: BaseObject {
     @objc dynamic var helloworld:String? = nil
     
     // 프로필 사진
-    // @objc dynamic var profileImage: CreamAsset?
+    // @objc dynamic var profileImage: UIImage?
     
     @objc dynamic var isDeleted = false
     
@@ -192,14 +191,4 @@ extension ModelDBProfile: NSCopying {
             self.helloworld = value
         }
     }
-}
-
-
-
-extension ModelDBProfile: CKRecordConvertible {
-    // Yep, leave it blank!
-}
-
-extension ModelDBProfile: CKRecordRecoverable {
-    // Leave it blank, too.
 }

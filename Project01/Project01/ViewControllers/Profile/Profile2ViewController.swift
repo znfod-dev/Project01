@@ -92,11 +92,6 @@ class Profile2ViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func updateProfileImg() {
-        if let img = self.profileImage.image {
-            self.profileImageBtn.setImage(img.withRenderingMode(.alwaysOriginal), for: .normal)
-        }else {
-            
-        }
     }
     
     func updateTextField() {
@@ -240,8 +235,6 @@ extension Profile2ViewController: UIImagePickerControllerDelegate{
             
             return
         }
-        self.profileImage.image = selectedImage
-        
         DBManager.shared.updateProfileImage(profileImg: self.profileImage)
         DispatchQueue.main.async {
             self.updateProfileImg()

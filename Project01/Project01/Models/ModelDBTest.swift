@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import IceCream
 import CloudKit
 
 class ModelDBTest: Object {
@@ -28,12 +27,4 @@ class ModelDBTest: Object {
     override static func primaryKey() -> String? {
         return "uid"
     }
-}
-
-extension ModelDBTest: CKRecordConvertible {
-    // Yep, leave it blank!
-}
-
-extension ModelDBTest: CKRecordRecoverable {
-    // Leave it blank, too.
 }

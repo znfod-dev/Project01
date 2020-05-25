@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,7 +25,6 @@
 		606C7D432243491400547436 /* stickbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D402243491300547436 /* stickbar@2x.png */; };
 		606C7D442243491400547436 /* stickbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C7D412243491300547436 /* stickbar@3x.png */; };
 		609A3FE02205EE3E00A58605 /* UITextField+DoneAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FDF2205EE3E00A58605 /* UITextField+DoneAccessory.swift */; };
-		609A3FE5220B1FC200A58605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609A3FE4220B1FC200A58605 /* CloudKit.framework */; };
 		609A3FE7220D6C7500A58605 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FE6220D6C7300A58605 /* IntroViewController.swift */; };
 		609A3FFA22103FC300A58605 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3FF822103FC100A58605 /* MonthPickerView.swift */; };
 		609A3FFB22103FC300A58605 /* MonthPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609A3FF922103FC300A58605 /* MonthPickerView.xib */; };
@@ -407,7 +406,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DA5D0028A74BB00F2BDC35E /* Pods_Project01.framework in Frameworks */,
-				609A3FE5220B1FC200A58605 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

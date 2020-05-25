@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import IceCream
 import CloudKit
 
 class ModelDBDiary: Object {
@@ -45,12 +44,3 @@ class ModelDBDiary: Object {
     }
 }
 
-
-
-extension ModelDBDiary: CKRecordConvertible {
-
-}
-
-extension ModelDBDiary: CKRecordRecoverable {
-    
-}
